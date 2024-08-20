@@ -1,8 +1,9 @@
 body {
     font-family: Jost, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #fff;
     margin: 0;
     padding: 0;
+    
 }
 
 h1 {
@@ -12,66 +13,114 @@ h1 {
     color: #333;
 }
 
+.subtitulo {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
 .contenedor {
     display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.sidebar {
+    width: 22%;
+    height: fit-content;
+    padding: 20px;
+    background-color: #B9D6F2;
+    box-sizing: border-box;
+    border-radius: 15px;
 }
 
-ul li a {
+.sidebar h3, 
+.sidebar h4 {
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.sidebar a{
+    color: #000;
     text-decoration: none;
-    color: #333;
-    font-size: 18px;
 }
 
-ul li {
-    margin-bottom: 10px;
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .sidebar ul li {
-    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.sidebar ul li ul {
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
 .sidebar ul li ul li {
-    font-weight: normal;
-    margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .filtros {
-    margin-top: 20px;
+    padding-left: 10px;
 }
 
-.filtros h3, .filtros h4 {
-    font-size: 18px;
+.filtros h4 {
     margin-bottom: 10px;
-    color: #555;
+}
+
+.filtros ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.filtros ul li {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.colores {
+    margin-bottom: 10px;
 }
 
 .color {
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
 }
+
+.color:nth-child(1) { background-color: #ffffff; } 
+.color:nth-child(2) { background-color: #cccccc; } 
+.color:nth-child(3) { background-color: #f9e04b; } 
+.color:nth-child(4) { background-color: #58ef58; } 
+.color:nth-child(5) { background-color: #0353A4; } 
+.color:nth-child(6) { background-color: #e32929; } 
 
 button {
     display: block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #333;
+    width: 80%;
+    padding: 15px;
+    margin: 20px auto 0 auto;
+    background-color: #0353A4;
     color: #fff;
+    font-size: 16px;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
+
 
 button:hover {
     background-color: #555;
@@ -83,47 +132,81 @@ button:hover {
     background-color: #fff;
 }
 
+
 .lista-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .producto {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
+    width: 300px;
+    background-color: #a5cbe7;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
     text-align: center;
-    position: relative;
+    font-family: 'Jost', sans-serif;
+    color: #000;
 }
 
 .producto img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
-.producto img[alt="zoom"] {
+.contenedor-img {
+    position: relative;
+    width: 100%;
+}
+
+.contenedor-img img:first-child {
+    display: block;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.contenedor-img img[alt="zoom"] {
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     right: 10px;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 
-.producto h4 {
-    font-size: 20px;
-    color: #333;
-    margin: 15px 0;
+.producto h3 {
+    font-size: 24px;
+    margin: 15px 0 10px 0;
+    font-weight: bold;
+    color: #000;
 }
 
 .producto p {
     font-size: 16px;
-    color: #666;
-    margin: 5px 0;
+    margin: 5px 20px;
+    color: #000;
 }
 
-.producto p:last-of-type {
+.producto .detalles {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 18px;
     font-weight: bold;
+}
+
+.producto .detalles .vendidos {
+    font-size: 16px;
+    font-weight: normal;
+    color: #000;
+}
+
+.producto .detalles .precio {
     color: #000;
 }
