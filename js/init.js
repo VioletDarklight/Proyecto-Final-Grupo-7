@@ -15,8 +15,8 @@ let hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-let getJSONData = function(url){
-    let result = {};
+var getJSONData = function(url){
+    var  result = {};
     showSpinner();
     return fetch(url)
     .then(response => {
