@@ -1,3 +1,13 @@
+// Verificación de autenticación al cargar index.html
+document.addEventListener("DOMContentLoaded", () => {
+  let isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  if (!isAuthenticated && window.location.pathname !== "/login.html") {
+    // Redirigir al login.html si no está autenticado y no está ya en la página de login
+    window.location.href = "login.html";
+  }
+});
+
 // Variables para el formulario y las alertas
 let loginForm = document.getElementById("login-form");
 let alertSuccess = document.getElementById("alert-success");
@@ -28,6 +38,9 @@ loginForm.addEventListener("submit", function (event) {
     showAlertError();
     return;
   }
+
+  //Guardar autenticación de validación exitosa
+  localStorage.setItem("isAuthenticated", "true");
 
   // Redireccionar a la página de inicio si la validación es exitosa
   showAlertSuccess();
