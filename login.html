@@ -42,7 +42,7 @@
           <input type="checkbox" name="recordar" id="recordar">
           <label class="font-jost text-regular" for="recordar">Recordar usuario</label>
         </div>
-        <a class="font-jost text-regularunderline" href="#">Olvidé mi contraseña</a>
+        <a class="font-jost text-regularunderline move-right" href="#">Olvidé mi contraseña</a>
       </div>
       <button class="login-button font-jost center" type="submit">INICIAR SESIÓN</button>
 
@@ -55,16 +55,32 @@
   </main>
 
  <!--Habria que arreglar el footer-->
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
-    </div>
-  </footer>
+ <footer class="footer-container">
+  <div class="footer-content">
+    <div class="footer-line"></div>
+    <p>
+      <a class="footer-link" href="#">Volver arriba</a>
+    </p>
+    <p>Este sitio forma parte de <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
+    <div class="footer-line"></div>
+  
+  
+</div>
+</footer>
   <script src="js/login.js"></script>
 </body>
+<style>
+.move-right {
+            display: block;
+            text-align: right;
+            margin-right: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
 
+        .move-right:hover {
+            text-decoration: underline;
+        }
+        
+        </style>
 </html>
