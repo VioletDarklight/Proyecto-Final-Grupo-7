@@ -1,5 +1,5 @@
 body {
-    background: rgb(127, 175, 236);
+    background: linear-gradient(to right, rgba(134, 201, 247, 0.5), rgba(0, 0, 255, 0.5));
     height: 100dvh;
 }
 
@@ -9,6 +9,7 @@ body {
     padding: 0 20px;
     max-width: 1200px;
     margin-top: 200px;
+    
 
 }
 
@@ -31,14 +32,16 @@ body {
     max-width: 400px;
     margin: 0 auto;
     padding: 40px 30px;
-    background-color: rgba(185, 214, 242);
+    background-color: rgba(34, 138, 236, 0.404);
     box-shadow: 0px 7px 10px 3px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
     
 }
 
 .login-label {
     display: block;
     margin-bottom: 5px;
+   
 }
 
 .login-input {
@@ -50,6 +53,8 @@ body {
     border: none;
     outline: none;
     box-sizing: border-box;
+border-radius: 8px;
+
 }
 
 .center {
@@ -61,18 +66,25 @@ body {
     background-color: #ffffff;
     color: #1a1a1a;
     padding: 10px 20px;
-    border: none;
+    border: solid #000000
     cursor: pointer;
     margin-top: 20px;
-    box-shadow: black;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    
 }
 
 .font-jost {
     font-family: "Jost", sans-serif;
+    
+    
 }
 
 p {
     font-family: "Jost", sans-serif;
+    margin-top: 20px;
+    color: rgb(14, 14, 100);
 }
 
 h1 {
@@ -86,11 +98,14 @@ h1 {
 .text-regular {
     font-family: 'Jost', sans-serif;
     font-size: 16px;
+    margin-top: 20px;
+    color:black;
 }
 
 .text-regularph {
     font-family: 'Jost', sans-serif;
     font-size: 16px;
+    
     
 }
 
@@ -106,11 +121,9 @@ h1 {
     align-items: center;
 }
 .footer-container {
-    background-color: #b2dbee; 
+    background-color: #3d9dca70; 
     padding: 3px; 
-    
-    
-margin-top: 100px; 
+    margin-top: 100px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
@@ -136,10 +149,14 @@ margin: 10px 0;
 }
 
 .footer-link {
-    color: #043670; 
+    color: #07182ca4; 
     text-decoration: none; 
 }
 
 .footer-link:hover {
     text-decoration: underline; 
+}
+
+a {
+    color: #000000;
 }
