@@ -160,3 +160,14 @@ margin: 10px 0;
 a {
     color: #000000;
 }
+.move-right {
+  display: block;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.move-right:hover {
+  text-decoration: underline;
+}
