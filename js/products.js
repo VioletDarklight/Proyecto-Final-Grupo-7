@@ -10,11 +10,11 @@ function showAuto(array){
         <div class = "col">
         <br>
        <div class= "container" style="width: 70%;">
-<div class="card mb-3">
+<div id = "carta-img" class="card mb-3">
  <div> <br>
   <img class="rounded mx-auto d-block" class="card-img-top" src="${item.image}"> </div>
   <br>
-  <div class = "text-center" class = "rounded mx-auto d-block"  class="card-body">
+  <div id = "carta-color" class = "text-center" class = "rounded mx-auto d-block"  class="card-body">
     <h5 class="card-title" >${item.name}</h5>
     <p class="card-text">${item.description}</p>
     <p  class="card-text"><small class="text-muted">${item.cost} ${item.currency}</small> </p>

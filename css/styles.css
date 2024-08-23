@@ -468,3 +468,12 @@ h2{
   line-height: 28.9px;
   text-align: center;
 }
+#carta-img {
+  background: rgb (255, 255, 255);
+  background: linear-gradient(10deg, #B9D6F2, rgba (3, 83, 164, 0.8));
+  border-radius: 20px;
+}
+
+#carta-color {
+  background: white;
+}
