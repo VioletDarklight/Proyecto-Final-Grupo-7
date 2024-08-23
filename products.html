@@ -10,10 +10,14 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+  rel="stylesheet"
+/>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,13 +35,14 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="login.html">Iniciar Sesión</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <br>
-  <h1>LISTADO DE PRODUCTOS</h1>
+  <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
   <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
   <!--AGREGUE LA LISTA CON CONTENEDORES QUE VA DEL LADO IZQUIERDO -->
   <!-- <div class="contenedor-grande">
@@ -81,7 +86,7 @@
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
+        <a href="#navbar">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     

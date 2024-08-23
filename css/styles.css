@@ -190,11 +190,10 @@ a.custom-card:hover {
 }
 
 body {
-  font-family: Jost, sans-serif;
+  font-family: "Jost", sans-serif;
   background-color: #fff;
   margin: 0;
   padding: 0;
-  
 }
 
 h1 {
@@ -203,7 +202,7 @@ h1 {
   font-size: 35px;
   color: #111010;
   font-weight: bold;
-  font-family:sans-serif;
+  font-family: sans-serif;
   font-weight: 900;
 }
 
@@ -226,18 +225,18 @@ h1 {
   width: 20%;
   height: fit-content;
   padding: 20px;
-  background-color: #B9D6F2;
+  background-color: #b9d6f2;
   border-radius: 15px;
 }
 
-.sidebar h3, 
+.sidebar h3,
 .sidebar h4 {
   font-weight: bold;
   color: #000;
   margin-bottom: 20px;
 }
 
-.sidebar a{
+.sidebar a {
   color: #000;
   text-decoration: none;
 }
@@ -295,19 +294,31 @@ h1 {
   border: 1px solid #000;
 }
 
-.color:nth-child(1) { background-color: #ffffff; } 
-.color:nth-child(2) { background-color: #cccccc; } 
-.color:nth-child(3) { background-color: #f9e04b; } 
-.color:nth-child(4) { background-color: #58ef58; } 
-.color:nth-child(5) { background-color: #0353A4; } 
-.color:nth-child(6) { background-color: #e32929; } 
+.color:nth-child(1) {
+  background-color: #ffffff;
+}
+.color:nth-child(2) {
+  background-color: #cccccc;
+}
+.color:nth-child(3) {
+  background-color: #f9e04b;
+}
+.color:nth-child(4) {
+  background-color: #58ef58;
+}
+.color:nth-child(5) {
+  background-color: #0353a4;
+}
+.color:nth-child(6) {
+  background-color: #e32929;
+}
 
 button {
   display: block;
   width: 80%;
   padding: 15px;
   margin: 20px auto 0 auto;
-  background-color: #0353A4;
+  background-color: #0353a4;
   color: #fff;
   font-size: 16px;
   border: none;
@@ -316,7 +327,6 @@ button {
   text-align: center;
 }
 
-
 button:hover {
   background-color: #555;
 }
@@ -324,7 +334,6 @@ button:hover {
 .contenido {
   flex: 1;
 }
-
 
 .lista-productos {
   padding: 0 20px;
@@ -384,7 +393,6 @@ button:hover {
   font-size: 16px;
   margin: 5px 20px;
   color: #000;
-
 }
 
 .producto .detalles {
@@ -403,7 +411,6 @@ button:hover {
 
 .producto .detalles .precio {
   color: #000;
-  
 }
 /* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
 /*.categorias-container {
@@ -444,4 +451,20 @@ h2{
 .subcategoria-listafiltro{
   text-align: right;
 
+}*/
+
+#products-head-list {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 57.8px;
+  text-align: center;
+}
+
+.subtitulo {
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.9px;
+  text-align: center;
 }
