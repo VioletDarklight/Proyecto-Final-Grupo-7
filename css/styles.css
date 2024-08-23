@@ -469,11 +469,16 @@ h2{
   text-align: center;
 }
 #carta-img {
-  background: rgb (255, 255, 255);
-  background: linear-gradient(10deg, #B9D6F2, rgba (3, 83, 164, 0.8));
-  border-radius: 20px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
+}
+#carta-img {
+border-radius: 20px;
+}
+#navbar{
+  background: #0353a4!important;
 }
 
-#carta-color {
-  background: white;
+.nav-link {
+  color: #fff!important;
 }
