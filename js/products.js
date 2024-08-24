@@ -9,16 +9,18 @@ function showAuto(array){
         contenedor.innerHTML += `
         <div class = "col">
         <br>
-       <div class= "container" style="width: 70%;">
-<div id = "carta-img" class="card mb-3">
- <div> <br>
-  <img class="rounded mx-auto d-block" class="card-img-top" src="${item.image}"> </div>
-  <br>
-  <div id = "carta-color" class = "text-center" class = "rounded mx-auto d-block"  class="card-body">
-    <h5 class="card-title" >${item.name}</h5>
-    <p class="card-text">${item.description}</p>
-    <p  class="card-text"><small class="text-muted">${item.cost} ${item.currency}</small> </p>
-    <p class="card-text" ><small class="text-muted">${item.soldCount} unidades vendidas</small> </p>
+       <div class= "container" style="width: 60%;">
+<div id = "carta-img" class="card mb-3 shadow">
+ <div>
+  <img id= "img-carta" class=" img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}"> </div>
+ 
+  <div id = "carta-color" class = "rounded mx-auto row card-body" >
+    <h2 class="card-title text-center" >${item.name}</h2>
+    <p class=" card-text text-center car-description">${item.description}</p>
+    <div class="d-flex justify-content-between px-3">
+      <p class="card-text col-6 text-left card-text mb-0 ><small class="">${item.soldCount} unidades vendidas</small> </p>
+      <p  class="card-text col-6 text-right card-text mb-0 car-cost" style= "width: 20%;">${item.cost} ${item.currency}</p>
+    </div>
     <br>
   </div>
 </div>

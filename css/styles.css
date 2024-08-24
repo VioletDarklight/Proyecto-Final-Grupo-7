@@ -2,7 +2,13 @@
 .card-body,
 .container,
 .site-header {
-  font-family: "Verdana", serif !important;
+  /*font-family: "Verdana", serif !important;*/
+}
+
+.row-style{
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .jumbotron .display-4 {
@@ -191,9 +197,19 @@ a.custom-card:hover {
 
 body {
   font-family: "Jost", sans-serif;
-  background-color: #fff;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
   margin: 0;
   padding: 0;
+}
+
+.subbackground{
+  position: static;
+  margin-right: 120px;
+  margin-left: 120px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -210,7 +226,7 @@ h1 {
   text-align: center;
   margin-top: 10px;
   font-size: 17px;
-  color: #3d3c3c;
+  color: white;
   font-family: sans-serif;
   font-weight: bold;
 }
@@ -456,9 +472,11 @@ h2{
 #products-head-list {
   font-family: "Jost", sans-serif;
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 57.8px;
   text-align: center;
+  color: white;
+  margin-top: 50px;
 }
 
 .subtitulo {
@@ -469,8 +487,8 @@ h2{
   text-align: center;
 }
 #carta-img {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
+  /*background: rgb(255, 255, 255);*/
+  background: #B9D6F2;
 }
 #carta-img {
 border-radius: 20px;
@@ -478,7 +496,46 @@ border-radius: 20px;
 #navbar{
   background: #0353a4!important;
 }
+#img-carta {
+  border-radius: 20px 20px 0px 0px !important;
+}
+
+.car-cost{
+  font-size: 20px;
+}
+
+.car-description{
+  font-size: 16px !important;
+}
 
 .nav-link {
   color: #fff!important;
+}
+
+/*Clases del nuevo footer que usamos en el login para que quede igual*/
+.footer-container {
+    background-color: #B9D6F2; 
+    padding: 3px; 
+    margin-top: 100px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    text-align: center; 
+    font-family: 'Jost', sans-serif; 
+    font-size: 17px; 
+    color: #000000; 
+    padding: 10px 0; 
+}
+
+.footer-link {
+    color: #061a40; 
+    text-decoration: none; 
+}
+
+hr{
+    width: 75%;
+    height: 1px;
+    background-color: #0353a4; 
+    margin: 0 auto;
 }

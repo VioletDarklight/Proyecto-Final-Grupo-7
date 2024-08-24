@@ -114,6 +114,7 @@ h1 {
     font-weight: 400;
     font-size: 40px;
     text-align: center;
+    color: white;
 }
 
 .text-regular {
@@ -154,12 +155,12 @@ h1 {
     padding: 10px 0; 
 }
 
-.footer-line {
+/*.footer-line {
     width: 100%;
     height: 1px ;
     background-color: #007bff; 
     margin: 10px 0; 
-} 
+} */
 
 hr{
     width: 75%;
