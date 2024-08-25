@@ -1,8 +1,9 @@
 // Verificación de autenticación al cargar index.html
 document.addEventListener("DOMContentLoaded", () => {
   let isAuthenticated = localStorage.getItem("isAuthenticated");
+  let currentPage = window.location.pathname.split("/").pop();
 
-  if (!isAuthenticated && window.location.pathname !== "/login.html") {
+  if (!isAuthenticated && currentPage !== "/login.html") {
     // Redirigir al login.html si no está autenticado y no está ya en la página de login
     window.location.href = "login.html";
   }
