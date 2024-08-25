@@ -6,7 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     "redirected"
   );
 
-  if (!isAuthenticated && currentPage !== "login.html" && !isRedirecting) {
+  if (
+    !isAuthenticated &&
+    currentPage !== "login.html" &&
+    currentPage !== "signup.html" &&
+    !isRedirecting
+  ) {
     // Redirigir al login.html si no está autenticado y no está ya en la página de login
     window.location.href = "login.html?redirected=true";
   }
