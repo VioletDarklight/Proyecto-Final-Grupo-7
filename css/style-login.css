@@ -1,158 +1,160 @@
 body {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
-} 
-
+  background: rgb(255, 255, 255);
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+}
 
 .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1200px;
-    margin-top: 200px;
-    height: 100dvh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-top: 8rem;
+  height: 100dvh;
 }
 
 .title-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    /*text-shadow: black 5px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  /*text-shadow: black 5px;*/
 }
 
 .profile {
-    width: 96px;
-    height: 92px;
-    border-radius: 100%;
-    background-color: rgb(255, 255, 255);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0px 8px 5px 2px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+  width: 96px;
+  height: 92px;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 8px 5px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 40px 30px;
-    background-color: rgba(185, 214, 242, 0.5);
-    box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: rgba(185, 214, 242, 0.5);
+  box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.container-inputs{
-    margin-bottom: 20px;
-
+.container-inputs {
+  margin-bottom: 20px;
 }
 
 .login-label {
-    display: block;
-    margin-bottom: 5px;
-    padding-bottom: 2px;
+  display: block;
+  margin-bottom: 5px;
+  padding-bottom: 2px;
 }
 
 .login-input {
-    display: block;
-    width: 100%;
-    background-color: #f5f5f5;
-    color: #1A1A1A;
-    padding: 8px 10px;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-    border-radius: 8px;
+  display: block;
+  width: 100%;
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .center {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.remember-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.remember-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.remember-me{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
+.remember-me {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
-.checkbox-box{
-    margin-right: 5px;
+.checkbox-box {
+  margin-right: 5px;
+}
+
+.form-check {
+  padding: 0;
 }
 
 .login-button {
-    background-color: #ffffff;
-    color: #1a1a1a;
-    padding: 10px 20px;
-    border: solid #000000 1px;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: solid #000000 1px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .font-jost {
-    font-family: "Jost", sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 p {
-    font-family: "Jost", sans-serif;
-    margin-top: 20px;
-    color: rgb(14, 14, 100);
+  font-family: "Jost", sans-serif;
+  margin-top: 20px;
+  color: rgb(14, 14, 100);
 }
 
 h1 {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-    text-align: center;
-    color: white;
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+  color: white;
 }
 
 .text-regular {
-    font-family: 'Jost', sans-serif;
-    font-size: 16px;
-    color:black;
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  color: black;
 }
 
 .text-regularph {
-    font-family: 'Jost', sans-serif;
-    font-size: 16px;
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
 }
 
 .text-regular20 {
-    font-family: 'Jost', sans-serif;
-    font-size: 20px;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
 }
 
 .center-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-container {
-    background-color: #B9D6F2; 
-    padding: 3px; 
-    margin-top: 100px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #b9d6f2;
+  padding: 3px;
+  margin-top: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
-    text-align: center; 
-    font-family: 'Jost', sans-serif; 
-    font-size: 17px; 
-    color: #000000; 
-    padding: 10px 0; 
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 10px 0;
 }
 
 /*.footer-line {
@@ -162,42 +164,57 @@ h1 {
     margin: 10px 0; 
 } */
 
-hr{
-    width: 75%;
-    height: 1px;
-    background-color: #0353a4; 
-    margin: 0 auto;
+hr {
+  width: 75%;
+  height: 1px;
+  background-color: #0353a4;
+  margin: 0 auto;
 }
 
 .footer-link {
-    color: #061a40; 
-    text-decoration: none; 
+  color: #061a40;
+  text-decoration: none;
 }
 
 .footer-link:hover {
-    text-decoration: underline; 
+  text-decoration: underline;
 }
 
 a {
-    color: #000000;
+  color: #000000;
 }
 
 .move-right {
-    display: block;
-    text-align: right;
-    margin-right: 20px;
-    text-decoration: none;
+  display: block;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 .move-right:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 .alert {
-    position: fixed;
-    top: 80px;
-    width: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
+  position: fixed;
+  top: 80px;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-top: 2rem;
   }
+
+  .remember-container {
+    font-size: 0.8rem;
+  }
+
+  /*REVISAR ESTO PARA AJUSTAR TAMAÑO FOTO*/
+  .profile {
+    max-width: 50%;
+    max-height: 50%;
+  }
+}
