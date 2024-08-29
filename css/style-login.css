@@ -1,6 +1,11 @@
 body {
   background: rgb(255, 255, 255);
   background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+  height: 100%;
+  margin: 0;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -8,8 +13,14 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   max-width: 1200px;
-  margin-top: 8rem;
+  /*margin-top: 4rem;*/
   height: 100dvh;
+  box-sizing: border-box;
+}
+
+.main-container {
+  flex: 1;
+  /*min-height: 100vh;*/
 }
 
 .title-container {
@@ -76,8 +87,6 @@ body {
 
 .remember-me {
   display: flex;
-  flex-direction: row;
-  align-content: center;
 }
 
 .checkbox-box {
@@ -144,8 +153,7 @@ h1 {
 
 .footer-container {
   background-color: #b9d6f2;
-  padding: 3px;
-  margin-top: 100px;
+  /*margin-top: 50px;*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -187,10 +195,15 @@ a {
 .move-right {
   display: block;
   text-align: right;
-  margin-right: 20px;
+  margin-right: 1.5rem;
   text-decoration: none;
 }
 
+.move-left {
+  display: block;
+  text-align: left;
+  margin-left: 1.5rem;
+}
 .move-right:hover {
   text-decoration: underline;
 }
@@ -203,18 +216,67 @@ a {
   transform: translate(-50%, 0);
 }
 
+footer {
+  margin: 0 !important;
+  padding: 0;
+}
+
+.center-container p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 @media (max-width: 576px) {
-  .container {
-    margin-top: 2rem;
+  .main-content {
+    margin: 0;
+    place-items: center;
   }
 
   .remember-container {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
-  /*REVISAR ESTO PARA AJUSTAR TAMAÑO FOTO*/
   .profile {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 60px;
+    max-height: 58px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .login-container {
+    padding: 20px 20px;
+  }
+
+  .login-label {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+
+  .login-input {
+    padding: 4px 10px;
+    font-size: 1rem;
+  }
+
+  .login-button {
+    margin-top: 0;
+  }
+
+  .footer-content p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
   }
 }
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .main-content {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1400px) {
+}
+/*FALTAN HACER AJUSTES PARA PANTALLA ESTANDAR 
+@media (min-width: 992px) */
