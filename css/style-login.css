@@ -1,3 +1,4 @@
+/*---CUERPO---*/
 body {
   background: rgb(255, 255, 255);
   background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
@@ -8,27 +9,26 @@ body {
   flex-direction: column;
 }
 
+/*---CONTENIDO PRINCIPAL---*/
 .container {
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   max-width: 1200px;
-  /*margin-top: 4rem;*/
   height: 100dvh;
   box-sizing: border-box;
 }
 
 .main-container {
   flex: 1;
-  /*min-height: 100vh;*/
 }
 
+/*---ENCABEZADO E IMAGEN---*/
 .title-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
-  /*text-shadow: black 5px;*/
 }
 
 .profile {
@@ -43,6 +43,7 @@ body {
   margin-bottom: 10px;
 }
 
+/*---FORMULARIO---*/
 .login-container {
   max-width: 400px;
   margin: 0 auto;
@@ -74,11 +75,7 @@ body {
   border-radius: 8px;
 }
 
-.center {
-  display: block;
-  margin: 0 auto;
-}
-
+/*---FORMULARIO - Checkbox y "Olvidé contraseña"---*/
 .remember-container {
   display: flex;
   align-items: center;
@@ -89,12 +86,20 @@ body {
   display: flex;
 }
 
-.checkbox-box {
-  margin-right: 5px;
-}
-
 .form-check {
   padding: 0;
+}
+
+.move-left {
+  display: block;
+  text-align: left;
+  margin-left: 1.5rem;
+}
+
+/*---FORMULARIO - Botón Iniciar Sesión---*/
+.center {
+  display: block;
+  margin: 0 auto;
 }
 
 .login-button {
@@ -109,6 +114,55 @@ body {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/*---FORMULARIO - "Registrate acá"---*/
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-container p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/*---PIE DE PÁGINA---*/
+.footer-container {
+  background-color: #b9d6f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 10px 0;
+}
+
+hr {
+  width: 75%;
+  height: 1px;
+  background-color: #0353a4;
+  margin: 0 auto;
+}
+
+.footer-link {
+  color: #061a40;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin: 0 !important;
+  padding: 0;
+}
+
+/*---ESTILOS EN TEXTOS---*/
 .font-jost {
   font-family: "Jost", sans-serif;
 }
@@ -144,70 +198,12 @@ h1 {
   font-size: 20px;
 }
 
-.center-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-container {
-  background-color: #b9d6f2;
-  /*margin-top: 50px;*/
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer-content {
-  text-align: center;
-  font-family: "Jost", sans-serif;
-  font-size: 17px;
-  color: #000000;
-  padding: 10px 0;
-}
-
-/*.footer-line {
-    width: 100%;
-    height: 1px ;
-    background-color: #007bff; 
-    margin: 10px 0; 
-} */
-
-hr {
-  width: 75%;
-  height: 1px;
-  background-color: #0353a4;
-  margin: 0 auto;
-}
-
-.footer-link {
-  color: #061a40;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
+/*---LINKS---*/
 a {
   color: #000000;
 }
 
-.move-right {
-  display: block;
-  text-align: right;
-  margin-right: 1.5rem;
-  text-decoration: none;
-}
-
-.move-left {
-  display: block;
-  text-align: left;
-  margin-left: 1.5rem;
-}
-.move-right:hover {
-  text-decoration: underline;
-}
-
+/*---ALERTAS---*/
 .alert {
   position: fixed;
   top: 80px;
@@ -216,16 +212,9 @@ a {
   transform: translate(-50%, 0);
 }
 
-footer {
-  margin: 0 !important;
-  padding: 0;
-}
+/*---MEDIA QUERIES---*/
 
-.center-container p {
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
+/*Smartphone*/
 @media (max-width: 576px) {
   .main-content {
     margin: 0;
@@ -270,13 +259,9 @@ footer {
   }
 }
 
+/*Tablet*/
 @media (min-width: 577px) and (max-width: 768px) {
   .main-content {
     margin-top: 4rem;
   }
 }
-
-@media (min-width: 769px) and (max-width: 1400px) {
-}
-/*FALTAN HACER AJUSTES PARA PANTALLA ESTANDAR 
-@media (min-width: 992px) */
