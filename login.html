@@ -2,19 +2,13 @@
 <html lang="es">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>eMercado - Todo lo que busques está aquí</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
-
-    <link href="css/styles.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style-login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,114 +20,132 @@
   </head>
 
   <body>
-    <main class="container">
-      <!--Mensajes de alerta-->
-      <div>
-        <div
-          class="alert alert-success alert-dismissible fade"
-          role="alert"
-          id="alert-success"
-        >
-          <p>Sesión iniciada con éxito.</p>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-
-        <div
-          class="alert alert-danger alert-dismissible fade"
-          role="alert"
-          id="alert-danger"
-        >
-          <p>Completa todos los campos.</p>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      </div>
-
-      <div class="title-container" id="title-container">
-        <img class="profile" src="img/img_perfil.png" alt="profile" />
-        <h1 class="decorative-line">Iniciar Sesión</h1>
-      </div>
-
-      <form class="login-container" id="login-form">
-        <div class="container-inputs">
-          <label class="login-label font-jost text-regular20" for="user"
-            >Usuario</label
+    <!--Contenido Principal-->
+    <div class="main-container">
+      <main class="main-content container">
+        <!--Mensajes de alerta-->
+        <div>
+          <div
+            class="alert alert-success alert-dismissible fade"
+            role="alert"
+            id="alert-success"
           >
-          <input
-            class="login-input font-jost text-regularph"
-            type="text"
-            name="usuario"
-            id="usuario"
-            placeholder="Nombre de usuario o email"
-          />
-        </div>
-        <div class="container-inputs">
-          <label class="login-label font-jost text-regular20" for="password"
-            >Contraseña</label
-          >
-          <input
-            class="login-input font-jost text-regularph"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Escribe tu contraseña"
-          />
-        </div>
-        <div class="remember-container">
-          <div class="remember-me">
-            <input
-              type="checkbox"
-              name="recordar"
-              id="recordar"
-              class="checkbox-box"
-            />
-            <label class="font-jost text-regular" for="recordar"
-              >Recordar usuario</label
-            >
+            <p>Sesión iniciada con éxito.</p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
           </div>
 
-          <a class="font-jost move-right" href="#">Olvidé mi contraseña</a>
-        </div>
-        <button class="login-button font-jost center" type="submit">
-          INICIAR SESIÓN
-        </button>
-
-        <div class="center-container">
-          <p class="font-jost">¿No tienes una cuenta?</p>
-          <a class="font-jost" href="signup.html">Regístrate acá</a>
-        </div>
-      </form>
-    </main>
-
-    <footer class="footer-container">
-      <div class="footer-content">
-        <!--<div class="footer-line"></div>-->
-        <hr />
-        <p>
-          <a class="footer-link" href="#title-container">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a
-            class="footer-link"
-            href="https://jovenesaprogramar.edu.uy/"
-            target="_blank"
-            >Jóvenes a Programar</a
+          <div
+            class="alert alert-danger alert-dismissible fade"
+            role="alert"
+            id="alert-danger"
           >
-        </p>
-        <hr />
-        <!--<div class="footer-line"></div>-->
-      </div>
-    </footer>
+            <p>Completa todos los campos.</p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+
+        <!--Encabezado e Imagen-->
+        <div class="title-container" id="title-container">
+          <img
+            class="profile img-fluid"
+            src="img/img_perfil.png"
+            alt="profile"
+          />
+          <h1>Iniciar Sesión</h1>
+        </div>
+
+        <!--Formulario-->
+        <form class="login-container mx-auto" id="login-form">
+          <div class="container-inputs mb-3">
+            <label class="login-label font-jost text-regular20" for="user"
+              >Usuario</label
+            >
+            <input
+              class="login-input font-jost text-regularph form-control"
+              type="text"
+              name="usuario"
+              id="usuario"
+              placeholder="Nombre de usuario o email"
+            />
+          </div>
+          <div class="container-inputs mb-3">
+            <label class="login-label font-jost text-regular20" for="password"
+              >Contraseña</label
+            >
+            <input
+              class="login-input font-jost text-regularph form-control"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Escribe tu contraseña"
+            />
+          </div>
+
+          <!-- Form: Checkbox y "Olvidé ccontraseña"-->
+          <div
+            class="remember-container d-flex justify-content-between align-items-center mb-3"
+          >
+            <div class="remember-me d-flex align-items-center move-left">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="recordar"
+                  id="recordar"
+                  class="form-check-input me-2"
+                />
+                <label class="font-jost form-check-label" for="recordar"
+                  >Recordar usuario
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <a class="font-jost" href="#">Olvidé mi contraseña</a>
+            </div>
+          </div>
+
+          <!-- Form: Botón Iniciar Sesión-->
+          <button class="login-button font-jost center" type="submit">
+            INICIAR SESIÓN
+          </button>
+
+          <div class="center-container text-center mt-3">
+            <p class="font-jost" id="without-user">¿No tienes una cuenta?</p>
+            <a class="font-jost" href="signup.html">Regístrate acá</a>
+          </div>
+        </form>
+      </main>
+
+      <!--Pie de página-->
+      <footer>
+        <div class="footer-content">
+          <hr />
+          <p>
+            <a class="footer-link" href="#title-container">Volver arriba</a>
+          </p>
+          <p>
+            Este sitio forma parte de
+            <a
+              class="footer-link"
+              href="https://jovenesaprogramar.edu.uy/"
+              target="_blank"
+              >Jóvenes a Programar</a
+            >
+          </p>
+          <hr />
+        </div>
+      </footer>
+    </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/login.js"></script>
