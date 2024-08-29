@@ -215,7 +215,7 @@ a {
 /*---MEDIA QUERIES---*/
 
 /*Smartphone*/
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .main-content {
     margin: 0;
     place-items: center;
@@ -260,7 +260,7 @@ a {
 }
 
 /*Tablet*/
-@media (min-width: 577px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
   .main-content {
     margin-top: 4rem;
   }
