@@ -10,10 +10,12 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,26 +33,78 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="login.html">Iniciar Sesión</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main class="pb-5 container">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <br>
+  <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
+  <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
+  <!--AGREGUE LA LISTA CON CONTENEDORES QUE VA DEL LADO IZQUIERDO -->
+  <!-- <div class="contenedor-grande">
+    <div class="categorias-container">
+      <h2>Categorías</h2>
+      <ul class="categorias-lista">
+        <li>Autos
+          <ul class="subcategoria-lista">
+            <li>Fiat</li>
+            <li>Chevrolet</li>
+            <li>Suzuki</li>
+            <li>Peugeot</li>
+            <li>Bugatti</li>
+          </ul>
+        </li>
+        <li>Juguetes</li>
+        <li>Muebles</li>
+        <li>Computadoras</li>
+        <li>Herramientas</li>
+        <li>Vestimenta</li>
+        <li>Electrodomesticos</li>
+        <li>Deportes</li>
+        <li>Celulares</li>
+        <p></p>
+        <h2>Filtros</h2>
+        <li>Ordenar</li>
+        <ul class="subcategoria-listafiltro">
+          <li>A-Z</li>
+          <li>Z-A</li>
+        </ul>
+      </ul>
+    </div>
+  </div> -->
+  <div class="subbackground">
+    <div class="container ">
+      <div class="row row-style">
+        <div class="list-group" id="pro-list-cont">
+        </div>
       </div>
     </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
+  </div>
+
+    <!--<footer class="text-muted">
+     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
+        <a href="#navbar">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>-->
+  <!--nuevo footer que usamos en el login para que quede igual-->
+  <footer class="footer-container">
+    <div class="footer-content">
+      <hr />
+      <p>
+        <a class="footer-link" href="#title-container">Volver arriba</a>
+      </p>
+      <p>
+        Este sitio forma parte de
+        <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
+      </p>
+      <hr />
     </div>
   </footer>
+  <!--</div>
+  </footer>-->
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -59,9 +113,11 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/login.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
-</body>
+  <script src="js/products.js" defer></script>
+
 
 </html>

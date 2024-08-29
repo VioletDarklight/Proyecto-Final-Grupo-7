@@ -2,7 +2,13 @@
 .card-body,
 .container,
 .site-header {
-  font-family: "Verdana", serif !important;
+  /*font-family: "Verdana", serif !important;*/
+}
+
+.row-style{
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .jumbotron .display-4 {
@@ -37,7 +43,7 @@ nav a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 
@@ -77,7 +83,7 @@ footer p {
 }
 
 .site-header a {
-  color: white;
+  color: rgb(255, 255, 255);
   transition: ease-in-out color 0.15s;
 }
 
@@ -187,4 +193,349 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
+  margin: 0;
+  padding: 0;
+}
+
+.subbackground{
+  position: static;
+  margin-right: 120px;
+  margin-left: 120px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 35px;
+  color: #111010;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-weight: 900;
+}
+
+.subtitulo {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 17px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 20%;
+  height: fit-content;
+  padding: 20px;
+  background-color: #b9d6f2;
+  border-radius: 15px;
+}
+
+.sidebar h3,
+.sidebar h4 {
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.sidebar ul li ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.sidebar ul li ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.filtros {
+  padding-left: 10px;
+}
+
+.filtros h4 {
+  margin-bottom: 10px;
+}
+
+.filtros ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.filtros ul li {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.colores {
+  margin-bottom: 10px;
+}
+
+.color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.color:nth-child(1) {
+  background-color: #ffffff;
+}
+.color:nth-child(2) {
+  background-color: #cccccc;
+}
+.color:nth-child(3) {
+  background-color: #f9e04b;
+}
+.color:nth-child(4) {
+  background-color: #58ef58;
+}
+.color:nth-child(5) {
+  background-color: #0353a4;
+}
+.color:nth-child(6) {
+  background-color: #e32929;
+}
+
+button {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  margin: 20px auto 0 auto;
+  background-color: #0353a4;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.contenido {
+  flex: 1;
+}
+
+.lista-productos {
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.producto {
+  display: block;
+  width: 600px;
+  background-color: #a5cbe7;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+}
+
+.contenedor-img {
+  position: relative;
+  width: 100%;
+}
+
+.contenedor-img img:first-child {
+  display: block;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.contenedor-img img[alt="zoom"] {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.producto h3 {
+  font-size: 24px;
+  margin: 15px 0 10px 0;
+  font-weight: bold;
+  color: #000;
+}
+
+.producto p {
+  font-size: 16px;
+  margin: 5px 20px;
+  color: #000;
+}
+
+.producto .detalles {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.producto .detalles .vendidos {
+  font-size: 16px;
+  font-weight: normal;
+  color: #000;
+}
+
+.producto .detalles .precio {
+  color: #000;
+}
+/* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
+/*.categorias-container {
+  width: 300px; 
+  padding: 20px; 
+  background-color: #8cc0f1; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  list-style-type: none;
+  
+}
+.contenedor-grande {
+  width: 100%; 
+  max-width: 1200px; 
+  padding: 40px; 
+  background-color: #e9e9e9f3; 
+  border-radius: 20px; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+  margin: 20px auto; 
+  
+}
+.categorias-lista {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+  font-weight: bold;
+  text-align: center;
+
+}
+.subcategoria-lista {
+font-weight: none;
+text-align: right;
+
+}
+h2{
+  text-align: left;
+}
+.subcategoria-listafiltro{
+  text-align: right;
+
+}*/
+
+#products-head-list {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 57.8px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+.subtitulo {
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.9px;
+  text-align: center;
+}
+#carta-img {
+  /*background: rgb(255, 255, 255);*/
+  background: #B9D6F2;
+}
+#carta-img {
+border-radius: 20px;
+}
+#navbar{
+  background: #0353a4!important;
+}
+#img-carta {
+  border-radius: 20px 20px 0px 0px !important;
+}
+
+.car-cost{
+  font-size: 20px;
+}
+
+.car-description{
+  font-size: 16px !important;
+}
+
+.nav-link {
+  color: #fff!important;
+}
+
+/*Clases del nuevo footer que usamos en el login para que quede igual*/
+.footer-container {
+    background-color: #B9D6F2; 
+    padding: 3px; 
+    margin-top: 100px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    text-align: center; 
+    font-family: 'Jost', sans-serif; 
+    font-size: 17px; 
+    color: #000000; 
+    padding: 10px 0; 
+}
+
+.footer-link {
+    color: #061a40; 
+    text-decoration: none; 
+}
+
+hr{
+    width: 75%;
+    height: 1px;
+    background-color: #0353a4; 
+    margin: 0 auto;
 }
