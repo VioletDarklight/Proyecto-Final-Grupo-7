@@ -1,6 +1,7 @@
 // Verificación de autenticación al cargar index.html
 document.addEventListener("DOMContentLoaded", () => {
   let isAuthenticated = localStorage.getItem("isAuthenticated");
+  let username = localStorage.getItem("username"); //Nombre de usuario para navbar
   let currentPage = window.location.pathname.split("/").pop();
   let isRedirecting = new URLSearchParams(window.location.search).has(
     "redirected"
@@ -14,6 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
   ) {
     // Redirigir al login.html si no está autenticado y no está ya en la página de login
     window.location.href = "login.html?redirected=true";
+  }
+
+  //Actualizacion navbar - nombre de usuario
+  let userNav = document.getElementById("user-nav");
+  if (isAuthenticated) {
+    if (username) {
+      userNav.textContent = username;
+      userNav.href = "/my-profile.html";
+    }
+  } else {
+    userNav.textContent = "Iniciar Sesión";
+    userNav.href = "/login.html";
   }
 });
 
@@ -50,6 +63,7 @@ loginForm.addEventListener("submit", function (event) {
 
   //Guardar autenticación de validación exitosa
   localStorage.setItem("isAuthenticated", "true");
+  localStorage.setItem("username", usuario); //Para nombre de usuario en navbar
 
   // Redireccionar a la página de inicio si la validación es exitosa
   showAlertSuccess();
