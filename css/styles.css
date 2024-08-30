@@ -1,9 +1,9 @@
-.jumbotron,
+/*.jumbotron,
 .card-body,
 .container,
 .site-header {
-  /*font-family: "Verdana", serif !important;*/
-}
+  font-family: "Verdana", serif !important;
+}*/
 
 .row-style{
   margin-top: 80px;
@@ -469,6 +469,8 @@ h2{
 
 }*/
 
+/* RESPONSIVIDAD MODIFICACIONES PARA PRODUCTOS*/
+
 #products-head-list {
   font-family: "Jost", sans-serif;
   font-size: 40px;
@@ -479,6 +481,33 @@ h2{
   margin-top: 50px;
 }
 
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  #products-head-list{
+    font-size: 18px;
+    line-height: 30px ;
+    margin-top: -2%;}}
+
+/*MEDIDA SM HASTA 767PX*/
+@media (min-width: 576px) and (max-width:767px){
+  #products-head-list{
+  font-size: 35px;
+  margin-top: 0px;}}
+
+  /* MEDIDA XL */
+  @media (min-width: 1200px) and (max-width: 1399px){
+    #products-head-list {
+      font-family: "Jost", sans-serif;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 25px;
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+}}
+
+
+
 .subtitulo {
   font-family: "Jost", sans-serif;
   font-size: 20px;
@@ -486,6 +515,37 @@ h2{
   line-height: 28.9px;
   text-align: center;
 }
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  .subtitulo{
+    font-size: 10px;
+    line-height: 5px ;
+    margin-top: -1%;
+    margin-bottom: -5%;
+  }}
+
+/*MEDIDA SM HASTA 767PX*/
+  @media (min-width: 576px) and (max-width: 767px) {
+    .subtitulo{
+      font-size: 20px;
+      line-height: 5px ;
+      margin-top: -1%;
+    }}
+
+/*MEDIDA LG PARA TABLET HASTA 1199PX*/
+@media (min-width: 768px) and (max-width: 1199px)  {
+  .subtitulo{
+    font-size: 20px;
+    line-height:  5px ;
+    margin-top: -1%;
+  }}
+
+ /* MEDIDA XL */ 
+@media (min-width: 1200px) and (max-width: 1399px){
+    .subtitulo{
+      margin-bottom: -5%;
+  }}
+
 #carta-img {
   /*background: rgb(255, 255, 255);*/
   background: #B9D6F2;
@@ -493,6 +553,14 @@ h2{
 #carta-img {
 border-radius: 20px;
 }
+
+@media (min-width: 320px) and (max-width: 575px){
+  .list-group {
+  margin-top: -10%;
+  height: 10%;
+  margin-bottom: -15%;
+  }}
+
 #navbar{
   background: #0353a4!important;
 }
@@ -503,10 +571,24 @@ border-radius: 20px;
 .car-cost{
   font-size: 20px;
 }
+/*MEDIDA XS */
+@media (min-width: 320px) and (max-width: 575px){
+  .card-text{
+    font-size:11.5px;
+    margin-top: -0.5em;
+}}
+
 
 .car-description{
-  font-size: 16px !important;
+  font-size: 16px;
 }
+/*MEDIDA XS*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .car-description{
+    font-size: 12px;
+    line-height: 1em;
+}}
+
 
 .nav-link {
   color: #fff!important;
@@ -538,4 +620,28 @@ hr{
     height: 1px;
     background-color: #0353a4; 
     margin: 0 auto;
+}
+.subbackground {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* MEDIDA XS*/
+@media (min-width: 320px) and (max-width: 575px){
+#margin{
+margin-top: 40px;}}
+
+/*MEDIDA SM*/
+@media   (min-width: 576px) {
+  #margin{
+    margin-top: 50px;}}
+
+/*MEDIDA XL*/
+@media (min-width: 1200px) {
+#margin{
+  margin-top: 100px;}}
+
+div #margin{
+  margin-left:auto;
+  margin-right: auto;
 }
