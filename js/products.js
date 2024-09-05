@@ -1,5 +1,8 @@
-const AUTOS_URL =
-  "https://japceibal.github.io/emercado-api/cats_products/101.json";
+let AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+let cat = localStorage.getItem("catID");
+if (cat == null) {
+  cat = 101;
+}
 
 const contenedor = document.getElementById("pro-list-cont");
 const sortAscRadio = document.querySelector("#sortAsc");
@@ -42,11 +45,11 @@ function showData(array) {
 // Funcion para enviar los datos JSON al recorrido
 
 function mostrarAuto() {
-  fetch(AUTOS_URL)
+  fetch(AUTOS_URL + cat + ".json")
     .then((response) => response.json())
     .then((autos) => {
-      dataArray = autos.products; // Guardar los datos en la variable
-      showData(dataArray); // Mostrar los datos en la página
+      autos.products;
+      showAuto(autos.products);
     });
 }
 
