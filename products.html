@@ -42,52 +42,54 @@
   <br>
   <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
   <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
-  <!--AGREGUE LA LISTA CON CONTENEDORES QUE VA DEL LADO IZQUIERDO -->
-  <!-- <div class="contenedor-grande">
-    <div class="categorias-container">
-      <h2>Categorías</h2>
-      <ul class="categorias-lista">
-        <li>Autos
-          <ul class="subcategoria-lista">
-            <li>Fiat</li>
-            <li>Chevrolet</li>
-            <li>Suzuki</li>
-            <li>Peugeot</li>
-            <li>Bugatti</li>
-          </ul>
-        </li>
-        <li>Juguetes</li>
-        <li>Muebles</li>
-        <li>Computadoras</li>
-        <li>Herramientas</li>
-        <li>Vestimenta</li>
-        <li>Electrodomesticos</li>
-        <li>Deportes</li>
-        <li>Celulares</li>
-        <p></p>
-        <h2>Filtros</h2>
-        <li>Ordenar</li>
-        <ul class="subcategoria-listafiltro">
-          <li>A-Z</li>
-          <li>Z-A</li>
-        </ul>
-      </ul>
+
+  <div class="container">
+    <div class="row">
+      <div class="col text-end">
+        <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+          <input type="radio" class="btn-check" name="options" id="sortAsc">
+          <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
+          <input type="radio" class="btn-check" name="options" id="sortDesc">
+          <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
+          <input type="radio" class="btn-check" name="options" id="sortByCount" checked >
+          <label class="btn btn-light" for="sortByCount">Ordenar por relevancia</label>
+        </div>
+      </div>
     </div>
-  </div> -->
+
+    <div class="row">
+      <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-end my-2">Precio</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx."id="rangeFilterCountMax">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterCount">
+                Filtrar
+              </button>
+              <button class="btn btn-link btn-sm" id="clearRangeFilter">
+                <i class="fas fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div class="subbackground">
       <div id="margin"  class="container  row-style col-sm-12 col-md-11 col-lg-7" >
         <div class="list-group" class="col-sm-12" id="pro-list-cont">
         </div>
       </div>
   </div>
-
-    <!--<footer class="text-muted">
-     <div class="container">
-      <p class="float-end">
-        <a href="#navbar">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>-->
-  <!--nuevo footer que usamos en el login para que quede igual-->
   <footer class="footer-container">
     <div class="footer-content">
       <hr />
@@ -101,8 +103,7 @@
       <hr />
     </div>
   </footer>
-  <!--</div>
-  </footer>-->
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -1,12 +1,22 @@
-const AUTOS_URL = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
+const AUTOS_URL =
+  "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 const contenedor = document.getElementById("pro-list-cont");
+const sortAscRadio = document.querySelector("#sortAsc");
+const sortDescRadio = document.querySelector("#sortDesc");
+const sortByCountRadio = document.querySelector("#sortByCount");
+const rangeFilterMinInput = document.querySelector("#rangeFilterCountMin");
+const rangeFilterMaxInput = document.querySelector("#rangeFilterCountMax");
+const rangeFilterButton = document.querySelector("#rangeFilterCount");
+const clearFilterButton = document.querySelector("#clearRangeFilter");
 
+let dataArray = []; // Variable para almacenar los datos
 
-//funcion que realiza el recorrido en el ojeto JSON e impresion en pantalla del mismo.
-function showAuto(array){
-    for(const item of array){
-        contenedor.innerHTML += `
+// Función para mostrar los autos
+function showData(array) {
+  contenedor.innerHTML = ""; // Limpiar contenedor antes de mostrar los datos
+  for (const item of array) {
+    contenedor.innerHTML += `
         <div  class= "col">
       <div id = "carta-img" class="col-lg-12  card mb-3 shadow">
  
@@ -26,19 +36,74 @@ function showAuto(array){
           <br>
       </div>
       </div>
-    </div>`
-
-    }
+    </div>`;
+  }
 }
 // Funcion para enviar los datos JSON al recorrido
 
 function mostrarAuto() {
-
- fetch(AUTOS_URL)
- .then (response => response.json())
- .then(autos => {(autos.products)
-    showAuto(autos.products)
- })
+  fetch(AUTOS_URL)
+    .then((response) => response.json())
+    .then((autos) => {
+      dataArray = autos.products; // Guardar los datos en la variable
+      showData(dataArray); // Mostrar los datos en la página
+    });
 }
 
 mostrarAuto();
+
+// Función para ordenar los datos por precio de forma ascendente
+function sortDataByPriceAsc() {
+  dataArray.sort((a, b) => a.cost - b.cost);
+  showData(dataArray);
+}
+
+// Función para ordenar los datos por precio de forma descendente
+function sortDataByPriceDesc() {
+  dataArray.sort((a, b) => b.cost - a.cost);
+  showData(dataArray);
+}
+
+// Función para ordenar los datos por cantidad de vendidos
+function sortDataBySoldCount() {
+  dataArray.sort((a, b) => b.soldCount - a.soldCount);
+  showData(dataArray);
+}
+
+// Función para filtrar por rango de precio
+function filterByPriceRange(minPrice, maxPrice) {
+  const filteredData = dataArray.filter((item) => {
+    const itemPrice = item.cost;
+    return (
+      (minPrice === "" || itemPrice >= minPrice) &&
+      (maxPrice === "" || itemPrice <= maxPrice)
+    );
+  });
+  showData(filteredData);
+}
+
+// Eventos para los botones
+rangeFilterButton.addEventListener("click", () => {
+  const minPrice = rangeFilterMinInput.value;
+  const maxPrice = rangeFilterMaxInput.value;
+  filterByPriceRange(minPrice, maxPrice);
+});
+
+clearFilterButton.addEventListener("click", () => {
+  rangeFilterMinInput.value = "";
+  rangeFilterMaxInput.value = "";
+  showData(dataArray); // Mostrar todos los productos al limpiar filtros
+});
+
+// Eventos para los botones de orden
+sortAscRadio.addEventListener("click", () => {
+  sortDataByPriceAsc(); // Ordenar por precio ascendente
+});
+
+sortDescRadio.addEventListener("click", () => {
+  sortDataByPriceDesc(); // Ordenar por precio descendente
+});
+
+sortByCountRadio.addEventListener("click", () => {
+  sortDataBySoldCount(); // Ordenar por cantidad de vendidos
+});
