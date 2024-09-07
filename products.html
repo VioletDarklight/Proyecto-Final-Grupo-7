@@ -46,9 +46,18 @@
   <div class="filters-wrapper col-lg-7">
     <div class="filters-container">
 
-      <div class="searcher">
-        <p>Espacio para buscador</p>
+      <!-- Aca agerego lo que seria el buscador. -->
+      <div class="search/box">
+        <form method="get" id="search-form">
+          <fieldset>
+            <input type="text" id="search-input" placeholder="¿Que estas buscando hoy?" />
+            <input class="search-button" type="submit" value="Buscar" />
+            <i class="search-icon">
+            </i>
+          </fieldset>
+        </form>
       </div>
+      <!-- le marco el limite para saber bien -->
 
       <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
         <input type="radio" class="btn-check" name="options" id="sortAsc">

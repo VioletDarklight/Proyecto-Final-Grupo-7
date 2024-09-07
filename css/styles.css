@@ -462,6 +462,19 @@ button:hover {
 
 .searcher {
   margin: 0 1rem;
+
+}
+/* BUSCADOR */
+#search-form {
+  display: flex;
+  margin: 2px;
+  height: 40px;
+}
+#search-input {
+width: 200px;
+height: 40px;
+border-radius: 5px;
+margin-left: 1%;
 }
 
 /* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
