@@ -48,8 +48,8 @@ function mostrarAuto() {
   fetch(AUTOS_URL + cat + ".json")
     .then((response) => response.json())
     .then((autos) => {
-      autos.products;
-      showAuto(autos.products);
+      dataArray = autos.products; // Guardar los datos en la variable
+      showData(dataArray); // Mostrar los datos en la página
     });
 }
 

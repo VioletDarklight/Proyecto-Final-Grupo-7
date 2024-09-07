@@ -426,6 +426,42 @@ button:hover {
 
 #clearRangeFilter {
   color: white;
+  margin: auto;
+}
+
+#rangeFilterCount {
+  margin: auto;
+  margin-left: 3rem;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  padding: 0.4rem;
+  border-radius: 1.5rem;
+}
+
+.filter-price-text {
+  width: fit-content;
+  text-align: right;
+  padding-right: 0.2rem;
+  margin-left: 1rem;
+}
+
+.filters-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.searcher {
+  margin: 0 1rem;
 }
 
 /* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
@@ -549,7 +585,7 @@ h2{
 /* MEDIDA XL */
 @media (min-width: 1200px) and (max-width: 1399px) {
   .subtitulo {
-    margin-bottom: -5%;
+    /*margin-bottom: -5%;*/
   }
 }
 
