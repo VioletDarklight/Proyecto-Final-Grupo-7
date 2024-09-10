@@ -110,3 +110,6 @@ sortDescRadio.addEventListener("click", () => {
 sortByCountRadio.addEventListener("click", () => {
   sortDataBySoldCount(); // Ordenar por cantidad de vendidos
 });
+
+// funcion para el buscador 
+
