@@ -5,13 +5,25 @@ if (cat == null) {
 }
 
 const contenedor = document.getElementById("pro-list-cont");
-const sortAscRadio = document.querySelector("#sortAsc");
-const sortDescRadio = document.querySelector("#sortDesc");
-const sortByCountRadio = document.querySelector("#sortByCount");
-const rangeFilterMinInput = document.querySelector("#rangeFilterCountMin");
-const rangeFilterMaxInput = document.querySelector("#rangeFilterCountMax");
-const rangeFilterButton = document.querySelector("#rangeFilterCount");
-const clearFilterButton = document.querySelector("#clearRangeFilter");
+let sortAscRadio = document.getElementById("sortAsc");
+let sortDescRadio = document.getElementById("sortDesc");
+let sortByCountRadio = document.getElementById("sortByCount");
+let rangeFilterMinInput = document.getElementById("rangeFilterCountMin");
+let rangeFilterMaxInput = document.getElementById("rangeFilterCountMax");
+let rangeFilterButton = document.getElementById("rangeFilterCount");
+let clearFilterButton = document.getElementById("clearRangeFilter");
+// Selectores para filtros pantallas pequeñas
+let sortAscRadioSmall = document.getElementById("sortAscSmall");
+let sortDescRadioSmall = document.getElementById("sortDescSmall");
+let sortByCountRadioSmall = document.getElementById("sortByCountSmall");
+let rangeFilterMinInputSmall = document.getElementById(
+  "rangeFilterCountMinSmall"
+);
+let rangeFilterMaxInputSmall = document.getElementById(
+  "rangeFilterCountMaxSmall"
+);
+let rangeFilterButtonSmall = document.getElementById("rangeFilterCountSmall");
+let clearFilterButtonSmall = document.getElementById("clearRangeFilterSmall");
 
 let dataArray = []; // Variable para almacenar los datos
 
@@ -75,8 +87,8 @@ function sortDataBySoldCount() {
 
 // Función para filtrar por rango de precio
 function filterByPriceRange(minPrice, maxPrice) {
-  const filteredData = dataArray.filter((item) => {
-    const itemPrice = item.cost;
+  let filteredData = dataArray.filter((item) => {
+    let itemPrice = item.cost;
     return (
       (minPrice === "" || itemPrice >= minPrice) &&
       (maxPrice === "" || itemPrice <= maxPrice)
@@ -85,10 +97,10 @@ function filterByPriceRange(minPrice, maxPrice) {
   showData(filteredData);
 }
 
-// Eventos para los botones
+// ---- Eventos para los botones (pantalla grande) ----
 rangeFilterButton.addEventListener("click", () => {
-  const minPrice = rangeFilterMinInput.value;
-  const maxPrice = rangeFilterMaxInput.value;
+  let minPrice = rangeFilterMinInput.value;
+  let maxPrice = rangeFilterMaxInput.value;
   filterByPriceRange(minPrice, maxPrice);
 });
 
@@ -98,7 +110,6 @@ clearFilterButton.addEventListener("click", () => {
   showData(dataArray); // Mostrar todos los productos al limpiar filtros
 });
 
-// Eventos para los botones de orden
 sortAscRadio.addEventListener("click", () => {
   sortDataByPriceAsc(); // Ordenar por precio ascendente
 });
@@ -111,5 +122,32 @@ sortByCountRadio.addEventListener("click", () => {
   sortDataBySoldCount(); // Ordenar por cantidad de vendidos
 });
 
+<<<<<<< HEAD
 // funcion para el buscador 
 
+=======
+// ---- Eventos para los botones (pantallas pequeñas) ----
+rangeFilterButtonSmall.addEventListener("click", () => {
+  let minPrice = rangeFilterMinInputSmall.value;
+  let maxPrice = rangeFilterMaxInputSmall.value;
+  filterByPriceRange(minPrice, maxPrice);
+});
+
+clearFilterButtonSmall.addEventListener("click", () => {
+  rangeFilterMinInputSmall.value = "";
+  rangeFilterMaxInputSmall.value = "";
+  showData(dataArray); // Mostrar todos los productos al limpiar filtros
+});
+
+sortAscRadioSmall.addEventListener("click", () => {
+  sortDataByPriceAsc(); // Ordenar por precio ascendente
+});
+
+sortDescRadioSmall.addEventListener("click", () => {
+  sortDataByPriceDesc(); // Ordenar por precio descendente
+});
+
+sortByCountRadioSmall.addEventListener("click", () => {
+  sortDataBySoldCount(); // Ordenar por cantidad de vendidos
+});
+>>>>>>> origin/leti-orden-filtro

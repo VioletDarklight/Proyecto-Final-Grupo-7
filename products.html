@@ -44,6 +44,7 @@
   <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
 
   <div class="filters-wrapper col-lg-7">
+<<<<<<< HEAD
     <div class="filters-container">
 
       <!-- Aca agerego lo que seria el buscador. -->
@@ -58,43 +59,87 @@
         </form>
       </div>
       <!-- le marco el limite para saber bien -->
+=======
+     <!-- Acordeón visible solo en pantallas pequeñas -->
+    <div class="accordion d-lg-none" id="filtersAccordion">
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Filtros 
+              </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#filtersAccordion">
+              <div class="accordion-body">
+>>>>>>> origin/leti-orden-filtro
 
+                  <!-- Filtros dentro del acordeón para pantallas pequeñas -->
       <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
-        <input type="radio" class="btn-check" name="options" id="sortAsc">
-        <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
-        <input type="radio" class="btn-check" name="options" id="sortDesc">
-        <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
-        <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-        <label class="btn btn-light" for="sortByCount">Ordenar por relevancia</label>
+        <input type="radio" class="btn-check" name="options" id="sortAscSmall">
+        <label class="btn btn-light" for="sortAscSmall"><i class="fas fa-long-arrow-alt-up"></i> $</label>
+        <input type="radio" class="btn-check" name="options" id="sortDescSmall">
+        <label class="btn btn-light" for="sortDescSmall"><i class="fas fa-long-arrow-alt-down"></i> $</label>
+        <input type="radio" class="btn-check" name="options" id="sortByCountSmall" checked>
+        <label class="btn btn-light" for="sortByCountSmall">Ordenar por relevancia</label>
       </div>
-    
 
-     
-
-        <div class="col-1 filter-price-text">
+        <div class="filter-price-text">
           <p class="font-weight-normal my-2 ">Precio</p>
         </div>
+          <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMinSmall">
+          <input class="form-control" type="number" placeholder="máx."id="rangeFilterCountMaxSmall">
+        
 
-        <div class="col">
-          <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
-        </div>
+        <div class="btn-group" role="group">
 
-        <div class="col">
-          <input class="form-control" type="number" placeholder="máx."id="rangeFilterCountMax">
-        </div>
-
-        <div class="col p-0 btn-group" role="group">
-
-          <button class="btn btn-light btn-block" id="rangeFilterCount">
+          <button class="btn btn-light btn-block" id="rangeFilterCountSmall">
             Filtrar
           </button>
 
-          <button class="btn btn-link btn-sm" id="clearRangeFilter">
+          <button class="btn btn-link btn-sm" id="clearRangeFilterSmall">
             <i class="fas fa-solid fa-trash"></i>
           </button>
         </div>
-    </div>
- </div>
+      </div>
+  </div>
+</div>
+</div>
+
+  <!-- Filtros visibles en pantallas grandes -->
+<div class="filters-container d-none d-lg-flex">
+
+  <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+      <input type="radio" class="btn-check" name="options" id="sortAsc">
+      <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
+      <input type="radio" class="btn-check" name="options" id="sortDesc">
+      <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
+      <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
+      <label class="btn btn-light" for="sortByCount">Ordenar por relevancia</label>
+  </div>
+
+  <div class="col-1 filter-price-text">
+      <p class="font-weight-normal my-2">Precio</p>
+  </div>
+
+  <div class="col">
+      <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+  </div>
+
+  <div class="col-1 filter-price-text" id="linePrice">
+    <p class="font-weight-normal my-2">--</p>
+</div>
+
+  <div class="col">
+      <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+  </div>
+
+  <div class="col p-0 btn-group" role="group">
+      <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+      <button class="btn btn-link btn-sm" id="clearRangeFilter">
+          <i class="fas fa-solid fa-trash"></i>
+      </button>
+  </div>
+</div>
+</div>
 
 
   <div class="subbackground">
