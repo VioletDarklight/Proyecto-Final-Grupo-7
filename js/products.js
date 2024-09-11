@@ -8,7 +8,7 @@ function showAuto(array){
     for(const item of array){
         contenedor.innerHTML += `
         <div  class= "col">
-      <div id = "carta-img" class="col-lg-12  card mb-3 shadow" data-id="${item.id}">
+      <div id="carta-img-${item.id}" class="col-lg-12  card mb-3 shadow" data-id="${item.id}">
  
         <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
  
@@ -29,9 +29,19 @@ function showAuto(array){
     </div>`
 
     }
-}
-// Funcion para enviar los datos JSON al recorrido
 
+
+const cards = document.querySelectorAll('.carta-img');
+    cards.forEach(card => {
+        card.addEventListener('click', function () {
+            let productId = card.getAttribute('data-id');
+            localStorage.setItem('selectedProductId', productId);
+            window.location.href = 'product-info.html';
+        });
+    });
+  }
+
+// Funcion para enviar los datos JSON al recorrido
 function mostrarAuto() {
 
  fetch(AUTOS_URL)
@@ -42,12 +52,3 @@ function mostrarAuto() {
 }
 
 mostrarAuto();
-
-// redirigir a product-info
-contenedor.addEventListener('click', (event) => {
-  const card = event.target.closest('#carta-img');
-  if (card) {
-      const id = card.getAttribute('data-id');
-      window.location.href = `product-info.html?id=${id}`;
-  }
-});

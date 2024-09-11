@@ -1,5 +1,4 @@
-let PRODUCTS_BASE_URL = 'https://japceibal.github.io/emercado-api/cats_products/';
-
+let PRODUCTS_BASE_URL = 'https://japceibal.github.io/emercado-api/products/';
 let productId = localStorage.getItem('selectedProductId');
 
 if (productId) {
@@ -8,10 +7,9 @@ if (productId) {
     fetch(productInfoUrl)
         .then(response => response.json())
         .then(data => {
-            let product = data.products[0];  
-
-            let container = document.querySelector('.container');
-            let images = product.images.map(imageUrl => `<img src="${imageUrl}" class="img-fluid img-thumbnail" alt="${product.name}">`).join(''); 
+            let product = data;  
+            let container = document.getElementById('detalles-producto');
+            let images = product.images.map(imageUrl => `<img src="${imageUrl}" class="img-fluid img-thumbnail" alt="${product.name}">`).join('');
 
             container.innerHTML = `
                 <div class="card mb-4">
