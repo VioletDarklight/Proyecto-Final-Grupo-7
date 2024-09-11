@@ -8,7 +8,7 @@ function showAuto(array){
     for(const item of array){
         contenedor.innerHTML += `
         <div  class= "col">
-      <div id = "carta-img" class="col-lg-12  card mb-3 shadow data-id="${item.id}">
+      <div id = "carta-img" class="col-lg-12  card mb-3 shadow" data-id="${item.id}">
  
         <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
  
