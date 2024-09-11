@@ -18,7 +18,7 @@ if (productId) {
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text">${product.description}</p>
-                        <p class="card-text"><strong>Categoria:</strong> ${product.category}</p>
+                        <p class="card-text"><strong>Categoría:</strong> ${product.category}</p>
                         <p class="card-text"><small class="text-muted">${product.soldCount} vendidos</small></p>
                     </div>
                     <div class="card-body">
