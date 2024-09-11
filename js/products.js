@@ -8,7 +8,7 @@ function showAuto(array){
     for(const item of array){
         contenedor.innerHTML += `
         <div  class= "col">
-      <div id = "carta-img" class="col-lg-12  card mb-3 shadow">
+      <div id = "carta-img" class="col-lg-12  card mb-3 shadow data-id="${item.id}">
  
         <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
  
@@ -42,3 +42,12 @@ function mostrarAuto() {
 }
 
 mostrarAuto();
+
+// redirigir a product-info
+contenedor.addEventListener('click', (event) => {
+  const card = event.target.closest('#carta-img');
+  if (card) {
+      const id = card.getAttribute('data-id');
+      window.location.href = `product-info.html?id=${id}`;
+  }
+});
