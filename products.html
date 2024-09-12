@@ -92,25 +92,17 @@
     <!-- Filtros visibles en pantallas grandes -->
     <div class="filters-container d-none d-lg-flex">
 
-      <!-- Aca agerego lo que seria el buscador. -->
-      <div class="search/box">
-        <div id="search-form">
-          <fieldset>
-            <label> <i class="fa fa-search busca" id="lupa"></i> </label>
-            <input type="text" id="search-input" placeholder="¿Que estas buscando hoy?" />
-          
-          </fieldset>
-        </div>
-      </div>
-      <!-- fin buscador. -->
+    
        
       <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+        <i class="fa fa-search busca" id="lupa"></i>
+        <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" />
         <input type="radio" class="btn-check" name="options" id="sortAsc">
         <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
         <input type="radio" class="btn-check" name="options" id="sortDesc">
         <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
         <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-        <label class="btn btn-light" for="sortByCount">Ordenar por relevancia</label>
+        <label class="btn btn-light" for="sortByCount"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
       </div>
 
       <div class="col-1 filter-price-text">
