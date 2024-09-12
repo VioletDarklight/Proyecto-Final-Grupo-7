@@ -422,6 +422,25 @@ button:hover {
   color: #000;
 }
 
+/* Buscador*/
+.searcher {
+  margin: 0 1rem;
+
+}
+
+/* BUSCADOR */
+#search-form {
+  display: flex;
+  margin: 2px;
+  height: 40px;
+}
+#search-input {
+width: 200px;
+height: 40px;
+border-radius: 5px;
+margin-left: 1%;
+}
+
 /*BOTONES DE FILTRO EN PRODUCTOS*/
 
 #clearRangeFilter,
