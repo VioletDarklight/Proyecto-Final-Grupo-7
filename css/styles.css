@@ -424,7 +424,8 @@ button:hover {
 
 /*BOTONES DE FILTRO EN PRODUCTOS*/
 
-#clearRangeFilter {
+#clearRangeFilter,
+#clearRangeFilterSmall {
   color: white;
   margin: auto;
 }
@@ -436,7 +437,6 @@ button:hover {
 
 .filters-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   margin-right: 5%;
@@ -460,21 +460,12 @@ button:hover {
   width: 100%;
 }
 
-.searcher {
-  margin: 0 1rem;
+button {
+  margin-top: 0;
+}
 
-}
-/* BUSCADOR */
-#search-form {
-  display: flex;
-  margin: 2px;
-  height: 40px;
-}
-#search-input {
-width: 200px;
-height: 40px;
-border-radius: 5px;
-margin-left: 1%;
+#linePrice {
+  margin-right: 1rem;
 }
 
 /* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
@@ -533,17 +524,153 @@ h2{
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
   #products-head-list {
-    font-size: 18px;
+    font-size: 1.6rem;
     line-height: 30px;
     margin-top: -2%;
   }
+
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
+
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
+
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
+
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 0.8rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.2rem;
+  }
 }
 
-/*MEDIDA SM HASTA 767PX*/
-@media (min-width: 576px) and (max-width: 767px) {
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
   #products-head-list {
     font-size: 35px;
     margin-top: 0px;
+  }
+
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
+
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
+
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
+
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 1rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.4rem;
   }
 }
 
@@ -570,10 +697,9 @@ h2{
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
   .subtitulo {
-    font-size: 10px;
+    font-size: 0.8rem;
     line-height: 5px;
     margin-top: -1%;
-    margin-bottom: -5%;
   }
 }
 
@@ -592,13 +718,6 @@ h2{
     font-size: 20px;
     line-height: 5px;
     margin-top: -1%;
-  }
-}
-
-/* MEDIDA XL */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .subtitulo {
-    /*margin-bottom: -5%;*/
   }
 }
 
