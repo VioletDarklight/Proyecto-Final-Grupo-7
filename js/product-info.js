@@ -22,7 +22,7 @@ fetch(prodInfoURL)
 function showData(item) {
     const contenedor = document.getElementById("pro-list-cont");
     let images = item.images.map(imageUrl => `
-        <img class="img-fluid card-img-top rounded-top mx-auto d-block" src="${imageUrl}" alt="${item.name}">
+        <img class="img-fluid card-img-top rounded-top mx-auto d-block" src="img/${imageUrl}" alt="${item.name}">
     `).join('');
   
     contenedor.innerHTML = `
