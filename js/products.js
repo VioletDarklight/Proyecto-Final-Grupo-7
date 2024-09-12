@@ -33,7 +33,7 @@ function showData(array) {
   for (const item of array) {
     contenedor.innerHTML += `
         <div  class= "col">
-      <div id = "carta-img" class="col-lg-12  card mb-3 shadow">
+      <div id = "carta-img" class="col-lg-12  card mb-3 shadow" onclick="setProdID(${item.id})">
  
         <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
  
@@ -54,6 +54,13 @@ function showData(array) {
     </div>`;
   }
 }
+
+// función para guardar el id del producto y redirigir
+function setProdID(id) {
+  localStorage.setItem("prodID", id);  // guarda el ID del producto en localStorage
+  window.location = "product-info.html";  // redirige a la página de detalles del producto
+}
+
 // Funcion para enviar los datos JSON al recorrido
 
 function mostrarAuto() {
