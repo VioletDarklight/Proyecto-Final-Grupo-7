@@ -4,6 +4,26 @@ if (cat == null) {
   cat = 101;
 }
 
+// función para guardar el id del producto y redirigir
+function setProdID(id) {
+    localStorage.setItem("prodID", id);  // guarda el ID del producto en localStorage
+    window.location = "product-info.html";  // redirige a la página de detalles del producto
+  }
+
+// busca el id del producto en localStorage
+const prodID = localStorage.getItem("prodID");
+
+// encuentra los datos del producto
+const prodInfoURL = "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
+  
+fetch(prodInfoURL)
+  .then((response) => response.json())
+  .then((productData) => {
+    showData(productData); 
+  })
+  .catch((error) => console.log("Error", error));
+
+
 function showData(array) {
     contenedor.innerHTML = ''; 
 
@@ -32,3 +52,5 @@ function showData(array) {
         `;
     }
 }
+
+
