@@ -8,7 +8,7 @@ function showAuto(array){
     for(const item of array){
         contenedor.innerHTML += `
         <div  class= "col">
-      <div id="carta-img-${item.id}" class="col-lg-12  card mb-3 shadow" data-id="${item.id}">
+      <div id="carta-img-" class="col-lg-12  card mb-3 shadow">
  
         <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
  
@@ -29,16 +29,6 @@ function showAuto(array){
     </div>`
 
     }
-
-
-const cards = document.querySelectorAll('.carta-img');
-    cards.forEach(card => {
-        card.addEventListener('click', function () {
-            let productId = card.getAttribute('data-id');
-            localStorage.setItem('selectedProductId', productId);
-            window.location.href = 'product-info.html';
-        });
-    });
   }
 
 // Funcion para enviar los datos JSON al recorrido

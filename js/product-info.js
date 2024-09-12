@@ -1,4 +1,4 @@
-let PRODUCTS_BASE_URL = 'https://japceibal.github.io/emercado-api/products/';
+let PRODUCTS_BASE_URL = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
 let productId = localStorage.getItem('selectedProductId');
 
 if (productId) {
