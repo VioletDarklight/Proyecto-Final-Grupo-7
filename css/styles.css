@@ -1,12 +1,5 @@
-/*.jumbotron,
-.card-body,
-.container,
-.site-header {
-  font-family: "Verdana", serif !important;
-}*/
-
-.row-style{
-  margin-top: 80px;
+.row-style {
+  /*margin-top: 80px;*/
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -198,12 +191,12 @@ a.custom-card:hover {
 body {
   font-family: "Jost", sans-serif;
   background: rgb(255, 255, 255);
-  background: linear-gradient(10deg, #B9D6F2, rgba(3, 83, 164, 0.8));
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
   margin: 0;
   padding: 0;
 }
 
-.subbackground{
+.subbackground {
   position: static;
   margin-right: 120px;
   margin-left: 120px;
@@ -428,6 +421,53 @@ button:hover {
 .producto .detalles .precio {
   color: #000;
 }
+
+/*BOTONES DE FILTRO EN PRODUCTOS*/
+
+#clearRangeFilter,
+#clearRangeFilterSmall {
+  color: white;
+  margin: auto;
+}
+
+#rangeFilterCount {
+  margin: auto;
+  margin-left: 3rem;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  padding: 0.4rem;
+  border-radius: 1.5rem;
+}
+
+.filter-price-text {
+  width: fit-content;
+  text-align: right;
+  padding-right: 0.2rem;
+  margin-left: 1rem;
+}
+
+.filters-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+}
+
+button {
+  margin-top: 0;
+}
+
+#linePrice {
+  margin-right: 1rem;
+}
+
 /* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
 /*.categorias-container {
   width: 300px; 
@@ -483,30 +523,169 @@ h2{
 
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
-  #products-head-list{
-    font-size: 18px;
-    line-height: 30px ;
-    margin-top: -2%;}}
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
 
-/*MEDIDA SM HASTA 767PX*/
-@media (min-width: 576px) and (max-width:767px){
-  #products-head-list{
-  font-size: 35px;
-  margin-top: 0px;}}
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
 
-  /* MEDIDA XL */
-  @media (min-width: 1200px) and (max-width: 1399px){
-    #products-head-list {
-      font-family: "Jost", sans-serif;
-      font-size: 40px;
-      font-weight: 500;
-      line-height: 25px;
-      text-align: center;
-      color: white;
-      margin-top: 50px;
-}}
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
 
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
 
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 0.8rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.2rem;
+  }
+}
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
+
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
+
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
+
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 1rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.4rem;
+  }
+}
+
+/* MEDIDA XL */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  #products-head-list {
+    font-family: "Jost", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+  }
+}
 
 .subtitulo {
   font-family: "Jost", sans-serif;
@@ -517,109 +696,106 @@ h2{
 }
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
-  .subtitulo{
-    font-size: 10px;
-    line-height: 5px ;
+  .subtitulo {
+    font-size: 0.8rem;
+    line-height: 5px;
     margin-top: -1%;
-    margin-bottom: -5%;
-  }}
+  }
+}
 
 /*MEDIDA SM HASTA 767PX*/
-  @media (min-width: 576px) and (max-width: 767px) {
-    .subtitulo{
-      font-size: 20px;
-      line-height: 5px ;
-      margin-top: -1%;
-    }}
+@media (min-width: 576px) and (max-width: 767px) {
+  .subtitulo {
+    font-size: 20px;
+    line-height: 5px;
+    margin-top: -1%;
+  }
+}
 
 /*MEDIDA LG PARA TABLET HASTA 1199PX*/
-@media (min-width: 768px) and (max-width: 1199px)  {
-  .subtitulo{
+@media (min-width: 768px) and (max-width: 1199px) {
+  .subtitulo {
     font-size: 20px;
-    line-height:  5px ;
+    line-height: 5px;
     margin-top: -1%;
-  }}
-
- /* MEDIDA XL */ 
-@media (min-width: 1200px) and (max-width: 1399px){
-    .subtitulo{
-      margin-bottom: -5%;
-  }}
+  }
+}
 
 #carta-img {
   /*background: rgb(255, 255, 255);*/
-  background: #B9D6F2;
+  background: #b9d6f2;
 }
 #carta-img {
-border-radius: 20px;
+  border-radius: 20px;
 }
 
-@media (min-width: 320px) and (max-width: 575px){
+@media (min-width: 320px) and (max-width: 575px) {
   .list-group {
-  margin-top: -10%;
-  height: 10%;
-  margin-bottom: -15%;
-  }}
+    margin-top: -10%;
+    height: 10%;
+    margin-bottom: -15%;
+  }
+}
 
-#navbar{
-  background: #0353a4!important;
+#navbar {
+  background: #0353a4 !important;
 }
 #img-carta {
   border-radius: 20px 20px 0px 0px !important;
 }
 
-.car-cost{
+.car-cost {
   font-size: 20px;
 }
 /*MEDIDA XS */
-@media (min-width: 320px) and (max-width: 575px){
-  .card-text{
-    font-size:11.5px;
+@media (min-width: 320px) and (max-width: 575px) {
+  .card-text {
+    font-size: 11.5px;
     margin-top: -0.5em;
-}}
+  }
+}
 
-
-.car-description{
+.car-description {
   font-size: 16px;
 }
 /*MEDIDA XS*/
 @media (min-width: 320px) and (max-width: 575px) {
-  .car-description{
+  .car-description {
     font-size: 12px;
     line-height: 1em;
-}}
-
+  }
+}
 
 .nav-link {
-  color: #fff!important;
+  color: #fff !important;
 }
 
 /*Clases del nuevo footer que usamos en el login para que quede igual*/
 .footer-container {
-    background-color: #B9D6F2; 
-    padding: 3px; 
-    margin-top: 100px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #b9d6f2;
+  padding: 3px;
+  margin-top: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
-    text-align: center; 
-    font-family: 'Jost', sans-serif; 
-    font-size: 17px; 
-    color: #000000; 
-    padding: 10px 0; 
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 10px 0;
 }
 
 .footer-link {
-    color: #061a40; 
-    text-decoration: none; 
+  color: #061a40;
+  text-decoration: none;
 }
 
-hr{
-    width: 75%;
-    height: 1px;
-    background-color: #0353a4; 
-    margin: 0 auto;
+hr {
+  width: 75%;
+  height: 1px;
+  background-color: #0353a4;
+  margin: 0 auto;
 }
 .subbackground {
   margin-left: 5%;
@@ -627,21 +803,27 @@ hr{
 }
 
 /* MEDIDA XS*/
-@media (min-width: 320px) and (max-width: 575px){
-#margin{
-margin-top: 40px;}}
+@media (min-width: 320px) and (max-width: 575px) {
+  #margin-p {
+    margin-top: 40px;
+  }
+}
 
 /*MEDIDA SM*/
-@media   (min-width: 576px) {
-  #margin{
-    margin-top: 50px;}}
+@media (min-width: 576px) {
+  #margin-p {
+    margin-top: 50px;
+  }
+}
 
 /*MEDIDA XL*/
 @media (min-width: 1200px) {
-#margin{
-  margin-top: 100px;}}
+  #margin-p {
+    margin-top: 100px;
+  }
+}
 
-div #margin{
-  margin-left:auto;
+div #margin-p {
+  margin-left: auto;
   margin-right: auto;
 }
