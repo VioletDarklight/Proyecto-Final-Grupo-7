@@ -1,36 +1,34 @@
-let PRODUCTS_BASE_URL = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
-let productId = localStorage.getItem('selectedProductId');
+let AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+let cat = localStorage.getItem("catID");
+if (cat == null) {
+  cat = 101;
+}
 
-if (productId) {
-    let productInfoUrl = `${PRODUCTS_BASE_URL}${productId}.json`;
+function showData(array) {
+    contenedor.innerHTML = ''; 
 
-    fetch(productInfoUrl)
-        .then(response => response.json())
-        .then(data => {
-            let product = data;  
-            let container = document.getElementById('detalles-producto');
-            let images = product.images.map(imageUrl => `<img src="${imageUrl}" class="img-fluid img-thumbnail" alt="${product.name}">`).join('');
+    for (const item of array) {
+        let images = item.images.map(imageUrl => `
+            <img class="img-fluid card-img-top rounded-top mx-auto d-block" src="${item.image}>
+        `).join('');
 
-            container.innerHTML = `
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text">${product.description}</p>
-                        <p class="card-text"><strong>Categoría:</strong> ${product.category}</p>
-                        <p class="card-text"><small class="text-muted">${product.soldCount} vendidos</small></p>
-                    </div>
-                    <div class="card-body">
-                        <h5>Imágenes del producto</h5>
-                        <div class="d-flex flex-wrap">
-                            ${images}
+        contenedor.innerHTML += `
+            <div class="col">
+                <div class="col-lg-12 card mb-3 shadow">
+                    ${images}
+                    <div class="rounded mx-auto row card-body">
+                        <h2 class="card-title text-center">${item.name}</h2>
+                        <p class="col-sm-12 card-text text-center">${item.description}</p>
+                        
+                        <div class="col-sm-12 col-lg-12 col-md-12 d-flex justify-content-between px-3">
+                            <p class="card-text text-left mb-0">
+                                <small>${item.soldCount} vendidas</small>
+                            </p>
+                            <p class="card-text mb-0">${item.cost} ${item.currency}</p>
                         </div>
                     </div>
                 </div>
-            `;
-        })
-        .catch(error => {
-            console.error('Error del producto:', error);
-        });
-} else {
-    console.error('No se encontró el producto.');
+            </div>
+        `;
+    }
 }
