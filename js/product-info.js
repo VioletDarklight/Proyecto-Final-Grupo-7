@@ -37,9 +37,8 @@ function showProduct(infoCard) {
     <img class="mainImage" id=mainImage src="${infoCard.images[0]}" alt="imagen principal">
   `;
   changeMainImage(infoCard.images[0]);
-
+  //Bucle que recorre el array de imágenes
   for (let i = 0; i < infoCard.images.length; i++) {
-    //Bucle que recorre el array de imágenes
     let img = infoCard.images[i]; //En cada iteración, extraemos una imagen del array y la guardamos en la variable img
 
     //Agrega nueva imagen dentro de containerSecondaryImages.
