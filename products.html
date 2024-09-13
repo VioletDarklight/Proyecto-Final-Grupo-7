@@ -43,10 +43,14 @@
   <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
   <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
 
+
+  <div class="col-5 search-container"></div>
+  <label for="lupa"><i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i></label>
+  <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" class="buscador-estandar" />
+</div>
   <div class="filters-wrapper col-lg-7">
+
     <!-- Acordeón visible solo en pantallas pequeñas -->
-    <i class="fa fa-search busca" id="lupa" class="lupa-pequeña"></i>
-    <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" class="buscador-pequeña" />
     <div class="accordion d-lg-none" id="filtersAccordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
@@ -66,7 +70,7 @@
               <input type="radio" class="btn-check" name="options" id="sortDescSmall">
               <label class="btn btn-light" for="sortDescSmall"><i class="fas fa-long-arrow-alt-down"></i> $</label>
               <input type="radio" class="btn-check" name="options" id="sortByCountSmall" checked>
-              <label class="btn btn-light" for="sortByCountSmall">Ordenar por relevancia</label>
+              <label class="btn btn-light" for="sortByCountSmall"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
             </div>
 
             <div class="filter-price-text">
@@ -95,6 +99,7 @@
     <div class="filters-container d-none d-lg-flex">
 
     <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+      
         <input type="radio" class="btn-check" name="options" id="sortAsc">
         <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
         <input type="radio" class="btn-check" name="options" id="sortDesc">

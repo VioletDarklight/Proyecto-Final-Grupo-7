@@ -579,7 +579,6 @@ button {
   .buscador-pequeña{
     display: none;
   }
-}
 
 
 
@@ -591,6 +590,11 @@ button {
   }
 }
 
+/*ESTILO PARA BUSCADOR*/
+.search-container { 
+  display: flex;
+  align-items: center;
+}
 
   /*ESTILO PARA FILTROS*/
   .filters-container {
@@ -825,4 +829,34 @@ margin-top: 43px;
 }
 .lupa-pequeña {
 margin-top: 43px;
+} 
+
+/*MEDIDA PARA LA TABLET BUSCADOR*/
+@media (min-width: 320px) and (max-width: 1024px){
+  .lupa-pequeña {}
+  .buscador-pequeña {}
+  .lupa-estandar {
+    display: none;
+  }
+  .buscador-estandar {
+    display: none;
+  }
 }
+/* MEDIDA PARA PC BUSCADOR*/
+@media (min-width: 1025px) (max-width: 1920){
+.lupa-pequeña {
+display: none;
+}
+.buscador-pequeña {
+  display: none;
+}
+.lupa-estandar {
+}
+.buscador-estandar {
+}
+}
+/* posicion del buscador 
+.search-input {
+  margin-left: 5%;
+  display: block;
+} */
