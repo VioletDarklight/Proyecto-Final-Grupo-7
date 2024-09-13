@@ -521,6 +521,91 @@ h2{
   margin-top: 50px;
 }
 
+/* Estilos de PRODUCT-INFO */
+.product-description {
+  display: flex;
+}
+.productContent {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.productInfo h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: rgb(241, 241, 241);
+  text-align: left;
+}
+
+.st-products-category {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.st-products-category span {
+  font-weight: 400;
+}
+.st-products {
+  font-size: 1rem;
+}
+.productImages {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.555);
+}
+.containerMainImage {
+  width: 100%;
+  overflow: hidden;
+}
+.containerSecondaryImages {
+  display: flex;
+}
+.mainImage {
+  width: 100%;
+  margin: 10px 0px;
+  border-radius: 1rem;
+  box-sizing: content-box;
+  transition: transform 0.2s;
+}
+.mainImage:hover {
+  transform: scale(1.5);
+}
+.unitImages {
+  display: flex;
+  max-width: 120px;
+  margin: 10px;
+  border: 1px solid #10284123;
+  padding: 0.2rem;
+  border-radius: 1rem;
+}
+
+.unitImages:hover {
+  border: 2px groove #5a7ec2b0;
+}
+
+.containerInfo {
+  padding-right: 1rem;
+  display: grid;
+  align-items: center;
+}
+
+.cost {
+  font-size: 1.3em;
+}
+.currency {
+  font-size: 0.7em;
+}
+
+.totalSold {
+  font-size: 0.9rem;
+  color: #e2e1e1;
+}
+
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
   #products-head-list {
