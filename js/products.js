@@ -153,3 +153,20 @@ sortDescRadioSmall.addEventListener("click", () => {
 sortByCountRadioSmall.addEventListener("click", () => {
   sortDataBySoldCount(); // Ordenar por cantidad de vendidos
 });
+
+// Funcion para el buscador 
+document.addEventListener("DOMContentLoaded", function () {
+
+  let buscador = document.getElementById("search-input");
+
+  buscador.addEventListener("input", function () {
+    let productos_autos = dataArray.filter((auto) => {
+      // 1. Convertir a minúsculas el nombre del auto, la descripcion y lo que se escriba en el buscador
+      // 2. Verificar si el nombre del auto incluye el texto del buscador o si coincide con algo en la descripcion
+      return auto.name.toLowerCase().includes(buscador.value.toLowerCase()) ||
+        auto.description.toString().includes(buscador.value);
+    });
+
+    showData(productos_autos);
+  });
+})
