@@ -43,12 +43,17 @@
   <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
   <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
 
+  <div class="nav-search text-center">
+    <i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i>
+    <input
+      type="search"
+      id="search-input"
+      class="search"
+      placeholder="Buscar..."
+    />
+  </div>
 
-  <div class="col-5 search-container"></div>
-  <label for="lupa"><i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i></label>
-  <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" class="buscador-estandar" />
-</div>
-  <div class="filters-wrapper col-lg-7">
+  <div class="filters-wrapper">
 
     <!-- Acordeón visible solo en pantallas pequeñas -->
     <div class="accordion d-lg-none" id="filtersAccordion">
@@ -116,8 +121,8 @@
         <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
       </div>
 
-      <div class="col-1 filter-price-text" id="linePrice">
-        <p class="font-weight-normal my-2">--</p>
+      <div class="col-1 text-center" id="linePrice">
+        <p class="font-weight-bold my-2">-</p>
       </div>
 
       <div class="col">
