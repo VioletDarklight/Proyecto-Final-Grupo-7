@@ -485,48 +485,6 @@ button {
   margin-right: 1rem;
 }
 
-/* DEJO DESDE ACA PARA ABAJO LOS CAMBIOS QUE ESTAN ENLAZADOS CON LOS DE HTML QUE HICE, SI ESTA TODO MAL ME RETAN CON GANAS MAÑANA */
-/*.categorias-container {
-  width: 300px; 
-  padding: 20px; 
-  background-color: #8cc0f1; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  list-style-type: none;
-  
-}
-.contenedor-grande {
-  width: 100%; 
-  max-width: 1200px; 
-  padding: 40px; 
-  background-color: #e9e9e9f3; 
-  border-radius: 20px; 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
-  margin: 20px auto; 
-  
-}
-.categorias-lista {
-  list-style-type: none; 
-  padding: 0; 
-  margin: 0; 
-  font-weight: bold;
-  text-align: center;
-
-}
-.subcategoria-lista {
-font-weight: none;
-text-align: right;
-
-}
-h2{
-  text-align: left;
-}
-.subcategoria-listafiltro{
-  text-align: right;
-
-}*/
-
-/* RESPONSIVIDAD MODIFICACIONES PARA PRODUCTOS*/
 
 #products-head-list {
   font-family: "Jost", sans-serif;
@@ -545,6 +503,7 @@ h2{
     line-height: 30px;
     margin-top: -2%;
   }
+}
 
   /*ESTILO PARA FILTROS*/
   .filters-container {
@@ -613,7 +572,16 @@ h2{
   .form-control {
     padding: 0.2rem;
   }
+  /* para que no se vea la lupa y buscador de pantallas pequeñas */
+  .lupa-pequeña{
+    display: none;
+  }
+  .buscador-pequeña{
+    display: none;
+  }
 }
+
+
 
 /*MEDIDA SM HASTA 768PX*/
 @media (min-width: 576px) and (max-width: 768px) {
@@ -621,6 +589,8 @@ h2{
     font-size: 35px;
     margin-top: 0px;
   }
+}
+
 
   /*ESTILO PARA FILTROS*/
   .filters-container {
@@ -689,7 +659,9 @@ h2{
   .form-control {
     padding: 0.4rem;
   }
+
 }
+
 
 /* MEDIDA XL */
 @media (min-width: 1200px) and (max-width: 1399px) {
@@ -824,6 +796,7 @@ hr {
   #margin-p {
     margin-top: 40px;
   }
+  
 }
 
 /*MEDIDA SM*/
@@ -843,4 +816,13 @@ hr {
 div #margin-p {
   margin-left: auto;
   margin-right: auto;
+}
+/* prueba del buscador */
+.buscador-pequeña {
+margin-left: 1%;
+margin-right: 5%;
+margin-top: 43px;
+}
+.lupa-pequeña {
+margin-top: 43px;
 }

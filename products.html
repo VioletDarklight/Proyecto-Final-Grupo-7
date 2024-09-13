@@ -45,6 +45,8 @@
 
   <div class="filters-wrapper col-lg-7">
     <!-- Acordeón visible solo en pantallas pequeñas -->
+    <i class="fa fa-search busca" id="lupa" class="lupa-pequeña"></i>
+    <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" class="buscador-pequeña" />
     <div class="accordion d-lg-none" id="filtersAccordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
@@ -92,11 +94,7 @@
     <!-- Filtros visibles en pantallas grandes -->
     <div class="filters-container d-none d-lg-flex">
 
-    
-       
-      <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
-        <i class="fa fa-search busca" id="lupa"></i>
-        <input type="search" id="search-input" placeholder="¿Que estas buscando hoy?" />
+    <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
         <input type="radio" class="btn-check" name="options" id="sortAsc">
         <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
         <input type="radio" class="btn-check" name="options" id="sortDesc">
