@@ -23,9 +23,9 @@ fetch(prodInfoURL)
 // Función para mostrar los detalles del producto
 function showProduct(infoCard) {
   containerInfo.innerHTML += `
+  <h1>${infoCard.name}</h1>
     <div class="productInfo"> 
-      <h1>${infoCard.name}</h1>
-      <p class="totalSold">| ${infoCard.soldCount} vendidos</p>
+      <p class="totalSold">Cantidad de vendidos:</br>${infoCard.soldCount} vendidos</p>
       <p class="cost"><span class="currency">${infoCard.currency}</span> ${infoCard.cost}</p>
       <p class="st-products-category">Categoría: <span>${infoCard.category}</span></p>
       <h3 class="st-products mt-3">Detalles del producto:</h3>

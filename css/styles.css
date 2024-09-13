@@ -541,9 +541,9 @@ button {
 .productImages {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 1rem;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
+
 }
 .containerMainImage {
   width: 100%;
@@ -566,9 +566,7 @@ button {
   display: flex;
   max-width: 120px;
   margin: 10px;
-  border: 1px solid #10284123;
   padding: 0.2rem;
-  border-radius: 1rem;
 }
 
 .unitImages:hover {
@@ -590,7 +588,7 @@ button {
 
 .totalSold {
   font-size: 0.9rem;
-  color: #e2e1e1;
+
 }
 
 /* MEDIDA XS HASTA  575px */
@@ -960,3 +958,41 @@ div #margin-p {
     display: none;
   }
 }
+
+
+
+#info-product {
+  flex: 1;
+  padding-right: 20px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
+}
+
+#info-product h1 {
+  font-size: 36px;
+  font-family: "Jost", sans-serif;
+  text-transform: uppercase;
+  color: white; /* White for contrast */
+  margin-bottom: 10px;
+}
+
+
+
+#product-image img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the image */
+}
+
+/* Thumbnail gallery below the main image */
+.thumbnails {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.productInfo{
+  padding-left: 20px;
+}
+
+
