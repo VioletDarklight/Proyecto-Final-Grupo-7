@@ -511,9 +511,14 @@ button {
 /* Estilos de PRODUCT-INFO */
 .product-description {
   display: flex;
+  flex: 1;
+  padding-right: 20px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
 }
 .productContent {
-  max-width: 920px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -521,11 +526,13 @@ button {
   margin-top: 50px;
 }
 
-.productInfo h1 {
-  font-weight: 600;
+#product-name {
+  font-weight: 500;
   font-size: 2rem;
+  font-family: "Jost", sans-serif;
   color: rgb(241, 241, 241);
   text-align: left;
+  text-transform: uppercase;
 }
 
 .st-products-category {
@@ -543,14 +550,20 @@ button {
   flex-wrap: wrap;
   padding: 1rem;
   border-radius: 1rem;
+  min-width: 0;
 
 }
+
 .containerMainImage {
   width: 100%;
   overflow: hidden;
 }
 .containerSecondaryImages {
   display: flex;
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 .mainImage {
   width: 100%;
@@ -564,18 +577,16 @@ button {
 }
 .unitImages {
   display: flex;
-  max-width: 120px;
-  margin: 10px;
-  padding: 0.2rem;
+  padding: 0.1rem;
+  max-width: 180px;
 }
 
 .unitImages:hover {
-  border: 2px groove #5a7ec2b0;
+  border: 1px groove #5a7ec2b0;
 }
 
 .containerInfo {
   padding-right: 1rem;
-  display: grid;
   align-items: center;
 }
 
@@ -586,10 +597,7 @@ button {
   font-size: 0.7em;
 }
 
-.totalSold {
-  font-size: 0.9rem;
 
-}
 
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
@@ -960,35 +968,9 @@ div #margin-p {
 }
 
 
-
-#info-product {
-  flex: 1;
-  padding-right: 20px;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.555);
-  border-radius: 1rem;
-}
-
-#info-product h1 {
-  font-size: 36px;
-  font-family: "Jost", sans-serif;
-  text-transform: uppercase;
-  color: white; /* White for contrast */
-  margin-bottom: 10px;
-}
-
-
-
 #product-image img {
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the image */
-}
-
-/* Thumbnail gallery below the main image */
-.thumbnails {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .productInfo{
@@ -996,3 +978,54 @@ div #margin-p {
 }
 
 
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  .product-description {
+        display: block;
+        float: none;
+        width: auto;
+        padding: 0;
+      }
+      .productImages{
+        display: block;
+        padding: 0;
+      }
+      .containerSecondaryImages
+    {
+      display: block;
+    }
+    .unitImages{
+      max-width: fit-content;
+      margin: auto;
+      padding: 0.2rem 0;
+    }
+    .mainImage{
+      margin: 0;
+     border-radius: 0 0 1rem
+    }
+    #product-name{
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+  .unitImages{
+    max-width: 120px;
+  }
+  .unitImages:nth-child(even){
+    float: right;
+  }
+  .unitImages:nth-child(odd){
+    float: left;
+  }
+  .containerSecondaryImages
+    {
+      display: block;
+    }
+}
