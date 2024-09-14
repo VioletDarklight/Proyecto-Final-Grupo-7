@@ -1016,7 +1016,7 @@ div #margin-p {
     margin-top: 0px;
   }
   .unitImages{
-    max-width: 230px;
+    max-width: 150px;
   }
   .unitImages:nth-child(even){
     float: right;
