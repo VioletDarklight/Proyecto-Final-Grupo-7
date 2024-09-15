@@ -510,14 +510,30 @@ button {
   text-align: center;
   color: white;
   margin-top: 50px;
+  color: white !important;
+}
+
+#products-head-list {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 57.8px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
 }
 
 /* Estilos de PRODUCT-INFO */
 .product-description {
   display: flex;
+  flex: 1;
+  padding-right: 20px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
 }
 .productContent {
-  max-width: 920px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -525,11 +541,13 @@ button {
   margin-top: 50px;
 }
 
-.productInfo h1 {
-  font-weight: 600;
+#product-name {
+  font-weight: 500;
   font-size: 2rem;
+  font-family: "Jost", sans-serif;
   color: rgb(241, 241, 241);
   text-align: left;
+  text-transform: uppercase;
 }
 
 .st-products-category {
@@ -545,16 +563,21 @@ button {
 .productImages {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 1rem;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
+  min-width: 0;
 }
+
 .containerMainImage {
   width: 100%;
   overflow: hidden;
 }
 .containerSecondaryImages {
   display: flex;
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 .mainImage {
   width: 100%;
@@ -568,20 +591,16 @@ button {
 }
 .unitImages {
   display: flex;
-  max-width: 120px;
-  margin: 10px;
-  border: 1px solid #10284123;
-  padding: 0.2rem;
-  border-radius: 1rem;
+  padding: 0.1rem;
+  max-width: 180px;
 }
 
 .unitImages:hover {
-  border: 2px groove #5a7ec2b0;
+  border: 1px groove #5a7ec2b0;
 }
 
 .containerInfo {
   padding-right: 1rem;
-  display: grid;
   align-items: center;
 }
 
@@ -592,9 +611,81 @@ button {
   font-size: 0.7em;
 }
 
-.totalSold {
-  font-size: 0.9rem;
-  color: #e2e1e1;
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
+
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
+
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
+
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
+
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 0.8rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.2rem;
+  }
 }
 
 /* MEDIDA XS HASTA  575px */
@@ -869,6 +960,64 @@ div #margin-p {
   margin-right: auto;
 }
 
+#product-image img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productInfo {
+  padding-left: 20px;
+}
+
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  .product-description {
+    display: block;
+    float: none;
+    width: auto;
+    padding: 0;
+  }
+  .productImages {
+    display: block;
+    padding: 0;
+  }
+  .containerSecondaryImages {
+    display: block;
+  }
+  .unitImages {
+    max-width: fit-content;
+    margin: auto;
+    padding: 0.2rem 0;
+  }
+  .mainImage {
+    margin: 0;
+    border-radius: 0 0 1rem;
+  }
+  #product-name {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+  .unitImages {
+    max-width: 150px;
+  }
+  .unitImages:nth-child(even) {
+    float: right;
+  }
+  .unitImages:nth-child(odd) {
+    float: left;
+  }
+  .containerSecondaryImages {
+    display: block;
+  }
+}
 /*MEDIDA PARA LA TABLET BUSCADOR*/
 @media (min-width: 320px) and (max-width: 1024px) {
   .lupa-estandar {

@@ -12,6 +12,7 @@ let containerMainImage =
 let containerSecondaryImages = document.getElementsByClassName(
   "containerSecondaryImages"
 )[0];
+let productName = document.getElementById("product-name");
 
 // Cargar y mostrar datos iniciales del producto
 fetch(prodInfoURL)
@@ -22,14 +23,15 @@ fetch(prodInfoURL)
 
 // Función para mostrar los detalles del producto
 function showProduct(infoCard) {
+  // Mostrar el nombre del producto fuera del contenedor
+  productName.textContent = infoCard.name;
+
   containerInfo.innerHTML += `
     <div class="productInfo"> 
-      <h1>${infoCard.name}</h1>
-      <p class="totalSold">| ${infoCard.soldCount} vendidos</p>
-      <p class="cost"><span class="currency">${infoCard.currency}</span> ${infoCard.cost}</p>
-      <p class="st-products-category">Categoría: <span>${infoCard.category}</span></p>
-      <h3 class="st-products mt-3">Detalles del producto:</h3>
+    <h3 class="st-products mt-3">Detalles del producto:</h3>
       <p>${infoCard.description}</p>
+      <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
+      <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
     </div>
   `;
 
