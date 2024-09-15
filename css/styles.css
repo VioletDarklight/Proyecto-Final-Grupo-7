@@ -466,22 +466,23 @@ button:hover {
 
 .filters-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-right: 5%;
+  margin-right: 27%;
+  margin-left: 27%;
   margin-top: 1%;
-  margin-bottom: 1%;
   padding: 0.4rem;
   border-radius: 1.5rem;
-  width: 50%;
+  width: 100%;
 }
 
 .filter-price-text {
   width: fit-content;
   text-align: right;
-  padding-right: 0.2rem;
-  margin-left: 1rem;
+  padding-right: 0.4rem;
+  margin-left: 2rem;
   color: white;
+  font-weight: 500;
 }
 
 .filters-wrapper {
@@ -495,6 +496,20 @@ button {
 }
 
 #linePrice {
+  color: white !important;
+  max-width: fit-content;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+#products-head-list {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 57.8px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
   color: white !important;
 }
 
@@ -551,7 +566,6 @@ button {
   padding: 1rem;
   border-radius: 1rem;
   min-width: 0;
-
 }
 
 .containerMainImage {
@@ -597,7 +611,82 @@ button {
   font-size: 0.7em;
 }
 
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
 
+  /*ESTILO PARA FILTROS*/
+  .filters-container {
+    display: none; /* Para ocultar los filtros de pantallas grandes */
+  }
+
+  .accordion {
+    margin-bottom: 1rem;
+    margin-right: 6%;
+  }
+
+  #filtersAccordion {
+    border: none;
+    margin-top: 1rem;
+  }
+
+  .accordion-body label,
+  .accordion-body input {
+    font-size: 0.8rem;
+  }
+
+  #filtersAccordion .accordion-body {
+    padding: 0.75rem;
+  }
+
+  #filtersAccordion .accordion-body .btn-group,
+  #filtersAccordion .accordion-body input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #filtersAccordion .accordion-body .filter-price-text {
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  #clearRangeFilterSmall {
+    margin-left: 0;
+  }
+
+  #rangeFilterCountSmall {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #000;
+  }
+
+  #filtersAccordion .accordion-button {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .accordion-item {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+  }
+
+  .form-control {
+    padding: 0.2rem;
+  }
+}
 
 /* MEDIDA XS HASTA  575px */
 @media (min-width: 320px) and (max-width: 575px) {
@@ -624,82 +713,6 @@ button {
 
 .filters-container button {
   padding: 0.2rem;
-}
-
-.accordion {
-  margin-bottom: 1rem;
-  margin-right: 6%;
-}
-
-#filtersAccordion {
-  border: none;
-  margin-top: 1rem;
-}
-
-.accordion-body label,
-.accordion-body input {
-  font-size: 0.8rem;
-}
-
-#filtersAccordion .accordion-body {
-  padding: 0.75rem;
-}
-
-#filtersAccordion .accordion-body .btn-group,
-#filtersAccordion .accordion-body input {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-#filtersAccordion .accordion-body .filter-price-text {
-  text-align: left;
-  font-weight: normal;
-  margin: 0;
-  padding-right: 0.5rem;
-  font-size: 0.85rem;
-}
-
-#clearRangeFilterSmall {
-  margin-left: 0;
-}
-
-#rangeFilterCountSmall {
-  margin-left: 0;
-  font-size: 0.8rem;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #000;
-}
-
-#filtersAccordion .accordion-button {
-  background-color: whitesmoke;
-  border-radius: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 0.85rem;
-  padding: 0.3rem 0.5rem;
-}
-
-.accordion-item {
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-}
-
-.form-control {
-  padding: 0.2rem;
-}
-
-/*MEDIDA SM HASTA 768PX*/
-@media (min-width: 576px) and (max-width: 768px) {
-  #products-head-list {
-    font-size: 35px;
-    margin-top: 0px;
-  }
-}
-
-/*ESTILO PARA FILTROS*/
-.filters-container {
-  display: none; /* Para ocultar los filtros de pantallas grandes */
 }
 
 .accordion {
@@ -763,6 +776,14 @@ button {
 
 .form-control {
   padding: 0.4rem;
+}
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
 }
 
 /* MEDIDA XL */
@@ -938,16 +959,65 @@ div #margin-p {
   margin-left: auto;
   margin-right: auto;
 }
-/* prueba del buscador */
-.buscador-pequeña {
-  margin-left: 1%;
-  margin-right: 5%;
-  margin-top: 43px;
-}
-.lupa-pequeña {
-  margin-top: 43px;
+
+#product-image img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.productInfo {
+  padding-left: 20px;
+}
+
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  .product-description {
+    display: block;
+    float: none;
+    width: auto;
+    padding: 0;
+  }
+  .productImages {
+    display: block;
+    padding: 0;
+  }
+  .containerSecondaryImages {
+    display: block;
+  }
+  .unitImages {
+    max-width: fit-content;
+    margin: auto;
+    padding: 0.2rem 0;
+  }
+  .mainImage {
+    margin: 0;
+    border-radius: 0 0 1rem;
+  }
+  #product-name {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+  .unitImages {
+    max-width: 150px;
+  }
+  .unitImages:nth-child(even) {
+    float: right;
+  }
+  .unitImages:nth-child(odd) {
+    float: left;
+  }
+  .containerSecondaryImages {
+    display: block;
+  }
+}
 /*MEDIDA PARA LA TABLET BUSCADOR*/
 @media (min-width: 320px) and (max-width: 1024px) {
   .lupa-estandar {
@@ -965,67 +1035,4 @@ div #margin-p {
   .buscador-pequeña {
     display: none;
   }
-}
-
-
-#product-image img {
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.productInfo{
-  padding-left: 20px;
-}
-
-
-/* MEDIDA XS HASTA  575px */
-@media (min-width: 320px) and (max-width: 575px) {
-  .product-description {
-        display: block;
-        float: none;
-        width: auto;
-        padding: 0;
-      }
-      .productImages{
-        display: block;
-        padding: 0;
-      }
-      .containerSecondaryImages
-    {
-      display: block;
-    }
-    .unitImages{
-      max-width: fit-content;
-      margin: auto;
-      padding: 0.2rem 0;
-    }
-    .mainImage{
-      margin: 0;
-     border-radius: 0 0 1rem
-    }
-    #product-name{
-      text-align: center;
-      font-size: 1.5rem;
-    }
-  }
-
-/*MEDIDA SM HASTA 768PX*/
-@media (min-width: 576px) and (max-width: 768px) {
-  #products-head-list {
-    font-size: 35px;
-    margin-top: 0px;
-  }
-  .unitImages{
-    max-width: 150px;
-  }
-  .unitImages:nth-child(even){
-    float: right;
-  }
-  .unitImages:nth-child(odd){
-    float: left;
-  }
-  .containerSecondaryImages
-    {
-      display: block;
-    }
 }
