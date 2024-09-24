@@ -533,7 +533,7 @@ button {
   border-radius: 1rem;
 }
 .productContent {
-  max-width: 1080px;
+  max-width: 60rem;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -932,6 +932,64 @@ hr {
 .subbackground {
   margin-left: 5%;
   margin-right: 5%;
+}
+
+/* Sección calificaciones */
+.commentCard {
+  background-color: rgba(255, 255, 255, 0.418);
+  max-width: 50rem;
+  border-radius: 1rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+}
+
+.container-comments {
+  background: linear-gradient(#ffffff44, #ffffff96);
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  margin-top: 1.5rem;
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+}
+
+.stars {
+  color: rgba(3, 83, 164, 0.959);
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.commentDescription {
+  font-size: 1.15rem;
+  font-weight: 450;
+}
+
+.userNameComment {
+  color: rgba(3, 83, 164, 0.959);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.dataComment {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.titleOpinions {
+  justify-content: left;
+  margin-left: 4rem;
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
 }
 
 /* MEDIDA XS*/

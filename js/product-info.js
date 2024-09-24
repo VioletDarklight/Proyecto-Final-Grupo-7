@@ -90,8 +90,8 @@ function showProdCommInfo(commCard) {
         <p class="commentDescription">${item.description}</p>
         <p class="userNameComment">${item.user}</p>
         <p class="dataComment">${formatDate(item.dateTime)} hs</p>
-        <hr>
       </div>
+    
     `;
   }
 }
@@ -106,7 +106,7 @@ function formatDate(date) {
     minute: "numeric",
     //second: "numeric", -> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
   };
-  return new Date(date).toLocaleDateString("es-UY", infoDate);
+  return new Date(date).toLocaleDateString("es-ES", infoDate);
 }
 
 // Función para convertir puntuación en estrellas
