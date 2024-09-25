@@ -41,7 +41,7 @@
   </nav>
   <br>
   <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
-  <p class="subtitulo">Verás aquí todos los modelos de autos disponibles</p>
+  <p class="subtitulo">Verás aquí todos los modelos disponibles</p>
 
   <div class="nav-search text-center">
     <i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i>
@@ -100,46 +100,50 @@
       </div>
     </div>
 
-    <!-- Filtros visibles en pantallas grandes -->
-    <div class="filters-container d-none d-lg-flex">
 
-    <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
-      
-        <input type="radio" class="btn-check" name="options" id="sortAsc">
-        <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
-        <input type="radio" class="btn-check" name="options" id="sortDesc">
-        <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
-        <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-        <label class="btn btn-light" for="sortByCount"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
-      </div>
-
-      <div class="col-1 filter-price-text">
-        <p class="font-weight-normal my-2">Precio</p>
-      </div>
-
-      <div class="col">
-        <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
-      </div>
-
-      <div class="col-1 text-center" id="linePrice">
-        <p class="font-weight-bold my-2">-</p>
-      </div>
-
-      <div class="col">
-        <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
-      </div>
-
-      <div class="col p-0 btn-group" role="group">
-        <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-        <button class="btn btn-link btn-sm" id="clearRangeFilter">
-          <i class="fas fa-solid fa-trash"></i>
-        </button>
-      </div>
-    </div>
   </div>
 
 
   <div class="subbackground">
+        <!-- Filtros visibles en pantallas grandes -->
+        <div class="filters-wrapper">
+        <div class="filters-container d-none d-lg-flex">
+
+          <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+            
+              <input type="radio" class="btn-check" name="options" id="sortAsc">
+              <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
+              <input type="radio" class="btn-check" name="options" id="sortDesc">
+              <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
+              <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
+              <label class="btn btn-light" for="sortByCount"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
+            </div>
+      
+            <div class="col-1 filter-price-text">
+              <p class="font-weight-normal my-2">Precio</p>
+            </div>
+      
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+            </div>
+      
+            <div class="col-1 text-center" id="linePrice">
+              <p class="font-weight-bold my-2">-</p>
+            </div>
+      
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+            </div>
+      
+            <div class="col p-0 btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="clearRangeFilter">
+                <i class="fas fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          </div>
+          <hr>
     <div id="margin" class="container  row-style col-sm-12 col-md-11 col-lg-7">
       <div class="list-group" class="col-sm-12" id="pro-list-cont">
       </div>

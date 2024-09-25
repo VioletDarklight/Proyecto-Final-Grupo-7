@@ -28,11 +28,10 @@ function showProduct(infoCard) {
 
   containerInfo.innerHTML += `
     <div class="productInfo"> 
-      <p class="totalSold">Cantidad de vendidos:</br>${infoCard.soldCount} vendidos</p>
-      <p class="cost"><span class="currency">${infoCard.currency}</span> ${infoCard.cost}</p>
-      <p class="st-products-category">Categoría: <span>${infoCard.category}</span></p>
-      <h3 class="st-products mt-3">Detalles del producto:</h3>
+    <h3 class="st-products mt-3">Detalles del producto:</h3>
       <p>${infoCard.description}</p>
+      <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
+      <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
     </div>
   `;
 
