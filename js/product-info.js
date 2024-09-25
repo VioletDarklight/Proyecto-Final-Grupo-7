@@ -5,6 +5,12 @@ let prodID = localStorage.getItem("prodID");
 let prodInfoURL =
   "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
 
+// URL que apunta al JSON que contiene la información de comentarios
+let prodCommURL =
+  "https://japceibal.github.io/emercado-api/products_comments/" +
+  prodID +
+  ".json";
+
 // Variables de referencias a elementos del HTML
 let containerInfo = document.getElementsByClassName("containerInfo")[0];
 let containerMainImage =
@@ -13,6 +19,7 @@ let containerSecondaryImages = document.getElementsByClassName(
   "containerSecondaryImages"
 )[0];
 let productName = document.getElementById("product-name");
+let containerComm = document.getElementById("containerComm");
 
 // Cargar y mostrar datos iniciales del producto
 fetch(prodInfoURL)
@@ -55,4 +62,54 @@ function showProduct(infoCard) {
 function changeMainImage(src) {
   let mainImage = document.getElementById("mainImage");
   mainImage.src = src;
+}
+
+// Cargar y mostrar datos iniciales de comentarios
+fetch(prodCommURL)
+  .then((response) => response.json())
+  .then(showProdCommInfo);
+
+// Función para mostrar los comentarios
+function showProdCommInfo(commCard) {
+  containerComm.innerHTML = `
+    <h3 class="titleOpinions">Opiniones</h3>
+  `;
+
+  // Si no hay comentarios
+  if (commCard.length === 0) {
+    containerComm.innerHTML += `
+      <p class="not-comment">Aún no hay comentarios</p>
+    `;
+  }
+
+  // Iterar sobre el array de los comentarios
+  for (const item of commCard) {
+    containerComm.innerHTML += `
+      <div class="commentCard">
+        <p class="stars">${scoreStars(item.score)}</p>
+        <p class="commentDescription">${item.description}</p>
+        <p class="userNameComment">${item.user}</p>
+        <p class="dataComment">${formatDate(item.dateTime)} hs</p>
+      </div>
+    
+    `;
+  }
+}
+
+// Función para formatear la fecha de los comentarios
+function formatDate(date) {
+  let infoDate = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    //second: "numeric", -> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
+  };
+  return new Date(date).toLocaleDateString("es-ES", infoDate);
+}
+
+// Función para convertir puntuación en estrellas
+function scoreStars(score) {
+  return "★".repeat(score) + "☆".repeat(5 - score);
 }
