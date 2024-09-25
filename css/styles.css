@@ -991,7 +991,57 @@ hr {
   padding-bottom: 1rem;
   font-size: 1.3rem;
 }
+/*MEDIA PARA SECCION CALIFICACIONES*/
+@media (min-width: 576px) and (max-width: 980px) {
+  .commentCard {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
 
+  .dataComment {
+    margin-bottom: 0;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 575px) {
+  .commentCard {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.8rem;
+  }
+
+  .dataComment {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1.2rem;
+    padding-left: 0;
+  }
+
+  .commentDescription {
+    font-size: 1rem;
+  }
+
+  .userNameComment {
+    font-size: 0.95rem;
+  }
+}
 /* MEDIDA XS*/
 @media (min-width: 320px) and (max-width: 575px) {
   #margin-p {
