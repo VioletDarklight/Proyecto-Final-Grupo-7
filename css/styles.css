@@ -1157,3 +1157,32 @@ div #margin-p {
     display: none;
   }
 }
+/* boton de comentarios */
+#btnNewComm {
+  border-radius: 10px;
+  background-color: #0353a4;
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+/*formulario */
+#collapseExample {
+  background-color: #0087f7;
+  color:#53c0fb;
+  border-radius: 15px;
+  
+}
+.nombre-usuario {
+  color: #0353a4;
+  font-weight: bold;
+  font-style: italic;
+}
+.fecha-comentario {
+  font-style: italic;
+  color: #000;
+  font-size: 13px;
+}
+.card-body {
+  background-color: #adccdfec;
+}
+

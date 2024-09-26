@@ -98,12 +98,14 @@ function showProdCommInfo(commCard) {
   containerComm.innerHTML += `
 <p>
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-    Agregar Comentario
+    AGREGAR COMENTARIO
   </button>
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-Acá hay que hacer el form
+<input type="text" class="form-control mb-3" placeholder="Escribe algo aquí...">
+<p class="nombre-usuario">Your_User</p>
+ <p class="fecha-comentario">2024-09-26 16:32:25</p>
   </div>
 </div>
   `;
