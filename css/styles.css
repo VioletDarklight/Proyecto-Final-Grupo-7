@@ -524,6 +524,321 @@ button {
 }
 
 /* Estilos de PRODUCT-INFO */
+
+.product-description {
+  display: flex;
+  flex: 1;
+  padding-right: 20px;
+  color: #333;
+  background: linear-gradient(#ffffff44, #ffffff96);
+  border-radius: 1rem;
+}
+.productContent {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+#product-name {
+  font-weight: 500;
+  font-size: 2rem;
+  font-family: "Jost", sans-serif;
+  color: rgb(241, 241, 241);
+  text-transform: uppercase;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.product-name {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.st-products-category {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.st-products-category span {
+  font-weight: 400;
+}
+.st-products {
+  font-size: 1rem;
+}
+.productImages {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  min-width: 0;
+}
+
+.containerMainImage {
+  width: 100%;
+  overflow: hidden;
+}
+.containerSecondaryImages {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainImage {
+  width: 100%;
+  margin: 10px 0px;
+  border-radius: 1rem;
+  box-sizing: content-box;
+  transition: transform 0.2s;
+}
+.mainImage:hover {
+  transform: scale(1.5);
+}
+.unitImages {
+  display: flex;
+  padding: 0.1rem;
+  max-width: 12rem;
+  max-height: 6.8rem;
+}
+
+.unitImages:hover {
+  border: 1px groove #5a7ec2b0;
+}
+
+.containerInfo {
+  padding-right: 1rem;
+  align-items: center;
+  background: linear-gradient(#ffffff44, #ffffff96);
+  border-radius: 1rem;
+  margin: 1.5rem;
+  margin-right: 0;
+}
+
+.cost {
+  font-size: 1.3em;
+}
+.currency {
+  font-size: 0.7em;
+}
+
+/*MEDIA para info de productos*/
+@media (min-width: 320px) and (max-width: 980px) {
+  .productContent,
+  .product-name {
+    max-width: 91%;
+  }
+}
+
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
+}
+
+/*ESTILO PARA FILTROS*/
+.filters-container {
+  display: none; /* Para ocultar los filtros de pantallas grandes */
+}
+
+.filters-container input {
+  padding: 0.2rem;
+}
+
+.filters-container label {
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+}
+
+.filters-container button {
+  padding: 0.2rem;
+}
+
+.accordion {
+  margin-bottom: 1rem;
+  margin-right: 6%;
+}
+
+#filtersAccordion {
+  border: none;
+  margin-top: 1rem;
+}
+
+.accordion-body label,
+.accordion-body input {
+  font-size: 0.8rem;
+}
+
+#filtersAccordion .accordion-body {
+  padding: 0.75rem;
+}
+
+#filtersAccordion .accordion-body .btn-group,
+#filtersAccordion .accordion-body input {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+#filtersAccordion .accordion-body .filter-price-text {
+  text-align: left;
+  font-weight: normal;
+  margin: 0;
+  padding-right: 0.5rem;
+  font-size: 0.85rem;
+}
+
+#clearRangeFilterSmall {
+  margin-left: 0;
+}
+
+#rangeFilterCountSmall {
+  margin-left: 0;
+  font-size: 0.8rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #000;
+}
+
+#filtersAccordion .accordion-button {
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  padding: 0.3rem 0.5rem;
+}
+
+.accordion-item {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.form-control {
+  padding: 0.2rem;
+}
+
+/* MEDIDA XS HASTA  575px */
+@media (min-width: 320px) and (max-width: 575px) {
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
+}
+
+/*ESTILO PARA FILTROS*/
+.filters-container {
+  display: none; /* Para ocultar los filtros de pantallas grandes */
+}
+
+.filters-container input {
+  padding: 0.2rem;
+}
+
+.filters-container label {
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+}
+
+.filters-container button {
+  padding: 0.2rem;
+}
+
+.accordion {
+  margin-bottom: 1rem;
+  margin-right: 6%;
+}
+
+#filtersAccordion {
+  border: none;
+  margin-top: 1rem;
+}
+
+.accordion-body label,
+.accordion-body input {
+  font-size: 1rem;
+}
+
+#filtersAccordion .accordion-body {
+  padding: 0.75rem;
+}
+
+#filtersAccordion .accordion-body .btn-group,
+#filtersAccordion .accordion-body input {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+#filtersAccordion .accordion-body .filter-price-text {
+  text-align: left;
+  font-weight: normal;
+  margin: 0;
+  padding-right: 0.5rem;
+  font-size: 1rem;
+}
+
+#clearRangeFilterSmall {
+  margin-left: 0;
+}
+
+#rangeFilterCountSmall {
+  margin-left: 0;
+  font-size: 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #000;
+}
+
+#filtersAccordion .accordion-button {
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.accordion-item {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.form-control {
+  padding: 0.4rem;
+}
+
+/*MEDIDA SM HASTA 768PX*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+}
+
+/* MEDIDA XL */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  #products-head-list {
+    font-family: "Jost", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+  }
+}
+
+/* Estilos de PRODUCT-INFO */
 .product-description {
   display: flex;
   flex: 1;
@@ -934,6 +1249,114 @@ hr {
   margin-right: 5%;
 }
 
+/* Sección calificaciones */
+.commentCard {
+  background-color: rgba(255, 255, 255, 0.418);
+  max-width: 50rem;
+  border-radius: 1rem;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+}
+
+.container-comments {
+  background: linear-gradient(#ffffff44, #ffffff96);
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  margin-top: 1.5rem;
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+}
+
+.stars {
+  color: rgba(3, 83, 164, 0.959);
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.commentDescription {
+  font-size: 1.15rem;
+  font-weight: 450;
+}
+
+.userNameComment {
+  color: rgba(3, 83, 164, 0.959);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.dataComment {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.titleOpinions {
+  justify-content: left;
+  margin-left: 4rem;
+  padding: 2rem 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+}
+/*MEDIA PARA SECCION CALIFICACIONES*/
+@media (min-width: 576px) and (max-width: 980px) {
+  .commentCard {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .dataComment {
+    margin-bottom: 0;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 575px) {
+  .commentCard {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.8rem;
+  }
+
+  .dataComment {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1.2rem;
+    padding-left: 0;
+  }
+
+  .commentDescription {
+    font-size: 1rem;
+  }
+
+  .userNameComment {
+    font-size: 0.95rem;
+  }
+}
 /* MEDIDA XS*/
 @media (min-width: 320px) and (max-width: 575px) {
   #margin-p {
@@ -966,7 +1389,13 @@ div #margin-p {
 }
 
 .productInfo {
-  padding-left: 20px;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.productInfo h3 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
 }
 
 /* MEDIDA XS HASTA  575px */
@@ -993,13 +1422,9 @@ div #margin-p {
     margin: 0;
     border-radius: 0 0 1rem;
   }
-  #product-name {
-    text-align: center;
-    font-size: 1.5rem;
-  }
 }
 
-/*MEDIDA SM HASTA 768PX*/
+/*MEDIDA Para fotos productos-info*/
 @media (min-width: 576px) and (max-width: 768px) {
   #products-head-list {
     font-size: 35px;
@@ -1016,6 +1441,23 @@ div #margin-p {
   }
   .containerSecondaryImages {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .unitImages {
+    display: flex;
+    max-width: 7rem;
+  }
+
+  .containerSecondaryImages {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1120px) {
+  .unitImages {
+    max-width: 10rem;
   }
 }
 /*MEDIDA PARA LA TABLET BUSCADOR*/
