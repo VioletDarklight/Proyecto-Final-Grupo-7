@@ -1309,3 +1309,102 @@ div #margin-p {
     display: none;
   }
 }
+
+/*estilos productos relacionados*/
+ 
+#carta-rel{ 
+  text-align: center;
+  border-radius: 20px;
+  background-color: #b9d6f2;
+   }
+
+#rel-card{
+    text-align: center;
+    border-radius: 20px;
+    background-color: #b9d6f2;
+    width: 40rem;
+   }
+
+#carouselExampleCaptions{
+    background: #b9d6f2;
+    width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.473);
+    -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+    -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+   }
+#rel-prod{
+    text-align: center;
+    font-size: 1.3rem; }
+
+    /* BOTON DE ATRAS Y SIGUIENTE*/
+.button-rel{
+  margin-top:8em ;
+  }
+
+.button-rel:hover{
+    background-color: transparent;
+  }
+
+.ver-ver0{
+  border-radius: 50px;
+  height: 3em;
+  width: 35em;
+  background-color: #0353a4;}
+  .ver-ver0:hover{
+    background-color: #0353a4;
+  } 
+  
+.rel-name{
+  font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2em;
+  }
+  
+.carousel-inner{
+    border-radius: 20px;
+  }
+
+/*MEDIDA CELULAR DE PROD. RELACIONADOS*/
+@media (min-width: 320px) and (max-width: 575px)
+{
+  .carousel-inner{
+    height: 25em;
+    width: 20em;
+  }
+  .rel-name{
+    margin-right: 2em;
+  }
+  #rel-card{
+    height:25em;
+    width: 25em;
+  }
+  #img-rel0{
+    height:15em;
+    width: 20em;
+  }#carta-rel{
+      height:50em;
+      width: 28em;
+      
+    }
+  #carouselExampleCaptions{ 
+    width: 20em;}
+
+  #img-rel{
+    width: 28em;
+    height: 21.5em;
+  }
+  .ver-ver0{
+    width: 18em;
+   margin-right: 30em;
+  }
+  .mod-titulo{
+    font-size: 2em;
+    margin-left: 2em;
+  }
+ 
+}
