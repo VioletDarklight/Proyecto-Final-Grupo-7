@@ -19,7 +19,7 @@ let containerSecondaryImages = document.getElementsByClassName(
   "containerSecondaryImages"
 )[0];
 let productName = document.getElementById("product-name");
-let containerComm = document.getElementById("containerComm");
+let containerComm = document.getElementById("container-comments");
 
 // Cargar y mostrar datos iniciales del producto
 fetch(prodInfoURL)
@@ -70,29 +70,69 @@ fetch(prodCommURL)
   .then(showProdCommInfo);
 
 // Función para mostrar los comentarios
-function showProdCommInfo(commCard) {
-  containerComm.innerHTML = `
-    <h3 class="titleOpinions">Opiniones</h3>
-  `;
-
+function showProdCommInfo(comentarios) {
   // Si no hay comentarios
-  if (commCard.length === 0) {
+  if (comentarios.length === 0) {
     containerComm.innerHTML += `
       <p class="not-comment">Aún no hay comentarios</p>
     `;
   }
 
   // Iterar sobre el array de los comentarios
-  for (const item of commCard) {
+  for (const comentario of comentarios) {
     containerComm.innerHTML += `
       <div class="commentCard">
-        <p class="stars">${scoreStars(item.score)}</p>
-        <p class="commentDescription">${item.description}</p>
-        <p class="userNameComment">${item.user}</p>
-        <p class="dataComment">${formatDate(item.dateTime)} hs</p>
+        <p class="stars">${scoreStars(comentario.score)}</p>
+        <p class="commentDescription">${comentario.description}</p>
+        <p class="userNameComment">${comentario.user}</p>
+        <p class="dataComment">${formatDate(comentario.dateTime)} hs</p>
       </div>
-    
+
     `;
+  }
+
+  let newcomment = document.getElementById("container-newcomment");
+
+  newcomment.innerHTML += `
+          <p>
+            <input type="hidden" id="score" value="0">
+            <span onclick="changeScore(1)" class="starbtn stars">☆</span>
+            <span onclick="changeScore(2)" class="starbtn stars">☆</span>
+            <span onclick="changeScore(3)" class="starbtn stars">☆</span>
+            <span onclick="changeScore(4)" class="starbtn stars">☆</span>
+            <span onclick="changeScore(5)" class="starbtn stars">☆</span>
+          </p>
+          <input class="commentDescription" type="text" id="mensaje" placeholder="Escribe tu comentario aquí">
+          <p class="userNameComment" id="username">${localStorage.getItem(
+    "username"
+  )}</p>
+          <p class="dataComment" id="datetime">${formatDate(new Date())} hs</p>
+          <button onclick="sendComment()" type="button" id="sendbtn">Enviar</button>
+          `;
+}
+
+function sendComment() {
+  containerComm.innerHTML += `
+    <div class="commentCard">
+        <p class="stars">${scoreStars(document.getElementById("score").value)}</p>
+        <p class="commentDescription">${document.getElementById("mensaje").value}</p>
+        <p class="userNameComment">${document.getElementById("username").textContent}</p>
+        <p class="dataComment">${document.getElementById("datetime").textContent} hs</p>
+      </div>
+    `;
+}
+
+function changeScore(score) {
+  document.getElementById("score").value = score;
+
+  let stars = document.getElementsByClassName("starbtn");
+
+  for (let i = 0; i < score; i++) {
+    stars[i].textContent = "★";
+  }
+
+  for (let i = score; i < 5; i++) {
+    stars[i].textContent = "☆";
   }
 }
 
@@ -104,7 +144,7 @@ function formatDate(date) {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    //second: "numeric", -> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
+    second: "numeric", //-> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
   };
   return new Date(date).toLocaleDateString("es-ES", infoDate);
 }
