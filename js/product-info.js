@@ -94,6 +94,25 @@ function showProdCommInfo(commCard) {
     
     `;
   }
+
+  containerComm.innerHTML += `
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+    Agregar Comentario
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+Acá hay que hacer el form
+  </div>
+</div>
+  `;
+
+  //Evento para desaparecer botón de nuevo comentario
+  let btnNewComm = document.getElementById("btnNewComm");
+  btnNewComm.addEventListener("click", () => {
+    btnNewComm.remove();
+  });
 }
 
 // Función para formatear la fecha de los comentarios
