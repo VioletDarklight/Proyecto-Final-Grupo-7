@@ -524,21 +524,24 @@ button {
 }
 
 /* Estilos de PRODUCT-INFO */
+
 .product-description {
   display: flex;
   flex: 1;
   padding-right: 20px;
   color: #333;
-  background-color: rgba(255, 255, 255, 0.555);
+  background: linear-gradient(#ffffff44, #ffffff96);
   border-radius: 1rem;
 }
 .productContent {
-  max-width: 60rem;
-  margin: 0 auto;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 2rem;
+  padding: 0;
 }
 
 #product-name {
@@ -546,8 +549,15 @@ button {
   font-size: 2rem;
   font-family: "Jost", sans-serif;
   color: rgb(241, 241, 241);
-  text-align: left;
   text-transform: uppercase;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.product-name {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .st-products-category {
@@ -563,6 +573,7 @@ button {
 .productImages {
   display: flex;
   flex-wrap: wrap;
+  max-width: 100%;
   padding: 1rem;
   border-radius: 1rem;
   min-width: 0;
@@ -573,12 +584,14 @@ button {
   overflow: hidden;
 }
 .containerSecondaryImages {
-  display: flex;
-  min-width: 0;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .mainImage {
   width: 100%;
   margin: 10px 0px;
@@ -592,7 +605,8 @@ button {
 .unitImages {
   display: flex;
   padding: 0.1rem;
-  max-width: 180px;
+  max-width: 12rem;
+  max-height: 6.8rem;
 }
 
 .unitImages:hover {
@@ -602,6 +616,10 @@ button {
 .containerInfo {
   padding-right: 1rem;
   align-items: center;
+  background: linear-gradient(#ffffff44, #ffffff96);
+  border-radius: 1rem;
+  margin: 1.5rem;
+  margin-right: 0;
 }
 
 .cost {
@@ -609,6 +627,14 @@ button {
 }
 .currency {
   font-size: 0.7em;
+}
+
+/*MEDIA para info de productos*/
+@media (min-width: 320px) and (max-width: 980px) {
+  .productContent,
+  .product-name {
+    max-width: 91%;
+  }
 }
 
 /* MEDIDA XS HASTA  575px */
@@ -964,7 +990,7 @@ hr {
 
 .container-comments {
   background: linear-gradient(#ffffff44, #ffffff96);
-  max-width: 60rem;
+  max-width: 70rem;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -1087,7 +1113,13 @@ div #margin-p {
 }
 
 .productInfo {
-  padding-left: 20px;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.productInfo h3 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
 }
 
 /* MEDIDA XS HASTA  575px */
@@ -1114,13 +1146,9 @@ div #margin-p {
     margin: 0;
     border-radius: 0 0 1rem;
   }
-  #product-name {
-    text-align: center;
-    font-size: 1.5rem;
-  }
 }
 
-/*MEDIDA SM HASTA 768PX*/
+/*MEDIDA Para fotos productos-info*/
 @media (min-width: 576px) and (max-width: 768px) {
   #products-head-list {
     font-size: 35px;
@@ -1137,6 +1165,23 @@ div #margin-p {
   }
   .containerSecondaryImages {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .unitImages {
+    display: flex;
+    max-width: 7rem;
+  }
+
+  .containerSecondaryImages {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1120px) {
+  .unitImages {
+    max-width: 10rem;
   }
 }
 /*MEDIDA PARA LA TABLET BUSCADOR*/

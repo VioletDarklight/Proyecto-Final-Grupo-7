@@ -37,8 +37,10 @@ function showProduct(infoCard) {
     <div class="productInfo"> 
     <h3 class="st-products mt-3">Detalles del producto:</h3>
       <p>${infoCard.description}</p>
-      <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
-      <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
+      <h3 class="st-products mt-3">Categoría:</h3>
+      <p class="st-products-category"><span>${infoCard.category}</span></p>
+      <h3 class="st-products mt-3">Cantidad de vendidos:</h3>
+      <p class="totalSold st-products-category"><span>${infoCard.soldCount} vendidos<span></p>
     </div>
   `;
 
