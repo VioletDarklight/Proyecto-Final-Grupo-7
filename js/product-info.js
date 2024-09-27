@@ -37,8 +37,10 @@ function showProduct(infoCard) {
     <div class="productInfo"> 
     <h3 class="st-products mt-3">Detalles del producto:</h3>
       <p>${infoCard.description}</p>
-      <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
-      <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
+      <h3 class="st-products mt-3">Categoría:</h3>
+      <p class="st-products-category"><span>${infoCard.category}</span></p>
+      <h3 class="st-products mt-3">Cantidad de vendidos:</h3>
+      <p class="totalSold st-products-category"><span>${infoCard.soldCount} vendidos<span></p>
     </div>
   `;
 
@@ -147,6 +149,131 @@ function scoreStars(score) {
   return "★".repeat(score) + "☆".repeat(5 - score);
 }
 
+// PRODUCTOS RELACIONADOS ENTREGA 4
+
+//Realizacion de fetch para obtener los datos que se encuentran dentro del json e Invocacion de funcion una vez obtenidos los mismos.
+fetch(prodInfoURL)
+  .then((response) => response.json())
+  .then((infoRel) => {
+    showRel(infoRel);
+  });
+
+let containerRelacionado = document.getElementById("carouselExampleCaptions");
+
+//Funcion que toma los datos del fetch, En el cual incrustamos el html para poder mostrar lo requerido.
+function showRel(infoRel) {
+  containerRelacionado.innerHTML += `
+  <div  class="carousel-inner data-bs-ride="carousel">
+   <div class="carousel-item active ">
+<div id="rel-card" class="card">
+  <img id="img-rel0" src="${infoRel.relatedProducts[0].image}" class="card-img-top" alt="...">
+  <div class="card-body card-button">
+     <h5 class="card-title rel-name">${infoRel.relatedProducts[0].name}</h5> 
+    <button  onclick="setProdID(${infoRel.relatedProducts[0].id})" class="ver-ver0" type="button">VER MAS</button>
+  </div>
+</div>
+</div>
+
+<div  class=" card-text carousel-item ">
+  <div id="carta-rel" class="card " >
+    <img  id="img-rel" src="${infoRel.relatedProducts[1].image}" class="card-img-top" alt="...">
+    <div class="card-body card-button">
+     <h5 class="card-title mod-titulo rel-name">${infoRel.relatedProducts[1].name}</h5>
+     <button onclick="setProdID(${infoRel.relatedProducts[1].id})" class="ver-ver0" type="button">VER MAS</button>
+    </div>
+ </div>
+</div>
+  <button  class="carousel-control-prev h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+`;
+}
+//funcion que realiza la actualizacion el id del local storage al hacer clic en el boton(linea 147 y 137) del producto del que quiere saber mas informacion.
+function setProdID(id) {
+  localStorage.removeItem("prodID");
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html";
+}
+
+// Cargar y mostrar datos iniciales de comentarios
+fetch(prodCommURL)
+  .then((response) => response.json())
+  .then(showProdCommInfo);
+
+// Función para mostrar los comentarios
+function showProdCommInfo(commCard) {
+  containerComm.innerHTML = `
+    <h3 class="titleOpinions">Opiniones</h3>
+  `;
+
+  // Si no hay comentarios
+  if (commCard.length === 0) {
+    containerComm.innerHTML += `
+      <p class="not-comment">Aún no hay comentarios</p>
+    `;
+  }
+
+  // Iterar sobre el array de los comentarios
+  for (const item of commCard) {
+    containerComm.innerHTML += `
+      <div class="commentCard">
+        <p class="stars">${scoreStars(item.score)}</p>
+        <p class="commentDescription">${item.description}</p>
+        <p class="userNameComment">${item.user}</p>
+        <p class="dataComment">${formatDate(item.dateTime)} hs</p>
+      </div>
+    
+    `;
+  }
+
+  containerComm.innerHTML += `
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+      AGREGAR COMENTARIO
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+  <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
+  <br>
+  <p class="nombre-usuario">Your_User</p>
+   <p class="fecha-comentario">2024-09-26 16:32:25</p>
+   <br>
+   <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
+    </div>
+  </div>
+    `;
+
+  //Evento para desaparecer botón de nuevo comentario
+  let btnNewComm = document.getElementById("btnNewComm");
+  btnNewComm.addEventListener("click", () => {
+    btnNewComm.remove();
+  });
+}
+
+// Función para formatear la fecha de los comentarios
+function formatDate(date) {
+  let infoDate = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    //second: "numeric", -> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
+  };
+  return new Date(date).toLocaleDateString("es-ES", infoDate);
+}
+
+// Función para convertir puntuación en estrellas
+function scoreStars(score) {
+  return "★".repeat(score) + "☆".repeat(5 - score);
+}
 // PRODUCTOS RELACIONADOS ENTREGA 4
 
 //Realizacion de fetch para obtener los datos que se encuentran dentro del json e Invocacion de funcion una vez obtenidos los mismos.
