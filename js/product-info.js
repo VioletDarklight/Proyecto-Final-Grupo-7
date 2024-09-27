@@ -98,17 +98,22 @@ function showProdCommInfo(commCard) {
   }
 
   containerComm.innerHTML += `
-<p>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-    Agregar Comentario
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-Acá hay que hacer el form
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+      AGREGAR COMENTARIO
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+  <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
+  <br>
+  <p class="nombre-usuario">Your_User</p>
+   <p class="fecha-comentario">2024-09-26 16:32:25</p>
+   <br>
+   <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
+    </div>
   </div>
-</div>
-  `;
+    `;
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
