@@ -103,9 +103,12 @@ function showProdCommInfo(commCard) {
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-<input type="text" class="form-control mb-3" placeholder="Escribe algo aquí...">
+<input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
+<br>
 <p class="nombre-usuario">Your_User</p>
  <p class="fecha-comentario">2024-09-26 16:32:25</p>
+ <br>
+ <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
   </div>
 </div>
   `;

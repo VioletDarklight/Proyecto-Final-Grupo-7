@@ -1184,5 +1184,16 @@ div #margin-p {
 }
 .card-body {
   background-color: #adccdfec;
+  border-radius: 15px;
 }
 
+#botonenviar {
+  border-radius: 15px;
+ background-color:#0353a4
+}
+.cajadeescritura {
+  background-color: #b3d1e4ec;
+  border: none;
+  width: 100%;
+  height: 70px;
+}
