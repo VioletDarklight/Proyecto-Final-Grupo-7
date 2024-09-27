@@ -96,23 +96,38 @@ function showProdCommInfo(commCard) {
   }
 
   containerComm.innerHTML += `
-<p>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-    Agregar Comentario
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-Acá hay que hacer el form
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+      Agregar Comentario
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+  <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
+  <br>
+  <p class="nombre-usuario">Your_User</p>
+   <p id="display-time"></p>
+   <br>
+   <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
+    </div>
   </div>
-</div>
-  `;
+    `;
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
   btnNewComm.addEventListener("click", () => {
     btnNewComm.remove();
   });
+
+  // Función para mostrar la fecha y hora actual al escribir comentario
+  function currentTime() {
+    let currentDate = new Date();
+    let formattedDate = formatDate(currentDate); //Le da el formato que usamos en los comentarios del json
+    document.getElementById("display-time").innerText = formattedDate;
+  }
+  currentTime();
+  //Actualizar la hora cada minuto
+  setInterval(currentTime, 60000);
 }
 
 // Función para formatear la fecha de los comentarios
@@ -123,7 +138,6 @@ function formatDate(date) {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    //second: "numeric", -> no me gustan como quedan, consulto en la próxima clase si los podemos sacar
   };
   return new Date(date).toLocaleDateString("es-ES", infoDate);
 }
@@ -131,4 +145,56 @@ function formatDate(date) {
 // Función para convertir puntuación en estrellas
 function scoreStars(score) {
   return "★".repeat(score) + "☆".repeat(5 - score);
+}
+
+// PRODUCTOS RELACIONADOS ENTREGA 4
+
+//Realizacion de fetch para obtener los datos que se encuentran dentro del json e Invocacion de funcion una vez obtenidos los mismos.
+fetch(prodInfoURL)
+  .then((response) => response.json())
+  .then((infoRel) => {
+    showRel(infoRel);
+  });
+
+let containerRelacionado = document.getElementById("carouselExampleCaptions");
+
+//Funcion que toma los datos del fetch, En el cual incrustamos el html para poder mostrar lo requerido.
+function showRel(infoRel) {
+  containerRelacionado.innerHTML += `
+  <div  class="carousel-inner data-bs-ride="carousel">
+   <div class="carousel-item active ">
+<div id="rel-card" class="card">
+  <img id="img-rel0" src="${infoRel.relatedProducts[0].image}" class="card-img-top" alt="...">
+  <div class="card-body card-button">
+     <h5 class="card-title rel-name">${infoRel.relatedProducts[0].name}</h5> 
+    <button  onclick="setProdID(${infoRel.relatedProducts[0].id})" class="ver-ver0" type="button">VER MAS</button>
+  </div>
+</div>
+</div>
+
+<div  class=" card-text carousel-item ">
+  <div id="carta-rel" class="card " >
+    <img  id="img-rel" src="${infoRel.relatedProducts[1].image}" class="card-img-top" alt="...">
+    <div class="card-body card-button">
+     <h5 class="card-title mod-titulo rel-name">${infoRel.relatedProducts[1].name}</h5>
+     <button onclick="setProdID(${infoRel.relatedProducts[1].id})" class="ver-ver0" type="button">VER MAS</button>
+    </div>
+ </div>
+</div>
+  <button  class="carousel-control-prev h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+`;
+}
+//funcion que realiza la actualizacion el id del local storage al hacer clic en el boton(linea 147 y 137) del producto del que quiere saber mas informacion.
+function setProdID(id) {
+  localStorage.removeItem("prodID");
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html";
 }
