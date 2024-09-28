@@ -119,14 +119,14 @@ function showProdCommInfo(commCard) {
 </form>
   <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
   <br>
-  <p class="nombre-usuario"> usuario </p>
+  <p class="nombre-usuario" id="userNameComm"> usuario </p>
    <p id="display-time"></p>
    <br>
    <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
     </div>
   </div>
     `;
-
+  showUserName();
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
@@ -145,6 +145,12 @@ function showProdCommInfo(commCard) {
   setInterval(currentTime, 60000);
 }
 
+//Función para mostrar nombre de usuario al escribir comentario
+function showUserName() {
+  let userName = localStorage.getItem("username");
+  let userNameComm = document.getElementById("userNameComm");
+  userNameComm.innerText = userName;
+}
 // Función para formatear la fecha de los comentarios
 function formatDate(date) {
   let infoDate = {
