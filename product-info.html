@@ -12,6 +12,14 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
@@ -52,11 +60,32 @@
       </div>
     </nav>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="product-info-container">
+        <div class="product-name"><h1 id="product-name"></h1></div>
+        <div class="productContent productInfoCont container">
+          <div class="product-description">
+            <div class="containerInfo"></div>
+            <div class="productImages" id="product-image">
+              <div class="containerMainImage"></div>
+              <div
+                class="containerSecondaryImages thumbnails text-align-center"
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="container-comments container" id="containerComm"></div>
+      <br />
+      <br />
+      <h5 id="rel-prod">Productos Relacionados:</h5>
+      <div
+        class="container-relacionado carousel slide"
+        data-bs-ride="carousel"
+        id="carouselExampleCaptions"
+      ></div>
+      <br />
+      <br />
     </main>
     <footer class="text-muted">
       <div class="container">
