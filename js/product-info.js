@@ -103,15 +103,30 @@ function showProdCommInfo(commCard) {
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
+<form>
+  <p class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+    --><label for="radio1">★</label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+    --><label for="radio2">★</label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+    --><label for="radio3">★</label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+    --><label for="radio4">★</label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+    --><label for="radio5">★</label>
+  </p>
+</form>
   <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
   <br>
-  <p class="nombre-usuario">Your_User</p>
+  <p class="nombre-usuario"> usuario </p>
    <p id="display-time"></p>
    <br>
    <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
     </div>
   </div>
     `;
+
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");

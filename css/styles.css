@@ -1436,6 +1436,7 @@ div #margin-p {
 .card-body {
   background-color: #adccdfec;
   border-radius: 15px;
+  
 }
 
 #botonenviar {
@@ -1447,4 +1448,45 @@ div #margin-p {
   border: none;
   width: 100%;
   height: 70px;
+}
+#display-time {
+  color: #000;
+  font-style: italic;
+}
+/* Estrellas */ 
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+#form p {
+  text-align: center;
+}
+#form label {
+  font-size: 20px;
+}
+input[type="radio"] {
+  display: none;
+}
+label {
+  color: grey;
+}
+.clasificacion {
+  display: inline-flex;   
+  flex-direction: row-reverse;  
+  font-size: 35px;
+}
+input[type="radio"] {
+  display: none; /
+}
+label {
+  color: grey;
+  cursor: pointer;
+}
+label:hover,
+label:hover ~ label {
+  color:#0353a4;
+}
+input[type="radio"]:checked ~ label {
+  color:#0353a4;
 }
