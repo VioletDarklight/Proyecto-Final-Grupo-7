@@ -102,7 +102,7 @@ function showProdCommInfo(commCard) {
     </button>
   </p>
   <div class="collapse" id="collapseExample">
-    <div class="card card-body">
+    <div class="card card-body1">
 <form>
   <p class="clasificacion">
     <input id="radio1" type="radio" name="estrellas" value="5"><!--

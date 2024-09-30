@@ -1419,8 +1419,7 @@ div #margin-p {
 }
 /*formulario */
 #collapseExample {
-  background-color: #0087f7;
-  color: #53c0fb;
+  background-color:  #b9d6f2;
   border-radius: 15px;
 }
 .nombre-usuario {
@@ -1433,10 +1432,14 @@ div #margin-p {
   color: #000;
   font-size: 13px;
 }
-.card-body {
-  background-color: #adccdfec;
-  border-radius: 15px;
-  
+.card-body1 {
+ background-color:#d6e6f5 ;
+ border-radius: 15px;
+ box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+ width: 80%; 
+ max-width: 800px;  
+ margin: 10px auto;  
+ padding: 10px;
 }
 
 #botonenviar {
@@ -1444,7 +1447,7 @@ div #margin-p {
   background-color: #0353a4;
 }
 .cajadeescritura {
-  background-color: #b3d1e4ec;
+  background-color: #badbf0ec;
   border: none;
   width: 100%;
   height: 70px;
