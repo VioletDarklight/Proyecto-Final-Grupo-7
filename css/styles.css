@@ -1416,10 +1416,14 @@ div #margin-p {
   display: flex;
   color: white;
   justify-content: center;
+  width: 80%; 
+  max-width: 800px;  
+  margin: 10px auto; 
+  font-size: 18px;
+
 }
 /*formulario */
 #collapseExample {
-  background-color:  #b9d6f2;
   border-radius: 15px;
 }
 .nombre-usuario {
@@ -1445,12 +1449,20 @@ div #margin-p {
 #botonenviar {
   border-radius: 15px;
   background-color: #0353a4;
+  
+}
+#botonenviar:focus,
+#botonenviar:active {
+    background-color: #0353a4; 
+    outline: none; 
+    box-shadow: none; 
 }
 .cajadeescritura {
   background-color: #badbf0ec;
   border: none;
   width: 100%;
   height: 70px;
+  border-radius: 15px;
 }
 #display-time {
   color: #000;
@@ -1483,7 +1495,7 @@ input[type="radio"] {
   display: none; /
 }
 label {
-  color: grey;
+  color: #badbf0ec ;
   cursor: pointer;
 }
 label:hover,
