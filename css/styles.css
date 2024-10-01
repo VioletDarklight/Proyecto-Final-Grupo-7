@@ -1409,6 +1409,7 @@ div #margin-p {
     margin-left: 2em;
   }
 }
+/*MEDIDA ESTANDAR DE FORMULARIO/COMENTARIOS */
 /* boton de comentarios */
 #btnNewComm {
   border-radius: 10px;
@@ -1505,3 +1506,30 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color:#0353a4;
 }
+/* MEDIDA TABLT FORMULAARIO/COMENTARIOS */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-body1 {
+    background-color:#d6e6f5 ;
+    border-radius: 15px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    width: 91%; 
+    max-width: 800px;  
+    margin: 10px auto;  
+    padding: 10px;
+   }
+  }
+
+/* MEDIDA PARA CELULARES FORMULARIO/COMENTARIOS */
+@media (min-width: 320px) and (max-width: 575px) {
+  .comment-box, .review-box {
+      width: 150%; /* Ajusta el ancho para pantallas pequeñas */
+      height: auto; /* Altura automática o puedes establecer una fija */
+      padding: 10px; /* Padding más pequeño para pantallas pequeñas */
+      margin: 5px 0; /* Margen reducido para pantallas pequeñas */
+      border-radius: 8px; /* Bordes redondeados */
+      box-sizing: border-box;
+  }
+}
+
+
+  
