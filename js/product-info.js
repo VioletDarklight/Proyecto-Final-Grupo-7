@@ -98,7 +98,7 @@ function showProdCommInfo(commCard) {
   containerComm.innerHTML += `
   <p>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-      Agregar Comentario
+      AGREGAR COMENTARIO
     </button>
   </p>
   <div class="collapse" id="collapseExample">
@@ -122,11 +122,17 @@ function showProdCommInfo(commCard) {
   <p class="nombre-usuario" id="userNameComm"> usuario </p>
    <p id="display-time"></p>
    <br>
-   <button class="btn btn-success" type="button" id="botonenviar"> ENVIAR </button>
+   <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button
     </div>
   </div>
     `;
   showUserName();
+
+  //Funcion para que se envie ficticiamente el comentario con alerta incluida. //
+  document.getElementById('botonenviar').addEventListener('click', function() {
+    alert('Comentario enviado exitosamente!');
+});
+  
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
