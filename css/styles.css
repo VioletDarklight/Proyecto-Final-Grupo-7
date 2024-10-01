@@ -1427,11 +1427,12 @@ div #margin-p {
 #collapseExample {
   border-radius: 15px;
 }
-.nombre-usuario {
-  color: #0353a4;
-  font-weight: bold;
-  font-style: italic;
+
+
+#userNameComm{
+  margin-top: 1.5rem;
 }
+
 .fecha-comentario {
   font-style: italic;
   color: #000;
@@ -1450,7 +1451,9 @@ div #margin-p {
 #botonenviar {
   border-radius: 15px;
   background-color: #0353a4;
-  
+  display: flex;
+  justify-content: center;
+  border: none;
 }
 #botonenviar:focus,
 #botonenviar:active {
@@ -1465,10 +1468,7 @@ div #margin-p {
   height: 70px;
   border-radius: 15px;
 }
-#display-time {
-  color: #000;
-  font-style: italic;
-}
+
 /* Estrellas */ 
 #form {
   width: 250px;
@@ -1521,15 +1521,23 @@ input[type="radio"]:checked ~ label {
 
 /* MEDIDA PARA CELULARES FORMULARIO/COMENTARIOS */
 @media (min-width: 320px) and (max-width: 575px) {
-  .comment-box, .review-box {
-      width: 150%; /* Ajusta el ancho para pantallas pequeñas */
-      height: auto; /* Altura automática o puedes establecer una fija */
-      padding: 10px; /* Padding más pequeño para pantallas pequeñas */
-      margin: 5px 0; /* Margen reducido para pantallas pequeñas */
-      border-radius: 8px; /* Bordes redondeados */
-      box-sizing: border-box;
-  }
+.card-body1 {
+width: 100%;
+max-width: 84%;
+margin-left: 1rem;
+margin-right: 1rem;
+border: none;
 }
+.cajadeescritura{
+  max-width: 98.5%;
+}
+
+*, ::after, ::before{
+  box-sizing: content-box;
+}
+}
+
+
 
 
   

@@ -67,7 +67,13 @@ function changeMainImage(src) {
 // Cargar y mostrar datos iniciales de comentarios
 fetch(prodCommURL)
   .then((response) => response.json())
-  .then(showProdCommInfo);
+  .then((commCard) => {
+    // Combinar comentarios de la API con los del localStorage
+    let storedComments =
+      JSON.parse(localStorage.getItem("storedComments")) || [];
+    let allComments = [...commCard, ...storedComments];
+    showProdCommInfo(allComments);
+  });
 
 // Función para mostrar los comentarios
 function showProdCommInfo(commCard) {
@@ -95,6 +101,7 @@ function showProdCommInfo(commCard) {
     `;
   }
 
+  //Formulario de nuevo comentario
   containerComm.innerHTML += `
   <p>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
@@ -103,36 +110,39 @@ function showProdCommInfo(commCard) {
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body1">
-<form>
-  <p class="clasificacion">
-    <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-  </p>
-</form>
-  <input type="text" class="cajadeescritura" placeholder="Escribe algo aquí...">
-  <br>
-  <p class="nombre-usuario" id="userNameComm"> usuario </p>
-   <p id="display-time"></p>
-   <br>
-   <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button
+ <form id="newCommentForm">
+          <p class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+            <label for="radio1">★</label>
+            <input id="radio2" type="radio" name="estrellas" value="4">
+            <label for="radio2">★</label>
+            <input id="radio3" type="radio" name="estrellas" value="3">
+            <label for="radio3">★</label>
+            <input id="radio4" type="radio" name="estrellas" value="2">
+            <label for="radio4">★</label>
+            <input id="radio5" type="radio" name="estrellas" value="1">
+            <label for="radio5">★</label>
+          </p>
+
+          <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí...">
+          <br>
+          <p class="userNameComment" id="userNameComm"> usuario </p>
+          <p id="display-time" class="dataComment"></p>
+          <br>
+          <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button>
+        </form>
     </div>
   </div>
     `;
   showUserName();
 
-  //Funcion para que se envie ficticiamente el comentario con alerta incluida. //
-  document.getElementById('botonenviar').addEventListener('click', function() {
-    alert('Comentario enviado exitosamente!');
-});
-  
+  // Evento para manejar el envío del comentario
+  document
+    .getElementById("newCommentForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      addNewComment();
+    });
 
   //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
@@ -144,11 +154,43 @@ function showProdCommInfo(commCard) {
   function currentTime() {
     let currentDate = new Date();
     let formattedDate = formatDate(currentDate); //Le da el formato que usamos en los comentarios del json
-    document.getElementById("display-time").innerText = formattedDate;
+    document.getElementById("display-time").innerText = formattedDate + " hrs";
   }
   currentTime();
   //Actualizar la hora cada minuto
   setInterval(currentTime, 60000);
+}
+
+// Función para agregar un nuevo comentario
+function addNewComment() {
+  let score = document.querySelector('input[name="estrellas"]:checked').value; // Obtener la puntuación del input seleccionado
+  let description = document.getElementById("commentText").value;
+  let user = localStorage.getItem("username");
+  let dateTime = new Date();
+
+  let newComment = {
+    user: user,
+    score: parseInt(score), //Convierte puntaje a número entero
+    description: description,
+    dateTime: dateTime,
+  };
+
+  // Guardar comentario en localStorage
+  let storedComments = JSON.parse(localStorage.getItem("storedComments")) || []; //Si no hay comentarios en el localStorage, se inicia con un array vacío
+  storedComments.push(newComment); //Agrega comentario al nuevo array
+  localStorage.setItem("storedComments", JSON.stringify(storedComments));
+
+  // Agregar el nuevo comentario al contenedor de los que vienen del API
+  containerComm.innerHTML += `
+    <div class="commentCard">
+      <p class="stars">${scoreStars(newComment.score)}</p>
+      <p class="commentDescription">${newComment.description}</p>
+      <p class="userNameComment">${newComment.user}</p>
+      <p class="dataComment">${formatDate(newComment.dateTime)} hs</p>
+    </div>
+  `;
+
+  alert("Comentario enviado exitosamente!");
 }
 
 //Función para mostrar nombre de usuario al escribir comentario
