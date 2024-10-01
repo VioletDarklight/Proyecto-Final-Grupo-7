@@ -70,7 +70,7 @@ fetch(prodCommURL)
   .then((commCard) => {
     // Combinar comentarios de la API con los del localStorage
     let storedComments =
-      JSON.parse(localStorage.getItem("storedComments")) || [];
+      JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || [];
     let allComments = [...commCard, ...storedComments];
     showProdCommInfo(allComments);
   });
@@ -176,9 +176,13 @@ function addNewComment() {
   };
 
   // Guardar comentario en localStorage
-  let storedComments = JSON.parse(localStorage.getItem("storedComments")) || []; //Si no hay comentarios en el localStorage, se inicia con un array vacío
+  let storedComments =
+    JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || []; //Si no hay comentarios en el localStorage, se inicia con un array vacío
   storedComments.push(newComment); //Agrega comentario al nuevo array
-  localStorage.setItem("storedComments", JSON.stringify(storedComments));
+  localStorage.setItem(
+    `storedComments_${prodID}`,
+    JSON.stringify(storedComments)
+  );
 
   // Agregar el nuevo comentario al contenedor de los que vienen del API
   containerComm.innerHTML += `
