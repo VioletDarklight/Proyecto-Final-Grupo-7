@@ -142,6 +142,7 @@ function showProdCommInfo(commCard) {
     .addEventListener("submit", function (event) {
       event.preventDefault();
       addNewComment();
+      location.reload(href='#newCommentForm');
     });
 
   //Evento para desaparecer botón de nuevo comentario
@@ -255,11 +256,11 @@ function showRel(infoRel) {
  </div>
 </div>
   <button  class="carousel-control-prev h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="item carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next h-50 button-rel" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="item carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>

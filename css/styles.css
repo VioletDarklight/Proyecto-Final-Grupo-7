@@ -1350,6 +1350,9 @@ div #margin-p {
 .button-rel:hover {
   background-color: transparent;
 }
+.item{
+ background-color:black
+}
 
 .ver-ver0 {
   border-radius: 50px;
