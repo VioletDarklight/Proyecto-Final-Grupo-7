@@ -1531,14 +1531,14 @@ max-width: 84%;
 margin-left: 1rem;
 margin-right: 1rem;
 border: none;
+box-sizing: content-box;
 }
 .cajadeescritura{
   max-width: 98.5%;
 }
-
-*, ::after, ::before{
+#btnNewComm{
   box-sizing: content-box;
-}
+} 
 }
 
 
