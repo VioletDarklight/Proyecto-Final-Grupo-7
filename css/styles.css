@@ -513,15 +513,6 @@ button {
   color: white !important;
 }
 
-#products-head-list {
-  font-family: "Jost", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 57.8px;
-  text-align: center;
-  color: white;
-  margin-top: 50px;
-}
 
 /* Estilos de PRODUCT-INFO */
 
@@ -1541,7 +1532,93 @@ box-sizing: content-box;
 } 
 }
 
+/*Estilos para MY PROFILE*/
+#headerProfile {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 57.8px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  color: white !important;
+}
 
+.card-profile-form {
+  background: linear-gradient(#ffffff44, #ffffff96);
+  max-width: 100%;
+  border-radius: 1rem;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+}
 
+.profile-container{
+  width: 95%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.profile-input {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+}
+
+#profilePic {
+  width: 10rem;
+  height: auto;
+  object-fit: cover;
+}
+
+/*Modo oscuro en my profile*/
+.dark-mode body {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+.dark-mode #navbar {
+  background-color: #1c1c1c !important; /* Navbar más oscura */
+}
+
+.dark-mode .footer-container {
+  background-color: #1c1c1c; /* Fondo oscuro del footer */
+}
+
+.dark-mode .footer-content{
+  color: white;
+}
+
+.dark-mode .footer-link{
+  color: #0353a4;
+}
+
+.dark-mode .card-profile-form {
+  background-color: #1e1e1e; /* Fondo oscuro del formulario */
+  color: #e0e0e0; /* Texto claro */
+}
+
+.dark-mode .btn-primary {
+  background-color: #043566; /* Botones */
+  border-color: #043566;
+}
+
+.dark-mode .profile-pic {
+  border: 1px solid #444;
+}
   
