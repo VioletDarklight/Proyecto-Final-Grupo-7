@@ -13,22 +13,6 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -114,7 +98,7 @@
                 type="email"
                 class="form-control font-jost text-regularph profile-input"
                 id="emailProfile"
-                placeholder="ejemplo@mail.com" readonly required
+                placeholder="ejemplo@mail.com" required
               />
             </div>
             <div class="mb-3">
@@ -125,7 +109,7 @@
 
         <div class="card-pic-form col-4">
           <h2 class="text-center">Personalizar Perfil</h2>
-          <div class="form-check form-switch mb-3">
+          <div class="form-check form-switch mb-3" id="form-switch">
             <label class="form-check-label" for="darkModeSwitch">Modo Noche</label>
             <input class="form-check-input" type="checkbox" id="darkModeSwitch">
           </div>
@@ -162,7 +146,12 @@
           </p>
           <p>
             Este sitio forma parte de
-            <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
+            <a
+              class="footer-link"
+              href="https://jovenesaprogramar.edu.uy/"
+              target="_blank"
+              >Jóvenes a Programar</a
+            >
           </p>
           <hr />
         </div>
@@ -174,6 +163,7 @@
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
     <script src="js/my-profile.js"></script>
+    <script src="js/dark-mode.js"></script>
   </body>
 
 </html>

@@ -1,181 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html" id="user-nav">Iniciar Sesión</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br>
-  <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
-  <p class="subtitulo">Verás aquí todos los modelos disponibles</p>
-
-  <div class="nav-search text-center">
-    <i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i>
-    <input
-      type="search"
-      id="search-input"
-      class="search"
-      placeholder="Buscar..."
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-  </div>
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <div class="filters-wrapper">
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    <!-- Acordeón visible solo en pantallas pequeñas -->
-    <div class="accordion d-lg-none" id="filtersAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            Filtros
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-          data-bs-parent="#filtersAccordion">
-          <div class="accordion-body">
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" id="user-nav"
+                >Iniciar Sesión</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <br />
+      <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
+      <p class="subtitulo">Verás aquí todos los modelos disponibles</p>
 
-            <!-- Filtros dentro del acordeón para pantallas pequeñas -->
-            <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
-              <input type="radio" class="btn-check" name="options" id="sortAscSmall">
-              <label class="btn btn-light" for="sortAscSmall"><i class="fas fa-long-arrow-alt-up"></i> $</label>
-              <input type="radio" class="btn-check" name="options" id="sortDescSmall">
-              <label class="btn btn-light" for="sortDescSmall"><i class="fas fa-long-arrow-alt-down"></i> $</label>
-              <input type="radio" class="btn-check" name="options" id="sortByCountSmall" checked>
-              <label class="btn btn-light" for="sortByCountSmall"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
-            </div>
+      <div class="nav-search text-center">
+        <i class="fa fa-search busca" id="lupa" class="lupa-estandar"></i>
+        <input
+          type="search"
+          id="search-input"
+          class="search"
+          placeholder="Buscar..."
+        />
+      </div>
 
-            <div class="filter-price-text">
-              <p class="font-weight-normal my-2 ">Precio</p>
-            </div>
-            <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMinSmall">
-            <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMaxSmall">
-
-
-            <div class="btn-group" role="group">
-
-              <button class="btn btn-light btn-block" id="rangeFilterCountSmall">
-                Filtrar
+      <div class="filters-wrapper">
+        <!-- Acordeón visible solo en pantallas pequeñas -->
+        <div class="accordion d-lg-none" id="filtersAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Filtros
               </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#filtersAccordion"
+            >
+              <div class="accordion-body">
+                <!-- Filtros dentro del acordeón para pantallas pequeñas -->
+                <div
+                  class="btn-group btn-group-toggle"
+                  data-bs-toggle="buttons"
+                >
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="sortAscSmall"
+                  />
+                  <label class="btn btn-light" for="sortAscSmall"
+                    ><i class="fas fa-long-arrow-alt-up"></i> $</label
+                  >
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="sortDescSmall"
+                  />
+                  <label class="btn btn-light" for="sortDescSmall"
+                    ><i class="fas fa-long-arrow-alt-down"></i> $</label
+                  >
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="sortByCountSmall"
+                    checked
+                  />
+                  <label class="btn btn-light" for="sortByCountSmall"
+                    ><i class="fas fa-long-arrow-alt-down"></i> Rel.</label
+                  >
+                </div>
 
-              <button class="btn btn-link btn-sm" id="clearRangeFilterSmall">
-                <i class="fas fa-solid fa-trash"></i>
-              </button>
+                <div class="filter-price-text">
+                  <p class="font-weight-normal my-2">Precio</p>
+                </div>
+                <input
+                  class="form-control"
+                  type="number"
+                  placeholder="min."
+                  id="rangeFilterCountMinSmall"
+                />
+                <input
+                  class="form-control"
+                  type="number"
+                  placeholder="máx."
+                  id="rangeFilterCountMaxSmall"
+                />
+
+                <div class="btn-group" role="group">
+                  <button
+                    class="btn btn-light btn-block"
+                    id="rangeFilterCountSmall"
+                  >
+                    Filtrar
+                  </button>
+
+                  <button
+                    class="btn btn-link btn-sm"
+                    id="clearRangeFilterSmall"
+                  >
+                    <i class="fas fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-
-  </div>
-
-
-  <div class="subbackground">
+      <div class="subbackground">
         <!-- Filtros visibles en pantallas grandes -->
         <div class="filters-wrapper">
-        <div class="filters-container d-none d-lg-flex">
-
-          <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
-            
-              <input type="radio" class="btn-check" name="options" id="sortAsc">
-              <label class="btn btn-light" for="sortAsc"><i class="fas fa-long-arrow-alt-up"></i> $</label>
-              <input type="radio" class="btn-check" name="options" id="sortDesc">
-              <label class="btn btn-light" for="sortDesc"><i class="fas fa-long-arrow-alt-down"></i> $</label>
-              <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-              <label class="btn btn-light" for="sortByCount"><i class="fas fa-long-arrow-alt-down"></i> Rel.</label>
+          <div class="filters-container d-none d-lg-flex">
+            <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="sortAsc"
+              />
+              <label class="btn btn-light" for="sortAsc"
+                ><i class="fas fa-long-arrow-alt-up"></i> $</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="sortDesc"
+              />
+              <label class="btn btn-light" for="sortDesc"
+                ><i class="fas fa-long-arrow-alt-down"></i> $</label
+              >
+              <input
+                type="radio"
+                class="btn-check"
+                name="options"
+                id="sortByCount"
+                checked
+              />
+              <label class="btn btn-light" for="sortByCount"
+                ><i class="fas fa-long-arrow-alt-down"></i> Rel.</label
+              >
             </div>
-      
+
             <div class="col-1 filter-price-text">
               <p class="font-weight-normal my-2">Precio</p>
             </div>
-      
+
             <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+              <input
+                class="form-control"
+                type="number"
+                placeholder="min."
+                id="rangeFilterCountMin"
+              />
             </div>
-      
+
             <div class="col-1 text-center" id="linePrice">
               <p class="font-weight-bold my-2">-</p>
             </div>
-      
+
             <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+              <input
+                class="form-control"
+                type="number"
+                placeholder="máx."
+                id="rangeFilterCountMax"
+              />
             </div>
-      
+
             <div class="col p-0 btn-group" role="group">
-              <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+              <button class="btn btn-light btn-block" id="rangeFilterCount">
+                Filtrar
+              </button>
               <button class="btn btn-link btn-sm" id="clearRangeFilter">
                 <i class="fas fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
-          </div>
-          <hr>
-    <div id="margin" class="container  row-style col-sm-12 col-md-11 col-lg-7">
-      <div class="list-group" class="col-sm-12" id="pro-list-cont">
+        </div>
+        <hr />
+        <div
+          id="margin"
+          class="container row-style col-sm-12 col-md-11 col-lg-7"
+        >
+          <div class="list-group" class="col-sm-12" id="pro-list-cont"></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-container">
+      <div class="footer-content">
+        <hr />
+        <p>
+          <a class="footer-link" href="#title-container">Volver arriba</a>
+        </p>
+        <p>
+          Este sitio forma parte de
+          <a
+            class="footer-link"
+            href="https://jovenesaprogramar.edu.uy/"
+            target="_blank"
+            >Jóvenes a Programar</a
+          >
+        </p>
+        <hr />
+      </div>
+    </footer>
+
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  </div>
-  <footer class="footer-container">
-    <div class="footer-content">
-      <hr />
-      <p>
-        <a class="footer-link" href="#title-container">Volver arriba</a>
-      </p>
-      <p>
-        Este sitio forma parte de
-        <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
-      </p>
-      <hr />
-    </div>
-  </footer>
 
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/login.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js" defer></script>
-
-
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/dark-mode.js"></script>
+  </body>
 </html>

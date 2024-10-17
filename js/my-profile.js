@@ -27,20 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Manejar cambio de modo oscuro
-  darkModeSwitch.addEventListener("change", function () {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", darkModeSwitch.checked); // Guardar preferencia de modo
-  });
-
-  // Cargar el estado del modo oscuro
-  darkModeSwitch.checked = localStorage.getItem("darkMode") === "true";
-  document.body.classList.toggle("dark-mode", darkModeSwitch.checked);
-
-  /* let localEmail = localStorage.getItem("email");
-  let dataComplete = JSON.parse(localStorage.getItem("data"));
-  let savedImage = localStorage.getItem("image");*/
-
   // Manejar cambio de foto de perfil
   profilePicInput.addEventListener("change", function (event) {
     if (event.target.files.length > 0) {
