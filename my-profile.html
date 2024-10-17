@@ -69,7 +69,7 @@
       <h2 class="headerProfile" id="headerProfile">DATOS DEL PERFIL</h2>
 
       <div class="container-flex mt-5 row profile-container">
-        <div class="card-profile-form col">
+        <div class="card-profile-form col-6">
           <form action="" id="profileForm" class="needs-validation" novalidate>
             <div class="mb-3">
               <label for="nameProfile" class="form-label">Nombre *</label>
@@ -123,50 +123,57 @@
             </div>
         </div>
 
-        <div class="card-profile-form col">
+        <div class="card-pic-form col-4">
+          <h2 class="text-center">Personalizar Perfil</h2>
           <div class="form-check form-switch mb-3">
-            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
             <label class="form-check-label" for="darkModeSwitch">Modo Noche</label>
-        </div>
-          <label class="form-label">Foto de perfil</label>
-          <div class="d-flex align-items-center">
+            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+          </div>
+          <label class="form-label header-pic">Foto de perfil</label>
+          <div class="d-flex align-items-center img-div">
+            <input
+            type="file"
+            class="form-control font-jost text-regularph pic-input"
+            id="profilePicInput"
+            accept="image/*"
+          />
+
             <img
               src="img/img_perfil.png"
               alt="Foto de perfil"
-              class="profile-pic me-3"
+              class="profile-pic"
               id="profilePic"
             />
-            <input
-              type="file"
-              class="form-control font-jost text-regularph profile-input"
-              id="profilePicInput"
-              accept="image/*"
-            />
+
           </div>
-          
         </div>
-        <button type="submit" class="btn btn-primary" onclick="sendData ()">Guardar cambios</button>
+
+          <button type="submit" class="btn btn-primary btn-profile">GUARDAR CAMBIOS</button>
         
+
+      </div>
       </form>
       </div>
+      <footer class="footer-container">
+        <div class="footer-content">
+          <hr />
+          <p>
+            <a class="footer-link" href="#title-container">Volver arriba</a>
+          </p>
+          <p>
+            Este sitio forma parte de
+            <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
+          </p>
+          <hr />
+        </div>
+      </footer>
     </main>
-    <footer class="footer-container">
-      <div class="footer-content">
-        <hr />
-        <p>
-          <a class="footer-link" href="#title-container">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
-        </p>
-        <hr />
-      </div>
-    </footer>
+    
   
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
     <script src="js/my-profile.js"></script>
   </body>
+
 </html>
