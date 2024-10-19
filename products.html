@@ -21,44 +21,6 @@
     />
   </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <a id="user-nav" class="btn dropdown-toggle nav-link" href="login.html" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Iniciar Sesión
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                <li><a id="logout" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br>
-  <h1 id="products-head-list">LISTADO DE PRODUCTOS</h1>
-  <p class="subtitulo">Verás aquí todos los modelos disponibles</p>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
       <div class="container">
@@ -85,9 +47,33 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html" id="user-nav"
-                >Iniciar Sesión</a
-              >
+              <div class="dropdown">
+                <a
+                  id="user-nav"
+                  class="btn dropdown-toggle nav-link"
+                  href="login.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Iniciar Sesión
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="my-profile.html"
+                      >Mi perfil</a
+                    >
+                  </li>
+                  <li>
+                    <a id="logout" class="dropdown-item" href="login.html"
+                      >Cerrar sesión</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
