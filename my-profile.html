@@ -61,6 +61,7 @@
                 type="text"
                 class="form-control font-jost text-regularph profile-input required-input"
                 id="nameProfile"
+                minlength="2"
                 required
               />
               <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
@@ -82,6 +83,7 @@
                 type="text"
                 class="form-control font-jost text-regularph profile-input required-input"
                 id="lastNameProfile"
+                minlength="2"
                 required
               />
               <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
@@ -116,7 +118,10 @@
                 type="tel"
                 class="form-control font-jost text-regularph profile-input"
                 id="phoneProfile"
+                pattern="[0-9]*"
+                minlength="9"
               />
+              <div class="invalid-feedback">Por favor, ingresa un teléfono válido.</div>
             </div>
         </div>
 
