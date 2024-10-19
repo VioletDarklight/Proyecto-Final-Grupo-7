@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const darkModeSwitch = document.getElementById("darkModeSwitch");
+  let darkModeSwitch = document.getElementById("darkModeSwitch");
 
   // Verificar el estado del modo oscuro en localStorage
   if (localStorage.getItem("darkMode") === "true") {

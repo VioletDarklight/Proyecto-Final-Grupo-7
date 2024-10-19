@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isAuthenticated) {
     if (username) {
       userNav.textContent = username;
-      userNav.href = "/my-profile.html";
+      userNav.href = "my-profile.html";
     }
   } else {
     userNav.textContent = "Iniciar Sesión";
@@ -46,7 +46,9 @@ function agregarCalificacion(comentario, calificacion) {
   const nuevaCalificacion = document.createElement("div");
   nuevaCalificacion.classList.add("calificacion");
   nuevaCalificacion.innerHTML = `
-      <div class="stars">${'★'.repeat(calificacion) + '☆'.repeat(5 - calificacion)}</div>
+      <div class="stars">${
+        "★".repeat(calificacion) + "☆".repeat(5 - calificacion)
+      }</div>
       <div class="comentario">${comentario}</div>
       <div class="autor">Usuario</div>
       <div class="fecha">${new Date().toLocaleString()}</div>

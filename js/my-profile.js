@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Verificación de logueo
   if (!localStorage.getItem("username")) {
-    window.location.href = "login.html"; // Redirigir al login si no está logueado
+    window.location.href = "/login.html"; // Redirigir al login si no está logueado
   } else {
     emailProfile.value = localStorage.getItem("username"); // Mantener email al ingresar al perfil
   }
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Manejar cambio de foto de perfil
   profilePicInput.addEventListener("change", function (event) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
+      let file = event.target.files[0];
+      let reader = new FileReader();
       reader.onload = function (e) {
         profilePic.src = e.target.result; // Mostrar la nueva imagen
         localStorage.setItem("profilePic", e.target.result); // Guardar la imagen en localStorage
