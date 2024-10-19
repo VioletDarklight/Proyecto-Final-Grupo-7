@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
       <div class="container">
         <button
           class="navbar-toggler"
@@ -54,56 +54,69 @@
 
       <div class="container-flex mt-5 row profile-container">
         <div class="card-profile-form col-6">
-          <form action="" id="profileForm" class="needs-validation" novalidate>
+          <form id="profileForm" class="needs-validation" novalidate>
             <div class="mb-3">
               <label for="nameProfile" class="form-label">Nombre *</label>
               <input
                 type="text"
-                class="form-control font-jost text-regularph profile-input"
+                class="form-control font-jost text-regularph profile-input required-input"
                 id="nameProfile"
                 required
               />
+              <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+              <div class="valid-feedback">¡Nombre válido!</div>
             </div>
-
+        
             <div class="mb-3">
-              <label for="secondNameProfile" class="form-label"
-                >Segundo Nombre</label
-              >
-              <input type="text" class="form-control font-jost text-regularph profile-input" id="secondNameProfile" />
+              <label for="secondNameProfile" class="form-label">Segundo Nombre</label>
+              <input
+                type="text"
+                class="form-control font-jost text-regularph profile-input "
+                id="secondNameProfile"
+              />
             </div>
-
+        
             <div class="mb-3">
               <label for="lastNameProfile" class="form-label">Apellido *</label>
               <input
                 type="text"
-                class="form-control font-jost text-regularph profile-input"
+                class="form-control font-jost text-regularph profile-input required-input"
                 id="lastNameProfile"
                 required
               />
+              <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
+              <div class="valid-feedback">¡Apellido válido!</div>
             </div>
-
+        
             <div class="mb-3">
-              <label for="secondLastNameProfile" class="form-label"
-                >Segundo Apellido</label
-              >
+              <label for="secondLastNameProfile" class="form-label">Segundo Apellido</label>
               <input
                 type="text"
                 class="form-control font-jost text-regularph profile-input"
                 id="secondLastNameProfile"
               />
             </div>
+        
             <div class="mb-3">
               <label for="emailProfile" class="form-label">E-mail *</label>
               <input
                 type="email"
-                class="form-control font-jost text-regularph profile-input"
+                class="form-control font-jost text-regularph profile-input required-input"
                 id="emailProfile"
-                placeholder="ejemplo@mail.com" required
+                placeholder="ejemplo@mail.com"
+                required
               />
+              <div class="invalid-feedback">Por favor, ingresa un e-mail válido.</div>
+              <div class="valid-feedback">¡E-mail válido!</div>
             </div>
+        
             <div class="mb-3">
               <label for="phoneProfile" class="form-label">Teléfono</label>
-              <input type="tel" class="form-control font-jost text-regularph profile-input" id="phoneProfile" />
+              <input
+                type="tel"
+                class="form-control font-jost text-regularph profile-input"
+                id="phoneProfile"
+              />
             </div>
         </div>
 
@@ -138,6 +151,21 @@
       </div>
       </form>
       </div>
+      <!--Mensajes de alerta-->
+      <div>
+        <div
+          class="alert alert-light alert-dismissible fade"
+          role="alert"
+          id="alert-success"
+        >
+          <p class="alert-body">Perfil actualizado con éxito.</p>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
       <footer class="footer-container">
         <div class="footer-content">
           <hr />
@@ -158,11 +186,10 @@
       </footer>
     </main>
     
-  
+    <script src="js/my-profile.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/my-profile.js"></script>
     <script src="js/dark-mode.js"></script>
   </body>
 
