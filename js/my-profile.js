@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   let profileForm = document.getElementById("profileForm");
-  let darkModeSwitch = document.getElementById("darkModeSwitch");
   let profilePicInput = document.getElementById("profilePicInput");
   let profilePic = document.getElementById("profilePic");
   let emailProfile = document.getElementById("emailProfile");
+  let profileInputs = document.getElementsByClassName("required-input");
 
   // Verificación de logueo
   if (!localStorage.getItem("username")) {
@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
   loadProfileData();
 
   // Manejar envío del formulario
-  profileForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Evitar que la página se recargue
+  profileForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    if (profileForm.checkValidity()) {
-      saveProfileData(); // Guardar datos si el formulario es válido
-      alert("Perfil actualizado con éxito");
+    // Validar todos los inputs y dar feedback
+    if (validateInputs()) {
+      saveProfileData();
+      showAlertSuccess();
     } else {
       profileForm.reportValidity(); // Mostrar errores si no es válido
     }
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Si ya hay una imagen de perfil en el localStorage, cargarla
+  // Cargar imagen de perfil desde localStorage
   if (localStorage.getItem("profilePic")) {
     profilePic.src = localStorage.getItem("profilePic");
   }
@@ -54,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
   // Función para guardar datos del perfil en localStorage
   function saveProfileData() {
     let profileData = {
@@ -66,4 +69,45 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     localStorage.setItem("profileData", JSON.stringify(profileData));
   }
+
+  // Función para mostrar la alerta de éxito
+  function showAlertSuccess() {
+    alertSuccess.classList.add("show");
+    setTimeout(() => alertSuccess.classList.remove("show"), 500); // Ocultar después de 0.5 segundos
+  }
+
+  // Función de validación
+  function validateInputs() {
+    let isValid = true;
+    Array.from(profileInputs).forEach((input) => {
+      if (!input.checkValidity()) {
+        input.classList.add("is-invalid");
+        input.classList.remove("is-valid");
+        isValid = false; // Si hay algún input inválido, cambia isValid a false
+      } else {
+        input.classList.add("is-valid");
+        input.classList.remove("is-invalid");
+      }
+
+      // Habilitar validación en tiempo real
+      input.addEventListener("input", realTimeValidation);
+    });
+    return isValid;
+  }
+
+  // Función de validación en tiempo real
+  function realTimeValidation(event) {
+    if (event.target.checkValidity()) {
+      event.target.classList.add("is-valid");
+      event.target.classList.remove("is-invalid");
+    } else {
+      event.target.classList.add("is-invalid");
+      event.target.classList.remove("is-valid");
+    }
+  }
+
+  // Activar inicialmente la validación en tiempo real en los inputs
+  Array.from(profileInputs).forEach((input) => {
+    input.addEventListener("input", realTimeValidation);
+  });
 });

@@ -1659,9 +1659,41 @@ font-weight: 400;
   color: #000;
 }
 
+
+
 .card-pic-form h2 {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
+}
+
+.alert-light {
+  width: 18rem;
+}
+
+/* Estilos para validaciones*/
+.profile-input.valid {
+  border-color: #28a745; 
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.profile-input.invalid {
+  border-color: #dc3545; 
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+.valid-feedback {
+  color: #28a745; 
+}
+
+.invalid-feedback {
+  color: #dc3545; 
+}
+.dark-mode .invalid-feedback {
+  color: rgb(216, 79, 79);
+}
+
+.dark-mode .alert-body {
+  color:#000;
 }
 
 /*Medidas responsive para Mi Perfil*/
