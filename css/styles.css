@@ -1801,4 +1801,83 @@ margin-bottom: 2rem;
 .dark-mode #carta-img{
  background: #0a1d30;
 }
-  
+  /* MODO NOCHE PARA PRODUCT-INFO.HTML */
+.dark-mode .product-description { 
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+  color: #e0e0e0;
+}
+
+.dark-mode #btnNewComm {
+  background-color:#0a1d30;
+  border-color:#043566 ;
+  color: white;
+}
+.dark-mode #botonenviar {
+  background-color: #0a1d30;
+  border-color: #043566;
+}
+.dark-mode .commentCard {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .container-comments {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .card-body1 {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+ }
+ .dark-mode .cajadeescritura {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .containerInfo {
+  background: linear-gradient(180deg, rgba(11, 34, 58, 0.8), #154674); 
+}
+/* ESTRELLAS CALIFICACION NOCHE */
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+#form p {
+  text-align: center;
+}
+#form label {
+  font-size: 20px;
+}
+input[type="radio"] {
+  display: none;
+}
+label {
+  color: grey;
+}
+.clasificacion {
+  display: inline-flex;   
+  flex-direction: row-reverse;  
+  font-size: 35px;
+}
+input[type="radio"] {
+  display: none; /
+}
+.dark-mode label {
+  color: #081f3dec ;
+  cursor: pointer;
+}
+.dark-mode:hover,
+label:hover ~ label {
+  color: rgb(255, 255, 255);
+}
+.dark-mode [type="radio"]:checked ~ label {
+  color:white;
+}
+/* PRODUCTOS RELACIONADOS NOCHE */
+.dark-mode #carta-rel {
+  background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
+}
+
+.dark-mode #rel-card {
+  background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
+}
+.dark-mode .ver-ver0 {
+  background-color: #0a1d30;
+  border-color: #043566;
+}
