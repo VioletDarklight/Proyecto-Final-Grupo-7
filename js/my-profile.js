@@ -24,9 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validateInputs()) {
       saveProfileData();
       showAlertSuccess();
-    } else {
-      profileForm.reportValidity(); // Mostrar errores si no es válido
     }
+
+    // Reporte de errores si la validación falla
+    profileForm.classList.add("was-validated");
   });
 
   // Manejar cambio de foto de perfil
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para mostrar la alerta de éxito
   function showAlertSuccess() {
+    let alertSuccess = document.getElementById("alert-success");
     alertSuccess.classList.add("show");
     setTimeout(() => alertSuccess.classList.remove("show"), 500); // Ocultar después de 0.5 segundos
   }
