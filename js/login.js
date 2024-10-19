@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
     userNav.textContent = "Iniciar Sesión";
     userNav.href = "/login.html";
   }
+
+  //Funcion para limpiar el localstorage, al cerrar sesion
+  let logout = document.getElementById("logout");
+  logout.addEventListener("click", function () {
+    localStorage.removeItem("username");
+  });
 });
 
 // Variables para el formulario y las alertas
