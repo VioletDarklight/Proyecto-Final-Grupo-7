@@ -35,9 +35,9 @@ function showData(array) {
         <div  class= "col">
       <div id = "carta-img" class="col-lg-12  card mb-3 shadow" onclick="setProdID(${item.id})">
  
-        <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
+        <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block cursor-active "  src="${item.image}">
  
-       <div  id = "carta-color" class = "rounded mx-auto row card-body" >
+       <div  id = "carta-color" class = "rounded mx-auto row card-body cursor-active" >
         <h2 class="card-title text-center" >${item.name}</h2>
         <p class=" col-sm-12 card-text text-center car-description">${item.description}</p>
         
