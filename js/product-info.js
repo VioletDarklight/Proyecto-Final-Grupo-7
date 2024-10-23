@@ -46,8 +46,9 @@ function showProduct(infoCard) {
 
   containerMainImage.innerHTML += `
     <img class="mainImage" id=mainImage src="${infoCard.images[0]}" alt="imagen principal">
-  `<;
- 
+  `;
+
+  
   
 
   changeMainImage(infoCard.images[0]);
