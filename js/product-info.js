@@ -39,12 +39,17 @@ function showProduct(infoCard) {
       <p>${infoCard.description}</p>
       <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
       <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
-    </div>
+      <p class="product-cost">Precio:</br><span>$${infoCard.cost}</span></p>
+    <button class="btn-comprar">AÑADIR AL CARRITO</button>
+      </div>
   `;
 
   containerMainImage.innerHTML += `
     <img class="mainImage" id=mainImage src="${infoCard.images[0]}" alt="imagen principal">
-  `;
+  `<;
+ 
+  
+
   changeMainImage(infoCard.images[0]);
   //Bucle que recorre el array de imágenes
   for (let i = 0; i < infoCard.images.length; i++) {
@@ -272,3 +277,61 @@ function setProdID(id) {
   localStorage.setItem("prodID", id);
   window.location = "product-info.html";
 }
+/* BOTON COMPRAR FUNCIONALIDAD */
+
+document.addEventListener("DOMContentLoaded", function() {
+  let prodID = localStorage.getItem("prodID");
+    if (prodID) {
+    let prodInfoURL = "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
+    let containerInfo = document.querySelector(".containerInfo");
+    let containerMainImage = document.querySelector(".containerMainImage");
+    let containerSecondaryImages = document.querySelector(".containerSecondaryImages");
+    let productName = document.getElementById("product-name");
+
+    fetch(prodInfoURL)
+      .then(response => response.json())
+      .then(infoCard => {
+        console.log("Producto cargado: ", infoCard);
+
+        // Mostrar nombre del producto //
+        productName.textContent = infoCard.name;
+
+        // Añadir funcionalidad al botón COMPRAR //
+        document.querySelector(".btn-comprar").addEventListener("click", function() {
+          let productoComprado = {
+            id: infoCard.id,
+            name: infoCard.name,
+            cost: infoCard.cost,
+            image: infoCard.images[0]
+          };
+
+          // Guardar producto en localStorage //
+          guardarCompraEnLocalStorage(productoComprado);
+
+          // Mostrar el modal de confirmación //
+          let confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+          confirmationModal.show();
+
+          // Manejar el clic en el botón de finalizar compra //
+          document.getElementById('finalizarCompra').addEventListener('click', function() {
+            window.location.href = "cart.html"; // Redirige a la página de carrito //
+          });
+        });
+      })
+      .catch(error => console.error('Error al cargar producto:', error));
+  } else {
+    console.error('Producto no encontrado en el localStorage.');
+  }
+});
+// Función para guardar el producto en el localStorage //
+function guardarCompraEnLocalStorage(productoComprado) {
+  let carrito = JSON.parse(localStorage.getItem("carritoDeCompras")) || [];
+  carrito.push(productoComprado);
+  localStorage.setItem("carritoDeCompras", JSON.stringify(carrito));
+}
+// TABLET BOTON COMPRAR ? //
+
+
+
+
+
