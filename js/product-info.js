@@ -39,7 +39,7 @@ function showProduct(infoCard) {
       <p>${infoCard.description}</p>
       <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
       <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
-      <p class="product-cost">Precio:</br><span>$${infoCard.cost}</span></p>
+      <p class="product-cost">Precio:</br><span>${infoCard.cost}${infoCard.currency}</span></p>
     <button class="btn-comprar">AÑADIR AL CARRITO</button>
       </div>
   `;
@@ -300,10 +300,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Añadir funcionalidad al botón COMPRAR //
         document.querySelector(".btn-comprar").addEventListener("click", function() {
           let productoComprado = {
-            id: infoCard.id,
             name: infoCard.name,
             cost: infoCard.cost,
-            image: infoCard.images[0]
+            image: infoCard.images[0],
+            currency: infoCard.currency
           };
 
           // Guardar producto en localStorage //
@@ -326,11 +326,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // Función para guardar el producto en el localStorage //
 function guardarCompraEnLocalStorage(productoComprado) {
-  let carrito = JSON.parse(localStorage.getItem("carritoDeCompras")) || [];
+  let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
   carrito.push(productoComprado);
-  localStorage.setItem("carritoDeCompras", JSON.stringify(carrito));
+  localStorage.setItem("shoppingCart", JSON.stringify(carrito));
 }
-// TABLET BOTON COMPRAR ? //
+
 
 
 

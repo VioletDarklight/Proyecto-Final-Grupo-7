@@ -1935,7 +1935,7 @@ label:hover ~ label {
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); 
   cursor: pointer;
   transition: background-color 0.3s ease; /* Transición para efectos suaves */
-  margin-top: 200px;
+  margin-top: 150px;
 }
 /* BOTON COMPRAR MODO NOCHE */
 .dark-mode .btn-comprar {
@@ -1950,7 +1950,7 @@ label:hover ~ label {
     box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); 
     cursor: pointer;
     transition: background-color 0.3s ease; /* Transición para efectos suaves */
-    margin-top: 200px;
+    margin-top: 150px;
 }
 /* CONFIARMACION DE COMPRA */
 .modal-content {
@@ -2008,7 +2008,6 @@ label:hover ~ label {
   color: white;               
   border: none;               
 }
-/*MEDIDA LG PARA TABLET HASTA 1199PX*/
-@media (min-width: 768px) and (max-width: 1199px) {
+
 
   
