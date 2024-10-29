@@ -51,17 +51,33 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item">
-            <div class="dropdown">
-              <a id="user-nav" class="btn dropdown-toggle nav-link" href="login.html" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Iniciar Sesión
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                <li><a id="logout" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
-              </ul>
-            </div>
+              <div class="dropdown">
+                <a
+                  id="user-nav"
+                  class="btn dropdown-toggle nav-link"
+                  href="login.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Iniciar Sesión
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="my-profile.html"
+                      >Mi perfil</a
+                    >
+                  </li>
+                  <li>
+                    <a id="logout" class="dropdown-item" href="login.html"
+                      >Cerrar sesión</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
@@ -127,21 +143,41 @@
     <script src="js/product-info.js"></script>
     <script src="js/dark-mode.js"></script>
 
-        <!-- CONFIRMACION DE COMPRA -->
-<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmationModalLabel">Producto añadido exitosamente!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-gris" data-bs-dismiss="modal">Continuar en el sitio</button>
-        <button type="button" class="btn btn-dark-azul" id="finalizarCompra">Finalizar compra</button>
+    <!-- CONFIRMACION DE COMPRA -->
+    <div
+      class="modal fade"
+      id="confirmationModal"
+      tabindex="-1"
+      aria-labelledby="confirmationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmationModalLabel">
+              Producto añadido exitosamente!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-gris" data-bs-dismiss="modal">
+              Continuar en el sitio
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark-azul"
+              id="finalizarCompra"
+            >
+              Finalizar compra
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
   </body>
 </html>

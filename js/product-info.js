@@ -48,9 +48,6 @@ function showProduct(infoCard) {
     <img class="mainImage" id=mainImage src="${infoCard.images[0]}" alt="imagen principal">
   `;
 
-  
-  
-
   changeMainImage(infoCard.images[0]);
   //Bucle que recorre el array de imágenes
   for (let i = 0; i < infoCard.images.length; i++) {
@@ -148,7 +145,7 @@ function showProdCommInfo(commCard) {
     .addEventListener("submit", function (event) {
       event.preventDefault();
       addNewComment();
-      location.reload(href='#newCommentForm');
+      location.reload((href = "#newCommentForm"));
     });
 
   //Evento para desaparecer botón de nuevo comentario
@@ -278,61 +275,72 @@ function setProdID(id) {
   localStorage.setItem("prodID", id);
   window.location = "product-info.html";
 }
-/* BOTON COMPRAR FUNCIONALIDAD */
 
-document.addEventListener("DOMContentLoaded", function() {
+/* Botón "Añadir al carrito" */
+document.addEventListener("DOMContentLoaded", function () {
   let prodID = localStorage.getItem("prodID");
-    if (prodID) {
-    let prodInfoURL = "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
-    let containerInfo = document.querySelector(".containerInfo");
-    let containerMainImage = document.querySelector(".containerMainImage");
-    let containerSecondaryImages = document.querySelector(".containerSecondaryImages");
+  if (prodID) {
+    let prodInfoURL =
+      "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
     let productName = document.getElementById("product-name");
 
     fetch(prodInfoURL)
-      .then(response => response.json())
-      .then(infoCard => {
+      .then((response) => response.json())
+      .then((infoCard) => {
         console.log("Producto cargado: ", infoCard);
 
-        // Mostrar nombre del producto //
+        // Mostrar nombre del producto
         productName.textContent = infoCard.name;
 
-        // Añadir funcionalidad al botón COMPRAR //
-        document.querySelector(".btn-comprar").addEventListener("click", function() {
-          let productoComprado = {
-            name: infoCard.name,
-            cost: infoCard.cost,
-            image: infoCard.images[0],
-            currency: infoCard.currency
-          };
+        // Añadir funcionalidad al botón COMPRAR
+        document
+          .querySelector(".btn-comprar")
+          .addEventListener("click", function () {
+            let productoComprado = {
+              id: prodID, //Esto lo agrego para facilitar la referencia
+              name: infoCard.name,
+              cost: infoCard.cost,
+              image: infoCard.images[0],
+              currency: infoCard.currency,
+              quantity: 1, //Inicia la cantidad en 1
+            };
 
-          // Guardar producto en localStorage //
-          guardarCompraEnLocalStorage(productoComprado);
-
-          // Mostrar el modal de confirmación //
-          let confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-          confirmationModal.show();
-
-          // Manejar el clic en el botón de finalizar compra //
-          document.getElementById('finalizarCompra').addEventListener('click', function() {
-            window.location.href = "cart.html"; // Redirige a la página de carrito //
+            // Guardar producto en localStorage
+            guardarCompraEnLocalStorage(productoComprado);
           });
-        });
-      })
-      .catch(error => console.error('Error al cargar producto:', error));
-  } else {
-    console.error('Producto no encontrado en el localStorage.');
+      });
   }
 });
-// Función para guardar el producto en el localStorage //
+
+// Función para guardar o actualizar el producto en el localStorage
 function guardarCompraEnLocalStorage(productoComprado) {
   let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
-  carrito.push(productoComprado);
+  // Buscar si el producto ya existe en el carrito
+  let existingProduct = carrito.find((item) => item.id === productoComprado.id);
+
+  if (existingProduct) {
+    // Si el producto ya está en el carrito, incrementa la cantidad
+    existingProduct.quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agregarlo con cantidad inicial de 1
+    productoComprado.quantity = 1;
+    carrito.push(productoComprado);
+  }
+
+  // Guardar carrito actualizado en localStorage
   localStorage.setItem("shoppingCart", JSON.stringify(carrito));
+
+  // Mostrar el modal de confirmación
+  let confirmationModal = new bootstrap.Modal(
+    document.getElementById("confirmationModal")
+  );
+  confirmationModal.show();
+
+  // Configuración de botones dentro del modal
+  document
+    .getElementById("finalizarCompra")
+    .addEventListener("click", function () {
+      // Redirigir al carrito al hacer clic en "Finalizar compra"
+      window.location.href = "cart.html";
+    });
 }
-
-
-
-
-
-
