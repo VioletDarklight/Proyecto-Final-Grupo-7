@@ -105,9 +105,9 @@ function showProdCommInfo(commCard) {
     </p>
     <div class="collapse" id="collapseExample">
       <div class="card card-body1">
-        <form id="newCommentForm">
+        <form id="newCommentForm" novalidate>
           <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
+            <input id="radio1" type="radio" name="estrellas" value="5" required>
             <label for="radio1">★</label>
             <input id="radio2" type="radio" name="estrellas" value="4">
             <label for="radio2">★</label>
@@ -118,7 +118,9 @@ function showProdCommInfo(commCard) {
             <input id="radio5" type="radio" name="estrellas" value="1">
             <label for="radio5">★</label>
           </p>
-          <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí...">
+          <div id="feedbackStar" class="feedback-message invalid-feedback"></div>
+          <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí..." required>
+          <div id="feedbackCommentText" class="feedback-message invalid-feedback"></div>
           <p class="userNameComment" id="userNameComm"> usuario </p>
           <p id="display-time" class="dataComment"></p>
           <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button>
@@ -129,20 +131,171 @@ function showProdCommInfo(commCard) {
 
   showUserName();
 
-  // Evento para manejar el envío del comentario
-  document
-    .getElementById("newCommentForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      addNewComment();
-      location.reload();
-    });
-
   // Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
   btnNewComm.addEventListener("click", () => {
     btnNewComm.remove();
   });
+
+  // Función para manejar el feedback de los campos
+  function setFeedback(input, feedbackElement, isValid, message) {
+    if (isValid) {
+      input.classList.add("is-valid");
+      input.classList.remove("is-invalid");
+      feedbackElement.innerText = "";
+    } else {
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+      feedbackElement.innerText = message;
+    }
+  }
+
+  // Validación en tiempo real para el campo de texto del comentario
+  let commentInput = document.getElementById("commentText");
+  commentInput.addEventListener("input", function () {
+    let isValid = this.value.trim() !== "";
+    setFeedback(
+      this,
+      document.getElementById("feedbackCommentText"),
+      isValid,
+      "Este campo es obligatorio"
+    );
+  });
+
+  // Validación en tiempo real para las estrellas
+  let starInputs = document.getElementsByName("estrellas");
+  starInputs.forEach((star) => {
+    star.addEventListener("change", function () {
+      validateStars();
+    });
+  });
+
+  // Función para validar y mostrar feedback de las estrellas
+  function validateStars() {
+    let starInputs = document.getElementsByName("estrellas");
+    let ratingChecked = Array.from(starInputs).some((star) => star.checked);
+    let feedbackStar = document.getElementById("feedbackStar");
+
+    if (!ratingChecked) {
+      feedbackStar.style.display = "block";
+      feedbackStar.innerText = "Debes seleccionar una calificación";
+    } else {
+      feedbackStar.style.display = "none";
+      feedbackStar.innerText = "";
+    }
+
+    return ratingChecked;
+  }
+
+  // Función de validación general para el formulario
+  function validateForm() {
+    let isValid = true;
+
+    // Validación del campo de comentario
+    let commentText = document.getElementById("commentText");
+    let isCommentValid = commentText.value.trim() !== "";
+    setFeedback(
+      commentText,
+      document.getElementById("feedbackCommentText"),
+      isCommentValid,
+      "Este campo es obligatorio"
+    );
+
+    // Validación de las estrellas
+    let isStarsValid = validateStars();
+
+    isValid = isCommentValid && isStarsValid;
+    return isValid;
+  }
+
+  // Evento para manejar el envío del formulario
+  let commentForm = document.getElementById("newCommentForm");
+  commentForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (validateForm()) {
+      addNewComment();
+
+      // Limpiar el formulario y los estados de validación
+      this.reset();
+      let commentText = document.getElementById("commentText");
+      commentText.classList.remove("is-valid", "is-invalid");
+
+      let feedbackStar = document.getElementById("feedbackStar");
+      let feedbackCommentText = document.getElementById("feedbackCommentText");
+      feedbackStar.style.display = "none";
+      feedbackStar.innerText = "";
+      feedbackCommentText.innerText = "";
+    }
+  });
+
+  /* Función para manejar el feedback de los campos
+  function setFeedback(input, feedbackElement, isValid, message) {
+    if (isValid) {
+      input.classList.add("is-valid");
+      input.classList.remove("is-invalid");
+      feedbackElement.innerText = ""; // Limpiar mensaje de error
+    } else {
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+      feedbackElement.innerText = message; // Mostrar mensaje de error
+    }
+  }
+
+  // Validación en tiempo real para el campo de texto del comentario
+  document.getElementById("commentText").addEventListener("input", function () {
+    setFeedback(
+      this,
+      document.getElementById("feedbackCommentText"),
+      this.value.trim() !== "",
+      "Este campo es obligatorio"
+    );
+  });
+
+  // Validación en tiempo real del campo de calificación
+  let starInputs = document.getElementsByName("estrellas");
+  for (let i = 0; i < starInputs.length; i++) {
+    starInputs[i].addEventListener("change", function () {
+      let allInvalid = !Array.from(starInputs).some((star) => star.checked);
+      for (let j = 0; j < starInputs.length; j++) {
+        starInputs[j].classList.toggle("is-invalid", allInvalid);
+        starInputs[j].classList.toggle("is-valid", !allInvalid);
+      }
+      setFeedback(
+        starInputs[0],
+        document.getElementById("feedbackStar"),
+        !allInvalid,
+        "Debes seleccionar una calificación"
+      );
+    });
+  }
+
+  // Función de validación general para el formulario
+  function validateForm() {
+    let isValid = true;
+
+    // Validación del campo de comentario
+    let commentText = document.getElementById("commentText");
+    setFeedback(
+      commentText,
+      document.getElementById("feedbackCommentText"),
+      commentText.value.trim() !== "",
+      "Este campo es obligatorio"
+    );
+    isValid = isValid && commentText.classList.contains("is-valid");
+
+    // Validación del campo de calificación
+    let ratingChecked = Array.from(starInputs).some((star) => star.checked);
+    setFeedback(
+      starInputs[0],
+      document.getElementById("feedbackStar"),
+      ratingChecked,
+      "Debes seleccionar una calificación"
+    );
+    isValid = isValid && ratingChecked;
+
+    return isValid;
+  }*/
 
   // Función para mostrar la fecha y hora actual al escribir comentario
   function currentTime() {
@@ -168,7 +321,7 @@ function createCommentElement(comment) {
 
 // Función para agregar un nuevo comentario
 function addNewComment() {
-  let score = document.querySelector('input[name="estrellas"]:checked').value;
+  let score = document.querySelector('input[name="estrellas"]:checked').value; // Este sí es necesario para obtener la calificación
   let description = document.getElementById("commentText").value;
   let user = localStorage.getItem("username");
   let dateTime = new Date();
