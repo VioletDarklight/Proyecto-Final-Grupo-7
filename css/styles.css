@@ -2093,30 +2093,12 @@ font-family:"Jost", sans-serif;;
  .cartProducts{
   margin-top: -2em; }
 
- .btn-cart{
-  border-radius: 50%;
-  width:5px;
-  height:25px;
-  border-color: #000;
-  margin-left: 2em;
-  
-}  
-.dark-mode .btn-cart{
-  border-color:white;
+
+.dark-mode .bi-dash-circle, .dark-mode .bi-plus-circle{
+  color:white;
 }
  
- .btn-cart p{
-  margin-top: -0.5em;
-  margin-left: -0.3em;
-  margin-right: -0.3em;
- }
- 
- #menos{
-margin-right: -1.5em;
-}
-#mas{
-  margin-left: -1em;
-}
+
  #cajaCant{
   background-color: transparent;
   border-color: transparent;
