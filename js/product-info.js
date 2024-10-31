@@ -229,74 +229,6 @@ function showProdCommInfo(commCard) {
     }
   });
 
-  /* Función para manejar el feedback de los campos
-  function setFeedback(input, feedbackElement, isValid, message) {
-    if (isValid) {
-      input.classList.add("is-valid");
-      input.classList.remove("is-invalid");
-      feedbackElement.innerText = ""; // Limpiar mensaje de error
-    } else {
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-      feedbackElement.innerText = message; // Mostrar mensaje de error
-    }
-  }
-
-  // Validación en tiempo real para el campo de texto del comentario
-  document.getElementById("commentText").addEventListener("input", function () {
-    setFeedback(
-      this,
-      document.getElementById("feedbackCommentText"),
-      this.value.trim() !== "",
-      "Este campo es obligatorio"
-    );
-  });
-
-  // Validación en tiempo real del campo de calificación
-  let starInputs = document.getElementsByName("estrellas");
-  for (let i = 0; i < starInputs.length; i++) {
-    starInputs[i].addEventListener("change", function () {
-      let allInvalid = !Array.from(starInputs).some((star) => star.checked);
-      for (let j = 0; j < starInputs.length; j++) {
-        starInputs[j].classList.toggle("is-invalid", allInvalid);
-        starInputs[j].classList.toggle("is-valid", !allInvalid);
-      }
-      setFeedback(
-        starInputs[0],
-        document.getElementById("feedbackStar"),
-        !allInvalid,
-        "Debes seleccionar una calificación"
-      );
-    });
-  }
-
-  // Función de validación general para el formulario
-  function validateForm() {
-    let isValid = true;
-
-    // Validación del campo de comentario
-    let commentText = document.getElementById("commentText");
-    setFeedback(
-      commentText,
-      document.getElementById("feedbackCommentText"),
-      commentText.value.trim() !== "",
-      "Este campo es obligatorio"
-    );
-    isValid = isValid && commentText.classList.contains("is-valid");
-
-    // Validación del campo de calificación
-    let ratingChecked = Array.from(starInputs).some((star) => star.checked);
-    setFeedback(
-      starInputs[0],
-      document.getElementById("feedbackStar"),
-      ratingChecked,
-      "Debes seleccionar una calificación"
-    );
-    isValid = isValid && ratingChecked;
-
-    return isValid;
-  }*/
-
   // Función para mostrar la fecha y hora actual al escribir comentario
   function currentTime() {
     let currentDate = new Date();
@@ -375,20 +307,42 @@ function scoreStars(score) {
   return "★".repeat(score) + "☆".repeat(5 - score);
 }
 
-// Función para mostrar la fecha y hora actual
-function currentTime() {
-  let currentDate = new Date();
-  let formattedDate = formatDate(currentDate);
-  document.getElementById("display-time").innerText = `${formattedDate} hrs`;
+// PRODUCTOS RELACIONADOS ENTREGA 4
+
+//Spinner de carga al cambiar de producto
+let spinnerHTML = `
+<div id="loading-spinner" class="loading-overlay d-none">
+  <div class="spinner-container">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+</div>
+`;
+document.body.insertAdjacentHTML("afterbegin", spinnerHTML);
+
+let loadingSpinner = document.getElementById("loading-spinner");
+
+// Función para mostrar el spinner
+function showSpinnerRel() {
+  loadingSpinner.classList.remove("d-none");
 }
 
-// PRODUCTOS RELACIONADOS ENTREGA 4
+// Función para ocultar el spinner
+function hideSpinnerRel() {
+  loadingSpinner.classList.add("fade-out");
+  setTimeout(() => {
+    loadingSpinner.classList.add("d-none");
+    loadingSpinner.classList.remove("fade-out");
+  }, 300);
+}
 
 //Realizacion de fetch para obtener los datos que se encuentran dentro del json e Invocacion de funcion una vez obtenidos los mismos.
 fetch(prodInfoURL)
   .then((response) => response.json())
   .then((infoRel) => {
     showRel(infoRel);
+    hideSpinnerRel();
   });
 
 let containerRelacionado = document.getElementById("carouselExampleCaptions");
@@ -402,7 +356,7 @@ function showRel(infoRel) {
   <img id="img-rel0" src="${infoRel.relatedProducts[0].image}" class="card-img-top" alt="...">
   <div class="card-body card-button">
      <h5 class="card-title rel-name">${infoRel.relatedProducts[0].name}</h5> 
-    <button  onclick="setProdID(${infoRel.relatedProducts[0].id})" class="ver-ver0" type="button">VER MAS</button>
+    <button  onclick="setProdID(${infoRel.relatedProducts[0].id}, event)" class="ver-ver0" type="button">VER MAS</button>
   </div>
 </div>
 </div>
@@ -412,7 +366,7 @@ function showRel(infoRel) {
     <img  id="img-rel" src="${infoRel.relatedProducts[1].image}" class="card-img-top" alt="...">
     <div class="card-body card-button">
      <h5 class="card-title mod-titulo rel-name">${infoRel.relatedProducts[1].name}</h5>
-     <button onclick="setProdID(${infoRel.relatedProducts[1].id})" class="ver-ver0" type="button">VER MAS</button>
+     <button onclick="setProdID(${infoRel.relatedProducts[1].id}, event)" class="ver-ver0" type="button">VER MAS</button>
     </div>
  </div>
 </div>
@@ -428,10 +382,24 @@ function showRel(infoRel) {
 `;
 }
 //funcion que realiza la actualizacion el id del local storage al hacer clic en el boton(linea 147 y 137) del producto del que quiere saber mas informacion.
-function setProdID(id) {
+function setProdID(id, event) {
+  // Obtén el botón desde el evento
+  const button = event.target;
+
+  // Agrega clase loading al botón
+  button.classList.add("loading");
+
+  // Mostrar el spinner
+  showSpinnerRel();
+
+  // Remover el ID anterior y establecer el nuevo
   localStorage.removeItem("prodID");
   localStorage.setItem("prodID", id);
-  window.location = "product-info.html";
+
+  // Delay para mostrar la animación
+  setTimeout(() => {
+    window.location = "product-info.html";
+  }, 500);
 }
 
 /* Botón "Añadir al carrito" */
