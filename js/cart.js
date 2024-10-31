@@ -39,7 +39,7 @@ function showCart(cartCompra){
              <th rowspan="4"><img class="cartImage"src="${item.image}"></th>
              <td>Cantidad</td>
              <td><button  class=" btn btn-cart" id="menos" type="button"><p>-</p></button></td>
-             <td><input class="funcionalidad" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity}"></td>
+             <td><input   id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity}"></td>
              <td><button  class="btn btn-cart" id="mas" type="button"><p>+</p></button></td>
               
              </tr>
@@ -118,31 +118,3 @@ var sumaFinalCart = arregloFinal.reduce((total,numero)=>total+numero);
 console.log(sumaFinalCart);
 
 document.getElementById("sumaFinal").innerHTML=+sumaFinalCart;
-
-
-//Funcionalidad botones sumar y restar cantidad
-var inicio = 1;
-let aumentar = document.getElementById("mas");
-let dismin =document.getElementById("menos");
-
-function aumentando(){
-let cantidad = document.getElementById("cajaCant").value=++inicio;
- }
-aumentar.addEventListener('click',function(){
-  aumentando();
-})
-
-
-
- function restando(){
-  let valorNuevo = document.getElementById("cajaCant").value
-  let cantidad = document.getElementById("cajaCant").value =--inicio;
-  if(cantidad<0){
-    return inicio
-  }
- }
- dismin.addEventListener('click',function(){
-  restando();
- })
-
- 
