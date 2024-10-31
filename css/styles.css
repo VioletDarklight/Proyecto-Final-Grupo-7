@@ -1972,6 +1972,49 @@ label:hover ~ label {
   background-color: #0a1d30;
   border-color: #043566;
 }
+
+/*Estilos transición productos relacionados*/
+
+/* Loading spinner */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.445);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.spinner-container {
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.d-none {
+  display: none !important;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Animaciones para las cards de productos relacionados */
+#rel-card, #carta-rel {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Botón mientras carga */
+.ver-ver0.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 /* BOTON COMPRAR DIA */
 .btn-comprar {
   background-color:#0353a4;
@@ -2143,30 +2186,12 @@ font-family:"Jost", sans-serif;;
  .cartProducts{
   margin-top: -2em; }
 
- .btn-cart{
-  border-radius: 50%;
-  width:5px;
-  height:25px;
-  border-color: #000;
-  margin-left: 2em;
-  
-}  
-.dark-mode .btn-cart{
-  border-color:white;
+
+.dark-mode .bi-dash-circle, .dark-mode .bi-plus-circle{
+  color:white;
 }
  
- .btn-cart p{
-  margin-top: -0.5em;
-  margin-left: -0.3em;
-  margin-right: -0.3em;
- }
- 
- #menos{
-margin-right: -1.5em;
-}
-#mas{
-  margin-left: -1em;
-}
+
  #cajaCant{
   background-color: transparent;
   border-color: transparent;
