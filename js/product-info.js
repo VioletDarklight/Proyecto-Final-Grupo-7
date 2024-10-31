@@ -309,9 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
             guardarCompraEnLocalStorage(productoComprado);
           });
       });
-  }
-});
-
+    }});
 // Función para guardar o actualizar el producto en el localStorage
 function guardarCompraEnLocalStorage(productoComprado) {
   let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];

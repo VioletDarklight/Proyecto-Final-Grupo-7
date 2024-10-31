@@ -11,9 +11,11 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    
   </head>
 
   <body>
@@ -48,7 +50,7 @@
                 Iniciar Sesión
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a id="image-cart" class="dropdown-item" href="cart.html">Mi carrito</a></li>
                 <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
                 <li><a id="logout" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
               </ul>
@@ -59,12 +61,48 @@
       </div>
     </nav>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <br>
+      <div id="cartCompras"><br>
+      <h2 id="carritoTitulo">MI CARRITO</h2>
+      
+        <div id="containerCarritoVacio">
         </div>
+        <br>
+        <div class="background">
+        <div id="containerCarritoLleno">
       </div>
-    </main>
+        <br>
+         
+        <div id="finallity-table">
+          <table id="tablaCart" class="table  table-borderless">
+           
+               <tr>
+               <td rowspan="3"><a class="btn btn-cartFinal btn-primary" href="#" role="button">COMPRAR</a></td>
+</td>
+                
+               </tr>
+               <tr>
+               <td>Moneda</td>
+               <td > UYU</td>
+                
+               </tr>
+                
+              <tr id=>
+              <td >TOTAL </td>
+              <td class="totalFin" id="sumaFinal"> </td>
+              <td></td>
+              <td></td>
+              </tr>
+              
+             </table>
+        </div>
+        <br>
+      </div>
+<br>
+<br>
+      
+  </main>
+  
     <footer class="footer-container">
       <div class="footer-content">
         <hr />
