@@ -15,6 +15,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -43,9 +47,17 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html" id="user-nav"
-                >Iniciar Sesión</a
-              >
+            <div class="dropdown">
+              <a id="user-nav" class="btn dropdown-toggle nav-link" href="login.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Iniciar Sesión
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a id="logout" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+              </ul>
+            </div>
             </li>
           </ul>
         </div>
@@ -63,7 +75,6 @@
               class="btn-group btn-group-toggle mb-4"
               data-bs-toggle="buttons"
             >
-            
               <input
                 type="radio"
                 class="btn-check"
@@ -131,17 +142,22 @@
         </div>
       </div>
     </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#navbar">Volver arriba</a>
+    <footer class="footer-container">
+      <div class="footer-content">
+        <hr />
+        <p>
+          <a class="footer-link" href="#title-container">Volver arriba</a>
         </p>
         <p>
           Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
+          <a
+            class="footer-link"
+            href="https://jovenesaprogramar.edu.uy/"
+            target="_blank"
+            >Jóvenes a Programar</a
           >
         </p>
+        <hr />
       </div>
     </footer>
     <div id="spinner-wrapper">
@@ -156,5 +172,6 @@
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
+    <script src="js/dark-mode.js"></script>
   </body>
 </html>

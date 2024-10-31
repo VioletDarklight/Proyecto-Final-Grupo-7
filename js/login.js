@@ -22,12 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isAuthenticated) {
     if (username) {
       userNav.textContent = username;
-      userNav.href = "/my-profile.html";
+      userNav.href = "my-profile.html";
     }
   } else {
     userNav.textContent = "Iniciar Sesión";
     userNav.href = "/login.html";
   }
+
+  //Funcion para limpiar el localstorage, al cerrar sesion
+  let logout = document.getElementById("logout");
+  logout.addEventListener("click", function () {
+    localStorage.removeItem("username");
+  });
 });
 
 // Variables para el formulario y las alertas
@@ -41,6 +47,22 @@ function showAlertSuccess() {
   setTimeout(() => alertSuccess.classList.remove("show"), 500); // Ocultar después de 0.5 segundos
 }
 
+function agregarCalificacion(comentario, calificacion) {
+  // Crear un nuevo div para la calificación
+  const nuevaCalificacion = document.createElement("div");
+  nuevaCalificacion.classList.add("calificacion");
+  nuevaCalificacion.innerHTML = `
+      <div class="stars">${
+        "★".repeat(calificacion) + "☆".repeat(5 - calificacion)
+      }</div>
+      <div class="comentario">${comentario}</div>
+      <div class="autor">Usuario</div>
+      <div class="fecha">${new Date().toLocaleString()}</div>
+  `;
+
+  // Agregar la nueva calificación al contenedor
+  calificaciones.appendChild(nuevaCalificacion);
+}
 // Función para mostrar la alerta de error
 function showAlertError() {
   alertError.classList.add("show");

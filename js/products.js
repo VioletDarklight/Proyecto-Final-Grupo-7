@@ -35,9 +35,9 @@ function showData(array) {
         <div  class= "col">
       <div id = "carta-img" class="col-lg-12  card mb-3 shadow" onclick="setProdID(${item.id})">
  
-        <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block "  src="${item.image}">
+        <img id= "img-carta" class="img-fluid card-img-top rounded-top mx-auto d-block cursor-active "  src="${item.image}">
  
-       <div  id = "carta-color" class = "rounded mx-auto row card-body" >
+       <div  id = "carta-color" class = "rounded mx-auto row card-body cursor-active" >
         <h2 class="card-title text-center" >${item.name}</h2>
         <p class=" col-sm-12 card-text text-center car-description">${item.description}</p>
         
@@ -57,8 +57,8 @@ function showData(array) {
 
 // función para guardar el id del producto y redirigir
 function setProdID(id) {
-  localStorage.setItem("prodID", id);  // guarda el ID del producto en localStorage
-  window.location = "product-info.html";  // redirige a la página de detalles del producto
+  localStorage.setItem("prodID", id); // guarda el ID del producto en localStorage
+  window.location = "product-info.html"; // redirige a la página de detalles del producto
 }
 
 // Funcion para enviar los datos JSON al recorrido
@@ -154,19 +154,20 @@ sortByCountRadioSmall.addEventListener("click", () => {
   sortDataBySoldCount(); // Ordenar por cantidad de vendidos
 });
 
-// Funcion para el buscador 
+// Funcion para el buscador
 document.addEventListener("DOMContentLoaded", function () {
-
   let buscador = document.getElementById("search-input");
 
   buscador.addEventListener("input", function () {
     let productos_autos = dataArray.filter((auto) => {
       // 1. Convertir a minúsculas el nombre del auto, la descripcion y lo que se escriba en el buscador
       // 2. Verificar si el nombre del auto incluye el texto del buscador o si coincide con algo en la descripcion
-      return auto.name.toLowerCase().includes(buscador.value.toLowerCase()) ||
-        auto.description.toString().includes(buscador.value);
+      return (
+        auto.name.toLowerCase().includes(buscador.value.toLowerCase()) ||
+        auto.description.toString().includes(buscador.value)
+      );
     });
 
     showData(productos_autos);
   });
-})
+});

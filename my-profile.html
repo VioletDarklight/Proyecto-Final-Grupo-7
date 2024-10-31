@@ -7,32 +7,16 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>eMercado - Todo lo que busques está aquí</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
       <div class="container">
         <button
           class="navbar-toggler"
@@ -57,37 +41,169 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html" id="user-nav"
-                >Iniciar Sesión</a
-              >
+            <div class="dropdown">
+              <a id="user-nav" class="btn dropdown-toggle nav-link" href="login.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Iniciar Sesión
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a id="logout" class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+              </ul>
+            </div>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <main>
-      <div class="container">
-        <div class="alert alert-danger text-center" role="alert">
-          <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h2 class="headerProfile" id="headerProfile">DATOS DEL PERFIL</h2>
+
+      <div class="container-flex mt-5 row profile-container">
+        <div class="card-profile-form col-6">
+          <form id="profileForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="nameProfile" class="form-label">Nombre *</label>
+              <input
+                type="text"
+                class="form-control font-jost text-regularph profile-input required-input"
+                id="nameProfile"
+                minlength="2"
+                required
+              />
+              <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+              <div class="valid-feedback">¡Nombre válido!</div>
+            </div>
+        
+            <div class="mb-3">
+              <label for="secondNameProfile" class="form-label">Segundo Nombre</label>
+              <input
+                type="text"
+                class="form-control font-jost text-regularph profile-input "
+                id="secondNameProfile"
+              />
+            </div>
+        
+            <div class="mb-3">
+              <label for="lastNameProfile" class="form-label">Apellido *</label>
+              <input
+                type="text"
+                class="form-control font-jost text-regularph profile-input required-input"
+                id="lastNameProfile"
+                minlength="2"
+                required
+              />
+              <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
+              <div class="valid-feedback">¡Apellido válido!</div>
+            </div>
+        
+            <div class="mb-3">
+              <label for="secondLastNameProfile" class="form-label">Segundo Apellido</label>
+              <input
+                type="text"
+                class="form-control font-jost text-regularph profile-input"
+                id="secondLastNameProfile"
+              />
+            </div>
+        
+            <div class="mb-3">
+              <label for="emailProfile" class="form-label">E-mail *</label>
+              <input
+                type="email"
+                class="form-control font-jost text-regularph profile-input required-input"
+                id="emailProfile"
+                placeholder="ejemplo@mail.com"
+                required
+              />
+              <div class="invalid-feedback">Por favor, ingresa un e-mail válido.</div>
+              <div class="valid-feedback">¡E-mail válido!</div>
+            </div>
+        
+            <div class="mb-3">
+              <label for="phoneProfile" class="form-label">Teléfono</label>
+              <input
+                type="tel"
+                class="form-control font-jost text-regularph profile-input"
+                id="phoneProfile"
+                pattern="[0-9]*"
+                minlength="9"
+              />
+              <div class="invalid-feedback">Por favor, ingresa un teléfono válido.</div>
+            </div>
         </div>
+
+        <div class="card-pic-form col-4">
+          <h2 class="text-center">Personalizar Perfil</h2>
+          <div class="form-check form-switch mb-3" id="form-switch">
+            <label class="form-check-label" for="darkModeSwitch">Modo Noche</label>
+            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+          </div>
+          <label class="form-label header-pic">Foto de perfil</label>
+          <div class="d-flex align-items-center img-div">
+            <input
+            type="file"
+            class="form-control font-jost text-regularph pic-input"
+            id="profilePicInput"
+            accept="image/*"
+          />
+
+            <img
+              src="img/img_perfil.png"
+              alt="Foto de perfil"
+              class="profile-pic"
+              id="profilePic"
+            />
+
+          </div>
+        </div>
+
+          <button type="submit" class="btn btn-primary btn-profile">GUARDAR CAMBIOS</button>
+        
+
       </div>
+      </form>
+      </div>
+      <!--Mensajes de alerta-->
+      <div>
+        <div
+          class="alert alert-light alert-dismissible fade"
+          role="alert"
+          id="alert-success"
+        >
+          <p class="alert-body">Perfil actualizado con éxito.</p>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      <footer class="footer-container">
+        <div class="footer-content">
+          <hr />
+          <p>
+            <a class="footer-link" href="#title-container">Volver arriba</a>
+          </p>
+          <p>
+            Este sitio forma parte de
+            <a
+              class="footer-link"
+              href="https://jovenesaprogramar.edu.uy/"
+              target="_blank"
+              >Jóvenes a Programar</a
+            >
+          </p>
+          <hr />
+        </div>
+      </footer>
     </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#navbar">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-      </div>
-    </footer>
+    
+    <script src="js/my-profile.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/my-profile.js"></script>
+    <script src="js/dark-mode.js"></script>
   </body>
+
 </html>
