@@ -91,29 +91,21 @@ function showProdCommInfo(commCard) {
     `;
   }
 
-  // Iterar sobre el array de los comentarios
+  // Iterar sobre el array de los comentarios y generar HTML de cada comentario
   for (const item of commCard) {
-    containerComm.innerHTML += `
-      <div class="commentCard">
-        <p class="stars">${scoreStars(item.score)}</p>
-        <p class="commentDescription">${item.description}</p>
-        <p class="userNameComment">${item.user}</p>
-        <p class="dataComment">${formatDate(item.dateTime)} hs</p>
-      </div>
-    
-    `;
+    containerComm.innerHTML += createCommentElement(item);
   }
 
   //Formulario de nuevo comentario
   containerComm.innerHTML += `
-  <p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-      AGREGAR COMENTARIO
-    </button>
-  </p>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body1">
- <form id="newCommentForm">
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+        AGREGAR COMENTARIO
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body1">
+        <form id="newCommentForm">
           <p class="clasificacion">
             <input id="radio1" type="radio" name="estrellas" value="5">
             <label for="radio1">★</label>
@@ -126,17 +118,15 @@ function showProdCommInfo(commCard) {
             <input id="radio5" type="radio" name="estrellas" value="1">
             <label for="radio5">★</label>
           </p>
-
           <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí...">
-          <br>
           <p class="userNameComment" id="userNameComm"> usuario </p>
           <p id="display-time" class="dataComment"></p>
-          <br>
           <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button>
         </form>
+      </div>
     </div>
-  </div>
-    `;
+  `;
+
   showUserName();
 
   // Evento para manejar el envío del comentario
@@ -145,10 +135,10 @@ function showProdCommInfo(commCard) {
     .addEventListener("submit", function (event) {
       event.preventDefault();
       addNewComment();
-      location.reload((href = "#newCommentForm"));
+      location.reload();
     });
 
-  //Evento para desaparecer botón de nuevo comentario
+  // Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
   btnNewComm.addEventListener("click", () => {
     btnNewComm.remove();
@@ -157,71 +147,86 @@ function showProdCommInfo(commCard) {
   // Función para mostrar la fecha y hora actual al escribir comentario
   function currentTime() {
     let currentDate = new Date();
-    let formattedDate = formatDate(currentDate); //Le da el formato que usamos en los comentarios del json
+    let formattedDate = formatDate(currentDate);
     document.getElementById("display-time").innerText = formattedDate + " hrs";
   }
   currentTime();
-  //Actualizar la hora cada minuto
   setInterval(currentTime, 60000);
+}
+
+// Función modular para crear el HTML de un comentario
+function createCommentElement(comment) {
+  return `
+    <div class="commentCard">
+      <p class="stars">${scoreStars(comment.score)}</p>
+      <p class="commentDescription">${comment.description}</p>
+      <p class="userNameComment">${comment.user}</p>
+      <p class="dataComment">${formatDate(comment.dateTime)} hs</p>
+    </div>
+  `;
 }
 
 // Función para agregar un nuevo comentario
 function addNewComment() {
-  let score = document.querySelector('input[name="estrellas"]:checked').value; // Obtener la puntuación del input seleccionado
+  let score = document.querySelector('input[name="estrellas"]:checked').value;
   let description = document.getElementById("commentText").value;
   let user = localStorage.getItem("username");
   let dateTime = new Date();
 
   let newComment = {
-    user: user,
-    score: parseInt(score), //Convierte puntaje a número entero
-    description: description,
-    dateTime: dateTime,
+    user,
+    score: parseInt(score),
+    description,
+    dateTime,
   };
 
   // Guardar comentario en localStorage
   let storedComments =
-    JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || []; //Si no hay comentarios en el localStorage, se inicia con un array vacío
-  storedComments.push(newComment); //Agrega comentario al nuevo array
+    JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || [];
+  storedComments.push(newComment);
   localStorage.setItem(
     `storedComments_${prodID}`,
     JSON.stringify(storedComments)
   );
 
-  // Agregar el nuevo comentario al contenedor de los que vienen del API
-  containerComm.innerHTML += `
-    <div class="commentCard">
-      <p class="stars">${scoreStars(newComment.score)}</p>
-      <p class="commentDescription">${newComment.description}</p>
-      <p class="userNameComment">${newComment.user}</p>
-      <p class="dataComment">${formatDate(newComment.dateTime)} hs</p>
-    </div>
-  `;
+  // Insertar el nuevo comentario antes del formulario de agregar comentario
+  const formElement = document.getElementById("collapseExample");
+  formElement.insertAdjacentHTML(
+    "beforebegin",
+    createCommentElement(newComment)
+  );
 
   alert("Comentario enviado exitosamente!");
 }
 
-//Función para mostrar nombre de usuario al escribir comentario
+// Función para mostrar nombre de usuario al escribir comentario
 function showUserName() {
   let userName = localStorage.getItem("username");
   let userNameComm = document.getElementById("userNameComm");
   userNameComm.innerText = userName;
 }
+
 // Función para formatear la fecha de los comentarios
 function formatDate(date) {
-  let infoDate = {
+  return new Date(date).toLocaleDateString("es-ES", {
     year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-  };
-  return new Date(date).toLocaleDateString("es-ES", infoDate);
+  });
 }
 
 // Función para convertir puntuación en estrellas
 function scoreStars(score) {
   return "★".repeat(score) + "☆".repeat(5 - score);
+}
+
+// Función para mostrar la fecha y hora actual
+function currentTime() {
+  let currentDate = new Date();
+  let formattedDate = formatDate(currentDate);
+  document.getElementById("display-time").innerText = `${formattedDate} hrs`;
 }
 
 // PRODUCTOS RELACIONADOS ENTREGA 4
@@ -309,7 +314,8 @@ document.addEventListener("DOMContentLoaded", function () {
             guardarCompraEnLocalStorage(productoComprado);
           });
       });
-    }});
+  }
+});
 // Función para guardar o actualizar el producto en el localStorage
 function guardarCompraEnLocalStorage(productoComprado) {
   let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
