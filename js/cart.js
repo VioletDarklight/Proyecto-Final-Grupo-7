@@ -38,9 +38,8 @@ function showCart(cartCompra) {
                         <i class="bi bi-dash-circle"></i>
                     </button>
                 </td>
-                <td><input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${
-                  item.quantity
-                }" readonly></td>
+                <td><input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity
+      }" readonly></td>
                 <td>
                     <button class="btn btn-cart mas" id="mas" type="button">
                         <i class="bi bi-plus-circle"></i>
@@ -57,10 +56,7 @@ function showCart(cartCompra) {
             </tr>
             <tr>
                 <td>Subtotal </td>
-                <td class="subtotales" colspan="2">${subtotalCart(
-                  item.quantity,
-                  item.cost
-                )}</td>
+                <td class="subtotales" colspan="2">${subtotalCart(item.quantity,item.cost, item.currency)}</td>
             </tr>
         </table>
       </div>`;
@@ -78,7 +74,7 @@ function showCart(cartCompra) {
                </tr>
                <tr>
                <td>Moneda</td>
-               <td > UYU</td>
+               <td >UYU</td>
                 
                </tr>
                 
@@ -129,10 +125,7 @@ function actualizarCantidad(index, cambio) {
   // Actualizar el subtotal
   let subtotales = document.getElementsByClassName("subtotales");
   if (subtotales[index]) {
-    subtotales[index].textContent = subtotalCart(
-      carrito[index].quantity,
-      carrito[index].cost
-    );
+    subtotales[index].textContent = subtotalCart(carrito[index].quantity, carrito[index].cost, carrito[index].currency);
   }
 
   // Guardar los cambios en localStorage
@@ -143,7 +136,12 @@ function actualizarCantidad(index, cambio) {
 }
 
 // Función para calcular el subtotal de un producto
-function subtotalCart(cant, cost) {
+function subtotalCart(cant, cost, currency) {
+  console.info("La cantidad es " + cant + " con un costo de " + cost + " con la moneda de " + currency);
+
+  if (currency == 'USD')
+    return cant * (cost * 40)
+
   return cant * cost;
 }
 
@@ -152,10 +150,16 @@ function calcularTotal() {
   let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
   if (!carrito) return;
 
+  carrito.forEach((element) => {
+    if (element.currency == "USD") {
+      element.cost = element.cost * 40;
+    }
+  });
+
   let total = carrito.reduce((acc, item) => acc + item.quantity * item.cost, 0);
+
   let sumaFinal = document.getElementById("sumaFinal");
   if (sumaFinal) {
     sumaFinal.textContent = total;
   }
 }
- 
