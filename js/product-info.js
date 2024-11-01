@@ -40,8 +40,8 @@ function showProduct(infoCard) {
       <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
       <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
       <p class="product-cost">Precio:</br><span>${infoCard.cost}${infoCard.currency}</span></p>
-    <div class="btn-nuevodiv"> <button class="btn-comprar">AÑADIR AL CARRITO</button>
-      </div></div>
+    <button class="btn-comprar">AÑADIR AL CARRITO</button>
+      </div>
   `;
 
   containerMainImage.innerHTML += `
@@ -91,23 +91,31 @@ function showProdCommInfo(commCard) {
     `;
   }
 
-  // Iterar sobre el array de los comentarios y generar HTML de cada comentario
+  // Iterar sobre el array de los comentarios
   for (const item of commCard) {
-    containerComm.innerHTML += createCommentElement(item);
+    containerComm.innerHTML += `
+      <div class="commentCard">
+        <p class="stars">${scoreStars(item.score)}</p>
+        <p class="commentDescription">${item.description}</p>
+        <p class="userNameComment">${item.user}</p>
+        <p class="dataComment">${formatDate(item.dateTime)} hs</p>
+      </div>
+    
+    `;
   }
 
   //Formulario de nuevo comentario
   containerComm.innerHTML += `
-    <p>
-      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
-        AGREGAR COMENTARIO
-      </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body1">
-        <form id="newCommentForm" novalidate>
+  <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnNewComm">
+      AGREGAR COMENTARIO
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body1">
+ <form id="newCommentForm">
           <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5" required>
+            <input id="radio1" type="radio" name="estrellas" value="5">
             <label for="radio1">★</label>
             <input id="radio2" type="radio" name="estrellas" value="4">
             <label for="radio2">★</label>
@@ -118,268 +126,102 @@ function showProdCommInfo(commCard) {
             <input id="radio5" type="radio" name="estrellas" value="1">
             <label for="radio5">★</label>
           </p>
-          <div id="feedbackStar" class="feedback-message invalid-feedback"></div>
-          <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí..." required>
-          <div id="feedbackCommentText" class="feedback-message invalid-feedback"></div>
+
+          <input type="text" class="cajadeescritura" id="commentText" placeholder="Escribe algo aquí...">
+          <br>
           <p class="userNameComment" id="userNameComm"> usuario </p>
           <p id="display-time" class="dataComment"></p>
+          <br>
           <button class="btn btn-success" type="submit" id="botonenviar">ENVIAR</button>
         </form>
-      </div>
     </div>
-  `;
-
+  </div>
+    `;
   showUserName();
 
-  // Evento para desaparecer botón de nuevo comentario
+  // Evento para manejar el envío del comentario
+  document
+    .getElementById("newCommentForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      addNewComment();
+      location.reload((href = "#newCommentForm"));
+    });
+
+  //Evento para desaparecer botón de nuevo comentario
   let btnNewComm = document.getElementById("btnNewComm");
   btnNewComm.addEventListener("click", () => {
     btnNewComm.remove();
   });
 
-  // Función para manejar el feedback de los campos
-  function setFeedback(input, feedbackElement, isValid, message) {
-    if (isValid) {
-      input.classList.add("is-valid");
-      input.classList.remove("is-invalid");
-      feedbackElement.innerText = "";
-    } else {
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-      feedbackElement.innerText = message;
-    }
-  }
-
-  // Validación en tiempo real para el campo de texto del comentario
-  let commentInput = document.getElementById("commentText");
-  commentInput.addEventListener("input", function () {
-    let isValid = this.value.trim() !== "";
-    setFeedback(
-      this,
-      document.getElementById("feedbackCommentText"),
-      isValid,
-      "Este campo es obligatorio"
-    );
-  });
-
-  // Validación en tiempo real para las estrellas
-  let starInputs = document.getElementsByName("estrellas");
-  starInputs.forEach((star) => {
-    star.addEventListener("change", function () {
-      validateStars();
-    });
-  });
-
-  // Función para validar y mostrar feedback de las estrellas
-  function validateStars() {
-    let starInputs = document.getElementsByName("estrellas");
-    let ratingChecked = Array.from(starInputs).some((star) => star.checked);
-    let feedbackStar = document.getElementById("feedbackStar");
-
-    if (!ratingChecked) {
-      feedbackStar.style.display = "block";
-      feedbackStar.innerText = "Debes seleccionar una calificación";
-    } else {
-      feedbackStar.style.display = "none";
-      feedbackStar.innerText = "";
-    }
-
-    return ratingChecked;
-  }
-
-  // Función de validación general para el formulario
-  function validateForm() {
-    let isValid = true;
-
-    // Validación del campo de comentario
-    let commentText = document.getElementById("commentText");
-    let isCommentValid = commentText.value.trim() !== "";
-    setFeedback(
-      commentText,
-      document.getElementById("feedbackCommentText"),
-      isCommentValid,
-      "Este campo es obligatorio"
-    );
-
-    // Validación de las estrellas
-    let isStarsValid = validateStars();
-
-    isValid = isCommentValid && isStarsValid;
-    return isValid;
-  }
-
-  // Evento para manejar el envío del formulario
-  let commentForm = document.getElementById("newCommentForm");
-  commentForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    if (validateForm()) {
-      addNewComment();
-
-      // Limpiar el formulario y los estados de validación
-      this.reset();
-      let commentText = document.getElementById("commentText");
-      commentText.classList.remove("is-valid", "is-invalid");
-
-      let feedbackStar = document.getElementById("feedbackStar");
-      let feedbackCommentText = document.getElementById("feedbackCommentText");
-      feedbackStar.style.display = "none";
-      feedbackStar.innerText = "";
-      feedbackCommentText.innerText = "";
-    }
-  });
-
-  /* Función para manejar el feedback de los campos
-  function setFeedback(input, feedbackElement, isValid, message) {
-    if (isValid) {
-      input.classList.add("is-valid");
-      input.classList.remove("is-invalid");
-      feedbackElement.innerText = ""; // Limpiar mensaje de error
-    } else {
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-      feedbackElement.innerText = message; // Mostrar mensaje de error
-    }
-  }
-
-  // Validación en tiempo real para el campo de texto del comentario
-  document.getElementById("commentText").addEventListener("input", function () {
-    setFeedback(
-      this,
-      document.getElementById("feedbackCommentText"),
-      this.value.trim() !== "",
-      "Este campo es obligatorio"
-    );
-  });
-
-  // Validación en tiempo real del campo de calificación
-  let starInputs = document.getElementsByName("estrellas");
-  for (let i = 0; i < starInputs.length; i++) {
-    starInputs[i].addEventListener("change", function () {
-      let allInvalid = !Array.from(starInputs).some((star) => star.checked);
-      for (let j = 0; j < starInputs.length; j++) {
-        starInputs[j].classList.toggle("is-invalid", allInvalid);
-        starInputs[j].classList.toggle("is-valid", !allInvalid);
-      }
-      setFeedback(
-        starInputs[0],
-        document.getElementById("feedbackStar"),
-        !allInvalid,
-        "Debes seleccionar una calificación"
-      );
-    });
-  }
-
-  // Función de validación general para el formulario
-  function validateForm() {
-    let isValid = true;
-
-    // Validación del campo de comentario
-    let commentText = document.getElementById("commentText");
-    setFeedback(
-      commentText,
-      document.getElementById("feedbackCommentText"),
-      commentText.value.trim() !== "",
-      "Este campo es obligatorio"
-    );
-    isValid = isValid && commentText.classList.contains("is-valid");
-
-    // Validación del campo de calificación
-    let ratingChecked = Array.from(starInputs).some((star) => star.checked);
-    setFeedback(
-      starInputs[0],
-      document.getElementById("feedbackStar"),
-      ratingChecked,
-      "Debes seleccionar una calificación"
-    );
-    isValid = isValid && ratingChecked;
-
-    return isValid;
-  }*/
-
   // Función para mostrar la fecha y hora actual al escribir comentario
   function currentTime() {
     let currentDate = new Date();
-    let formattedDate = formatDate(currentDate);
+    let formattedDate = formatDate(currentDate); //Le da el formato que usamos en los comentarios del json
     document.getElementById("display-time").innerText = formattedDate + " hrs";
   }
   currentTime();
+  //Actualizar la hora cada minuto
   setInterval(currentTime, 60000);
-}
-
-// Función modular para crear el HTML de un comentario
-function createCommentElement(comment) {
-  return `
-    <div class="commentCard">
-      <p class="stars">${scoreStars(comment.score)}</p>
-      <p class="commentDescription">${comment.description}</p>
-      <p class="userNameComment">${comment.user}</p>
-      <p class="dataComment">${formatDate(comment.dateTime)} hs</p>
-    </div>
-  `;
 }
 
 // Función para agregar un nuevo comentario
 function addNewComment() {
-  let score = document.querySelector('input[name="estrellas"]:checked').value; // Este sí es necesario para obtener la calificación
+  let score = document.querySelector('input[name="estrellas"]:checked').value; // Obtener la puntuación del input seleccionado
   let description = document.getElementById("commentText").value;
   let user = localStorage.getItem("username");
   let dateTime = new Date();
 
   let newComment = {
-    user,
-    score: parseInt(score),
-    description,
-    dateTime,
+    user: user,
+    score: parseInt(score), //Convierte puntaje a número entero
+    description: description,
+    dateTime: dateTime,
   };
 
   // Guardar comentario en localStorage
   let storedComments =
-    JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || [];
-  storedComments.push(newComment);
+    JSON.parse(localStorage.getItem(`storedComments_${prodID}`)) || []; //Si no hay comentarios en el localStorage, se inicia con un array vacío
+  storedComments.push(newComment); //Agrega comentario al nuevo array
   localStorage.setItem(
     `storedComments_${prodID}`,
     JSON.stringify(storedComments)
   );
 
-  // Insertar el nuevo comentario antes del formulario de agregar comentario
-  const formElement = document.getElementById("collapseExample");
-  formElement.insertAdjacentHTML(
-    "beforebegin",
-    createCommentElement(newComment)
-  );
+  // Agregar el nuevo comentario al contenedor de los que vienen del API
+  containerComm.innerHTML += `
+    <div class="commentCard">
+      <p class="stars">${scoreStars(newComment.score)}</p>
+      <p class="commentDescription">${newComment.description}</p>
+      <p class="userNameComment">${newComment.user}</p>
+      <p class="dataComment">${formatDate(newComment.dateTime)} hs</p>
+    </div>
+  `;
 
   alert("Comentario enviado exitosamente!");
 }
 
-// Función para mostrar nombre de usuario al escribir comentario
+//Función para mostrar nombre de usuario al escribir comentario
 function showUserName() {
   let userName = localStorage.getItem("username");
   let userNameComm = document.getElementById("userNameComm");
   userNameComm.innerText = userName;
 }
-
 // Función para formatear la fecha de los comentarios
 function formatDate(date) {
-  return new Date(date).toLocaleDateString("es-ES", {
+  let infoDate = {
     year: "numeric",
     month: "long",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-  });
+  };
+  return new Date(date).toLocaleDateString("es-ES", infoDate);
 }
 
 // Función para convertir puntuación en estrellas
 function scoreStars(score) {
   return "★".repeat(score) + "☆".repeat(5 - score);
-}
-
-// Función para mostrar la fecha y hora actual
-function currentTime() {
-  let currentDate = new Date();
-  let formattedDate = formatDate(currentDate);
-  document.getElementById("display-time").innerText = `${formattedDate} hrs`;
 }
 
 // PRODUCTOS RELACIONADOS ENTREGA 4
@@ -486,6 +328,8 @@ function guardarCompraEnLocalStorage(productoComprado) {
 
   // Guardar carrito actualizado en localStorage
   localStorage.setItem("shoppingCart", JSON.stringify(carrito));
+  //Actualizar cantidad en el badge del carrito
+  updateCartBadge();
 
   // Mostrar el modal de confirmación
   let confirmationModal = new bootstrap.Modal(
@@ -500,4 +344,11 @@ function guardarCompraEnLocalStorage(productoComprado) {
       // Redirigir al carrito al hacer clic en "Finalizar compra"
       window.location.href = "cart.html";
     });
+}
+
+// Función para actualizar el badge del carrito
+function updateCartBadge() {
+  let cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+  let totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); //Suma todas las cantidades de los items usando reduce
+  cartBadge.textContent = totalQuantity || "0"; //Muestra la cantidad o "0" si el carrito está vacío
 }
