@@ -2207,3 +2207,24 @@ background-color: #0353a4;
  }
 #finallity-table td{
 font-weight: bold;}
+
+li #badge-unico{
+  width: 2em;
+  
+}
+ 
+ .carrito-ultimo{
+  background-color: transparent;
+  height: 2rem;
+  width: 2rem;
+ }
+#nav-carrito{
+  margin-top: -1em;
+}
+::marker{
+  color: transparent;
+}
+
+/*MEDIDA LG PARA TABLET HASTA 1199PX*/
+@media (min-width: 768px) and (max-width: 1199px){
+}

@@ -60,7 +60,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a id="image-cart" class="dropdown-item" href="cart.html">Mi carrito</a>
+                    <a class="dropdown-item" href="cart.html">Mi carrito</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="my-profile.html"
@@ -76,6 +76,18 @@
               </div>
             </li>
           </ul>
+          <!-- Carrito badge -->
+        </div>
+        <div id="nav-carrito">
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+              <span
+                class="valorFinalCar top-0 badge translate-middle rounded-pill bg-danger"
+                id="cartBadge"
+              ></span
+            ></a>
+          </li>
         </div>
       </div>
     </nav>
@@ -301,6 +313,7 @@
     <script src="js/login.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js" defer></script>
+    <script src="js/cart.js"></script>
     <script src="js/dark-mode.js"></script>
   </body>
 </html>
