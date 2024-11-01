@@ -40,8 +40,8 @@ function showProduct(infoCard) {
       <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
       <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
       <p class="product-cost">Precio:</br><span>${infoCard.cost}${infoCard.currency}</span></p>
-    <button class="btn-comprar">AÑADIR AL CARRITO</button>
-      </div>
+    <div class="btn-nuevodiv"> <button class="btn-comprar">AÑADIR AL CARRITO</button>
+      </div></div>
   `;
 
   containerMainImage.innerHTML += `

@@ -2,6 +2,7 @@ let carritoVacio = document.getElementById("containerCarritoVacio");
 let carritoLLeno = document.getElementById("containerCarritoLleno");
 let finalcarrito = document.getElementById("finallity-table");
 
+
 // Carrito Vacío
 if (!localStorage.getItem("shoppingCart")) {
   let div = document.getElementById("containerPrincipal");
@@ -65,13 +66,13 @@ function showCart(cartCompra) {
       </div>`;
   }
 
-  finalcarrito.innerHTML = `<div id="finallity-table">
+  finalcarrito.innerHTML = `
           
         <br>
       <table id="tablaCart" class="table  table-borderless">
            
                <tr>
-               <td rowspan="3"><a class="btn btn-cartFinal btn-primary" href="#" role="button">COMPRAR</a></td>
+               <td rowspan="3"><a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a></td>
 </td>
                 
                </tr>
@@ -89,7 +90,7 @@ function showCart(cartCompra) {
               </tr>
               
              </table>
-        </div> </div>`;
+         `;
 
   // Actualizar cantidad
   let botonesMas = document.getElementsByClassName("mas");
@@ -157,3 +158,4 @@ function calcularTotal() {
     sumaFinal.textContent = total;
   }
 }
+ 
