@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCartBadge();
     }
   });
-  // Actualizar cuando se cargue la página
-  document.addEventListener("DOMContentLoaded", updateCartBadge);
+
   // Ejecutar inmediatamente por si el DOM ya está cargado
   updateCartBadge();
 
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function showCart(cartCompra) {
     carritoLLeno.innerHTML = ""; // Limpiamos el contenido previo para evitar duplicados
 
-    for (const item of cartCompra) {
+    cartCompra.forEach((item, index) => {
       carritoLLeno.innerHTML += `<br>
        <br> 
       <div class="cartProducts">
@@ -49,17 +48,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 <th class="nombreProd" colspan="4">${item.name}</th>
             </tr>
             <tr>
-                <th rowspan="4"><img class="cartImage" src="${item.image}"></th>
+                <th rowspan="4"><i class="bi bi-trash3-fill btn" id="trashBtn-${index}"></i><img class="cartImage" src="${
+        item.image
+      }"> </th>
                 <td>Cantidad</td>
                 <td>
-                    <button class="btn btn-cart menos" id="menos" type="button">
+                    <button class="btn btn-cart menos" id="menos-${index}" type="button">
                         <i class="bi bi-dash-circle"></i>
                     </button>
                 </td>
+                <td><input class="funcionalidad cajaCant" id="cajaCant-${index}" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${
+        item.quantity
+      }" readonly></td>
                 <td><input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity
         }" readonly></td>
                 <td>
-                    <button class="btn btn-cart mas" id="mas" type="button">
+                    <button class="btn btn-cart mas" id="mas-${index}" type="button">
                         <i class="bi bi-plus-circle"></i>
                     </button>
                 </td>
@@ -77,8 +81,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td class="subtotales" colspan="2">${subtotalCart(item.quantity, item.cost, item.currency)}</td>
             </tr>
         </table>
-      </div>`;
-    }
+      </div>
+      
+      `;
+
+      //Evento para icono eliminar
+      document
+        .getElementById(`trashBtn-${index}`)
+        .addEventListener("click", function () {
+          removeItemFromCart(index);
+        });
+    });
 
     finalcarrito.innerHTML = `
           
@@ -106,30 +119,44 @@ document.addEventListener("DOMContentLoaded", function () {
              </table>
          `;
 
-    // Actualizar cantidad
-    let botonesMas = document.getElementsByClassName("mas");
-    let botonesMenos = document.getElementsByClassName("menos");
-    let cajasCant = document.getElementsByClassName("cajaCant");
-
-    for (let i = 0; i < botonesMas.length; i++) {
-      botonesMas[i].addEventListener("click", function () {
-        actualizarCantidad(i, 1);
-        cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
-          i
-        ].quantity;
-      });
-      botonesMenos[i].addEventListener("click", function () {
-        actualizarCantidad(i, -1);
-        cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
-          i
-        ].quantity;
-      });
-    }
-
     //Actualizar cantidad en el badge del carrito
     updateCartBadge();
     // Recalcular el total
     calcularTotal();
+  }
+
+  // Actualizar cantidad
+  let botonesMas = document.getElementsByClassName("mas");
+  let botonesMenos = document.getElementsByClassName("menos");
+  let cajasCant = document.getElementsByClassName("cajaCant");
+
+  for (let i = 0; i < botonesMas.length; i++) {
+    botonesMas[i].addEventListener("click", function () {
+      actualizarCantidad(i, 1);
+      cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
+        i
+      ].quantity;
+    });
+    botonesMenos[i].addEventListener("click", function () {
+      actualizarCantidad(i, -1);
+      cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
+        i
+      ].quantity;
+    });
+  }
+
+  function removeItemFromCart(index) {
+    let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
+    carrito.splice(index, 1); // Eliminar el elemento en la posición index
+    localStorage.setItem("shoppingCart", JSON.stringify(carrito)); // Actualizar localStorage
+
+    // Volver a mostrar el carrito actualizado
+    if (carrito.length === 0) {
+      localStorage.removeItem("shoppingCart"); // Eliminar el carrito si está vacío
+      location.reload(); // Recargar la página para mostrar el mensaje de carrito vacío
+    } else {
+      showCart(carrito);
+    }
   }
 
   // Función para actualizar la cantidad y guardar en localStorage
