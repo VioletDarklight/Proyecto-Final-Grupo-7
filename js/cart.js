@@ -57,9 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         <i class="bi bi-dash-circle"></i>
                     </button>
                 </td>
-                <td><input class="funcionalidad cajaCant" id="cajaCant-${index}" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${
-        item.quantity
-      }" readonly></td>
                 <td><input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity
         }" readonly></td>
                 <td>
