@@ -2198,7 +2198,7 @@ font-size: 1.2rem;
   box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.2);
   margin-left: auto;
   margin-right: auto;
-  padding: 1.5rem 2rem 0 0.5rem;
+  padding: 1.5rem 2rem 1.5rem 0.5rem;
 }
 .dark-mode .background{
   background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
@@ -2289,62 +2289,27 @@ li #badge-unico{
   border-top: 1px solid white; 
   margin: 0 0.5em; 
 }
-/* MEDIDA PARA TABLET */ 
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  #containerPrincipal {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+/*CARRITO MEDIDA PARA TABLET */ 
+
+@media (min-width: 768px) and (max-width: 1365px) {
+
+  .background{
+    padding: 1rem 1rem 0.5rem 0rem;
   }
 
-  .background {
-      width: 80%;
-      max-width: 600px;
-      padding-bottom: 2em; /* Espacio extra en la parte inferior */
-      margin-left: 6em;
+  .bi-trash3-fill{
+    padding: 0;
   }
 
-  .cartProducts {
-      margin-top: -2em;
-      margin-left: 0;
-  }
-
-  #finallity-table {
-      margin-top: 1em;
-      text-align: center;
-  }
-
-
-#carritoTitulo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: "Jost", sans-serif; 
-  font-size: 2em; 
-}
-
-#carritoTitulo::before,
-#carritoTitulo::after {
-  content: "";
-  flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
-  border-top: 1px solid white; 
-  margin: 0 0.5em; 
-}
-/* LINEAS BLANCAS TITULO ESTANDAR */
-@media (min-width: 768px) and (max-width: 1199px) {
-
-  .dark-mode  #carritoTitulo::before,
-  .dark-mode  #carritoTitulo::after {
-    content: "";
-    flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
-    border-top: 1px solid white; 
-    margin: 0 0.5em; 
+  .icon-image-container {
+    padding: 0;
   }
 }
+
+/*CARRITO MEDIDA PARA SMARTPHONE*/
+
+
 /* MEDIDA TABLET BOTON COMPRAR */
 @media (min-width: 768px) and (max-width: 1199px) { 
 .btn-comprar {

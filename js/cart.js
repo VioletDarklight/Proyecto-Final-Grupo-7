@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <table id="tablaCart" class="table table-borderless">
     <tr>
         <!-- Primera columna con el icono de basura y la imagen -->
-        <th class="fixed-column" rowspan="5">
-            <div class="icon-image-container">
+        <th class="fixed-column" rowspan="5" style="padding: 0">
+            <div class="icon-image-container ">
                 <i class="bi bi-trash3-fill btn fa-lg" id="trashBtn-${index}"></i>
                 <img class="cartImage" src="${item.image}">
             </div>
