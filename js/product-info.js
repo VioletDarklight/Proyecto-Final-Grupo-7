@@ -39,8 +39,10 @@ function showProduct(infoCard) {
       <p>${infoCard.description}</p>
       <p class="st-products-category">Categoría: </br><span>${infoCard.category}</span></p>
       <p class="totalSold st-products-category">Cantidad de vendidos:</br><span>${infoCard.soldCount} vendidos<span></p>
-      <p class="product-cost">Precio:</br><span>${infoCard.cost}${infoCard.currency}</span></p>
+      <p class="product-cost st-products-category">Precio:</br><span>${infoCard.cost}${infoCard.currency}</span></p>
+    <div class="buy-btn-container">
     <button class="btn-comprar">AÑADIR AL CARRITO</button>
+    </div>
       </div>
   `;
 
@@ -59,7 +61,6 @@ function showProduct(infoCard) {
       <img onclick="changeMainImage('${img}')" class="unitImages" src="${img}" alt="">
     `;
   }
-
 }
 
 // Función para cambiar la imagen principal del producto
@@ -427,26 +428,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Mostrar nombre del producto
         productName.textContent = infoCard.name;
-
-        // Añadir funcionalidad al botón COMPRAR
-        document
-          .querySelector(".btn-comprar")
-          .addEventListener("click", function () {
-            let productoComprado = {
-              id: prodID, //Esto lo agrego para facilitar la referencia
-              name: infoCard.name,
-              cost: infoCard.cost,
-              image: infoCard.images[0],
-              currency: infoCard.currency,
-              quantity: 1, //Inicia la cantidad en 1
-            };
-
-            // Guardar producto en localStorage
-            guardarCompraEnLocalStorage(productoComprado);
-          });
+        buyBtn(infoCard, prodID);
       });
   }
 });
+
+// Función para que todos los botones "Añadir al carrito" funcionen
+function buyBtn(infoCard, prodID) {
+  let buyBtns = Array.from(document.getElementsByClassName("btn-comprar"));
+
+  buyBtns.forEach((boton) => {
+    boton.addEventListener("click", function () {
+      let productoComprado = {
+        id: prodID,
+        name: infoCard.name,
+        cost: infoCard.cost,
+        image: infoCard.images[0],
+        currency: infoCard.currency,
+        quantity: 1,
+      };
+
+      guardarCompraEnLocalStorage(productoComprado);
+    });
+  });
+}
+
 // Función para guardar o actualizar el producto en el localStorage
 function guardarCompraEnLocalStorage(productoComprado) {
   let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];

@@ -1104,6 +1104,8 @@ div #margin-p {
 .productInfo {
   padding-left: 1rem;
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .productInfo h3 {
@@ -2013,34 +2015,25 @@ label:hover ~ label {
 }
 
 /* BOTON COMPRAR DIA */
-.btn-comprar {
-  background-color:#0353a4;
-  color: #1c1e21; /* Color del texto más oscuro */
-  border: none; /* Sin borde */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 10px 9px; /* Ajustar el espacio interno */
-  font-size: 18px; /* Tamaño de la fuente mayor */
-  font-weight: 500; /* Texto en negrita */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); 
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Transición para efectos suaves */
-  margin-top: 150px;
+.buy-btn-container{
+  margin-top: auto;
+  padding-top: 11.8rem;
 }
-/* BOTON COMPRAR MODO NOCHE */
+
+.btn-comprar{
+  font-size: 1.2rem;
+  padding: 0.5rem 0.4rem;
+  width: 14rem;
+  border-radius: 0.5rem;
+  line-height: 1.6rem;
+  box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.03em;
+}
+
 .dark-mode .btn-comprar {
-    background-color: #cfe0f1; /* Color de fondo más claro */
-    color: #1c1e21; /* Color del texto más oscuro */
-    border: none; /* Sin borde */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 10px 9px; /* Ajustar el espacio interno */
-    font-size: 18px; /* Tamaño de la fuente mayor */
-    font-weight: 500; /* Texto en negrita */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición para efectos suaves */
-    margin-top: 150px;
+background: #DDEEFF;
+box-shadow: -1px 2px 5px #aed0f0;
+color: #001932;
 }
 
 /* CONFIARMACION DE COMPRA */
@@ -2311,16 +2304,18 @@ li #badge-unico{
 
 
 /* MEDIDA TABLET BOTON COMPRAR */
-@media (min-width: 768px) and (max-width: 1199px) { 
-.btn-comprar {
-  margin-bottom: 40px;
-  margin-top: 100px;
+@media (min-width: 768px) and (max-width: 1365px) { 
+.buy-btn-container {
+ display: none;
+}
+
+#small-buy-btn{
+  margin-top: 2rem !important;
 }
 }
 /* MEDIDA PARA CELULAR BOTON COMPRAR */
-@media (min-width: 320px) and (max-width: 575px) { 
-  .btn-comprar {
-    margin-top: 20px; /* Espacio arriba */
-    margin-bottom: 50px; /* Espacio abajo */
+@media (min-width: 320px) and (max-width: 767px) { 
+  .buy-btn-container {
+   display: none;
   }
 }
