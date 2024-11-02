@@ -44,40 +44,51 @@ document.addEventListener("DOMContentLoaded", function () {
        <br> 
       <div class="cartProducts">
         <table id="tablaCart" class="table table-borderless">
-            <tr>
-                <th class="nombreProd" colspan="4">${item.name}</th>
-            </tr>
-            <tr>
-                <th rowspan="4"><i class="bi bi-trash3-fill btn" id="trashBtn-${index}"></i><img class="cartImage" src="${
-        item.image
-      }"> </th>
-                <td>Cantidad</td>
-                <td>
-                    <button class="btn btn-cart menos" id="menos-${index}" type="button">
-                        <i class="bi bi-dash-circle"></i>
-                    </button>
-                </td>
-                <td><input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;" type="text" min="1" step="1" value="${item.quantity
-        }" readonly></td>
-                <td>
-                    <button class="btn btn-cart mas" id="mas-${index}" type="button">
-                        <i class="bi bi-plus-circle"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Moneda</td>
-                <td colspan="2">${item.currency}</td>
-            </tr>
-            <tr>
-                <td>Costo</td>
-                <td colspan="2">${item.cost}</td>
-            </tr>
-            <tr>
-                <td>Subtotal </td>
-                <td class="subtotales" colspan="2">${subtotalCart(item.quantity, item.cost, item.currency)}</td>
-            </tr>
-        </table>
+    <tr>
+        <!-- Primera columna con el icono de basura y la imagen -->
+        <th class="fixed-column" rowspan="5">
+            <div class="icon-image-container">
+                <i class="bi bi-trash3-fill btn fa-lg" id="trashBtn-${index}"></i>
+                <img class="cartImage" src="${item.image}">
+            </div>
+            
+        </th>
+        <!-- Columna con el nombre del producto encima de la cantidad -->
+        <td class="nombreProd " style="padding: 0" colspan="3">${item.name}</td>
+    </tr>
+    <tr>
+        <!-- Sección de cantidad con botones -->
+        <td style="padding: 0">Cantidad</td>
+        <td class="td-cant" style="padding: 0">
+            <button class="btn btn-cart menos" id="menos-${index}" type="button" style="padding: 0">
+                <i class="bi bi-dash-circle" style="padding: 0"></i>
+            </button>
+            <input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;padding: 0;" type="text" min="1" step="1" value="${
+              item.quantity
+            }" readonly>
+            <button class="btn btn-cart mas" id="mas-${index}" type="button" style="padding: 0">
+                <i class="bi bi-plus-circle" style="padding: 0"></i>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 0">Moneda</td>
+        <td colspan="2" style="padding: 0">${item.currency}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0">Costo</td>
+        <td colspan="2" style="padding: 0">${item.cost}</td>
+    </tr>
+    <tr>
+        <td style="padding: 0">Subtotal</td>
+        <td class="subtotales" colspan="2" style="padding: 0">${subtotalCart(
+          item.quantity,
+          item.cost,
+          item.currency
+        )}</td>
+    </tr>
+</table>
+
       </div>
       
       `;
@@ -93,26 +104,26 @@ document.addEventListener("DOMContentLoaded", function () {
     finalcarrito.innerHTML = `
           
         <br>
-      <table id="tablaCart" class="table  table-borderless">
+      <table id="tablaCart" class="table  table-borderless ">
            
                <tr>
                <td rowspan="3"><a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a></td>
 </td>
                 
                </tr>
-               <tr>
+               <tr class="section-buy">
+
+
                <td>Moneda</td>
-               <td >UYU</td>
+               <td class="totalFin" >UYU</td>
                 
                </tr>
                 
-              <tr id=>
+              <tr class="section-buy">
+
               <td >TOTAL </td>
               <td class="totalFin" id="sumaFinal"> </td>
-              <td></td>
-              <td></td>
               </tr>
-              
              </table>
          `;
 
@@ -169,7 +180,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Actualizar el subtotal
     let subtotales = document.getElementsByClassName("subtotales");
     if (subtotales[index]) {
-      subtotales[index].textContent = subtotalCart(carrito[index].quantity, carrito[index].cost, carrito[index].currency);
+      subtotales[index].textContent = subtotalCart(
+        carrito[index].quantity,
+        carrito[index].cost,
+        carrito[index].currency
+      );
     }
 
     // Guardar los cambios en localStorage
@@ -184,8 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para calcular el subtotal de un producto
   function subtotalCart(cant, cost, currency) {
-    if (currency == 'USD')
-      return cant * (cost * 40)
+    if (currency == "USD") return cant * (cost * 40);
 
     return cant * cost;
   }
@@ -201,7 +215,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    let total = carrito.reduce((acc, item) => acc + item.quantity * item.cost, 0);
+    let total = carrito.reduce(
+      (acc, item) => acc + item.quantity * item.cost,
+      0
+    );
 
     let sumaFinal = document.getElementById("sumaFinal");
     if (sumaFinal) {

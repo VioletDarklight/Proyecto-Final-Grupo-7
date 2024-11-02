@@ -66,10 +66,7 @@ nav a {
   font-size: 38px;
 }
 
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
+
 
 footer p {
   margin-bottom: 0.25rem;
@@ -175,7 +172,7 @@ footer p {
 }
 
 main {
-  min-height: calc(100vh - 210px);
+  min-height: 100vh;
 }
 
 a.custom-card,
@@ -2130,11 +2127,31 @@ margin-top: 1em;
 }
  /*CARRO con cosas*/
 
+ .bi-trash3-fill{
+  margin-right: 1rem !important;
+ }
+
+ .menos, .mas {
+  padding: 0;
+ }
+
+ .td-cant {
+  display: flex;
+  flex-direction:row;
+ }
 
 #containerCarritoLleno{
   text-align: center;
   
-  
+}
+
+#tablaCart {
+  border-collapse: separate;
+  border-spacing: 1.5rem 0rem;
+}
+
+#tablaCart td {
+font-size: 1.2rem;
 }
 
 #carritoTitulo{
@@ -2148,19 +2165,39 @@ margin-top: 1em;
   margin-top: 10em;
 }
  
+.fixed-column {
+  width: 18rem;
+  text-align: center;
+}
+
+.totalFin {
+  max-width: 4rem;
+}
+
+.icon-image-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el ícono y la imagen */
+}
+
 .cartImage{
-  width: 15em;
+
+  width: 20rem;
+  height: auto;
   border-radius: 1em;
   box-shadow: #000;
+  margin-right: 1rem;
 }
 .background{
-  width: 40em;
+  width: fit-content;
   height: fit-content;
   margin-left: 27em;
   align-items: center;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 40px;
   box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 2rem 0 0.5rem;
 }
 .dark-mode .background{
   background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
@@ -2178,14 +2215,16 @@ margin-top: 1em;
    
  }
 .nombreProd{
-text-align: center;
+text-align: left !important;
 color: white;
 font-size:1.2em;
-font-family:"Jost", sans-serif;;
+font-family:"Jost", sans-serif;
+font-weight: 600;
+text-transform: uppercase;
 }
+
  .cartProducts{
   margin-top: -2em; }
-
 
 .dark-mode .bi-dash-circle, .dark-mode .bi-plus-circle{
   color:white;
@@ -2201,10 +2240,19 @@ font-family:"Jost", sans-serif;;
  }
  
  .btn-cartFinal{
-margin-left: -1em; 
 background-color: #0353a4;
-
+margin-top: 1rem;
+font-size: 1.2em;
+border-radius: 0.5rem;
+font-weight: 300;
+width: 9rem;
+box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+text-align: center;
+border: none;
+line-height: 1.6rem;
  }
+
+
 #finallity-table td{
 font-weight: bold;}
 
@@ -2268,11 +2316,7 @@ li #badge-unico{
       text-align: center;
   }
 
-  .btn-cartFinal {
-      margin-top: 1em;
-      margin-left: 6em;
-      margin-right: 4em;
-  }
+
 #carritoTitulo {
   display: flex;
   align-items: center;
@@ -2289,14 +2333,14 @@ li #badge-unico{
   border-top: 1px solid white; 
   margin: 0 0.5em; 
 }
-.dark-mode @media (min-width: 768px) and (max-width: 1199px) {
-  #carritoTitulo::before,
-  #carritoTitulo::after {
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .dark-mode  #carritoTitulo::before,
+  .dark-mode  #carritoTitulo::after {
     content: "";
     flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
     border-top: 1px solid white; 
     margin: 0 0.5em; 
   }
 }
-/* MEDIDA PARA CELULARES*/
-
