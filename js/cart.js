@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </tr>
     <tr>
         <!-- Sección de cantidad con botones -->
-        <td style="padding: 0">Cantidad</td>
+        <td style="padding: 0;">Cantidad</td>
         <td class="td-cant" style="padding: 0">
             <button class="btn btn-cart menos" id="menos-${index}" type="button" style="padding: 0">
                 <i class="bi bi-dash-circle" style="padding: 0"></i>

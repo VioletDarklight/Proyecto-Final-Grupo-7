@@ -1195,7 +1195,7 @@ div #margin-p {
 }
 
 /*MEDIDA Para fotos productos-info*/
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 878px) {
   #products-head-list {
     font-size: 35px;
     margin-top: 0px;
@@ -2028,6 +2028,7 @@ label:hover ~ label {
   line-height: 1.6rem;
   box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.03em;
+  margin-bottom: 2rem;
 }
 
 .dark-mode .btn-comprar {
@@ -2170,11 +2171,10 @@ font-size: 1.2rem;
 
 .icon-image-container {
   display: flex;
-  align-items: center; /* Alinea verticalmente el ícono y la imagen */
+  align-items: center;
 }
 
 .cartImage{
-
   width: 20rem;
   height: auto;
   border-radius: 1em;
@@ -2301,21 +2301,96 @@ li #badge-unico{
 }
 
 /*CARRITO MEDIDA PARA SMARTPHONE*/
+@media (min-width: 320px) and (max-width: 767px){
+.cartImage{
+  width: 7.3rem;
+  height: 5.6rem;
+  margin-right: 0;
+  
+}
+
+.icon-image-container {
+  margin-top: 1.5rem;
+  width: fit-content;
+  justify-content: flex-start;
+}
+
+#tablaCart {
+  border-spacing: 0.5rem;
+  font-size: 0.6rem;
+}
+
+.bi-trash3-fill{
+  padding: 0;
+  margin: 0;
+}
+
+.nombreProd{
+  font-weight: 500;
+}
+
+#tablaCart td{
+  font-size: 0.7rem;
+}
+
+.background {
+  padding-top: 0;
+  padding-right: 1rem;
+  padding-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+}
+
+.fixed-column {
+  width: auto;
+}
+
+#tablaCart td {
+  font-size: 0.9rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.menos, .mas {
+  font-size: 0.7rem;
+}
+
+#carritoTitulo {
+  font-size: 1.4rem;
+  line-height: 25px;
+  font-weight: normal;
+  margin-top: -11rem;
+}
+
+#finallity-table td {
+  font-weight: bold;
+}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar-toggler{
+    width: 13em;
+  }
+  #nav-carrito{
+    width: -1em;
+    padding: 0;
+  }
+  
+}
 
 
-/* MEDIDA TABLET BOTON COMPRAR */
-@media (min-width: 768px) and (max-width: 1365px) { 
+/* BOTON AÑADIR CARRITO PANTALLAS PEQUEÑAS */
+@media (min-width: 320px) and (max-width: 878px) { 
 .buy-btn-container {
  display: none;
 }
+}
 
-#small-buy-btn{
-  margin-top: 2rem !important;
+@media (min-width: 877px) {
+.small-btn-comprar {
+  display: none;
 }
-}
-/* MEDIDA PARA CELULAR BOTON COMPRAR */
-@media (min-width: 320px) and (max-width: 767px) { 
-  .buy-btn-container {
-   display: none;
-  }
 }
