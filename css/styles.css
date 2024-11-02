@@ -2156,7 +2156,7 @@ margin-top: 1em;
 .background{
   width: 40em;
   height: fit-content;
-  margin-left: 30em;
+  margin-left: 27em;
   align-items: center;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 40px;
@@ -2224,7 +2224,79 @@ li #badge-unico{
 ::marker{
   color: transparent;
 }
-
-/*MEDIDA LG PARA TABLET HASTA 1199PX*/
-@media (min-width: 768px) and (max-width: 1199px){
+#carritoTitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Jost", sans-serif; 
+  font-size: 2em; 
 }
+
+#carritoTitulo::before,
+#carritoTitulo::after {
+  content: "";
+  flex: 0.2; /* Reduce el valor para hacer las líneas más cortas */
+  border-top: 1px solid white; 
+  margin: 0 0.5em; 
+}
+/* MEDIDA PARA TABLET */ 
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  #containerPrincipal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+  }
+
+  .background {
+      width: 80%;
+      max-width: 600px;
+      padding-bottom: 2em; /* Espacio extra en la parte inferior */
+      margin-left: 6em;
+  }
+
+  .cartProducts {
+      margin-top: -2em;
+      margin-left: 0;
+  }
+
+  #finallity-table {
+      margin-top: 1em;
+      text-align: center;
+  }
+
+  .btn-cartFinal {
+      margin-top: 1em;
+      margin-left: 6em;
+      margin-right: 4em;
+  }
+#carritoTitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Jost", sans-serif; 
+  font-size: 2em; 
+}
+
+#carritoTitulo::before,
+#carritoTitulo::after {
+  content: "";
+  flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
+  border-top: 1px solid white; 
+  margin: 0 0.5em; 
+}
+.dark-mode @media (min-width: 768px) and (max-width: 1199px) {
+  #carritoTitulo::before,
+  #carritoTitulo::after {
+    content: "";
+    flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
+    border-top: 1px solid white; 
+    margin: 0 0.5em; 
+  }
+}
+/* MEDIDA PARA CELULARES*/
+
