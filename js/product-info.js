@@ -59,6 +59,7 @@ function showProduct(infoCard) {
       <img onclick="changeMainImage('${img}')" class="unitImages" src="${img}" alt="">
     `;
   }
+
 }
 
 // Función para cambiar la imagen principal del producto

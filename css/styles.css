@@ -2042,6 +2042,7 @@ label:hover ~ label {
     transition: background-color 0.3s ease; /* Transición para efectos suaves */
     margin-top: 150px;
 }
+
 /* CONFIARMACION DE COMPRA */
 .modal-content {
   border-radius: 10px;
@@ -2333,7 +2334,7 @@ li #badge-unico{
   border-top: 1px solid white; 
   margin: 0 0.5em; 
 }
-
+/* LINEAS BLANCAS TITULO ESTANDAR */
 @media (min-width: 768px) and (max-width: 1199px) {
 
   .dark-mode  #carritoTitulo::before,
@@ -2342,5 +2343,19 @@ li #badge-unico{
     flex: 0.3; /* Reduce el valor para hacer las líneas más cortas */
     border-top: 1px solid white; 
     margin: 0 0.5em; 
+  }
+}
+/* MEDIDA TABLET BOTON COMPRAR */
+@media (min-width: 768px) and (max-width: 1199px) { 
+.btn-comprar {
+  margin-bottom: 40px;
+  margin-top: 100px;
+}
+}
+/* MEDIDA PARA CELULAR BOTON COMPRAR */
+@media (min-width: 320px) and (max-width: 575px) { 
+  .btn-comprar {
+    margin-top: 20px; /* Espacio arriba */
+    margin-bottom: 50px; /* Espacio abajo */
   }
 }
