@@ -105,23 +105,23 @@ document.addEventListener("DOMContentLoaded", function () {
           
         <br>
       <table id="tablaCart" class="table  table-borderless total-currency">
-           <tr>
+           <tr class="containter-btn-buy">
                
-               <td rowspan="3" class="containter-btn-buy">
+               <td rowspan="3" >
                <a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a>
                </td>
 </tr>
                 
                <tr class="section-buy ">
-               <td>Moneda</td>
+               <td>Moneda    </td>
                <td class="totalFin" >UYU</td>
                 
                </tr>
                 
-              <tr class="section-buy">
+              <tr class="section-buy ">
 
-              <td >TOTAL </td>
-              <td class="totalFin" id="sumaFinal"> </td>
+              <td >TOTAL</td>
+              <td class="totalFin" id="sumaFinal"></td>
               </tr>
              </table>
          `;

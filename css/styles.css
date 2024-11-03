@@ -2318,11 +2318,10 @@ li #badge-unico{
   border-spacing: 0.5rem;
   font-size: 0.6rem;
   position: relative;
-  
 }
 
 .total-currency {
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 }
 
 .bi-trash3-fill{
@@ -2331,26 +2330,20 @@ li #badge-unico{
 }
 
 .nombreProd{
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
-#tablaCart td{
-  font-size: 0.7rem;
+#tablaCart {
+  border-spacing: 1.5rem 0.5rem;
 }
 
 .background {
-  padding-top: 0;
-  padding-right: 1rem;
-  padding-left: 0;
+  padding: 0;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-}
-
-.fixed-column {
-  width: auto;
 }
 
 #tablaCart td {
@@ -2372,29 +2365,30 @@ li #badge-unico{
 
 #finallity-table td {
   font-weight: bold;
-  display: -webkit-inline-box;
-  height: fit-content;
-  line-height: 0.5;
+  line-height: 0.4;
 }
+
 
 .btn-cartFinal{
   position: absolute;
   bottom: 0;
-  transform: translateY(-3rem);
+  transform: translateY(-2rem);
+  margin-left: 0.5rem;
 }
 
 
 .section-buy {
   transform: translateY(-3rem);
-  display: flex;
-  justify-content: flex-end;
 }
 
 .section-buy td {
-  transform: translateX(100%);
-  padding-right: 2rem;
-  width: auto;
-  
+  transform: translateX(90%);
+}
+
+
+#containerPrincipal{
+  width: calc(100% - 2rem);
+  margin: 1rem auto;
 }
 }
 
@@ -2407,6 +2401,9 @@ li #badge-unico{
     padding: 0;
   }
   
+  #nav-link-carrito {
+    padding: 0 !important;
+  }
 }
 
 
@@ -2422,8 +2419,8 @@ li #badge-unico{
   display: none;
 }
 }
-/* DARKMODE PANTALLAS PEQUEÑAS NOCHE */
-@media (min-width: 320px) and (max-width: 878px) { 
+/* DARKMODE CARRITO NOCHE */
+
   .dark-mode .bi-trash3-fill {
     color: white; 
   }
@@ -2438,4 +2435,3 @@ li #badge-unico{
   .dark-mode #finallity-table .section-buy td:nth-child(2) {
     color: white;
   }
-}
