@@ -104,16 +104,15 @@ document.addEventListener("DOMContentLoaded", function () {
     finalcarrito.innerHTML = `
           
         <br>
-      <table id="tablaCart" class="table  table-borderless ">
-           
-               <tr>
-               <td rowspan="3"><a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a></td>
-</td>
+      <table id="tablaCart" class="table  table-borderless total-currency">
+           <tr>
+               
+               <td rowspan="3" class="containter-btn-buy">
+               <a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a>
+               </td>
+</tr>
                 
-               </tr>
-               <tr class="section-buy">
-
-
+               <tr class="section-buy ">
                <td>Moneda</td>
                <td class="totalFin" >UYU</td>
                 

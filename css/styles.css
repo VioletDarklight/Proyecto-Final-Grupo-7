@@ -2318,6 +2318,12 @@ li #badge-unico{
 #tablaCart {
   border-spacing: 0.5rem;
   font-size: 0.6rem;
+  position: relative;
+  
+}
+
+.total-currency {
+  padding-bottom: 3rem;
 }
 
 .bi-trash3-fill{
@@ -2367,6 +2373,29 @@ li #badge-unico{
 
 #finallity-table td {
   font-weight: bold;
+  display: -webkit-inline-box;
+  height: fit-content;
+  line-height: 0.5;
+}
+
+.btn-cartFinal{
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-3rem);
+}
+
+
+.section-buy {
+  transform: translateY(-3rem);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-buy td {
+  transform: translateX(100%);
+  padding-right: 2rem;
+  width: auto;
+  
 }
 }
 
