@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
            <tr class="containter-btn-buy">
                
                <td rowspan="3" >
-               <a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">COMPRAR</a>
+               <a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">CONTINUAR COMPRA</a>
                </td>
 </tr>
                 
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
               <tr class="section-buy ">
 
-              <td >TOTAL</td>
+              <td >Subtotal</td>
               <td class="totalFin" id="sumaFinal"></td>
               </tr>
              </table>

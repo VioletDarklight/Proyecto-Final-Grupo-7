@@ -88,6 +88,163 @@
         
           <div id="finallity-table"></div>
         </div>
+
+          <div id="container-costos" class="background">
+
+            <form action="" id="cost-form" class="col" novalidate>
+              <div class="row">
+                <div class="section-cost-form col">
+                  <h2>Tipo de envío</h2>
+                </div>
+
+                <div class="shipping-cost input-group col">
+                  <div class="cost-control cost-radio">
+                    <input class="form-check-input mt-0" type = "radio" name = "cost" value = "premium" />
+                    <label for="cost-control-label">Premium 2 a 5 días (15%)</label>
+                  </div>
+                  <div class="cost-control cost-radio">
+                    <input class="form-check-input mt-0" type = "radio" name = "cost" value = "express" />
+                    <label for="cost-control-label">Express 5 a 8 días (7%)</label>
+                  </div>
+                  <div class="cost-control cost-radio">
+                    <input class="form-check-input mt-0" type = "radio" name = "cost" value = "standard" />
+                    <label for="cost-control-label">Standard 12 a 15 días (5%)</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="section-cost-form col">
+                  <h2>Dirección de <br> envío</h2>
+                </div>
+
+                <div class="shipping-address input-group col">
+<!--
+                  <div class="form-floating">
+                    <input type="text" class="form-control shipping-control" placeholder="Dirección:">
+                    <label for="floatingAdress">Dirección:</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <select class="form-select form-control shipping-control" id="input-localidad">
+                      <option selected>Localidad: </option>
+                      <option value="1">Artigas</option>
+                      <option value="2">Canelones</option>
+                      <option value="3">Cerro Largo</option>
+                      <option value="4">Colonia</option>
+                      <option value="5">Durazno</option>
+                      <option value="6">Flores</option>
+                      <option value="7">Florida</option>
+                      <option value="8">Lavalleja</option>
+                      <option value="9">Maldonado</option>
+                      <option value="10">Montevideo</option>
+                      <option value="11">Paysandu</option>
+                      <option value="12">Río Negro</option>
+                      <option value="13">Rivera</option>
+                      <option value="14">Rocha</option>
+                      <option value="15">Salto</option>
+                      <option value="16">San José</option>
+                      <option value="17">Soriano</option>
+                      <option value="18">Tacuarembo</option>
+                      <option value="19">Treinta y Tres</option>
+                    </select>
+                  </div>
+
+                  <div class="form-floating">
+                    <input type="text" class="form-control shipping-control" placeholder="Calle:">
+                    <label for="floatingBlock">Calle:</label>
+                  </div>
+
+                  <div class="row g-2" id="addressNumber">
+                    <div class="col-md p-0">
+                      <div class="form-floating">
+                        <input type="text" class="form-control shipping-control" placeholder="Nro:">
+                        <label for="floatingNumber">Nro:</label>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-floating">
+                        <input type="text" class="form-control shipping-control" placeholder="Apto:">
+                        <label for="floatingApto">Apto:</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-floating">
+                    <input type="text" class="form-control shipping-control" placeholder="Esquina:">
+                    <label for="floatingCorner">Esquina:</label>
+                  </div>-->
+
+                  <p><input type="text" class="form-control shipping-control" placeholder="Dirección:"></p>
+                  <p><select class="form-select form-control shipping-control" id="input-localidad">
+                    <option selected>Localidad: </option>
+                    <option value="1">Artigas</option>
+                    <option value="2">Canelones</option>
+                    <option value="3">Cerro Largo</option>
+                    <option value="4">Colonia</option>
+                    <option value="5">Durazno</option>
+                    <option value="6">Flores</option>
+                    <option value="7">Florida</option>
+                    <option value="8">Lavalleja</option>
+                    <option value="9">Maldonado</option>
+                    <option value="10">Montevideo</option>
+                    <option value="11">Paysandu</option>
+                    <option value="12">Río Negro</option>
+                    <option value="13">Rivera</option>
+                    <option value="14">Rocha</option>
+                    <option value="15">Salto</option>
+                    <option value="16">San José</option>
+                    <option value="17">Soriano</option>
+                    <option value="18">Tacuarembo</option>
+                    <option value="19">Treinta y Tres</option>
+                  </select></p>
+                  <p><input type="text" class="form-control shipping-control" placeholder="Calle:"></p>
+                  <p class="address-number"><input type="text" class="form-control shipping-control" placeholder="Nro:"><input type="text" class="form-control shipping-control" placeholder="Apto:"></p>
+                  <p><input type="text" class="form-control shipping-control" placeholder="Esquina:"></p>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="section-cost-form col">
+                  <h2>Forma de pago</h2>
+                </div>
+
+                <div class="payment input-group col">
+                  <div class="payment-control payment-radio" >
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "tarjeta" />
+                    <label for="adress-control-label" class="payment-label">Tarjeta de crédito/débito</label>
+                  </div>
+                  <div class="payment-control payment-radio" >
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "transferencia" />
+                    <label for="adress-control-label" class="payment-label">Transferencia bancaria</label>
+                  </div>
+                  <div class="payment-control payment-radio" >
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "entrega" />
+                    <label for="adress-control-label" class="payment-label">Pago contra entrega</label>
+                  </div>
+                </div>
+              </div>
+           
+              <div class="total-purchase row">
+                <div class="final-amount col-3" id="text-final-amount">
+                  <p>Subtotal:</p>
+                  <p>Costo de envío:</p>
+                  <p>Total:</p>
+                </div>
+
+                <div class="col-3 final-amount">
+                  <p><span>1234</span> UYU</p>
+                  <p><span>1234</span> UYU</p>
+                  <p><span>1234</span> UYU</p>
+                </div>
+              </div>
+
+              <button id="btn-final-payment">FINALIZAR COMPRA</button>
+            </form>
+          </div>
+        </div>
       </div>
 
       <div id="spinner-wrapper">

@@ -1498,9 +1498,6 @@ p.clasificacion.is-invalid label {
 #form label {
   font-size: 20px;
 }
-input[type="radio"] {
-  display: none;
-}
 label {
   color: grey;
 }
@@ -2238,7 +2235,7 @@ margin-top: 1rem;
 font-size: 1.2em;
 border-radius: 0.5rem;
 font-weight: 300;
-width: 9rem;
+width: fit-content;
 box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
 text-align: center;
 border: none;
@@ -2438,3 +2435,134 @@ li #badge-unico{
   .dark-mode #finallity-table .section-buy td:nth-child(2) {
     color: white;
   }
+
+/*CARRITO: Sección costos*/
+#cost-form input[type="radio"]{
+  display: inline-flex;
+}
+
+.address-number{
+  display: inline-flex;
+  width: 18rem;
+}
+
+.section-cost-form {
+  display: grid;
+  align-items: center;
+}
+
+#cost-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#cost-form h2{
+ text-align: center;
+ font-weight: 400;
+ font-size: 1.188rem;
+ color: #01203F;
+}
+
+#cost-form .row{
+padding-bottom: 3.5rem;
+column-gap: 5rem;
+}
+
+#cost-form label {
+  padding-left: 1.5rem;
+}
+
+#cost-form .form-check-input {
+  transform: scale(1);
+  vertical-align: -webkit-baseline-middle;
+  border: none;
+  margin: 0 0 0 0.5rem!important;
+  background-color: #023F7D;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+}
+
+.shipping-cost, .shipping-address, .payment {
+  display: block;
+}
+
+#container-costos{
+  padding: 3rem 6rem;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+}
+
+.total-purchase{
+  justify-content: center;
+  text-align: end;
+  padding-top: 2rem;
+  column-gap: 2rem;
+  padding-bottom: 1rem !important;
+}
+
+.final-amount {
+  width: fit-content;
+  font-weight: 600;
+  font-size: 1.18rem;
+  line-height: 1.625rem;
+}
+
+#text-final-amount{
+  font-weight: 500;
+  font-size: 1.063rem;
+}
+
+.cost-control, .payment-control{
+  background-color: #7AA7D4;
+  border-radius: 1rem !important;
+  margin-bottom: 0.5rem;
+  width: 18rem;
+  display: flex;
+  align-items: center;
+}
+
+.shipping-control{
+  background-color: #7AA7D4;
+  border-radius: 1rem !important;
+  border: none;
+  padding: 0 0 0 1rem;
+}
+
+.shipping-control::placeholder {
+  color: black;
+}
+
+.shipping-address p{
+  width: 18rem;
+  margin-bottom: 0.5rem;
+}
+
+.shipping-address {
+  line-height: 0 !important;
+}
+
+.cost-control label, .payment-label {
+  color: #000;
+}
+
+#btn-final-payment{
+background-color: #0353a4;
+font-size: 1.25rem;
+border-radius: 0.5rem;
+font-weight: 350;
+width: fit-content;
+box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+text-align: center;
+border: none;
+color: #fff;
+padding: 0.3rem 1rem;
+}
+
+.shipping-control, .cost-control, .payment-control {
+  height: fit-content;
+}
+
+#addressNumber {
+  padding: 0 !important;
+  column-gap: 0.5rem !important;
+}
