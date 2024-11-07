@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
            <tr class="containter-btn-buy">
                
                <td rowspan="3" >
-               <a class="btn btn-cartFinal btn-primary" href="compra.html" role="button">CONTINUAR COMPRA</a>
+               <a class="btn btn-cartFinal btn-primary" onclick="showCostsContainer()" id="btnContinuarCompra" href="#transitionCost" role="button">CONTINUAR COMPRA</a>
                </td>
 </tr>
                 
@@ -225,3 +225,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+//SECCIÓN COSTOS
+
+//Función para ocultar botón "Continuar compra" al hacer click
+function showCostsContainer() {
+  let continuarCompra = document.getElementById("btnContinuarCompra");
+  let seccionCostos = document.getElementById("container-costos");
+
+  // Oculta el botón
+  continuarCompra.style.display = "none";
+  // Muestra el contenedor y aplica la transición
+  seccionCostos.style.display = "block";
+  setTimeout(() => {
+    seccionCostos.classList.add("visible");
+  }, 10); // Pausa para activar la transición
+}

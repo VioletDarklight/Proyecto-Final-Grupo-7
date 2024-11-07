@@ -2096,7 +2096,7 @@ color: #001932;
 
 
 /* CARRITO DE COMPRAS VACIO*/
- 
+
 .carritoText{
   margin-top: 1em;
   font-size: 120%;
@@ -2436,7 +2436,10 @@ li #badge-unico{
     color: white;
   }
 
+
+
 /*CARRITO: Sección costos*/
+
 #cost-form input[type="radio"]{
   display: inline-flex;
 }
@@ -2566,3 +2569,20 @@ padding: 0.3rem 1rem;
   padding: 0 !important;
   column-gap: 0.5rem !important;
 }
+
+/*Transición al abrir sección costos*/
+#container-costos {
+  opacity: 0;
+  transform: translateY(150px) scale(0.8);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1.25);
+}
+
+#container-costos.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+
+
+
