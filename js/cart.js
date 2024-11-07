@@ -220,8 +220,10 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     let sumaFinal = document.getElementById("sumaFinal");
+    let subFinalAmount = document.getElementById("subFinalAmount");
     if (sumaFinal) {
       sumaFinal.textContent = total;
+      subFinalAmount.textContent = total;
     }
   }
 });

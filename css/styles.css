@@ -2535,6 +2535,10 @@ column-gap: 5rem;
   color: black;
 }
 
+.shipping-control:focus::placeholder {
+  color: rgba(131, 130, 130, 0.87);
+}
+
 .shipping-address p{
   width: 18rem;
   margin-bottom: 0.5rem;

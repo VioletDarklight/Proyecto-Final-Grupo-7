@@ -99,6 +99,7 @@
                   <h2>Tipo de envío</h2>
                 </div>
 
+                <!--TIPO DE ENVIO-->
                 <div class="shipping-cost input-group col">
                   <div class="cost-control cost-radio">
                     <input class="form-check-input mt-0" type = "radio" name = "cost" value = "premium" />
@@ -115,6 +116,8 @@
                 </div>
               </div>
 
+
+              <!--DIRECCION DE ENVIO-->
               <div class="row">
                 <div class="section-cost-form col">
                   <h2>Dirección de <br> envío</h2>
@@ -180,7 +183,7 @@
 
                   <p><input type="text" class="form-control shipping-control" placeholder="Dirección:"></p>
                   <p><select class="form-select form-control shipping-control" id="input-localidad">
-                    <option selected>Localidad: </option>
+                    <option hidden>Localidad: </option>
                     <option value="1">Artigas</option>
                     <option value="2">Canelones</option>
                     <option value="3">Cerro Largo</option>
@@ -208,6 +211,8 @@
 
               </div>
 
+
+              <!--FORMA DE PAGO-->
               <div class="row">
                 <div class="section-cost-form col">
                   <h2>Forma de pago</h2>
@@ -229,6 +234,8 @@
                 </div>
               </div>
            
+
+              <!--PRECIO FINAL-->
               <div class="total-purchase row">
                 <div class="final-amount col-3" id="text-final-amount">
                   <p>Subtotal:</p>
@@ -237,12 +244,13 @@
                 </div>
 
                 <div class="col-3 final-amount">
-                  <p><span>1234</span> UYU</p>
-                  <p><span>1234</span> UYU</p>
-                  <p><span>1234</span> UYU</p>
+                  <p><span id="subFinalAmount"></span> UYU</p>
+                  <p><span id="costFinalAmount"></span> UYU</p>
+                  <p><span id="totalFinalAmount"></span> UYU</p>
                 </div>
               </div>
 
+              <!--BOTÓN FINALIZAR COMPRA-->
               <button id="btn-final-payment">FINALIZAR COMPRA</button>
             </form>
           </div>
