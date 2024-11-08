@@ -77,9 +77,31 @@ footer p {
   transition: ease-in-out color 0.15s;
 }
 
-.site-header .dropdown-menu a {
-  color: black;
+/*MENU NAVEGACIÓN*/
+.dropdown-menu, .dropdown-menu .dropdown-item {
+  background-color: #0353a4   !important;
+  color: whitesmoke !important;
+  border-color: none;
 }
+.dark-mode .dropdown-menu, .dark-mode .dropdown-menu .dropdown-item {
+  background-color: #0a1d30 !important;
+}
+ /*MENU NAVEGACIÓN: Transición*/
+ .dropdown-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: scaleY(0.1);
+  transform-origin: top;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+
+.nav-item:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+}
+
 
 .dropzone {
   border: 2px dashed #0087f7;
