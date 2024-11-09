@@ -226,6 +226,36 @@ document.addEventListener("DOMContentLoaded", function () {
       subFinalAmount.textContent = total;
     }
   }
+  
+  //Variables de costo de envio
+  let costpremium = document.getElementById("cost-premium");
+  let costexpress = document.getElementById("cost-express");
+  let coststandard = document.getElementById("cost-standard");
+
+  // Función para calcular el costo de envío basado en el radio button seleccionado
+  function calcularCostoEnvio(value) {
+
+    let subTotal = document.getElementById("subFinalAmount").textContent;
+    let costEnvio = document.getElementById("costFinalAmount");
+    let totalFinalAmount = document.getElementById("totalFinalAmount");
+
+    //Dependiendo de cual detecte hará el calculo
+    if (value === "premium") {
+      costEnvio.textContent = Math.round(subTotal * 0.15);
+    }
+    if (value === "express") {
+      costEnvio.textContent = Math.round(subTotal * 0.07);
+    }
+    if (value === "standard") {
+      costEnvio.textContent = Math.round(subTotal * 0.05);
+    }
+    //Suma los valores para obtener el total, parseInt convierte los valores en texto y los muestra en pantalla 
+    totalFinalAmount.textContent = parseInt(subTotal) + parseInt(costEnvio.textContent);
+  }
+  //Evento click para detectar y activa la funcion para ver cual es el costo según lo seleccionado en IF de arriba.
+  costpremium.addEventListener("click", () => calcularCostoEnvio('premium'));
+  costexpress.addEventListener("click", () => calcularCostoEnvio('express'));
+  coststandard.addEventListener("click", () => calcularCostoEnvio('standard'));  
 });
 
 //SECCIÓN COSTOS
