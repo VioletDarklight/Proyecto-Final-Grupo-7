@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     div.classList.remove("background");
     carritoVacio.innerHTML += `<div class="conjuntoCart"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-</svg><p class="carritoText"> Tu carrito está vacío! </p>
-<a id="btn-cart" class="btn btn-primary" href="categories.html" role="button">Comenzá tu compra</a>
-</div><br><div class="espacioCart"><br></div>`;
+  </svg><p class="carritoText"> Tu carrito está vacío! </p>
+  <a id="btn-cart" class="btn btn-primary" href="categories.html" role="button">Comenzá tu compra</a>
+  </div><br><div class="espacioCart"><br></div>`;
   } else {
     let storageCarrito = JSON.parse(localStorage.getItem("shoppingCart"));
     let infoCarrito = [...storageCarrito];
@@ -92,13 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       
       `;
-
-      //Evento para icono eliminar
-      document
-        .getElementById(`trashBtn-${index}`)
-        .addEventListener("click", function () {
-          removeItemFromCart(index);
-        });
     });
 
     finalcarrito.innerHTML = `
@@ -130,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartBadge();
     // Recalcular el total
     calcularTotal();
+    // Volver a asignar los eventos a los botones de eliminar
+    setupDeleteButtons();
   }
 
   // Actualizar cantidad
@@ -165,6 +160,25 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       showCart(carrito);
     }
+  }
+
+  /*Evento botón eliminar*/
+  function setupDeleteButtons() {
+    // Seleccionamos todos los botones de basura
+    let trashBtns = document.querySelectorAll(".bi-trash3-fill");
+
+    trashBtns.forEach((btn) => {
+      let index = btn.id.split("-")[1]; // Obtiene el índice a partir del id 'trashBtn-{index}'
+
+      //Evento de eliminar
+      btn.addEventListener("click", function () {
+        removeItemFromCart(index);
+      });
+    });
+  }
+  let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
+  if (carrito) {
+    showCart(carrito);
   }
 
   // Función para actualizar la cantidad y guardar en localStorage
