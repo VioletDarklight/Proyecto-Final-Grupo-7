@@ -405,6 +405,9 @@ function handlePaymentSelection() {
   } else if (paymentEntrega.checked) {
     deliveryPaymentSection.style.display = "flex";
     cardPaymentSection.style.display = "none";
+    let containCreditCard = document.getElementById("creditCardSection");
+    let createNuevo = containCreditCard.parentNode;
+      createNuevo.removeChild(containCreditCard);
   } else {
     deliveryPaymentSection.style.display = "none";
     cardPaymentSection.style.display = "none";
