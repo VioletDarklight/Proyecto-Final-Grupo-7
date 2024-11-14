@@ -178,12 +178,12 @@
            
 
               <!--SECCIÓN DETALLES DE LA TARJETA-->
-              <div id="creditCardSection" class="row card-row details-section" style="display: none;">
+              <div id="creditCardSection" class="row cost-row details-section">
                 <div class="col">
                 </div>
 
                 <div class="card-payment input-group col">
-                  <h2>DETALLES TARJETA</h2>
+                  <h2 id="card-detail">DETALLES TARJETA</h2>
                   <p><input type="text" id="cardholder" class="card-control form-control" name="cardholder" placeholder="Titular:"></p>
                   <p><input type="text" id="cardNumber" class="card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:"></p>
                   <p class="card-info"><input type="text" id="expiryDate" class="card-control form-control" name="expiryDate" placeholder="Vto: MM/AA"><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control" placeholder="CVV:"></p>
@@ -199,11 +199,11 @@
               </div>
 
               <!--SECCIÓN PAGO CONTRA ENTREGA-->
-            <div id="deliveryPaymentSection" class="row delivery-row details-section" style="display: none;" >
+            <div id="deliveryPaymentSection" class="row cost-row details-section">
               <div class="col">
               </div>
               <div class="payment input-group col" >
-                <h2>MÉTODO DE PAGO</h2>
+                <h2 id="delivery-detail">MÉTODO DE PAGO</h2>
                 <div class="payment-control payment-radio"  >
                   <input class="form-check-input mt-0"  type = "radio" name = "paymentDelivery" value = "tarjeta" />
                   <label   for="adress-control-label" class="payment-label">Tarjeta de crédito</label>

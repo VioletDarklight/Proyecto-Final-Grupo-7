@@ -2666,6 +2666,26 @@ transition: color 0.3s ease, background-color 0.3s ease;
   transform: translateY(0) scale(1);
 }
 
+/*Transición al abrir opciones de pago*/
+/* Estilo base para las secciones ocultas */
+.details-section {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+  max-height: 0;
+}
+
+/* Estilo para mostrar las secciones con animación */
+.details-section.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0s;
+  max-height: 10rem;
+}
+
 
 /*SECCIÓN COSTOS PANTALLAS PEQUEÑAS*/
 @media (min-width: 501px) and (max-width: 768px) {
@@ -2721,11 +2741,11 @@ transition: color 0.3s ease, background-color 0.3s ease;
     padding: 3rem 1rem 3rem 0.4rem;
   }
 
-  .cost-control, .payment-control {
+  .cost-control, .payment-control, .payment-control {
     width: 14rem;
   }
 
-  .shipping-address p {
+  .shipping-address p, .card-payment p {
     width: 14rem !important;
   }
 
@@ -2743,6 +2763,10 @@ transition: color 0.3s ease, background-color 0.3s ease;
 
 .final-amount {
   line-height: 0.5rem;
+}
+
+#card-detail, #delivery-detail {
+  width: 10rem !important;
 }
 
 }
