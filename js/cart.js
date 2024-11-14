@@ -413,18 +413,19 @@ let cardPaymentSection = document.getElementById("creditCardSection");
 
 //Función para manejar la selección de opciones de pago
 function handlePaymentSelection() {
+  // Ocultar ambas secciones al principio
+  deliveryPaymentSection.classList.remove("show");
+  cardPaymentSection.classList.remove("show");
+
+  // Mostrar la sección correspondiente con la animación
   if (paymentTarjeta.checked) {
-    cardPaymentSection.style.display = "flex";
-    deliveryPaymentSection.style.display = "none";
+    cardPaymentSection.classList.add("show");
   } else if (paymentEntrega.checked) {
-    deliveryPaymentSection.style.display = "flex";
-    cardPaymentSection.style.display = "none";
-  } else {
-    deliveryPaymentSection.style.display = "none";
-    cardPaymentSection.style.display = "none";
+    deliveryPaymentSection.classList.add("show");
   }
 }
 
 //Eventos para los cambios de opción de pago
 paymentEntrega.addEventListener("change", handlePaymentSelection);
 paymentTarjeta.addEventListener("change", handlePaymentSelection);
+handlePaymentSelection();
