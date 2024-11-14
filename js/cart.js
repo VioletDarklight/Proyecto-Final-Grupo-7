@@ -225,6 +225,38 @@ document.addEventListener("DOMContentLoaded", function () {
       sumaFinal.textContent = total;
       subFinalAmount.textContent = total;
     }
+
+
+    let opcionesEnvio = document.getElementsByName("cost");
+    let tipoEnvio = 0;
+
+    opcionesEnvio.forEach((opcion) => {
+      if (opcion.checked) {
+        tipoEnvio = obtenerPct(opcion.value);
+      }
+    });
+
+    let costEnvio = document.getElementById("costFinalAmount");
+    let totalFinalAmount = document.getElementById("totalFinalAmount");
+
+    costEnvio.textContent = Math.round(total * tipoEnvio);
+    totalFinalAmount.textContent = parseInt(total) + parseInt(costEnvio.textContent);
+  }
+
+
+  function obtenerPct(value) 
+  {
+    if(value === "premium") {
+      return 0.15;
+    }
+
+    if (value === "express") {
+      return 0.07;
+    }
+
+    if (value === "standard") {
+      return 0.05;
+    }
   }
   
   //Variables de costo de envio
