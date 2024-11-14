@@ -2486,7 +2486,7 @@ li #badge-unico{
   display: inline-flex;
 }
 
-.address-number{
+.address-number, .card-info {
   display: inline-flex;
   width: 18rem;
 }
@@ -2528,7 +2528,7 @@ column-gap: 5rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.shipping-cost, .shipping-address, .payment {
+.shipping-cost, .shipping-address, .payment, .card-payment {
   display: block;
 }
 
@@ -2567,7 +2567,7 @@ column-gap: 5rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.shipping-control{
+.shipping-control, .card-control{
   background-color: #7AA7D4;
   border-radius: 1rem !important;
   border: none;
@@ -2575,21 +2575,21 @@ column-gap: 5rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.shipping-control::placeholder {
+.shipping-control::placeholder, .card-control::placeholder {
   color: black;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.shipping-control:focus::placeholder {
+.shipping-control:focus::placeholder, .card-control:focus::placeholder {
   color: rgba(131, 130, 130, 0.87);
 }
 
-.shipping-address p{
+.shipping-address p, .card-payment p{
   width: 18rem;
   margin-bottom: 0.5rem;
 }
 
-.shipping-address {
+.shipping-address, .card-payment {
   line-height: 0 !important;
 }
 
@@ -2611,7 +2611,7 @@ padding: 0.3rem 1rem;
 transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.shipping-control, .cost-control, .payment-control {
+.shipping-control, .cost-control, .payment-control, .card-control {
   height: fit-content;
 }
 
@@ -2619,6 +2619,8 @@ transition: color 0.3s ease, background-color 0.3s ease;
   padding: 0 !important;
   column-gap: 0.5rem !important;
 }
+
+
 
 /*CARRITO MODO NOCHE: Sección costos*/
 .dark-mode #cost-form h2 {
@@ -2663,6 +2665,7 @@ transition: color 0.3s ease, background-color 0.3s ease;
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
 
 /*SECCIÓN COSTOS PANTALLAS PEQUEÑAS*/
 @media (min-width: 501px) and (max-width: 768px) {

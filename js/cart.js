@@ -152,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /*FUNCIÓN ELIMINAR*/
   function removeItemFromCart(index) {
     let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
     carrito.splice(index, 1); // Eliminar el elemento en la posición index
@@ -226,7 +227,6 @@ document.addEventListener("DOMContentLoaded", function () {
       subFinalAmount.textContent = total;
     }
 
-
     let opcionesEnvio = document.getElementsByName("cost");
     let tipoEnvio = 0;
 
@@ -240,13 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalFinalAmount = document.getElementById("totalFinalAmount");
 
     costEnvio.textContent = Math.round(total * tipoEnvio);
-    totalFinalAmount.textContent = parseInt(total) + parseInt(costEnvio.textContent);
+    totalFinalAmount.textContent =
+      parseInt(total) + parseInt(costEnvio.textContent);
   }
 
-
-  function obtenerPct(value) 
-  {
-    if(value === "premium") {
+  function obtenerPct(value) {
+    if (value === "premium") {
       return 0.15;
     }
 
@@ -258,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return 0.05;
     }
   }
-  
+
   //Variables de costo de envio
   let costpremium = document.getElementById("cost-premium");
   let costexpress = document.getElementById("cost-express");
@@ -266,7 +265,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para calcular el costo de envío basado en el radio button seleccionado
   function calcularCostoEnvio(value) {
-
     let subTotal = document.getElementById("subFinalAmount").textContent;
     let costEnvio = document.getElementById("costFinalAmount");
     let totalFinalAmount = document.getElementById("totalFinalAmount");
@@ -281,13 +279,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (value === "standard") {
       costEnvio.textContent = Math.round(subTotal * 0.05);
     }
-    //Suma los valores para obtener el total, parseInt convierte los valores en texto y los muestra en pantalla 
-    totalFinalAmount.textContent = parseInt(subTotal) + parseInt(costEnvio.textContent);
+    //Suma los valores para obtener el total, parseInt convierte los valores en texto y los muestra en pantalla
+    totalFinalAmount.textContent =
+      parseInt(subTotal) + parseInt(costEnvio.textContent);
   }
   //Evento click para detectar y activa la funcion para ver cual es el costo según lo seleccionado en IF de arriba.
-  costpremium.addEventListener("click", () => calcularCostoEnvio('premium'));
-  costexpress.addEventListener("click", () => calcularCostoEnvio('express'));
-  coststandard.addEventListener("click", () => calcularCostoEnvio('standard'));  
+  costpremium.addEventListener("click", () => calcularCostoEnvio("premium"));
+  costexpress.addEventListener("click", () => calcularCostoEnvio("express"));
+  coststandard.addEventListener("click", () => calcularCostoEnvio("standard"));
 });
 
 //SECCIÓN COSTOS
@@ -306,96 +305,112 @@ function showCostsContainer() {
   }, 10); // Pausa para activar la transición
 }
 
-
-//Entrega 7 Punto 4 
+//Entrega 7 Punto 4
 let containerPage = document.getElementById("cost-form");
 // clases de inputs de direccion
-let envioCost = document.getElementsByClassName("form-check-input")// clases de los inputs de tipo de envio y forma de pago
+let envioCost = document.getElementsByClassName("form-check-input"); // clases de los inputs de tipo de envio y forma de pago
 let btnFinal = document.getElementById("btn-final-payment");
 let provincias = document.getElementById("input-localidad");
 
 // Creacion de evento click para el boton de finalizar compra
 
-containerPage.addEventListener("submit",function(event) {
-  
-
-  //PARA EL METODO DE PAGO VALIDACION Y ALERTA 
-if(!document.querySelector('input[name="cost"]:checked')){
+containerPage.addEventListener("submit", function (event) {
+  //PARA EL METODO DE PAGO VALIDACION Y ALERTA
+  if (!document.querySelector('input[name="cost"]:checked')) {
     let costoFin = document.getElementById("cFin");
-    costoFin.innerHTML+=`<div id="envios" class="alert alert-secondary alert-custom"   role="alert">
-<p>Seleccione un tipo de envio,por favor</p></div>`
-let envID = document.getElementById("envios");
-let envioFin = envID.parentNode;
-setTimeout(() => envioFin.removeChild(envID), 1000);
-} 
-
-
-else if(!formularioCart()){
-  
-  let insertAlert = document.getElementById("inicial");
-  insertAlert.innerHTML+='';
-  insertAlert.innerHTML+= `<div id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
-  <p>Complete todos los campos de domicilio,por favor</p>
-</div>`
-let miForm = document.getElementById("form-tipotext");
-let finalForm = miForm.parentNode;
+    costoFin.innerHTML += `<div id="envios" class="alert alert-secondary alert-custom"   role="alert">
+<p>Seleccione un tipo de envio,por favor</p></div>`;
+    let envID = document.getElementById("envios");
+    let envioFin = envID.parentNode;
+    setTimeout(() => envioFin.removeChild(envID), 1000);
+  } else if (!formularioCart()) {
+    let insertAlert = document.getElementById("inicial");
+    insertAlert.innerHTML += "";
+    insertAlert.innerHTML += `<div id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
+  <p>Complete todos los campos ,por favor</p>
+</div>`;
+    let miForm = document.getElementById("form-tipotext");
+    let finalForm = miForm.parentNode;
     setTimeout(() => finalForm.removeChild(miForm), 1000);
-}
-else if(!document.querySelector('input[name="payment"]:checked')){
-         let ipt = document.getElementById("oni");
-ipt.innerHTML+=`<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
-<p>Seleccione una forma de pago,por favor</p></div>`
-let cont = document.getElementById("alt");
-let dentro = cont.parentNode;
-setTimeout(() => dentro.removeChild(cont), 1000);
-  } 
+  } else if (!document.querySelector('input[name="payment"]:checked')) {
+    let ipt = document.getElementById("oni");
+    ipt.innerHTML += `<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
+<p>Seleccione una forma de pago,por favor</p></div>`;
+    let cont = document.getElementById("alt");
+    let dentro = cont.parentNode;
+    setTimeout(() => dentro.removeChild(cont), 1000);
+  } else {
+    let confirmationModal = new bootstrap.Modal(
+      document.getElementById("confirmationModal")
+    );
+    confirmationModal.show();
+  }
+  event.preventDefault();
+});
 
-else{
-  let confirmationModal = new bootstrap.Modal(
-    document.getElementById("confirmationModal")
-  );
-  confirmationModal.show();
-; 
-}
-event.preventDefault();
-})
-
-
-
-  
 //funcion para validar campos de tipo texto y seleccion en el formulario
-function formularioCart(){
+function formularioCart() {
   var inputs = document.querySelectorAll("input");
   var seleccion = document.querySelectorAll("select");
-let correct = true;
-// Recorre los inputs y al estar vacios devuelve falso
-inputs.forEach(input=>{
-  if(input.value.trim()===''){
-    console.log("Debe llenar todos los campos");
-    correct= false;
-  }});
+  let correct = true;
+  // Recorre los inputs y al estar vacios devuelve falso
+  inputs.forEach((input) => {
+    if (input.value.trim() === "") {
+      console.log("Debe llenar todos los campos");
+      correct = false;
+    }
+  });
   // Recorre los elementos select y al estar vacio devuelve falso
-seleccion.forEach(select=>{
-  if(select.value===''){
-    console.log("Seleccione departamento");
-    correct = false;
-  }})
-return correct;
+  seleccion.forEach((select) => {
+    if (select.value === "") {
+      console.log("Seleccione departamento");
+      correct = false;
+    }
+  });
+  return correct;
 }
 
- 
- let usuarioCorreo= localStorage.getItem("username");
- let contenedorCorreo = document.getElementById("email-final");
- contenedorCorreo.innerText+=` ` + usuarioCorreo;
+let usuarioCorreo = localStorage.getItem("username");
+let contenedorCorreo = document.getElementById("email-final");
+contenedorCorreo.innerText += ` ` + usuarioCorreo;
 
- //Eventos para boton de cierre modal de compra final
- let btnCarrito = document.getElementById("final-btn-carr");
- btnCarrito.addEventListener("click",function(){
-  window.location="categories.html";
- })
- 
-let cierreModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
-document.getElementById("confirmationModal").addEventListener('hidden.bs.modal',function(){
+//Eventos para boton de cierre modal de compra final
+let btnCarrito = document.getElementById("final-btn-carr");
+btnCarrito.addEventListener("click", function () {
   localStorage.removeItem("shoppingCart");
-  location.reload();
-})
+  window.location = "categories.html";
+});
+
+let cierreModal = new bootstrap.Modal(
+  document.getElementById("confirmationModal")
+);
+document
+  .getElementById("confirmationModal")
+  .addEventListener("hidden.bs.modal", function () {
+    localStorage.removeItem("shoppingCart");
+    location.reload();
+  });
+
+/*SECCIÓN OPCIONES DE PAGO*/
+let paymentTarjeta = document.getElementById("paymentTarjeta");
+let paymentEntrega = document.getElementById("paymentEntrega");
+let deliveryPaymentSection = document.getElementById("deliveryPaymentSection");
+let cardPaymentSection = document.getElementById("creditCardSection");
+
+//Función para manejar la selección de opciones de pago
+function handlePaymentSelection() {
+  if (paymentTarjeta.checked) {
+    cardPaymentSection.style.display = "flex";
+    deliveryPaymentSection.style.display = "none";
+  } else if (paymentEntrega.checked) {
+    deliveryPaymentSection.style.display = "flex";
+    cardPaymentSection.style.display = "none";
+  } else {
+    deliveryPaymentSection.style.display = "none";
+    cardPaymentSection.style.display = "none";
+  }
+}
+
+//Eventos para los cambios de opción de pago
+paymentEntrega.addEventListener("change", handlePaymentSelection);
+paymentTarjeta.addEventListener("change", handlePaymentSelection);

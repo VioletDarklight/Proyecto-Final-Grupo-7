@@ -11,7 +11,10 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
-    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
@@ -124,9 +127,9 @@
                 </div>
 
                 <div class="shipping-address input-group col">
-                  <p><input type="text" class="form-control-final shipping-control" placeholder="Dirección:"  required></p>
-                  <p><select   class="form-select form-control-final shipping-control" id="input-localidad" required>
-                    <option value="">Localidad: </option>
+                  <p><input type="text" class="form-control shipping-control" placeholder="Dirección:"  required></p>
+                  <p><select   class="form-select form-control shipping-control" id="input-localidad" required>
+                    <option hidden>Localidad: </option>
                     <option  value="1">Artigas</option>
                     <option value="2">Canelones</option>
                     <option value="3">Cerro Largo</option>
@@ -147,9 +150,9 @@
                     <option value="18">Tacuarembo</option>
                     <option value="19">Treinta y Tres</option>
                   </select></p>
-                  <p><input type="text" class="form-control-final shipping-control" placeholder="Calle:"  required></p>
-                  <p class="address-number"><input type="text" class="form-control-final shipping-control" placeholder="Nro:" required ><input type="text" class="form-control-final shipping-control" placeholder="Apto:" required></p>
-                  <p><input type="text" class="form-control-final shipping-control" placeholder="Esquina:" required ></p>
+                  <p><input type="text" class="form-control shipping-control" placeholder="Calle:"  required></p>
+                  <p class="address-number"><input type="text" class="form-control shipping-control" placeholder="Nro:" required ><input type="text" class="form-control shipping-control" placeholder="Apto:" required></p>
+                  <p><input type="text" class="form-control shipping-control" placeholder="Esquina:" required ></p>
                 </div>
 
               </div>
@@ -163,20 +166,58 @@
 
                 <div class="payment input-group col" >
                   <div  id="oni" class="payment-control payment-radio"  >
-                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "tarjeta" />
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "tarjeta" id="paymentTarjeta"/>
                     <label   for="adress-control-label" class="payment-label">Tarjeta de crédito/débito</label>
                   </div>
                   <div class="payment-control payment-radio" >
-                    <input  class="form-check-input mt-0"  type = "radio" name = "payment" value = "transferencia"  />
-                    <label for="adress-control-label" class="payment-label">Transferencia bancaria</label>
-                  </div>
-                  <div class="payment-control payment-radio" >
-                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "entrega"  />
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "entrega" id="paymentEntrega" />
                     <label for="adress-control-label" class="payment-label">Pago contra entrega</label>
                   </div>
                 </div>
               </div>
            
+
+              <!--SECCIÓN DETALLES DE LA TARJETA-->
+              <div id="creditCardSection" class="row card-row details-section" style="display: none;">
+                <div class="col">
+                </div>
+
+                <div class="card-payment input-group col">
+                  <h2>DETALLES TARJETA</h2>
+                  <p><input type="text" id="cardholder" class="card-control form-control" name="cardholder" placeholder="Titular:"></p>
+                  <p><input type="text" id="cardNumber" class="card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:"></p>
+                  <p class="card-info"><input type="text" id="expiryDate" class="card-control form-control" name="expiryDate" placeholder="Vto: MM/AA"><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control" placeholder="CVV:"></p>
+                  <p><select name="installments" id="installments" class="card-control form-select form-control">
+                        <option hidden>Cuotas:</option>
+                        <option value="1">1 Cuota</option>
+                        <option value="3">3 Cuotas</option>
+                        <option value="6">6 Cuotas</option>
+                        <option value="12">12 Cuotas</option>
+                      </select>
+                  </p>
+                </div>
+              </div>
+
+              <!--SECCIÓN PAGO CONTRA ENTREGA-->
+            <div id="deliveryPaymentSection" class="row delivery-row details-section" style="display: none;" >
+              <div class="col">
+              </div>
+              <div class="payment input-group col" >
+                <h2>MÉTODO DE PAGO</h2>
+                <div class="payment-control payment-radio"  >
+                  <input class="form-check-input mt-0"  type = "radio" name = "paymentDelivery" value = "tarjeta" />
+                  <label   for="adress-control-label" class="payment-label">Tarjeta de crédito</label>
+                </div>
+                <div class="payment-control payment-radio" >
+                  <input  class="form-check-input mt-0"  type = "radio" name = "paymentDelivery" value = "transferencia"  />
+                  <label for="adress-control-label" class="payment-label">Tarjeta de débito</label>
+                </div>
+                <div class="payment-control payment-radio" >
+                  <input class="form-check-input mt-0"  type = "radio" name = "paymentDelivery" value = "entrega"  />
+                  <label for="adress-control-label" class="payment-label">Efectivo</label>
+                </div>
+              </div>
+            </div>
 
               <!--PRECIO FINAL-->
               <div class="total-purchase row">
