@@ -273,3 +273,97 @@ function showCostsContainer() {
     seccionCostos.classList.add("visible");
   }, 10); // Pausa para activar la transición
 }
+
+
+//Entrega 7 Punto 4 
+let containerPage = document.getElementById("cost-form");
+// clases de inputs de direccion
+let envioCost = document.getElementsByClassName("form-check-input")// clases de los inputs de tipo de envio y forma de pago
+let btnFinal = document.getElementById("btn-final-payment");
+let provincias = document.getElementById("input-localidad");
+
+// Creacion de evento click para el boton de finalizar compra
+
+containerPage.addEventListener("submit",function(event) {
+  
+
+  //PARA EL METODO DE PAGO VALIDACION Y ALERTA 
+if(!document.querySelector('input[name="cost"]:checked')){
+    let costoFin = document.getElementById("cFin");
+    costoFin.innerHTML+=`<div id="envios" class="alert alert-secondary alert-custom"   role="alert">
+<p>Seleccione un tipo de envio,por favor</p></div>`
+let envID = document.getElementById("envios");
+let envioFin = envID.parentNode;
+setTimeout(() => envioFin.removeChild(envID), 1000);
+} 
+
+
+else if(!formularioCart()){
+  
+  let insertAlert = document.getElementById("inicial");
+  insertAlert.innerHTML+='';
+  insertAlert.innerHTML+= `<div id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
+  <p>Complete todos los campos de domicilio,por favor</p>
+</div>`
+let miForm = document.getElementById("form-tipotext");
+let finalForm = miForm.parentNode;
+    setTimeout(() => finalForm.removeChild(miForm), 1000);
+}
+else if(!document.querySelector('input[name="payment"]:checked')){
+         let ipt = document.getElementById("oni");
+ipt.innerHTML+=`<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
+<p>Seleccione una forma de pago,por favor</p></div>`
+let cont = document.getElementById("alt");
+let dentro = cont.parentNode;
+setTimeout(() => dentro.removeChild(cont), 1000);
+  } 
+
+else{
+  let confirmationModal = new bootstrap.Modal(
+    document.getElementById("confirmationModal")
+  );
+  confirmationModal.show();
+; 
+}
+event.preventDefault();
+})
+
+
+
+  
+//funcion para validar campos de tipo texto y seleccion en el formulario
+function formularioCart(){
+  var inputs = document.querySelectorAll("input");
+  var seleccion = document.querySelectorAll("select");
+let correct = true;
+// Recorre los inputs y al estar vacios devuelve falso
+inputs.forEach(input=>{
+  if(input.value.trim()===''){
+    console.log("Debe llenar todos los campos");
+    correct= false;
+  }});
+  // Recorre los elementos select y al estar vacio devuelve falso
+seleccion.forEach(select=>{
+  if(select.value===''){
+    console.log("Seleccione departamento");
+    correct = false;
+  }})
+return correct;
+}
+
+ 
+ let usuarioCorreo= localStorage.getItem("username");
+ let contenedorCorreo = document.getElementById("email-final");
+ contenedorCorreo.innerText+=` ` + usuarioCorreo;
+
+ //Eventos para boton de cierre modal de compra final
+ let btnCarrito = document.getElementById("final-btn-carr");
+ btnCarrito.addEventListener("click",function(){
+  window.location="categories.html";
+ })
+ 
+let cierreModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
+document.getElementById("confirmationModal").addEventListener('hidden.bs.modal',function(){
+  localStorage.removeItem("shoppingCart");
+  location.reload();
+})

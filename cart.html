@@ -100,8 +100,8 @@
                 </div>
 
                 <!--TIPO DE ENVIO-->
-                <div class="shipping-cost input-group col">
-                  <div class="cost-control cost-radio">
+                <div  class="shipping-cost input-group col">
+                  <div  class="cost-control cost-radio">
                     <input id="cost-premium" class="form-check-input mt-0" type = "radio" name = "cost" value = "premium" />
                     <label for="cost-control-label">Premium 2 a 5 días (15%)</label>
                   </div>
@@ -110,24 +110,24 @@
                     <label for="cost-control-label">Express 5 a 8 días (7%)</label>
                   </div>
                   <div class="cost-control cost-radio">
-                    <input id="cost-standard" class="form-check-input mt-0" type = "radio" name = "cost" value = "standard" />
+                    <input id="cost-standard" class="form-check-input mt-0" type = "radio" name = "cost" value = "standard"/>
                     <label for="cost-control-label">Standard 12 a 15 días (5%)</label>
                   </div>
                 </div>
               </div>
 
-
+<div id="cFin"></div>
               <!--DIRECCION DE ENVIO-->
               <div class="row cost-row">
-                <div class="section-cost-form col">
+                <div  class="section-cost-form col">
                   <h2>Dirección de <br> envío</h2>
                 </div>
 
                 <div class="shipping-address input-group col">
-                  <p><input type="text" class="form-control shipping-control" placeholder="Dirección:"></p>
-                  <p><select class="form-select form-control shipping-control" id="input-localidad">
-                    <option hidden>Localidad: </option>
-                    <option value="1">Artigas</option>
+                  <p><input type="text" class="form-control-final shipping-control" placeholder="Dirección:"  required></p>
+                  <p><select   class="form-select form-control-final shipping-control" id="input-localidad" required>
+                    <option value="">Localidad: </option>
+                    <option  value="1">Artigas</option>
                     <option value="2">Canelones</option>
                     <option value="3">Cerro Largo</option>
                     <option value="4">Colonia</option>
@@ -147,9 +147,9 @@
                     <option value="18">Tacuarembo</option>
                     <option value="19">Treinta y Tres</option>
                   </select></p>
-                  <p><input type="text" class="form-control shipping-control" placeholder="Calle:"></p>
-                  <p class="address-number"><input type="text" class="form-control shipping-control" placeholder="Nro:"><input type="text" class="form-control shipping-control" placeholder="Apto:"></p>
-                  <p><input type="text" class="form-control shipping-control" placeholder="Esquina:"></p>
+                  <p><input type="text" class="form-control-final shipping-control" placeholder="Calle:"  required></p>
+                  <p class="address-number"><input type="text" class="form-control-final shipping-control" placeholder="Nro:" required ><input type="text" class="form-control-final shipping-control" placeholder="Apto:" required></p>
+                  <p><input type="text" class="form-control-final shipping-control" placeholder="Esquina:" required ></p>
                 </div>
 
               </div>
@@ -157,21 +157,21 @@
 
               <!--FORMA DE PAGO-->
               <div class="row cost-row">
-                <div class="section-cost-form col">
+                <div id="inicial" class="section-cost-form col">
                   <h2>Forma de pago</h2>
                 </div>
 
-                <div class="payment input-group col">
-                  <div class="payment-control payment-radio" >
+                <div class="payment input-group col" >
+                  <div  id="oni" class="payment-control payment-radio"  >
                     <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "tarjeta" />
-                    <label for="adress-control-label" class="payment-label">Tarjeta de crédito/débito</label>
+                    <label   for="adress-control-label" class="payment-label">Tarjeta de crédito/débito</label>
                   </div>
                   <div class="payment-control payment-radio" >
-                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "transferencia" />
+                    <input  class="form-check-input mt-0"  type = "radio" name = "payment" value = "transferencia"  />
                     <label for="adress-control-label" class="payment-label">Transferencia bancaria</label>
                   </div>
                   <div class="payment-control payment-radio" >
-                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "entrega" />
+                    <input class="form-check-input mt-0"  type = "radio" name = "payment" value = "entrega"  />
                     <label for="adress-control-label" class="payment-label">Pago contra entrega</label>
                   </div>
                 </div>
@@ -194,7 +194,7 @@
               </div>
 
               <!--BOTÓN FINALIZAR COMPRA-->
-              <button id="btn-final-payment">FINALIZAR COMPRA</button>
+              <button type="submit" id="btn-final-payment">FINALIZAR COMPRA</button>
             </form>
           </div>
         </div>
@@ -210,6 +210,41 @@
       </div>
 
   </main>
+  <!--MODAL FINALIZAR COMPRA-->
+  <div data-bs-backdrop="static"
+        class="modal fade"
+        id="confirmationModal" 
+        tabindex="-1"
+        aria-labelledby="confirmationModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel">
+                ¡Compra realizada exitosamente!<br>
+                Hemos enviado la informacion correspondiente a 
+                su correo<span id="email-final"></span></h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-footer">
+        
+              <button
+                type="button"
+                class="btn btn-dark-azul"
+                 id="final-btn-carr"
+              >
+              Ir a categorias
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     <footer class="footer-container">
       <div class="footer-content">
         <hr />

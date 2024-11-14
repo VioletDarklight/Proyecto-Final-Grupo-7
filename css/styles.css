@@ -2744,6 +2744,46 @@ transition: color 0.3s ease, background-color 0.3s ease;
 
 }
 
+/*estilo formulario de pagos*/
 
+.completo{
+  background-color: #d4edda; 
+  border: 2px solid green;
+}
+.incompleto{
+  background-color: #f8d7da; 
+  border: 2px solid red;
+}
+#alt {
+margin-top: 28em;
+}
+#alt p {
+  margin-top: -0.5rem;
+}
+#envios{
+margin-top: 4em;
+}
+#envios p{
+  margin-top: -0.5rem;
+}
 
+#form-tipotext{
+  margin-top: 17.5em;}
+  #form-tipotext p {
+    margin-top: -0.5rem;
+  }
+  
+.alert-custom{
+  z-index: 1050;
+  width: 29rem;
+  height: 3em;
+  background-color: #d7a3a1;
+  border-color: #3e0a08;
+  font-weight: bold;
+  color:black;
+  text-align: center; 
+  line-height: none;
+  
+  
+}
 
