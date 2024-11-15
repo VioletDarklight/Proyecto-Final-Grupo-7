@@ -340,29 +340,15 @@ let provincias = document.getElementById("input-localidad");
 
 containerPage.addEventListener("submit", function (event) {
   //PARA EL METODO DE PAGO VALIDACION Y ALERTA
-  if (!document.querySelector('input[name="cost"]:checked')) {
-    let costoFin = document.getElementById("cFin");
-    costoFin.innerHTML += `<div id="envios" class="alert alert-secondary alert-custom"   role="alert">
-<p>Seleccione un tipo de envio,por favor</p></div>`;
-    let envID = document.getElementById("envios");
-    let envioFin = envID.parentNode;
-    setTimeout(() => envioFin.removeChild(envID), 1000);
-  } else if (!formularioCart()) {
-    let insertAlert = document.getElementById("inicial");
-    insertAlert.innerHTML += "";
-    insertAlert.innerHTML += `<div id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
-  <p>Complete todos los campos ,por favor</p>
-</div>`;
-    let miForm = document.getElementById("form-tipotext");
-    let finalForm = miForm.parentNode;
-    setTimeout(() => finalForm.removeChild(miForm), 1000);
+   //PARA EL METODO DE PAGO VALIDACION Y ALERTA
+   if (!formularioCart()) {
+    mostrarAlertaForm();
+  }else if( !formularioTarget()){
+    mostrarAlertaTarjeta();
   } else if (!document.querySelector('input[name="payment"]:checked')) {
-    let ipt = document.getElementById("oni");
-    ipt.innerHTML += `<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
-<p>Seleccione una forma de pago,por favor</p></div>`;
-    let cont = document.getElementById("alt");
-    let dentro = cont.parentNode;
-    setTimeout(() => dentro.removeChild(cont), 1000);
+    mostrarAlertaMetod();
+  }else if(!document.querySelector('input[name="paymentDelivery"]:checked')&& deliveryPaymentSection.classList.contains("show")){
+    alertContra();
   } else {
     let confirmationModal = new bootstrap.Modal(
       document.getElementById("confirmationModal")
@@ -370,12 +356,13 @@ containerPage.addEventListener("submit", function (event) {
     confirmationModal.show();
   }
   event.preventDefault();
+  event.stopPropagation();
 });
 
 //funcion para validar campos de tipo texto y seleccion en el formulario
 function formularioCart() {
-  var inputs = document.querySelectorAll("input");
-  var seleccion = document.querySelectorAll("select");
+  var inputs = document.querySelectorAll(".confirmar-formulario");
+  var seleccion = document.querySelectorAll(".confirmar-form-select");
   let correct = true;
   // Recorre los inputs y al estar vacios devuelve falso
   inputs.forEach((input) => {
@@ -386,19 +373,19 @@ function formularioCart() {
   });
   // Recorre los elementos select y al estar vacio devuelve falso
   seleccion.forEach((select) => {
-    if (select.value === "") {
+    if (select.value==="") {
       console.log("Seleccione departamento");
       correct = false;
     }
   });
   return correct;
 }
-
+//Muestra el correo en el modal 
 let usuarioCorreo = localStorage.getItem("username");
 let contenedorCorreo = document.getElementById("email-final");
 contenedorCorreo.innerText += ` ` + usuarioCorreo;
 
-//Eventos para boton de cierre modal de compra final
+//Eventos para boton para redireccionar a categories o cerrar el modal borrando todo el carrito
 let btnCarrito = document.getElementById("final-btn-carr");
 btnCarrito.addEventListener("click", function () {
   localStorage.removeItem("shoppingCart");
@@ -439,3 +426,70 @@ function handlePaymentSelection() {
 paymentEntrega.addEventListener("change", handlePaymentSelection);
 paymentTarjeta.addEventListener("change", handlePaymentSelection);
 handlePaymentSelection();
+
+//Funcion validadora de opcion de pago Tarjeta de credito
+function formularioTarget() {
+  var datosTarget = document.querySelectorAll(".card-control");
+  var cuotas = document.querySelectorAll(".card-control-target");
+  let correct = true;
+
+  if(cardPaymentSection.classList.contains("show")){
+  
+  // Recorre los inputs y al estar vacios devuelve falso
+  datosTarget.forEach((datos) => {
+    if (datos.value.trim() === "") {
+      console.log("Debe llenar todos los campos");
+      correct = false;
+    }
+  });
+  // Recorre los elementos select y al estar vacio devuelve falso
+  cuotas.forEach((cuota) => {
+    if (cuota.value==="") {
+      console.log("Seleccione cuotas");
+      correct = false;
+    }
+  })};
+  return correct;
+}
+
+//Funciones de las distintas alertas para cada campo a llenar
+function mostrarAlertaForm(){
+  let mostrandoAlerta = document.createElement("div");
+  mostrandoAlerta.innerHTML+= `<div  id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
+  <p>Complete todos los campos, por favor</p>
+</div>`;
+document.body.appendChild(mostrandoAlerta);
+setTimeout(()=>{
+  mostrandoAlerta.remove();
+},1000);
+}
+
+function mostrarAlertaTarjeta(){
+  let alertaTarjeta = document.createElement("div");
+  alertaTarjeta.innerHTML+= `<div  id="tarjetaContra" class="alert-dismissible alert alert-secondary alert-custom" role="alert">
+<p>Ingresa todos los datos de tu tarjeta, por favor</p></div>`;
+document.body.appendChild(alertaTarjeta);
+setTimeout(()=>{
+  alertaTarjeta.remove();
+},1000);
+}
+
+function mostrarAlertaMetod(){
+  let alertaMetodo = document.createElement("div");
+  alertaMetodo.innerHTML+= `<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
+<p>Seleccione una forma de pago, por favor</p></div>`;
+document.body.appendChild(alertaMetodo);
+setTimeout(()=>{
+  alertaMetodo.remove();
+},1000);
+}
+
+function alertContra(){
+  let alertaEntrega = document.createElement("div");
+  alertaEntrega.innerHTML+= `<div  id="mostrarPrimero" class="alert alert-secondary alert-custom" role="alert">
+<p>Seleccione una metodo de pago, por favor</p></div>` ;
+document.body.appendChild(alertaEntrega);
+setTimeout(()=>{
+  alertaEntrega.remove();
+},1000);
+}

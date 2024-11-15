@@ -2810,7 +2810,12 @@ margin-top: 4em;
   color:black;
   text-align: center; 
   line-height: none;
-  
+  position: fixed;
+  left: 50%;
+ 
+  box-shadow: -2px -1px 6px 6px rgba(150,42,42,1);
+
+  transform: translate(-50%,-50%);
   
 }
 
