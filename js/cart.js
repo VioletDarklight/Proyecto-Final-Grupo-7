@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <!-- Sección de cantidad con botones -->
         <td style="padding: 0;">Cantidad</td>
         <td class="td-cant" style="padding: 0">
-            <button class="btn btn-cart menos" id="menos-${index}" type="button" style="padding: 0">
+            <button class="btn btn-cart menos" data-index="${index} type="button" style="padding: 0">
                 <i class="bi bi-dash-circle" style="padding: 0"></i>
             </button>
-            <input class="funcionalidad cajaCant" id="cajaCant" style="width:25px;text-align: center;padding: 0;" type="text" min="1" step="1" value="${
-              item.quantity
-            }" readonly>
-            <button class="btn btn-cart mas" id="mas-${index}" type="button" style="padding: 0">
+            <input class="funcionalidad cajaCant" id="cajaCant-${index}" style="width:25px;text-align: center;padding: 0;" type="text" min="1" step="1" value="${
+        item.quantity
+      }" readonly>
+            <button class="btn btn-cart mas" data-index="${index}" type="button" style="padding: 0">
                 <i class="bi bi-plus-circle" style="padding: 0"></i>
             </button>
         </td>
@@ -125,26 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
     calcularTotal();
     // Volver a asignar los eventos a los botones de eliminar
     setupDeleteButtons();
-  }
-
-  // Actualizar cantidad
-  let botonesMas = document.getElementsByClassName("mas");
-  let botonesMenos = document.getElementsByClassName("menos");
-  let cajasCant = document.getElementsByClassName("cajaCant");
-
-  for (let i = 0; i < botonesMas.length; i++) {
-    botonesMas[i].addEventListener("click", function () {
-      actualizarCantidad(i, 1);
-      cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
-        i
-      ].quantity;
-    });
-    botonesMenos[i].addEventListener("click", function () {
-      actualizarCantidad(i, -1);
-      cajasCant[i].value = JSON.parse(localStorage.getItem("shoppingCart"))[
-        i
-      ].quantity;
-    });
+    //Configurar los eventos de los botones de cantidades
+    setupQuantityButtons();
   }
 
   /*FUNCIÓN ELIMINAR*/
@@ -181,18 +163,46 @@ document.addEventListener("DOMContentLoaded", function () {
     showCart(carrito);
   }
 
-  // Función para actualizar la cantidad y guardar en localStorage
+  // Función para configurar los eventos de los botones de cantidad
+  function setupQuantityButtons() {
+    let botonesMas = document.getElementsByClassName("mas");
+    let botonesMenos = document.getElementsByClassName("menos");
+
+    //Evento botones de mas
+    Array.from(botonesMas).forEach((boton) => {
+      boton.addEventListener("click", function () {
+        let index = this.getAttribute("data-index");
+        actualizarCantidad(parseInt(index), 1);
+      });
+    });
+
+    // Evento botones de menos
+    Array.from(botonesMenos).forEach((boton) => {
+      boton.addEventListener("click", function () {
+        let index = this.getAttribute("data-index");
+        actualizarCantidad(parseInt(index), -1);
+      });
+    });
+  }
+
+  // Función para actualizar la cantidad
   function actualizarCantidad(index, cambio) {
     let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
 
     // Verifica si el índice es válido
     if (index < 0 || index >= carrito.length) return;
 
-    // Actualizar cantidad
+    // Actualizar cantidad (mínimo 1)
     carrito[index].quantity = Math.max(1, carrito[index].quantity + cambio);
 
+    // Actualizar el input de cantidad
+    const inputCantidad = document.getElementById(`cajaCant-${index}`);
+    if (inputCantidad) {
+      inputCantidad.value = carrito[index].quantity;
+    }
+
     // Actualizar el subtotal
-    let subtotales = document.getElementsByClassName("subtotales");
+    const subtotales = document.getElementsByClassName("subtotales");
     if (subtotales[index]) {
       subtotales[index].textContent = subtotalCart(
         carrito[index].quantity,

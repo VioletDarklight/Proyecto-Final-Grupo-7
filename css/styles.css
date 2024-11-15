@@ -2263,11 +2263,11 @@ text-transform: uppercase;
 }
  
 
- #cajaCant{
+.cajaCant {
   background-color: transparent;
   border-color: transparent;
  }
- .dark-mode #cajaCant{
+ .dark-mode .cajaCant{
   color: white
  }
  
