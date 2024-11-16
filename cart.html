@@ -127,9 +127,8 @@
                 </div>
 
                 <div class="shipping-address input-group col">
-                  <p><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Dirección:"  required></p>
                   <p><select   class="confirmar-form-select form-select form-control shipping-control" id="input-localidad" required>
-                    <option value="">Localidad: </option>
+                    <option hidden>Departamento: </option>
                     <option  value="1">Artigas</option>
                     <option value="2">Canelones</option>
                     <option value="3">Cerro Largo</option>
@@ -150,6 +149,7 @@
                     <option value="18">Tacuarembo</option>
                     <option value="19">Treinta y Tres</option>
                   </select></p>
+                  <p><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Localidad:"  required></p>
                   <p><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Calle:"  required></p>
                   <p class="address-number"><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Nro:" required ><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Apto:" required></p>
                   <p><input type="text" class="confirmar-formulario form-control shipping-control" placeholder="Esquina:" required ></p>
@@ -188,7 +188,7 @@
                   <p><input type="text" id="cardNumber" class="card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:" required></p>
                   <p class="card-info"><input type="text" id="expiryDate" class="card-control form-control" name="expiryDate" placeholder="Vto: MM/AA" required><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control" placeholder="CVV:" required></p>
                   <p><select name="installments" id="installments" class="card-control form-select form-control">
-                        <option value="">Cuotas:</option>
+                        <option hidden>Cuotas:</option>
                         <option value="1">1 Cuota</option>
                         <option value="3">3 Cuotas</option>
                         <option value="6">6 Cuotas</option>
