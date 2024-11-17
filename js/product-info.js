@@ -448,6 +448,12 @@ function buyBtn(infoCard, prodID) {
         quantity: 1,
       };
 
+      let badgeCarrito = document.getElementById("nav-carrito");
+      badgeCarrito.classList.add("animate__animated", "animate__bounce");
+      setTimeout(() => {
+        badgeCarrito.classList.remove("animate__bounce");
+      }, 1000);
+
       guardarCompraEnLocalStorage(productoComprado);
     });
   });

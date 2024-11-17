@@ -172,7 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(botonesMas).forEach((boton) => {
       boton.addEventListener("click", function () {
         let index = this.getAttribute("data-index");
-        actualizarCantidad(parseInt(index), 1);
+        actualizarCantidad(parseInt(index), 1);    
+        let finalButton = document.getElementById("nav-carrito");
+        finalButton.classList.add("animate__animated", "animate__bounce");
+        setTimeout(() => {
+        finalButton.classList.remove("animate__bounce");
+        }, 1000);
       });
     });
 
@@ -181,6 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
       boton.addEventListener("click", function () {
         let index = this.getAttribute("data-index");
         actualizarCantidad(parseInt(index), -1);
+        let carritoFinal = document.getElementById("nav-carrito");
+        carritoFinal.classList.add("animate__animated", "animate__bounce");
+        setTimeout(() => {
+          carritoFinal.classList.remove("animate__bounce");
+        }, 1000);
       });
     });
   }
