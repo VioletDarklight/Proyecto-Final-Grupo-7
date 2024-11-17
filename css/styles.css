@@ -663,99 +663,6 @@ button {
 }
 
 /*ESTILO PARA FILTROS*/
-.filters-container {
-  display: none; /* Para ocultar los filtros de pantallas grandes */
-}
-
-.filters-container input {
-  padding: 0.2rem;
-}
-
-.filters-container label {
-  padding: 0.3rem 0.5rem;
-  font-size: 1rem;
-}
-
-.filters-container button {
-  padding: 0.2rem;
-}
-
-.accordion {
-  margin-bottom: 1rem;
-  margin-right: 6%;
-}
-
-#filtersAccordion {
-  border: none;
-  margin-top: 1rem;
-}
-
-.accordion-body label,
-.accordion-body input {
-  font-size: 0.8rem;
-}
-
-#filtersAccordion .accordion-body {
-  padding: 0.75rem;
-}
-
-#filtersAccordion .accordion-body .btn-group,
-#filtersAccordion .accordion-body input {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-#filtersAccordion .accordion-body .filter-price-text {
-  text-align: left;
-  font-weight: normal;
-  margin: 0;
-  padding-right: 0.5rem;
-  font-size: 0.85rem;
-}
-
-#clearRangeFilterSmall {
-  margin-left: 0;
-}
-
-#rangeFilterCountSmall {
-  margin-left: 0;
-  font-size: 0.8rem;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #000;
-}
-
-#filtersAccordion .accordion-button {
-  background-color: whitesmoke;
-  border-radius: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 0.85rem;
-  padding: 0.3rem 0.5rem;
-}
-
-.accordion-item {
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-}
-
-.form-control {
-  padding: 0.2rem;
-}
-
-/* MEDIDA XS HASTA  575px */
-@media (min-width: 320px) and (max-width: 575px) {
-  #products-head-list {
-    font-size: 1.6rem;
-    line-height: 30px;
-    margin-top: -2%;
-  }
-}
-
-/*ESTILO PARA FILTROS*/
-.filters-container {
-  display: none; /* Para ocultar los filtros de pantallas grandes */
-}
 
 .filters-container input {
   padding: 0.2rem;
@@ -2032,10 +1939,6 @@ label:hover ~ label {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.d-none {
-  display: none !important;
-}
-
 .fade-out {
   opacity: 0;
 }
@@ -2542,7 +2445,7 @@ column-gap: 5rem;
   text-align: end;
   padding-top: 2rem;
   column-gap: 2rem;
-  padding-bottom: 1rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .final-amount {
@@ -2690,8 +2593,8 @@ transition: color 0.3s ease, background-color 0.3s ease;
 /*SECCIÓN COSTOS PANTALLAS PEQUEÑAS*/
 @media (min-width: 501px) and (max-width: 768px) {
   .final-amount {
-    line-height: 0.5rem;
-    font-size: 1.2rem !important;
+    line-height: 1rem;
+    font-size: 1.5rem !important;
   }
 
   #cost-form .row {
@@ -2712,6 +2615,14 @@ transition: color 0.3s ease, background-color 0.3s ease;
 
   #container-costos {
     padding: 3rem 5.2rem;
+  }
+
+  .total-purchase{
+    padding-bottom: 3rem !important;
+  }
+
+  #paymentSection{
+    padding-bottom: 0 !important;
   }
 }
 
@@ -2759,10 +2670,17 @@ transition: color 0.3s ease, background-color 0.3s ease;
 
 .total-purchase{
   column-gap: 1rem !important;
+  padding-top: 0;
+  padding-bottom: 2rem !important;
+}
+
+#paymentSection{
+  padding-bottom: 0 !important;
 }
 
 .final-amount {
   line-height: 0.5rem;
+  font-size: 1rem !important;
 }
 
 #card-detail, #delivery-detail {
