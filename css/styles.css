@@ -961,8 +961,8 @@ button {
 
 /*Clases del nuevo footer que usamos en el login para que quede igual*/
 .footer-container {
-  background-color: #b9d6f2;
-  padding: 3px;
+  /*background-color: #b9d6f2;*/
+  /*padding: 3px;*/
   /*margin-top: 100px;*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: color 0.3s ease, background-color 0.3s ease;
@@ -973,6 +973,7 @@ button {
   font-family: "Jost", sans-serif;
   font-size: 17px;
   color: #000000;
+  background-color: #b9d6f2;
   padding: 10px 0;
 }
 
@@ -2818,4 +2819,588 @@ margin-top: 4em;
   transform: translate(-50%,-50%);
   
 }
+
+
+
+/*----------------------TODO INDEX-HOME-PAGINA PRINCIPAL---------------------------*/
+/* RESPONSIVE: Index/Home/pantalla Principal | Tamaño XS Celulares*/
+@media (min-width: 320px) and (max-width: 767px) {
+  /*LIGHTMODE | Index/Home/pantalla Principal | Tamaño XS Celulares*/
+  .portada {
+    background-image: url("/img/portada web celular.png");
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  .body-index{
+    background: white  !important;
+  }
+
+  .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .imagenes-body{
+    position: absolute;
+    top: 36rem;
+    left: 0;
+    right: 0;
+  }
+
+  .cartas-index {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+  }
+
+  .card-body .card-text{
+    font-size: 16px;
+    color: black;
+  }
+
+  .index-footer {
+    position: absolute;
+    position: bottom;
+    top: 110rem ;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: #b9d6f2;
+  }
+
+  .btn-mas-index{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .row {
+    background-color: transparent !important; /* Fondo transparente */
+  }
+
+ /*DARKMODE | Index/Home/pantalla Principal | Tamaño XS Celulares*/
+  .dark-mode .portada {
+    background-image: url("/img/portada web celular oscuro.png");
+  }
+
+  .dark-mode .index-footer {
+    position: absolute;
+    position: bottom;
+    top: 111rem ;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(6,26, 64, 0.942);
+  }
+
+  .dark-mode .footer-content-index{
+    background-color:#0a1d30 ;
+    padding-top: 1rem;
+  }
+
+  .dark-mode body-index {
+    background-color: #061a40 !important;
+  }
+  
+  .dark-mode .imagenes-body{
+    background-color: rgba(6,26, 64) !important;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .dark-mode .py-5{
+    background-color: rgba(6,26, 64) !important;
+  }
+
+}
+
+/*RESPONSIVE: Index/Home/pantalla Principal | Tamaño Tablet | */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /*LIGHTMODE | Index/Home/pantalla Principal | Tamaño Tablet*/ 
+  .portada{
+    background-image: url("/img/portada tablet.png");
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .body-index{
+    background: white  !important; 
+  }
+
+  .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .imagenes-body{
+    position: absolute;
+    top: 39rem;
+    left: 0;
+    right: 0;
+    
+  }
+
+  .cartas-index {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+  }
+
+  .card-body .card-text{
+    font-size: 16px;
+    color: black;
+  }
+
+  .index-footer{
+    margin-top: 2rem;
+    top: 62rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+  }
+
+ /*DARKMODE | Index/Home/pantalla Principal | Tamaño Tablet*/ 
+  .dark-mode .portada {
+   background-image: url("/img/portada tablet oscuro.png");
+  }
+
+  .dark-mode .body-index {
+    background: #061a40 !important;
+    color: #e0e0e0 !important;
+  }
+
+  .dark-mode .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #061a40;
+  }
+
+   .dark-mode .imagenes-body{
+    background-color: rgba(6,26, 64) !important;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .dark-mode .index-footer{
+    margin-top: 2rem;
+    top: 62rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(6,26, 64, 0.942);
+  }
+
+  .dark-mode .footer-content-index{
+    background-color:#0a1d30 ;
+    padding-top: 1rem;
+  }
+
+  /*  .dark-mode .index-footer {
+    position: absolute;
+    position: bottom;
+    top: 111rem ;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(6,26, 64, 0.942);
+  }*/
+
+}
+ 
+
+/*RESPONSIVE: Index/Home/pantalla Principal | Tamaño Estandar */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  /*LIGHTMODE | Index/Home/pantalla Principal | Tamaño Estandar */
+   .portada{
+    background-image: url("/img/portada web.png");
+    width: 100%;
+    height: 50dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 0rem;
+  }
+
+  .navbar{
+    position: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .body-index{
+    background: white  !important; 
+  }
+
+  .cartas-index {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+  }
+
+  .imagenes-body{
+    position: absolute;
+    top: 32rem;
+    left: 0;
+    right: 0;
+    
+  }
+
+  .index-footer{
+    margin-top: 10rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+  }
+  
+  /*DARKMODE | Index/Home/pantalla Principal | Tamaño Estandar */
+  .dark-mode .portada {
+    background-image: url("/img/portada web oscuro.png");
+    margin-top: 2.5rem;
+  }
+
+  .dark-mode .body-index {
+    background: #061a40 !important;
+    color: #e0e0e0 !important;
+  }
+
+  .dark-mode .imagenes-body{
+    background: #061a40 !important;
+  }
+
+  .dark-mode  .imagenes-body{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    position: absolute;
+    top: 26rem;
+    left: 0;
+    right: 0;
+  }
+
+  .dark-mode .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #061a40;
+  }
+
+  .dark-mode .footer-content-index{
+    background-color:#0a1d30 ;
+    padding-top: 1rem;
+  }
+
+  .dark-mode .index-footer{
+    margin-top: 6.5rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+  }
+
+}
+
+/*RESPONSIVE: Index/Home/pantalla Principal | Tamaño XL */
+@media (min-width: 1367px)  {
+  /*LIGHTMODE | Index/Home/pantalla Principal | Tamaño XL */
+   .portada{
+    background-image: url("/img/portada web.png");
+    width: 100%;
+    height: 50dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .navbar{
+    position: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .body-index{
+    background: white  !important; 
+  }
+
+  .cartas-index {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+  }
+
+  .imagenes-body{
+    position: absolute;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    top: 33rem;
+    left: 0;
+    right: 0;
+    
+  }
+
+  .index-footer{
+    margin-top: 8rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+  }
+
+  
+  /*DARKMODE | Index/Home/pantalla Principal | Tamaño XL */
+  .dark-mode .portada {
+    background-image: url("/img/portada web oscuro.png");
+    width: 100%;
+    height: 50dvh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 3rem;
+  }
+
+  .dark-mode .body-index {
+    background: #061a40 !important;
+    color: #e0e0e0 !important;
+  }
+
+  .dark-mode .imagenes-body{
+    background: #061a40 !important;
+  }
+
+  .dark-mode .imagenes-body{
+    position: absolute;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    top: 32rem;
+    left: 0;
+    right: 0;
+  }
+
+  .dark-mode .navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #061a40;
+  }
+
+  .dark-mode .footer-content-index{
+    background-color:#0a1d30 ;
+    padding-top: 4rem;
+  }
+
+  .dark-mode .index-footer{
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    bottom:0;
+    left: 0;
+    right: 0;
+  }
+
+
+}
+/*----------------------FIN INDEX-HOME-PAGINA PRINCIPAL---------------------------*/
+
+
+
+/*----------------------TODO CATEGORIAS---------------------------*/
+/* RESPONSIVE: CATEGORIAS | Tamaño XS Celulares*/
+@media (min-width: 320px) and (max-width: 767px) { 
+  /*LIGHTMODE | CATEGORIAS | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | CATEGORIAS | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: CATEGORIAS | Tamaño Tablet | */ 
+@media (min-width: 768px) and (max-width: 1024px)  {
+  /*LIGHTMODE | CATEGORIAS | Tamaño Tablet*/ 
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | CATEGORIAS | Tamaño Tablet*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: CATEGORIAS | Tamaño Estandar */
+@media (min-width: 1025px) and (max-width: 1366px)  {
+  /*LIGHTMODE | CATEGORIAS  | Tamaño Estandar XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | CATEGORIAS | Tamaño Estandar*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+/*RESPONSIVE: CATEGORIAS Principal | Tamaño XL */
+@media (min-width: 1367px)  {
+  /*LIGHTMODE | CATEGORIAS  | Tamaño XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | CATEGORIAS | Tamaño XL */
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+/*----------------------FIN CATEGORIAS---------------------------*/
+
+
+
+
+/*----------------------TODO VENDER---------------------------*/
+/* RESPONSIVE: VENDER | Tamaño XS Celulares*/
+@media (min-width: 320px) and (max-width: 767px) { 
+  /*LIGHTMODE | VENDER | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | VENDER | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: VENDER | Tamaño Tablet | */ 
+@media (min-width: 768px) and (max-width: 1024px)  {
+  /*LIGHTMODE | VENDER | Tamaño Tablet*/ 
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | VENDER | Tamaño Tablet*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: VENDER | Tamaño Estandar XL */
+@media (min-width: 1025px) and (max-width: 1366px)  {
+  /*LIGHTMODE | VENDER | Tamaño Estandar XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | VENDER | Tamaño Estandar XL*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: VENDER Principal | Tamaño XL */
+@media (min-width: 1367px)  {
+  /*LIGHTMODE | VENDER | Tamaño XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | VENDER | Tamaño XL */
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+/*----------------------FIN VENDER---------------------------*/
+
+
+
+
+/*----------------------TODO MI CARRITO---------------------------*/
+/* RESPONSIVE: MI CARRITO | Tamaño XS Celulares*/
+@media (min-width: 320px) and (max-width: 767px) { 
+  /*LIGHTMODE | MI CARRITO | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI CARRITO | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI CARRITO | Tamaño Tablet | */
+@media (min-width: 768px) and (max-width: 1024px)  {
+  /*LIGHTMODE | MI CARRITO| Tamaño Tablet*/ 
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI CARRITO | Tamaño Tablet*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI CARRITO | Tamaño Estandar XL */
+@media (min-width: 1025px) and (max-width: 1366px)  {
+  /*LIGHTMODE | MI CARRITO | Tamaño Estandar XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI CARRITO | Tamaño Estandar XL*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI CARRITO Principal | Tamaño XL */
+@media (min-width: 1367px)  {
+  /*LIGHTMODE | MI CARRITO  | Tamaño XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI CARRITO | Tamaño XL */
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+/*----------------------FIN MI CARRITO---------------------------*/
+
+
+
+
+/*----------------------TODO MI PERFIL---------------------------*/
+/* RESPONSIVE: MI PERFIL | Tamaño XS Celulares*/
+@media (min-width: 320px) and (max-width: 767px) {
+  /*LIGHTMODE | MI PERFIL | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI PERFIL | Tamaño XS Celulares*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI PERFIL | Tamaño Tablet | */
+@media (min-width: 768px) and (max-width: 1024px)  {
+  /*LIGHTMODE | MI PERFIL| Tamaño Tablet*/ 
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI PERFIL | Tamaño Tablet*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI PERFIL | Tamaño Estandar XL */
+@media (min-width: 1025px) and (max-width: 1366px)  {
+  /*LIGHTMODE | MI PERFIL | Tamaño Estandar XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI PERFIL | Tamaño Estandar XL*/
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+
+
+/*RESPONSIVE: MI PERFIL Principal | Tamaño XL */
+@media (min-width: 1367px)  {
+  /*LIGHTMODE | MI PERFIL  | Tamaño XL */
+  /*Tus clases/animaciones del modo dia van aqui*/
+
+
+  /*DARKMODE | MI PERFIL | Tamaño XL */
+  /*Tus clases/animaciones del modo noche van aqui*/
+}
+/*----------------------FIN MI PERFIL---------------------------*/
+
+
 
