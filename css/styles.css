@@ -2806,3 +2806,52 @@ margin-top: 4em;
   
 }
 
+/*Categorías para pantallas de celular*/
+@media (min-width: 320px) and (max-width: 500px){
+  #categories-filter {
+    position: relative !important;
+    height: 5rem;
+    width: 15rem;
+  }
+
+  #rangeFilterCountMax, #rangeFilterCountMin{
+    width: 3rem;
+    padding-right: 0.2rem!important;
+position: absolute;
+  }
+
+  #rangeFilterCount {
+    margin-left: 2rem !important;
+  }
+
+  #cat-list-container {
+    margin-left: 0.4rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/*Página de vender para celular*/
+@media (min-width: 320px) and (max-width: 500px){
+  #costos-vender {
+    padding-bottom: 2rem;
+  }
+
+  #btn-vender {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  #sell-info label {
+    color: white;
+  }
+
+  #title-sell {
+    font-size: calc(1.325rem + .9vw);
+  }
+
+  #subtitle-sell {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
