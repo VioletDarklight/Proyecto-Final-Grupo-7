@@ -28,11 +28,11 @@ nav a {
 }
 
 .jumbotron {
-  height: 50vh;
+  height: 46vh;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53c0fb;
-  background: url("../img/cover_back.png");
+  background: url("../img/portada\ web.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,10 +40,79 @@ nav a {
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
+.dark-mode .jumbotron {
+  height: 46vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background: url("../img/portada\ web\ oscuro.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background-color: #00133f;
+}
+
+.dark-mode .bg-light {
+  background-color: #00133f !important;
+}
+
+.dark-mode #muebles, .dark-mode #juguetes, .dark-mode #autos {
+  color: #000;
+}
+
+.dark-mode .index-card p {
+  color: #061a40;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    background: url("../img/portada\ tablet.png") !important;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  }
+
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ tablet\ oscuro.png") !important;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  }
+
+  .dark-mode .bg-light {s
+    padding-bottom: 8rem !important;
+ }
+
+ .index-card{
+  height: 9rem;
+ }
+
+}
+
+@media (max-width: 767px){
+  .jumbotron {
+    background: url("../img/portada\ web\ celular.png") !important;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 110vh;
+  }
+
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ web\ celular\ oscuro.png") !important;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 110vh;
   }
 }
 
