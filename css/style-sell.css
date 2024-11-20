@@ -1,0 +1,25 @@
+/*Página de vender para celular*/
+@media (min-width: 320px) and (max-width: 500px) {
+  #costos-vender {
+    padding-bottom: 2rem;
+  }
+
+  #btn-vender {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  #sell-info label {
+    color: white;
+  }
+
+  #title-sell {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+
+  #subtitle-sell {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}

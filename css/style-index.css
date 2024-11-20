@@ -1,0 +1,145 @@
+/*Portada - Pantalla Estándar*/
+.jumbotron .display-4 {
+  font-weight: bold;
+}
+
+.jumbotron {
+  height: 46vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background-color: #53c0fb;
+  background: url("../img/portada\ web.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.jumbotron .lead {
+  font-size: 38px;
+}
+
+/*Portada MODO NOCHE - Pantalla Estándar*/
+.dark-mode .jumbotron {
+  height: 46vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background: url("../img/portada\ web\ oscuro.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background-color: #00133f;
+}
+
+/*Portada - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 900px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ tablet.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+
+  /*Portada MODO NOCHE - Pantalla Tablet*/
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ tablet\ oscuro.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+}
+
+/*Portada - Pantalla Smartphone*/
+@media (max-width: 767px) {
+  .jumbotron {
+    background: url("../img/portada\ web\ celular.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110vh;
+  }
+
+  /*Portada MODO NOCHE - Pantalla Smartphone*/
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ web\ celular\ oscuro.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110vh;
+  }
+}
+
+/*Tarjetas productos*/
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*Tarjetas productos MODO NOCHE*/
+.dark-mode .bg-light {
+  background-color: #00133f !important;
+}
+
+.dark-mode #muebles,
+.dark-mode #juguetes,
+.dark-mode #autos {
+  color: #000;
+}
+
+.dark-mode .index-card p {
+  color: #061a40;
+}
+
+/*Tarjetas productos - Pantalla Tablet*/
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+/*Tarjetas productos MODO NOCHE - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 900px) {
+  .dark-mode .bg-light {
+    padding-bottom: 8rem !important;
+  }
+
+  .index-card {
+    height: 9rem;
+  }
+}
