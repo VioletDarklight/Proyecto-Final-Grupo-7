@@ -3,11 +3,11 @@ let prodID = localStorage.getItem("prodID");
 
 // URL que apunta al JSON que contiene la información del producto
 let prodInfoURL =
-  "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
+PRODUCT_INFO_URL + prodID + ".json";
 
 // URL que apunta al JSON que contiene la información de comentarios
 let prodCommURL =
-  "https://japceibal.github.io/emercado-api/products_comments/" +
+PRODUCT_INFO_COMMENTS_URL +
   prodID +
   ".json";
 
@@ -418,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let prodID = localStorage.getItem("prodID");
   if (prodID) {
     let prodInfoURL =
-      "https://japceibal.github.io/emercado-api/products/" + prodID + ".json";
+    PRODUCT_INFO_URL+ prodID + ".json";
     let productName = document.getElementById("product-name");
 
     fetch(prodInfoURL)

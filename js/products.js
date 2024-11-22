@@ -1,4 +1,4 @@
-let AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+ 
 let cat = localStorage.getItem("catID");
 if (cat == null) {
   cat = 101;
@@ -64,7 +64,7 @@ function setProdID(id) {
 // Funcion para enviar los datos JSON al recorrido
 
 function mostrarAuto() {
-  fetch(AUTOS_URL + cat + ".json")
+  fetch(PRODUCTS_URL + cat + ".json")
     .then((response) => response.json())
     .then((autos) => {
       dataArray = autos.products; // Guardar los datos en la variable
