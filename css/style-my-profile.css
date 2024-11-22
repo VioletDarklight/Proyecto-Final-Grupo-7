@@ -243,3 +243,12 @@
 .dark-mode .card-pic-form {
   background: linear-gradient(#24232344, #5f5f5f96);
 }
+
+.dark-mode .card-profile-form {
+  background: linear-gradient(#24232344, #5f5f5f96);
+}
+
+.dark-mode .profile-input,
+.dark-mode .pic-input {
+  background-color: rgba(253, 251, 251, 0.801);
+}

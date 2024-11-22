@@ -2,9 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   color: white;
   font-family: "Jost", sans-serif;
-  font-size: 2em;
+  font-size: 1.4rem;
+  line-height: 25px;
+  font-weight: normal;
+  margin-top: -11rem;
 }
 
 #carritoTitulo::before,
@@ -16,7 +20,6 @@
 }
 
 /* CARRITO DE COMPRAS VACIO*/
-
 .carritoText {
   margin-top: 1em;
   font-size: 120%;
@@ -45,6 +48,7 @@
 .menos,
 .mas {
   padding: 0;
+  margin: 0;
 }
 
 .td-cant {
@@ -65,12 +69,6 @@
   font-size: 1.2rem;
 }
 
-#carritoTitulo {
-  font-family: "Jost", sans-serif;
-  text-align: center;
-  color: white;
-  margin-top: -5em;
-}
 #cartCompras {
   margin-top: 10em;
   padding-bottom: 10rem;
@@ -100,7 +98,6 @@
 .background {
   width: fit-content;
   height: fit-content;
-  margin-left: 27em;
   align-items: center;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 40px;
@@ -182,7 +179,7 @@
   }
 
   #tablaCart {
-    border-spacing: 0.5rem;
+    border-spacing: 1.5rem 0.5rem;
     font-size: 0.6rem;
     position: relative;
   }
@@ -198,10 +195,6 @@
 
   .nombreProd {
     font-weight: 500 !important;
-  }
-
-  #tablaCart {
-    border-spacing: 1.5rem 0.5rem;
   }
 
   .background {
@@ -222,13 +215,6 @@
   .menos,
   .mas {
     font-size: 0.7rem;
-  }
-
-  #carritoTitulo {
-    font-size: 1.4rem;
-    line-height: 25px;
-    font-weight: normal;
-    margin-top: -11rem;
   }
 
   #finallity-table td {
@@ -668,4 +654,60 @@
     height: 9.6rem;
     margin-right: 0;
   }
+}
+
+/* OPCION AZUL DE CONFIRMACION */
+.btn-dark-azul {
+  background-color: #003366;
+  color: white;
+  border: none;
+}
+/* CONFIARMACION DE COMPRA */
+.modal-content {
+  border-radius: 10px;
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  margin-top: 200px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
+  width: 100%;
+}
+.modal-footer .btn {
+  flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
+  margin: 0 5px; /* Espaciado horizontal entre los botones */
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.dark-mode #confirmationModalLabel {
+  color: white;
+}
+#confirmationModalLabel {
+  color: #000;
+}
+#confirmationModal .modal-content {
+  border: none;
+  box-shadow: none;
+  height: auto;
+  min-height: 200px;
+}
+#confirmationModal .modal-header {
+  border-bottom: none;
+}
+#confirmationModal .modal-footer {
+  border-top: none;
+}
+#confirmationModal .modal-title {
+  flex-grow: 1;
+  text-align: center;
+  padding-top: 35px;
+  font-weight: 450;
+}
+
+/*Estilo animaciones subtotal*/
+.animate__heartBeat {
+  color: #0353a4;
 }

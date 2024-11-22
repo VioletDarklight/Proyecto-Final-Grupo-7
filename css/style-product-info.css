@@ -885,3 +885,61 @@
     font-size: 1.3rem;
   }
   
+  /* OPCION GRIS DE CONFIRMACION */
+.btn-gris {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+/* OPCION AZUL DE CONFIRMACION */
+.btn-dark-azul {
+  background-color: #003366;
+  color: white;
+  border: none;
+}
+
+/* CONFIARMACION DE COMPRA */
+.modal-content {
+  border-radius: 10px;
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  margin-top: 200px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
+  width: 100%;
+}
+.modal-footer .btn {
+  flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
+  margin: 0 5px; /* Espaciado horizontal entre los botones */
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.dark-mode #confirmationModalLabel {
+  color: white;
+}
+#confirmationModalLabel {
+  color: #000;
+}
+#confirmationModal .modal-content {
+  border: none;
+  box-shadow: none;
+  height: auto;
+  min-height: 200px;
+}
+#confirmationModal .modal-header {
+  border-bottom: none;
+}
+#confirmationModal .modal-footer {
+  border-top: none;
+}
+#confirmationModal .modal-title {
+  flex-grow: 1;
+  text-align: center;
+  padding-top: 35px;
+  font-weight: 450;
+}
