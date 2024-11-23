@@ -21,8 +21,9 @@
 
   <body>
     <!--Contenido Principal-->
+    <main class="main-content container">
     <div class="main-container">
-      <main class="main-content container">
+      
         <!--Mensajes de alerta-->
         <div>
           <div
@@ -52,7 +53,22 @@
               aria-label="Close"
             ></button>
           </div>
+
+         <div
+         class="alert alert-danger alert-dismissible fade"
+         role="alert"
+         id="alert-authentication"
+       >
+         <p>Usuario no autorizado.</p>
+         <button
+           type="button"
+           class="btn-close"
+           data-bs-dismiss="alert"
+           aria-label="Close"
+         ></button>
+       </div>
         </div>
+    </div>
 
         <!--Encabezado e Imagen-->
         <div class="title-container" id="title-container">

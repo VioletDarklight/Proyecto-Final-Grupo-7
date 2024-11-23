@@ -1,6 +1,6 @@
 // Verificación de autenticación al cargar index.html
 document.addEventListener("DOMContentLoaded", () => {
-  let isAuthenticated = localStorage.getItem("isAuthenticated");
+  let token = localStorage.getItem("token");
   let username = localStorage.getItem("username"); //Nombre de usuario para navbar
   let currentPage = window.location.pathname.split("/").pop();
   let isRedirecting = new URLSearchParams(window.location.search).has(
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   if (
-    !isAuthenticated &&
+    !token &&
     currentPage !== "login.html" &&
     currentPage !== "signup.html" &&
     !isRedirecting
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Actualizacion navbar - nombre de usuario
   let userNav = document.getElementById("user-nav");
-  if (isAuthenticated) {
+  if (token) {
     if (username) {
       userNav.textContent = username;
       userNav.href = "my-profile.html";
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //Funcion para limpiar el localstorage, al cerrar sesion
   let logout = document.getElementById("logout");
   logout.addEventListener("click", function () {
+    localStorage.removeItem("token");
     localStorage.removeItem("username");
   });
 });
@@ -40,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let loginForm = document.getElementById("login-form");
 let alertSuccess = document.getElementById("alert-success");
 let alertError = document.getElementById("alert-danger");
+let alertAuth = document.getElementById("alert-authentication");
 
 // Función para mostrar la alerta de éxito
 function showAlertSuccess() {
@@ -69,8 +71,14 @@ function showAlertError() {
   setTimeout(() => alertError.classList.remove("show"), 2000); // Ocultar después de 2 segundos
 }
 
+//Función para usuario no autorizado
+function showAlertAuth() {
+  alertAuth.classList.add("show");
+  setTimeout(() => alertAuth.classList.remove("show"), 2000); // Ocultar después de 2 segundos
+}
+
 // Manejar el envío del formulario
-loginForm.addEventListener("submit", function (event) {
+loginForm.addEventListener("submit", async function (event) {
   event.preventDefault(); // Evitar el envío del formulario
 
   // Variables de usuario y contraseña
@@ -83,11 +91,29 @@ loginForm.addEventListener("submit", function (event) {
     return;
   }
 
-  //Guardar autenticación de validación exitosa
-  localStorage.setItem("isAuthenticated", "true");
-  localStorage.setItem("username", usuario); //Para nombre de usuario en navbar
+  try {
+    // Enviar credenciales al backend
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: usuario, password }), // Cambiado para enviar credenciales al back
+    });
 
-  // Redireccionar a la página de inicio si la validación es exitosa
-  showAlertSuccess();
-  setTimeout(() => (window.location.href = "index.html"), 1000); // Redireccionar después de 1 segundo (para ver la alerta)
+    if (response.ok) {
+      const data = await response.json(); // Obtengo token del backend
+      localStorage.setItem("token", data.token); // Guarda el token en localStorage
+      localStorage.setItem("username", usuario); // Guarda el usuario para el navbar
+
+      // Redireccionar a la página de inicio si la validación es exitosa
+      showAlertSuccess();
+      setTimeout(() => (window.location.href = "index.html"), 1000); // Redirigir después de 1 segundo
+    } else {
+      showAlertAuth(); // Mostrar alerta de error si el login falla
+    }
+  } catch (error) {
+    console.error("Error:", error.message);
+    showAlertAuth();
+  }
 });
