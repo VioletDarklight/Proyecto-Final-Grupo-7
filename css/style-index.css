@@ -1,4 +1,6 @@
-/*Portada - Pantalla Estándar*/
+/* | Inicio | --------------------------->>> PORTADA INICIO <<<--------------------------- | Inicio | */
+
+/*Portada MODO DÍA - Pantalla Estándar*/
 .jumbotron .display-4 {
   font-weight: bold;
 }
@@ -49,8 +51,10 @@
   background-color: #00133f;
 }
 
-/*Portada - Pantalla Tablet*/
+/*----------------->> PORTADA INICIO | Tablet <<-----------------*/
+
 @media (min-width: 768px) and (max-width: 900px) {
+  /*Portada MODO DÍA - Pantalla Tablet*/
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -73,8 +77,10 @@
   }
 }
 
-/*Portada - Pantalla Smartphone*/
+/*----------------->> PORTADA INICIO | Smartphone <<-----------------*/
+
 @media (max-width: 767px) {
+  /*Portada MODO DÍA - Pantalla Smartphone*/
   .jumbotron {
     background: url("../img/portada\ web\ celular.png") !important;
     background-size: cover;
@@ -95,7 +101,11 @@
   }
 }
 
-/*Tarjetas productos*/
+/* | Fin | --------------------------->>> PORTADA INICIO <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> TARJETAS PRODUCTOS <<<--------------------------- | Inicio | */
+
+/*Tarjetas Productos MODO DÍA - Pantalla Estándar*/
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -111,7 +121,7 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
-/*Tarjetas productos MODO NOCHE*/
+/*Tarjetas Productos MODO NOCHE - Pantalla Estándar*/
 .dark-mode .bg-light {
   background-color: #00133f !important;
 }
@@ -126,20 +136,22 @@ a.custom-card:hover {
   color: #061a40;
 }
 
-/*Tarjetas productos - Pantalla Tablet*/
-@media (min-width: 768px) {
+/*----------------->> TAERJETAS PRODUCTOS | Tablet <<-----------------*/
+
+@media (min-width: 768px) and (max-width: 900px) {
+  /*Tarjetas Productos MODO DÍA - Pantalla Tablet*/
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
-  }
-}
-
-/*Tarjetas productos MODO NOCHE - Pantalla Tablet*/
-@media (min-width: 768px) and (max-width: 900px) {
-  .dark-mode .bg-light {
-    padding-bottom: 8rem !important;
   }
 
   .index-card {
     height: 9rem;
   }
+
+  /*Tarjetas productos MODO NOCHE - Pantalla Tablet*/
+  .dark-mode .bg-light {
+    padding-bottom: 8rem !important;
+  }
 }
+
+/* | Fin | --------------------------->>> TARJETAS PRODUCTOS <<<--------------------------- | Fin | */

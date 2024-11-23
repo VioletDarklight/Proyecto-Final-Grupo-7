@@ -1,4 +1,40 @@
-/*Contenedor con listado de productos*/
+/* | Inicio | --------------------------->>> LISTADO PRODUCTOS <<<--------------------------- | Inicio | */
+
+/*Título y Subtítulo MODO DÍA - Pantalla Estándar*/
+#products-head-list {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 57.8px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  color: white !important;
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  #products-head-list {
+    font-family: "Jost", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+  }
+}
+
+.subtitulo {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  line-height: 28.9px;
+}
+
+/*Contenedor con listado de productos MODO DÍA - Pantalla Estándar*/
 .row-style {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -14,22 +50,81 @@
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/*Contenedor con listado de productos MODO NOCHE - Pantalla Estándar*/
 .dark-mode .subbackground {
   background: linear-gradient(#24232344, #5f5f5f96);
 }
 
-/*Subtitulo*/
-.subtitulo {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 20px;
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-weight: 400;
-  line-height: 28.9px;
+/*Cartas Productos MODO DÍA - Pantalla Estándar*/
+#carta-img {
+  background: #b9d6f2;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 20px;
 }
 
-/* BUSCADOR */
+/*Cartas Productos MODO NOCHE - Pantalla Estándar*/
+.dark-mode #carta-img {
+  background: #0a1d30;
+}
+
+/*----------------->> LISTADO PRODUCTOS | Tablet <<-----------------*/
+
+/*Subtitulo MODO DÍA - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .subtitulo {
+    font-size: 20px;
+    line-height: 5px;
+    margin-top: -1%;
+  }
+}
+
+/*Título MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+}
+
+/*----------------->> LISTADO PRODUCTOS | Smartphone <<-----------------*/
+
+/*Título y Subtitulo MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .subtitulo {
+    font-size: 0.8rem;
+    line-height: 5px;
+    margin-top: -1%;
+  }
+
+  #products-head-list {
+    font-size: 1.6rem;
+    line-height: 30px;
+    margin-top: -2%;
+  }
+}
+
+/*Subtitulo MODO DÍA - Pantalla Smartphone grande*/
+@media (min-width: 576px) and (max-width: 767px) {
+  .subtitulo {
+    font-size: 20px;
+    line-height: 5px;
+    margin-top: -1%;
+  }
+}
+
+/*Título MODO DÍA - Pantalla Smartphone grande*/
+@media (min-width: 576px) and (max-width: 768px) {
+  #products-head-list {
+    font-size: 35px;
+    margin-top: 0px;
+  }
+}
+
+/* | Fin| --------------------------->>> LISTADO PRODUCTOS <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> FILTROS <<<--------------------------- | Inicio | */
+
+/*Buscador MODO DÍA - Pantalla Estándar*/
 .nav-search {
   text-align: center;
   padding: 0 !important;
@@ -58,56 +153,8 @@
   color: rgb(3, 83, 164);
 }
 
-/* MEDIDA XS HASTA  575px */
-@media (min-width: 320px) and (max-width: 575px) {
-  .subtitulo {
-    font-size: 0.8rem;
-    line-height: 5px;
-    margin-top: -1%;
-  }
-
-  .search {
-    max-width: 45%;
-    padding: 4px 9px 4px 9px;
-    margin-top: 0.2rem;
-  }
-
-  .nav-search {
-    margin-bottom: 1.5rem;
-  }
-}
-
-/*MEDIDA SM HASTA 767PX*/
-@media (min-width: 576px) and (max-width: 767px) {
-  .subtitulo {
-    font-size: 20px;
-    line-height: 5px;
-    margin-top: -1%;
-  }
-}
-
-/*MEDIDA LG PARA TABLET HASTA 1199PX*/
-@media (min-width: 768px) and (max-width: 1199px) {
-  .subtitulo {
-    font-size: 20px;
-    line-height: 5px;
-    margin-top: -1%;
-  }
-
-  .search {
-    max-width: 30%;
-    padding: 7px 12px 7px 12px;
-    margin-top: 0.5rem;
-  }
-
-  .nav-search {
-    margin-bottom: 2rem;
-  }
-}
-/*BOTONES DE FILTRO EN PRODUCTOS*/
-
-#clearRangeFilter,
-#clearRangeFilterSmall {
+/*Filtros MODO DÍA - Pantalla Estándar*/
+#clearRangeFilter {
   color: white;
   margin: auto;
 }
@@ -155,19 +202,6 @@ button {
   font-weight: 600;
 }
 
-#products-head-list {
-  font-family: "Jost", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 57.8px;
-  text-align: center;
-  color: white;
-  margin-top: 50px;
-  color: white !important;
-}
-
-/*ESTILO PARA FILTROS*/
-
 .filters-container input {
   padding: 0.2rem;
 }
@@ -179,6 +213,14 @@ button {
 
 .filters-container button {
   padding: 0.2rem;
+}
+
+/*----------------->> FILTROS - Acordeón | Pantallas Pequeñas <<-----------------*/
+
+/*Filtros MODO DÍA - Pantalla Pequeñas*/
+#clearRangeFilterSmall {
+  color: white;
+  margin: auto;
 }
 
 .accordion {
@@ -244,52 +286,41 @@ button {
   padding: 0.4rem;
 }
 
-/*MEDIDA SM HASTA 768PX*/
-@media (min-width: 576px) and (max-width: 768px) {
-  #products-head-list {
-    font-size: 35px;
-    margin-top: 0px;
+/*----------------->> FILTROS | Tablet <<-----------------*/
+
+/*Buscador MODO DÍA - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .search {
+    max-width: 30%;
+    padding: 7px 12px 7px 12px;
+    margin-top: 0.5rem;
+  }
+
+  .nav-search {
+    margin-bottom: 2rem;
   }
 }
 
-/* MEDIDA XL */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  #products-head-list {
-    font-family: "Jost", sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 25px;
-    text-align: center;
-    color: white;
-    margin-top: 50px;
+/*----------------->> FILTROS | Smartphone <<-----------------*/
+
+/*Buscador MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .search {
+    max-width: 45%;
+    padding: 4px 9px 4px 9px;
+    margin-top: 0.2rem;
+  }
+
+  .nav-search {
+    margin-bottom: 1.5rem;
   }
 }
 
-#carta-img {
-  background: #b9d6f2;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 20px;
-}
-
-.dark-mode #carta-img {
-  background: #0a1d30;
-}
-
-/*MEDIDA PARA LA TABLET BUSCADOR*/
+/*Buscador MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 1024px) {
   .lupa-estandar {
     display: none;
   }
-  .buscador-estandar {
-    display: none;
-  }
 }
-/* MEDIDA PARA PC BUSCADOR*/
-@media (min-width: 1025px) and (max-width: 1920) {
-  .lupa-pequeña {
-    display: none;
-  }
-  .buscador-pequeña {
-    display: none;
-  }
-}
+
+/* | Fin| --------------------------->>> FILTROS <<<--------------------------- | Fin | */

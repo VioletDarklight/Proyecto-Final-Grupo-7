@@ -1,5 +1,7 @@
-/* Estilos de PRODUCT-INFO */
 
+/* | Inicio | --------------------------->>> DETALLES PRODUCTO <<<--------------------------- | Inicio | */
+
+/* Contenedor Principal MODO DÍA - Pantalla Estándar*/
 .product-description {
   display: flex;
   flex: 1;
@@ -20,6 +22,7 @@
   padding: 0;
 }
 
+/*Nombre del producto MODO DÍA - Pantalla Estándar*/
 #product-name {
   font-weight: 500;
   font-size: 2rem;
@@ -36,6 +39,7 @@
   margin-right: auto;
 }
 
+/*Info del Producto MODO DÍA - Pantalla Estándar*/
 .st-products-category {
   font-weight: 500;
   font-size: 1rem;
@@ -46,6 +50,24 @@
 .st-products {
   font-size: 1rem;
 }
+
+.containerInfo {
+  padding-right: 1rem;
+  align-items: center;
+  background: linear-gradient(#ffffff44, #ffffff96);
+  border-radius: 1rem;
+  margin: 1.5rem;
+  margin-right: 0;
+}
+
+.cost {
+  font-size: 1.3em;
+}
+.currency {
+  font-size: 0.7em;
+}
+
+/*Fotos del producto MODO DÍA - Pantalla Estándar*/
 .productImages {
   display: flex;
   flex-wrap: wrap;
@@ -89,45 +111,56 @@
   border: 1px groove #5a7ec2b0;
 }
 
-.containerInfo {
-  padding-right: 1rem;
-  align-items: center;
-  background: linear-gradient(#ffffff44, #ffffff96);
-  border-radius: 1rem;
-  margin: 1.5rem;
-  margin-right: 0;
-}
-
-.cost {
-  font-size: 1.3em;
-}
-.currency {
-  font-size: 0.7em;
-}
-
-/*MEDIA para info de productos*/
-@media (min-width: 320px) and (max-width: 980px) {
-  .productContent,
-  .product-name {
-    max-width: 91%;
+@media (min-width: 990px) and (max-width: 1120px) {
+  .unitImages {
+    max-width: 10rem;
   }
 }
 
-/* MEDIDA XS HASTA  575px */
-@media (min-width: 320px) and (max-width: 575px) {
-  #products-head-list {
-    font-size: 1.6rem;
-    line-height: 30px;
-    margin-top: -2%;
-  }
+/*Contenedor Principal MODO NOCHE - Pantalla Estándar*/
+.dark-mode .product-description { 
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+  color: #e0e0e0;
 }
 
-/*MEDIDA Para fotos productos-info*/
+/*----------------->> DETALLES PRODUCTO | Tablet <<-----------------*/
+
+/* Contenedor Principal MODO DÍA - Pantalla Tablet*/
 @media (min-width: 576px) and (max-width: 878px) {
-  #products-head-list {
-    font-size: 35px;
-    margin-top: 0px;
+  .productInfo {
+    padding: 0 1.5rem;
   }
+
+  .productInfo h3 {
+    font-size: 1.3rem;
+  }
+
+  .productInfo p {
+    font-size: 1.3rem;
+  }
+}
+/*Info del Producto MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 878px) {
+  .containerInfo {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .product-description {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+  }
+}
+
+/*Fotos del producto MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 878px) {
   .containerSecondaryImages {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -150,19 +183,12 @@
     padding: 0;
   }
 
-  .containerMainImage,
-  .containerInfo {
+  .containerMainImage {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     display: flex;
     justify-content: center;
     max-width: 100%;
-  }
-
-  .product-description {
-    display: flex;
-    flex-direction: column;
-    padding-right: 0;
   }
 
   .mainImage {
@@ -173,27 +199,7 @@
   .productImages {
     padding-top: 0;
   }
-  .containerInfo {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-    margin-bottom: 0;
-    padding: 0;
-    border-radius: 1rem 1rem 0 0;
-  }
-
-  .productInfo {
-    padding: 0 1.5rem;
-  }
-
-  .productInfo h3 {
-    font-size: 1.3rem;
-  }
-
-  .productInfo p {
-    font-size: 1.3rem;
-  }
 }
-
 @media (min-width: 769px) and (max-width: 990px) {
   .unitImages {
     display: flex;
@@ -205,14 +211,257 @@
   }
 }
 
-@media (min-width: 990px) and (max-width: 1120px) {
-  .unitImages {
-    max-width: 10rem;
+
+/*Detalles Productos MODO NOCHE - Pantalla Tablet*/
+
+
+/*----------------->> DETALLES PRODUCTO | Smartphone <<-----------------*/
+
+
+/* Contenedor Principal MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 980px) {
+  .productContent,
+  .product-name {
+    max-width: 91%;
   }
 }
 
-/*estilos productos relacionados*/
+/*Detalles Productos MODO NOCHE - Pantalla Smartphone*/
 
+
+/* | Fin| --------------------------->>> DETALLES PRODUCTO <<<--------------------------- | Fin | */
+
+
+
+
+
+/* | Inicio | --------------------------->>> COMENTARIOS <<<--------------------------- | Inicio | */
+
+/*Nuevos Comentarios MODO DÍA - Pantalla Estándar*/
+#btnNewComm {
+  border-radius: 10px;
+  background-color: #0353a4;
+  display: flex;
+  color: white;
+  justify-content: center;
+  width: 80%; 
+  max-width: 800px;  
+  margin: 10px auto; 
+  font-size: 18px;
+
+}
+
+#collapseExample {
+  border-radius: 15px;
+}
+
+
+#userNameComm{
+  margin-top: 1.5rem;
+}
+
+.fecha-comentario {
+  font-style: italic;
+  color: #000;
+  font-size: 13px;
+}
+.card-body1 {
+ background-color:#d6e6f5 ;
+ border-radius: 15px;
+ box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+ width: 80%; 
+ max-width: 800px;  
+ margin: 10px auto;  
+ padding: 10px;
+}
+
+#botonenviar {
+  border-radius: 15px;
+  background-color: #0353a4;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+#botonenviar:focus,
+#botonenviar:active {
+    background-color: #0353a4; 
+    outline: none; 
+    box-shadow: none; 
+}
+.cajadeescritura {
+  background-color: #badbf0ec;
+  border: none;
+  width: 100%;
+  height: 70px;
+  border-radius: 15px;
+}
+
+/*Validaciones formulario*/
+.is-invalid {
+  background-color: #f8d7da; 
+  color: #721c24; 
+  border: 2px solid red; 
+}
+
+.is-valid {
+  background-color: #d4edda; 
+  color: #155724; 
+  border: 2px solid green;
+}
+
+.clasificacion.is-invalid {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+p.clasificacion.is-invalid label {
+  color: #dc3545;
+}
+
+/* Calificación Estrellas */ 
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+#form p {
+  text-align: center;
+}
+#form label {
+  font-size: 20px;
+}
+label {
+  color: grey;
+}
+.clasificacion {
+  display: inline-flex;   
+  flex-direction: row-reverse;  
+  font-size: 35px;
+}
+input[type="radio"] {
+  display: none; /
+}
+label {
+  color: #badbf0ec ;
+  cursor: pointer;
+}
+label:hover,
+label:hover ~ label {
+  color:#0353a4;
+}
+input[type="radio"]:checked ~ label {
+  color:#0353a4;
+}
+
+#feedbackStar {
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+label {
+  color: grey;
+}
+.clasificacion {
+  display: inline-flex;   
+  flex-direction: row-reverse;  
+  font-size: 35px;
+  margin-bottom: 0;
+}
+input[type="radio"] {
+  display: none;
+
+}
+
+/*Nuevos Comentarios MODO NOCHE - Pantalla Estándar*/
+.dark-mode #btnNewComm {
+  background-color:#0a1d30;
+  border-color:#043566 ;
+  color: white;
+  justify-content: center;
+  width: 80%; 
+  max-width: 800px;  
+  margin: 10px auto; 
+  font-size: 18px;
+}
+.dark-mode #botonenviar {
+  background-color: #0a1d30;
+  border-color: #043566;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.dark-mode .commentCard {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .container-comments {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .card-body1 {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+ }
+ .dark-mode .cajadeescritura {
+  background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
+}
+.dark-mode .containerInfo {
+  background: linear-gradient(180deg, rgba(11, 34, 58, 0.8), #154674); 
+}
+
+/*----------------->> COMENTARIOS | Tablet <<-----------------*/
+
+
+/*Nuevos Comentarios MODO DÍA - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-body1 {
+    background-color:#d6e6f5 ;
+    border-radius: 15px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    width: 91%; 
+    max-width: 800px;  
+    margin: 10px auto;  
+    padding: 10px;
+   }
+  }
+/*Nuevos Comentarios MODO NOCHE - Pantalla Tablet*/
+
+
+/*----------------->> COMENTARIOS | Smartphone <<-----------------*/
+
+
+/*Nuevos Comentarios MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .card-body1 {
+  width: 100%;
+  max-width: 84%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: none;
+  box-sizing: content-box;
+  }
+  .cajadeescritura{
+    max-width: 98.5%;
+  }
+  #btnNewComm{
+    box-sizing: content-box;
+  } 
+  }
+/*Nuevos Comentarios MODO NOCHE - Pantalla Smartphone*/
+
+
+/* | Fin| --------------------------->>> COMENTARIOS <<<--------------------------- | Fin | */
+
+
+
+
+
+/* | Inicio | --------------------------->>> PRODUCTOS RELACIONADOS <<<--------------------------- | Inicio | */
+
+/*Productos Relacionados MODO DÍA - Pantalla Estándar*/
 #carta-rel {
   text-align: center;
   border-radius: 20px;
@@ -243,7 +492,7 @@
   font-size: 1.3rem;
 }
 
-/* BOTON DE ATRAS Y SIGUIENTE*/
+/*Botones carrusel*/
 .button-rel {
   margin-top: 8em;
 }
@@ -275,7 +524,20 @@
   border-radius: 20px;
 }
 
-/*MEDIDA CELULAR DE PROD. RELACIONADOS*/
+/*Productos Relacionados MODO NOCHE - Pantalla Estándar*/
+
+/*----------------->> PRODUCTOS RELACIONADOS | Tablet <<-----------------*/
+
+
+/*Productos Relacionados MODO DÍA - Pantalla Tablet*/
+
+/*Productos Relacionados MODO NOCHE - Pantalla Tablet*/
+
+
+/*----------------->> PRODUCTOS RELACIONADOS | Smartphone <<-----------------*/
+
+
+/*Productos Relacionados MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 575px) {
   .carousel-inner {
     height: 25em;
@@ -314,219 +576,22 @@
   }
 }
 
-/*MEDIDA ESTANDAR DE FORMULARIO/COMENTARIOS */
-/* boton de comentarios */
-#btnNewComm {
-    border-radius: 10px;
-    background-color: #0353a4;
-    display: flex;
-    color: white;
-    justify-content: center;
-    width: 80%; 
-    max-width: 800px;  
-    margin: 10px auto; 
-    font-size: 18px;
-  
-  }
-  /*formulario */
-  #collapseExample {
-    border-radius: 15px;
-  }
-  
-  
-  #userNameComm{
-    margin-top: 1.5rem;
-  }
-  
-  .fecha-comentario {
-    font-style: italic;
-    color: #000;
-    font-size: 13px;
-  }
-  .card-body1 {
-   background-color:#d6e6f5 ;
-   border-radius: 15px;
-   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-   width: 80%; 
-   max-width: 800px;  
-   margin: 10px auto;  
-   padding: 10px;
-  }
-  
-  #botonenviar {
-    border-radius: 15px;
-    background-color: #0353a4;
-    display: flex;
-    justify-content: center;
-    border: none;
-  }
-  #botonenviar:focus,
-  #botonenviar:active {
-      background-color: #0353a4; 
-      outline: none; 
-      box-shadow: none; 
-  }
-  .cajadeescritura {
-    background-color: #badbf0ec;
-    border: none;
-    width: 100%;
-    height: 70px;
-    border-radius: 15px;
-  }
-  
-  /*Validaciones formulario*/
-  .is-invalid {
-    background-color: #f8d7da; 
-    color: #721c24; 
-    border: 2px solid red; 
-  }
-  
-  .is-valid {
-    background-color: #d4edda; 
-    color: #155724; 
-    border: 2px solid green;
-  }
-  
-  .clasificacion.is-invalid {
-    color: #dc3545;
-    border-color: #dc3545;
-  }
-  
-  p.clasificacion.is-invalid label {
-    color: #dc3545;
-  }
-  
-  /* Estrellas */ 
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-  #form p {
-    text-align: center;
-  }
-  #form label {
-    font-size: 20px;
-  }
-  label {
-    color: grey;
-  }
-  .clasificacion {
-    display: inline-flex;   
-    flex-direction: row-reverse;  
-    font-size: 35px;
-  }
-  input[type="radio"] {
-    display: none; /
-  }
-  label {
-    color: #badbf0ec ;
-    cursor: pointer;
-  }
-  label:hover,
-  label:hover ~ label {
-    color:#0353a4;
-  }
-  input[type="radio"]:checked ~ label {
-    color:#0353a4;
-  }
-  
-  /*Estilos de validaciones en formulario de nuevo comentario*/
-  .is-valid {
-    border: 2px solid green; 
-  }
-  
-  .is-invalid {
-    border: 2px solid red; 
-  }
-  
-  .is-invalid {
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  
-  .is-valid {
-    background-color: #d4edda; 
-    color: #155724; 
-  }
-  
-  #feedbackStar {
-    padding-top: 0;
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-  }
-  
-  /* MEDIDA TABLT FORMULAARIO/COMENTARIOS */
-  @media (min-width: 768px) and (max-width: 1199px) {
-    .card-body1 {
-      background-color:#d6e6f5 ;
-      border-radius: 15px;
-      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-      width: 91%; 
-      max-width: 800px;  
-      margin: 10px auto;  
-      padding: 10px;
-     }
-    }
-  
-  /* MEDIDA PARA CELULARES FORMULARIO/COMENTARIOS */
-  @media (min-width: 320px) and (max-width: 575px) {
-  .card-body1 {
-  width: 100%;
-  max-width: 84%;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  border: none;
-  box-sizing: content-box;
-  }
-  .cajadeescritura{
-    max-width: 98.5%;
-  }
-  #btnNewComm{
-    box-sizing: content-box;
-  } 
-  }
+/*Productos Relacionados MODO NOCHE - Pantalla Smartphone*/
 
-   /* MODO NOCHE PARA PRODUCT-INFO.HTML */
-.dark-mode .product-description { 
-    background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
-    color: #e0e0e0;
-  }
+
+/* | Fin| --------------------------->>> PRODUCTOS RELACIONADOS <<<--------------------------- | Fin | */
+
+
+
+
+
+
+
   
-  .dark-mode #btnNewComm {
-    background-color:#0a1d30;
-    border-color:#043566 ;
-    color: white;
-    justify-content: center;
-    width: 80%; 
-    max-width: 800px;  
-    margin: 10px auto; 
-    font-size: 18px;
-  }
-  .dark-mode #botonenviar {
-    background-color: #0a1d30;
-    border-color: #043566;
-    display: flex;
-    justify-content: center;
-    border: none;
-  }
-  .dark-mode .commentCard {
-    background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
-  }
-  .dark-mode .container-comments {
-    background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
-  }
-  .dark-mode .card-body1 {
-    background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-   }
-   .dark-mode .cajadeescritura {
-    background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
-  }
-  .dark-mode .containerInfo {
-    background: linear-gradient(180deg, rgba(11, 34, 58, 0.8), #154674); 
-  }
-  /* ESTRELLAS CALIFICACION NOCHE */
+
+
+
+  /* ESTRELLAS CALIFICACION NOCHE 
   #form {
     width: 250px;
     margin: 0 auto;
@@ -537,23 +602,8 @@
   }
   #form label {
     font-size: 20px;
-  }
-  input[type="radio"] {
-    display: none;
-  }
-  label {
-    color: grey;
-  }
-  .clasificacion {
-    display: inline-flex;   
-    flex-direction: row-reverse;  
-    font-size: 35px;
-    margin-bottom: 0;
-  }
-  input[type="radio"] {
-    display: none;
-  
-  }
+  }*/
+
   .dark-mode label {
     color: #081f3dec ;
     cursor: pointer;
