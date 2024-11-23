@@ -1,0 +1,751 @@
+/* | Inicio | --------------------------->>> CARRITO VACÍO <<<--------------------------- | Inicio | */
+
+/*Carrito Vacío MODO DÍA - Pantalla Estándar*/
+#carritoTitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-size: 1.4rem;
+  line-height: 25px;
+  font-weight: normal;
+  margin-top: -11rem;
+}
+
+#carritoTitulo::before,
+#carritoTitulo::after {
+  content: "";
+  flex: 0.2; /* Reduce el valor para hacer las líneas más cortas */
+  border-top: 1px solid white;
+  margin: 0 0.5em;
+}
+
+.carritoText {
+  margin-top: 1em;
+  font-size: 120%;
+  font-family: "Jost", sans-serif;
+}
+
+.bi-cart {
+  margin-top: 5em;
+}
+#btn-cart {
+  background-color: #0353a4;
+  margin-top: 1em;
+}
+.espacioCart {
+  margin-top: 7.5em;
+}
+.conjuntoCart {
+  text-align: center;
+}
+
+/* | Fin| --------------------------->>> CARRITO VACÍO <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> PRODUCTOS CARRITO <<<--------------------------- | Inicio | */
+
+/*Contenedor principal MODO DÍA - Pantalla Estándar*/
+#containerCarritoLleno {
+  text-align: center;
+}
+
+#tablaCart {
+  border-collapse: separate;
+  border-spacing: 1.5rem 0rem;
+}
+
+#tablaCart td {
+  font-size: 1.2rem;
+}
+
+#cartCompras {
+  margin-top: 10em;
+  padding-bottom: 10rem;
+}
+
+.fixed-column {
+  width: 18rem;
+  text-align: center;
+}
+
+.background {
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 2rem 1.5rem 0.5rem;
+}
+
+.totalFin {
+  max-width: 4rem;
+}
+
+.table-borderless td {
+  text-align: right;
+}
+.nombreProd {
+  text-align: left !important;
+  color: white;
+  font-size: 1.2em;
+  font-family: "Jost", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cartProducts {
+  margin-top: -2em;
+}
+
+#finallity-table td {
+  font-weight: bold;
+}
+
+/*Cantidades + controles cant MODO DÍA - Pantalla Estándar*/
+.bi-trash3-fill {
+  margin-right: 1rem !important;
+}
+
+.menos,
+.mas {
+  padding: 0;
+  margin: 0;
+}
+
+.td-cant {
+  display: flex;
+  flex-direction: row;
+}
+
+.cajaCant {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/*Foto del producto MODO DÍA - Pantalla Estándar*/
+.icon-image-container {
+  display: flex;
+  align-items: center;
+}
+
+.cartImage {
+  width: 20rem;
+  height: auto;
+  border-radius: 1em;
+  box-shadow: #000;
+  margin-right: 1rem;
+}
+
+/*Botón finalizar compra MODO DÍA - Pantalla Estándar*/
+.btn-cartFinal {
+  background-color: #0353a4;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  border-radius: 0.5rem;
+  font-weight: 300;
+  width: fit-content;
+  box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border: none;
+  line-height: 1.6rem;
+}
+
+/*Contenedor principal MODO NOCHE - Pantalla Estándar*/
+.dark-mode .background {
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(56, 85, 113, 1) 0%,
+    rgba(27, 51, 75, 1) 82%
+  );
+}
+.dark-mode .table-borderless td {
+  color: white;
+}
+
+.dark-mode #finallity-table .totalFin,
+.dark-mode #finallity-table .section-buy td {
+  color: #9ab2c7c4;
+}
+.dark-mode #containerCarritoLleno .nombreProd {
+  color: #9ab2c7c4;
+}
+.dark-mode #finallity-table .totalFin,
+.dark-mode #finallity-table .section-buy td:nth-child(2) {
+  color: white;
+}
+
+/*Cantidades + controles cant MODO NOCHE - Pantalla Estándar*/
+.dark-mode .bi-dash-circle,
+.dark-mode .bi-plus-circle {
+  color: white;
+}
+
+.dark-mode .cajaCant {
+  color: white;
+}
+
+.dark-mode .bi-trash3-fill {
+  color: white;
+}
+
+/*----------------->> PRODUCTOS CARRITO | Tablet <<-----------------*/
+
+/*Columna de eliminar y contenedor foto MODO DÍA - Pantalla Tablet*/
+@media (min-width: 768px) and (max-width: 1365px) {
+  .background {
+    padding: 1rem 1rem 0.5rem 0rem;
+  }
+
+  .bi-trash3-fill {
+    padding: 0;
+  }
+
+  .icon-image-container {
+    padding: 0;
+  }
+}
+/*Filtros MODO NOCHE - Pantalla Tablet*/
+
+/*----------------->> PRODUCTOS CARRITO | Smartphone <<-----------------*/
+
+/*Contenedor principal MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  #tablaCart {
+    border-spacing: 1.5rem 0.5rem;
+    font-size: 0.6rem;
+    position: relative;
+  }
+
+  .total-currency {
+    padding-bottom: 4rem;
+  }
+
+  .nombreProd {
+    font-weight: 500 !important;
+  }
+
+  .background {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+  }
+
+  #tablaCart td {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    font-weight: 400;
+  }
+
+  #finallity-table td {
+    font-weight: bold;
+    line-height: 0.4;
+  }
+}
+
+/*Cantidades + controles cant MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .bi-trash3-fill {
+    padding: 0;
+    margin: 0;
+  }
+
+  .menos,
+  .mas {
+    font-size: 0.7rem;
+  }
+}
+
+/*Foto del producto MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .cartImage {
+    width: 7.3rem;
+    height: 5.6rem;
+    margin-right: 0;
+  }
+
+  .icon-image-container {
+    margin-top: 1.5rem;
+    width: fit-content;
+    justify-content: flex-start;
+  }
+}
+
+/*Foto del producto MODO DÍA - Pantalla Smartphone Grande*/
+@media (min-width: 456px) and (max-width: 767px) {
+  .cartImage {
+    width: 13.3rem;
+    height: 9.6rem;
+    margin-right: 0;
+  }
+}
+
+/*Botón continuar compra MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .btn-cartFinal {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-2rem);
+    margin-left: 0.5rem;
+  }
+}
+/* | Fin| --------------------------->>> PRODUCTOS CARRITO <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> SECCIÓN COSTOS <<<--------------------------- | Inicio | */
+
+/*Sección Costos MODO DÍA - Pantalla Estándar*/
+#cost-form input[type="radio"] {
+  display: inline-flex;
+}
+
+.address-number,
+.card-info {
+  display: inline-flex;
+  width: 18rem;
+}
+
+.section-cost-form {
+  display: grid;
+  align-items: center;
+}
+
+#cost-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#cost-form h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.188rem;
+  color: #01203f;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#cost-form .row {
+  padding-bottom: 3.5rem;
+  column-gap: 5rem;
+}
+
+#cost-form label {
+  padding-left: 1.5rem;
+}
+
+#cost-form .form-check-input {
+  transform: scale(1);
+  vertical-align: -webkit-baseline-middle;
+  border: none;
+  margin: 0 0 0 0.5rem !important;
+  background-color: #023f7d;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-cost,
+.shipping-address,
+.payment,
+.card-payment {
+  display: block;
+}
+
+#container-costos {
+  padding: 3rem 6rem;
+  margin-top: 2rem;
+}
+
+.total-purchase {
+  justify-content: center;
+  text-align: end;
+  padding-top: 2rem;
+  column-gap: 2rem;
+  padding-bottom: 3rem !important;
+}
+
+.final-amount {
+  width: fit-content;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.625rem;
+}
+
+#text-final-amount {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.cost-control,
+.payment-control {
+  background-color: #7aa7d4;
+  border-radius: 1rem !important;
+  margin-bottom: 0.5rem;
+  width: 18rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-control,
+.card-control {
+  background-color: #7aa7d4;
+  border-radius: 1rem !important;
+  border: none;
+  padding: 0 0 0 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-control::placeholder,
+.card-control::placeholder {
+  color: black;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-control:focus::placeholder,
+.card-control:focus::placeholder {
+  color: rgba(131, 130, 130, 0.87);
+}
+
+.shipping-address p,
+.card-payment p {
+  width: 18rem;
+  margin-bottom: 0.5rem;
+}
+
+.shipping-address,
+.card-payment {
+  line-height: 0 !important;
+}
+
+.cost-control label,
+.payment-label {
+  color: #000;
+}
+
+#btn-final-payment {
+  background-color: #0353a4;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 350;
+  width: fit-content;
+  box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border: none;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-control,
+.cost-control,
+.payment-control,
+.card-control {
+  height: fit-content;
+}
+
+#addressNumber {
+  padding: 0 !important;
+  column-gap: 0.5rem !important;
+}
+
+/*-->> Transición al abrir sección costos <<--*/
+#container-costos {
+  opacity: 0;
+  transform: translateY(150px) scale(0.8);
+  transition: opacity 0.6s ease,
+    transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1.25);
+}
+
+#container-costos.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/*-->> Transición al abrir opciones de pago <<--*/
+/* TRANSICIONES Base para las secciones ocultas */
+.details-section {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+  max-height: 0;
+}
+
+/* TRANSICIONES Mostrar las secciones con animación */
+.details-section.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0s;
+  max-height: 10rem;
+}
+
+/*Confirmar compra MODO DÍA - Pantalla Estándar*/
+.modal-content {
+  border-radius: 10px;
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  margin-top: 200px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
+  width: 100%;
+}
+.modal-footer .btn {
+  flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
+  margin: 0 5px;
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.dark-mode #confirmationModalLabel {
+  color: white;
+}
+#confirmationModalLabel {
+  color: #000;
+}
+#confirmationModal .modal-content {
+  border: none;
+  box-shadow: none;
+  height: auto;
+  min-height: 200px;
+}
+#confirmationModal .modal-header {
+  border-bottom: none;
+}
+#confirmationModal .modal-footer {
+  border-top: none;
+}
+#confirmationModal .modal-title {
+  flex-grow: 1;
+  text-align: center;
+  padding-top: 35px;
+  font-weight: 450;
+}
+
+.btn-dark-azul {
+  background-color: #003366;
+  color: white;
+  border: none;
+}
+
+/*Formulario de pago MODO DÍA - Pantalla Estándar*/
+.completo {
+  background-color: #d4edda;
+  border: 2px solid green;
+}
+.incompleto {
+  background-color: #f8d7da;
+  border: 2px solid red;
+}
+#alt {
+  margin-top: 28em;
+}
+#alt p {
+  margin-top: -0.5rem;
+}
+#envios {
+  margin-top: 4em;
+}
+#envios p {
+  margin-top: -0.5rem;
+}
+
+#form-tipotext {
+  margin-top: 17.5em;
+}
+#form-tipotext p {
+  margin-top: -0.5rem;
+}
+
+.alert-custom {
+  z-index: 1050;
+  width: 29rem;
+  height: 3em;
+  background-color: #d7a3a1;
+  border-color: #3e0a08;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  line-height: none;
+  position: fixed;
+  left: 50%;
+
+  box-shadow: -2px -1px 6px 6px rgba(150, 42, 42, 1);
+
+  transform: translate(-50%, -50%);
+}
+
+/*-->> Transición al cambiar subtotal <<--*/
+.animate__heartBeat {
+  color: #0353a4;
+}
+
+/*Sección Costos MODO NOCHE - Pantalla Estándar*/
+.dark-mode #cost-form h2 {
+  color: rgba(178, 209, 239, 1);
+}
+
+.dark-mode .cost-control,
+.dark-mode .payment-control,
+.dark-mode .shipping-control {
+  background: rgba(13, 37, 61, 0.788);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 350;
+}
+
+.dark-mode .cost-control label,
+.dark-mode .payment-label {
+  color: rgba(255, 255, 255, 1);
+}
+
+.dark-mode .shipping-control::placeholder {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 350;
+}
+
+.dark-mode #text-final-amount p {
+  color: rgba(178, 209, 239, 1);
+}
+
+.dark-mode #cost-form .form-check-input {
+  background-color: rgba(85, 118, 150, 1);
+}
+
+.dark-mode #btn-final-payment {
+  background-color: rgba(10, 29, 48, 1);
+}
+
+/*----------------->> SECCIÓN COSTOS | Tablet <<-----------------*/
+
+/*Sección Costos MODO DÍA - Pantalla Tablet*/
+@media (min-width: 501px) and (max-width: 768px) {
+  .final-amount {
+    line-height: 1rem;
+    font-size: 1.5rem !important;
+  }
+
+  #cost-form .row {
+    column-gap: 4rem;
+  }
+
+  #cost-form {
+    font-size: 1.2rem !important;
+  }
+
+  #cost-form .form-control {
+    font-size: 1.2rem !important;
+  }
+
+  #cost-form h2 {
+    font-size: 1.4rem;
+  }
+
+  #container-costos {
+    padding: 3rem 5.2rem;
+  }
+
+  .total-purchase {
+    padding-bottom: 3rem !important;
+  }
+
+  #paymentSection {
+    padding-bottom: 0 !important;
+  }
+}
+
+/*----------------->> SECCIÓN COSTOS | Smartphone <<-----------------*/
+
+/*Sección Costos MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .section-buy {
+    transform: translateY(-3rem);
+  }
+
+  .section-buy td {
+    transform: translateX(90%);
+  }
+
+  #containerPrincipal,
+  #container-costos {
+    width: calc(100% - 2rem);
+    margin: 1rem auto;
+  }
+}
+
+/*Sección Costos MODO DÍA - Intermedio Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 500px) {
+  .cost-row {
+    display: -webkit-inline-box;
+    max-width: fit-content !important;
+    padding-right: 0 !important;
+  }
+
+  #cost-form .row {
+    --bs-gutter-x: 2.5rem !important;
+    column-gap: 4rem;
+  }
+
+  #cost-form h2 {
+    width: 6rem;
+    font-size: 1rem;
+  }
+
+  .shipping-cost {
+    padding-right: 0 !important;
+  }
+
+  #container-costos {
+    padding: 3rem 1rem 3rem 0.4rem;
+  }
+
+  .cost-control,
+  .payment-control,
+  .payment-control {
+    width: 14rem;
+  }
+
+  .shipping-address p,
+  .card-payment p {
+    width: 14rem !important;
+  }
+
+  #cost-form {
+    max-width: fit-content;
+  }
+
+  #cost-form label {
+    padding-left: 0.5rem;
+  }
+
+  .total-purchase {
+    column-gap: 1rem !important;
+    padding-top: 0;
+    padding-bottom: 2rem !important;
+  }
+
+  #paymentSection {
+    padding-bottom: 0 !important;
+  }
+
+  .final-amount {
+    line-height: 0.5rem;
+    font-size: 1rem !important;
+  }
+
+  #card-detail,
+  #delivery-detail {
+    width: 10rem !important;
+  }
+}
+
+/* | Fin| --------------------------->>> SECCIÓN COSTOS <<<--------------------------- | Fin | */

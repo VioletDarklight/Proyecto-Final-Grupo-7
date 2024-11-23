@@ -1,0 +1,166 @@
+/* | Inicio | --------------------------->>> PORTADA INICIO <<<--------------------------- | Inicio | */
+
+/*Portada MODO DÍA - Pantalla Estándar*/
+.jumbotron .display-4 {
+  font-weight: bold;
+}
+
+.jumbotron {
+  height: 46vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background-color: #53c0fb;
+  background: url("../img/portada\ web.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.jumbotron .lead {
+  font-size: 38px;
+}
+
+/*Portada MODO NOCHE - Pantalla Estándar*/
+.dark-mode .jumbotron {
+  height: 46vh;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background: url("../img/portada\ web\ oscuro.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  background-color: #00133f;
+}
+
+/*----------------->> PORTADA INICIO | Tablet <<-----------------*/
+
+@media (min-width: 768px) and (max-width: 900px) {
+  /*Portada MODO DÍA - Pantalla Tablet*/
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ tablet.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+
+  /*Portada MODO NOCHE - Pantalla Tablet*/
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ tablet\ oscuro.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+}
+
+/*----------------->> PORTADA INICIO | Smartphone <<-----------------*/
+
+@media (max-width: 767px) {
+  /*Portada MODO DÍA - Pantalla Smartphone*/
+  .jumbotron {
+    background: url("../img/portada\ web\ celular.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110vh;
+  }
+
+  /*Portada MODO NOCHE - Pantalla Smartphone*/
+  .dark-mode .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: url("../img/portada\ web\ celular\ oscuro.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110vh;
+  }
+}
+
+/* | Fin | --------------------------->>> PORTADA INICIO <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> TARJETAS PRODUCTOS <<<--------------------------- | Inicio | */
+
+/*Tarjetas Productos MODO DÍA - Pantalla Estándar*/
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*Tarjetas Productos MODO NOCHE - Pantalla Estándar*/
+.dark-mode .bg-light {
+  background-color: #00133f !important;
+}
+
+.dark-mode #muebles,
+.dark-mode #juguetes,
+.dark-mode #autos {
+  color: #000;
+}
+
+.dark-mode .index-card p {
+  color: #061a40;
+}
+
+/*----------------->> TAERJETAS PRODUCTOS | Tablet <<-----------------*/
+
+@media (min-width: 768px) and (max-width: 900px) {
+  /*Tarjetas Productos MODO DÍA - Pantalla Tablet*/
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+
+  .index-card {
+    height: 9rem;
+  }
+
+  /*Tarjetas productos MODO NOCHE - Pantalla Tablet*/
+  .dark-mode .bg-light {
+    padding-bottom: 8rem !important;
+  }
+}
+
+/*----------------->> TAERJETAS PRODUCTOS | Smartphone <<-----------------*/
+/*Tarjetas Productos MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .card-text {
+    font-size: 11.5px;
+    margin-top: -0.5em;
+  }
+}
+
+/* | Fin | --------------------------->>> TARJETAS PRODUCTOS <<<--------------------------- | Fin | */
