@@ -22,6 +22,18 @@
   padding: 0;
 }
 
+.productInfo {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.productInfo h3 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
 /*Nombre del producto MODO DÍA - Pantalla Estándar*/
 #product-name {
   font-weight: 500;
@@ -65,6 +77,10 @@
 }
 .currency {
   font-size: 0.7em;
+}
+
+.car-cost {
+  font-size: 20px;
 }
 
 /*Fotos del producto MODO DÍA - Pantalla Estándar*/
@@ -111,17 +127,108 @@
   border: 1px groove #5a7ec2b0;
 }
 
+#product-image img {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (min-width: 990px) and (max-width: 1120px) {
   .unitImages {
     max-width: 10rem;
   }
 }
 
+/*Botón añadir al carrito MODO DÍA - Pantalla Estándar*/
+.buy-btn-container {
+  margin-top: auto;
+  padding-top: 11.8rem;
+}
+
+.btn-comprar {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.4rem;
+  width: 14rem;
+  border-radius: 0.5rem;
+  line-height: 1.6rem;
+  box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+}
+
+/*Modal Confirmación de compra MODO DÍA - Pantalla Estándar*/
+.modal-content {
+  border-radius: 10px;
+  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  margin-top: 200px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between; 
+  width: 100%;
+}
+.modal-footer .btn {
+  flex: 1; 
+  margin: 0 5px; 
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#confirmationModalLabel {
+  color: #000;
+}
+#confirmationModal .modal-content {
+  border: none;
+  box-shadow: none;
+  height: auto;
+  min-height: 200px;
+}
+#confirmationModal .modal-header {
+  border-bottom: none;
+}
+#confirmationModal .modal-footer {
+  border-top: none;
+}
+#confirmationModal .modal-title {
+  flex-grow: 1;
+  text-align: center;
+  padding-top: 35px;
+  font-weight: 450;
+}
+  /*Modal compra: Botón para continuar en el sitio MODO DÍA - Pantalla Estándar*/
+  .btn-gris {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+  }
+  
+  /*Modal compra: Botón para ir al carrito MODO DÍA - Pantalla Estándar*/
+  .btn-dark-azul {
+    background-color: #003366;
+    color: white;
+    border: none;
+  }
+
 /*Contenedor Principal MODO NOCHE - Pantalla Estándar*/
 .dark-mode .product-description { 
   background: linear-gradient(0deg, rgba(11, 34, 58, 0.8), #154674);
   color: #e0e0e0;
 }
+
+/*Botón añadir al carrito MODO NOCHE - Pantalla Estándar*/
+.dark-mode .btn-comprar {
+  background: #ddeeff;
+  box-shadow: -1px 2px 5px #aed0f0;
+  color: #001932;
+}
+
+/*Modal confirmación de compra MODO NOCHE - Pantalla Estándar*/
+.dark-mode #confirmationModalLabel {
+  color: white;
+}
+
 
 /*----------------->> DETALLES PRODUCTO | Tablet <<-----------------*/
 
@@ -211,12 +318,16 @@
   }
 }
 
+/* Botón añadir al carrito MODO DÍA - Pantalla Tablet*/
+@media (min-width: 877px) {
+  .small-btn-comprar {
+    display: none;
+  }
+}
 
-/*Detalles Productos MODO NOCHE - Pantalla Tablet*/
 
 
 /*----------------->> DETALLES PRODUCTO | Smartphone <<-----------------*/
-
 
 /* Contenedor Principal MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 980px) {
@@ -226,7 +337,96 @@
   }
 }
 
-/*Detalles Productos MODO NOCHE - Pantalla Smartphone*/
+/* Detalles del producto MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .containerInfo {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .product-description {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+  }
+
+  .productInfo {
+    padding: 0 1.5rem;
+  }
+
+  .productInfo h3 {
+    font-size: 1rem;
+  }
+
+  .productInfo p {
+    font-size: 1rem;
+  }
+
+  .productContent {
+    margin-top: 1rem;
+  }
+
+  /* Nombre del producto*/
+  #product-name {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 1.2rem;
+  }
+}
+
+/* Fotos del producto MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .containerSecondaryImages {
+    display: flex;
+    flex-direction: column;
+    max-width: 97%;
+    width: 97%;
+    max-height: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2rem;
+  }
+
+  .unitImages {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
+    -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
+    -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
+    padding: 0;
+  }
+
+  .containerMainImage{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .mainImage {
+    border-radius: 0 0 1rem 1rem;
+    margin-top: 0;
+  }
+
+  .productImages {
+    padding-top: 0;
+  }
+}
+
+/* Botón añadir al carrito MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 878px) { 
+  .buy-btn-container {
+   display: none;
+  }
+  }
 
 
 /* | Fin| --------------------------->>> DETALLES PRODUCTO <<<--------------------------- | Fin | */
@@ -236,6 +436,64 @@
 
 
 /* | Inicio | --------------------------->>> COMENTARIOS <<<--------------------------- | Inicio | */
+
+  /*Comentarios MODO DÍA - Pantalla Estándar*/
+  .commentCard {
+    background-color: rgba(255, 255, 255, 0.418);
+    max-width: 50rem;
+    border-radius: 1rem;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+    -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+    -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
+  }
+  
+  .container-comments {
+    background: linear-gradient(#ffffff44, #ffffff96);
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  .stars {
+    color: rgba(3, 83, 164, 0.959);
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .commentDescription {
+    font-size: 1.15rem;
+    font-weight: 450;
+  }
+  
+  .userNameComment {
+    color: rgba(3, 83, 164, 0.959);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+  
+  .dataComment {
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
+  
+  .titleOpinions {
+    justify-content: left;
+    margin-left: 4rem;
+    padding: 2rem 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.3rem;
+  }
 
 /*Nuevos Comentarios MODO DÍA - Pantalla Estándar*/
 #btnNewComm {
@@ -296,7 +554,7 @@
   border-radius: 15px;
 }
 
-/*Validaciones formulario*/
+/*Validaciones nuevos comentarios MODO DÍA - Pantallas Estándar*/
 .is-invalid {
   background-color: #f8d7da; 
   color: #721c24; 
@@ -318,7 +576,7 @@ p.clasificacion.is-invalid label {
   color: #dc3545;
 }
 
-/* Calificación Estrellas */ 
+/* Calificación Estrellas MODO DÍA - Pantalla Estándar*/ 
 #form {
   width: 250px;
   margin: 0 auto;
@@ -412,8 +670,42 @@ input[type="radio"] {
   background: linear-gradient(180deg, rgba(11, 34, 58, 0.8), #154674); 
 }
 
+/*Calificación nuevos comentarios MODO NOCHE - Pantalla Estándar*/
+.dark-mode label {
+  color: #081f3dec ;
+  cursor: pointer;
+}
+.dark-mode:hover,
+label:hover ~ label {
+  color: rgb(255, 255, 255);
+}
+.dark-mode [type="radio"]:checked ~ label {
+  color:white;
+}
+
 /*----------------->> COMENTARIOS | Tablet <<-----------------*/
 
+/*Comentarios MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 980px) {
+  .commentCard {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .dataComment {
+    margin-bottom: 0;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1rem;
+  }
+}
 
 /*Nuevos Comentarios MODO DÍA - Pantalla Tablet*/
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -426,12 +718,41 @@ input[type="radio"] {
     margin: 10px auto;  
     padding: 10px;
    }
-  }
-/*Nuevos Comentarios MODO NOCHE - Pantalla Tablet*/
+}
 
 
 /*----------------->> COMENTARIOS | Smartphone <<-----------------*/
 
+/*Comentarios MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .commentCard {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.8rem;
+  }
+
+  .dataComment {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+  }
+
+  .container-comments {
+    max-width: 91%;
+  }
+
+  .titleOpinions {
+    margin-left: 1.2rem;
+    padding-left: 0;
+  }
+
+  .commentDescription {
+    font-size: 1rem;
+  }
+
+  .userNameComment {
+    font-size: 0.95rem;
+  }
+}
 
 /*Nuevos Comentarios MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 575px) {
@@ -449,10 +770,7 @@ input[type="radio"] {
   #btnNewComm{
     box-sizing: content-box;
   } 
-  }
-/*Nuevos Comentarios MODO NOCHE - Pantalla Smartphone*/
-
-
+}
 /* | Fin| --------------------------->>> COMENTARIOS <<<--------------------------- | Fin | */
 
 
@@ -492,7 +810,7 @@ input[type="radio"] {
   font-size: 1.3rem;
 }
 
-/*Botones carrusel*/
+/*Botones carrusel Productos Relacionados MODO DÍA - Pantalla Estándar*/
 .button-rel {
   margin-top: 8em;
 }
@@ -524,18 +842,60 @@ input[type="radio"] {
   border-radius: 20px;
 }
 
+ 
+  /*---->> Transiciones Productos Relacionados <<----*/
+
+  /* Loading spinner */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.445);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .spinner-container {
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  /* Animaciones para las cards de productos relacionados */
+  #rel-card, #carta-rel {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  
+  /* Botón mientras carga animación*/
+  .ver-ver0.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
 /*Productos Relacionados MODO NOCHE - Pantalla Estándar*/
-
-/*----------------->> PRODUCTOS RELACIONADOS | Tablet <<-----------------*/
-
-
-/*Productos Relacionados MODO DÍA - Pantalla Tablet*/
-
-/*Productos Relacionados MODO NOCHE - Pantalla Tablet*/
+  .dark-mode #carta-rel {
+    background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
+  }
+  
+  .dark-mode #rel-card {
+    background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
+  }
+  .dark-mode .ver-ver0 {
+    background-color: #0a1d30;
+    border-color: #043566;
+  }
 
 
 /*----------------->> PRODUCTOS RELACIONADOS | Smartphone <<-----------------*/
-
 
 /*Productos Relacionados MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 575px) {
@@ -576,420 +936,15 @@ input[type="radio"] {
   }
 }
 
-/*Productos Relacionados MODO NOCHE - Pantalla Smartphone*/
 
 
 /* | Fin| --------------------------->>> PRODUCTOS RELACIONADOS <<<--------------------------- | Fin | */
-
-
-
-
-
-
+  
 
   
 
 
 
-  /* ESTRELLAS CALIFICACION NOCHE 
-  #form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-  #form p {
-    text-align: center;
-  }
-  #form label {
-    font-size: 20px;
-  }*/
+  
 
-  .dark-mode label {
-    color: #081f3dec ;
-    cursor: pointer;
-  }
-  .dark-mode:hover,
-  label:hover ~ label {
-    color: rgb(255, 255, 255);
-  }
-  .dark-mode [type="radio"]:checked ~ label {
-    color:white;
-  }
-  /* PRODUCTOS RELACIONADOS NOCHE */
-  .dark-mode #carta-rel {
-    background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
-  }
-  
-  .dark-mode #rel-card {
-    background: linear-gradient(90deg, #154674, rgba(11, 34, 58, 0.8));
-  }
-  .dark-mode .ver-ver0 {
-    background-color: #0a1d30;
-    border-color: #043566;
-  }
-  
-  /*Estilos transición productos relacionados*/
-  
-  /* Loading spinner */
-  .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.445);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .spinner-container {
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .fade-out {
-    opacity: 0;
-  }
-  
-  /* Animaciones para las cards de productos relacionados */
-  #rel-card, #carta-rel {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  
-  /* Botón mientras carga */
-  .ver-ver0.loading {
-    pointer-events: none;
-    opacity: 0.7;
-  }
-  
-/* BOTON AÑADIR CARRITO PANTALLAS PEQUEÑAS */
-@media (min-width: 320px) and (max-width: 878px) { 
-    .buy-btn-container {
-     display: none;
-    }
-    }
-    
-    @media (min-width: 877px) {
-    .small-btn-comprar {
-      display: none;
-    }
-    }
 
-    /* BOTON COMPRAR DIA */
-.buy-btn-container {
-    margin-top: auto;
-    padding-top: 11.8rem;
-  }
-  
-  .btn-comprar {
-    font-size: 1.2rem;
-    padding: 0.5rem 0.4rem;
-    width: 14rem;
-    border-radius: 0.5rem;
-    line-height: 1.6rem;
-    box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.25);
-    letter-spacing: 0.03em;
-    margin-bottom: 2rem;
-  }
-  
-  .dark-mode .btn-comprar {
-    background: #ddeeff;
-    box-shadow: -1px 2px 5px #aed0f0;
-    color: #001932;
-  }
-
-  /*MEDIDA Para fotos productos-info*/
-@media (min-width: 320px) and (max-width: 575px) {
-    #products-head-list {
-      font-size: 35px;
-      margin-top: 0px;
-    }
-    .containerSecondaryImages {
-      display: flex;
-      flex-direction: column;
-      max-width: 97%;
-      width: 97%;
-      max-height: 100%;
-      height: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 1.2rem;
-    }
-  
-    .unitImages {
-      max-width: 100%;
-      max-height: 100%;
-      box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
-      -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
-      -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473) !important;
-      padding: 0;
-    }
-  
-    .containerMainImage,
-    .containerInfo {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      display: flex;
-      justify-content: center;
-      max-width: 100%;
-    }
-  
-    .product-description {
-      display: flex;
-      flex-direction: column;
-      padding-right: 0;
-    }
-  
-    .mainImage {
-      border-radius: 0 0 1rem 1rem;
-      margin-top: 0;
-    }
-  
-    .productImages {
-      padding-top: 0;
-    }
-    .containerInfo {
-      margin-right: 1.5rem;
-      margin-left: 1.5rem;
-      margin-bottom: 0;
-      padding: 0;
-      border-radius: 1rem 1rem 0 0;
-    }
-  
-    .productInfo {
-      padding: 0 1.5rem;
-    }
-  
-    .productInfo h3 {
-      font-size: 1rem;
-    }
-  
-    .productInfo p {
-      font-size: 1rem;
-    }
-  
-    #product-name {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 1.2rem;
-    }
-  
-    .productContent {
-      margin-top: 1rem;
-    }
-  }
-
-  /*MEDIA PARA SECCION CALIFICACIONES*/
-@media (min-width: 576px) and (max-width: 980px) {
-    .commentCard {
-      margin-left: 2rem;
-      margin-right: 2rem;
-      padding: 1rem;
-      padding-left: 1.5rem;
-    }
-  
-    .dataComment {
-      margin-bottom: 0;
-    }
-  
-    .container-comments {
-      max-width: 91%;
-    }
-  
-    .titleOpinions {
-      margin-left: 1rem;
-    }
-  }
-  
-  @media (min-width: 320px) and (max-width: 575px) {
-    .commentCard {
-      margin-left: 1rem;
-      margin-right: 1rem;
-      padding: 0.8rem;
-    }
-  
-    .dataComment {
-      margin-bottom: 0;
-      font-size: 0.8rem;
-    }
-  
-    .container-comments {
-      max-width: 91%;
-    }
-  
-    .titleOpinions {
-      margin-left: 1.2rem;
-      padding-left: 0;
-    }
-  
-    .commentDescription {
-      font-size: 1rem;
-    }
-  
-    .userNameComment {
-      font-size: 0.95rem;
-    }
-  }
-  /* MEDIDA XS*/
-  @media (min-width: 320px) and (max-width: 575px) {
-    #margin-p {
-      margin-top: 40px;
-    }
-  }
-  
-  /*MEDIDA SM*/
-  @media (min-width: 576px) {
-    #margin-p {
-      margin-top: 50px;
-    }
-  }
-  
-  /*MEDIDA XL*/
-  @media (min-width: 1200px) {
-    #margin-p {
-      margin-top: 100px;
-    }
-  }
-  
-  div #margin-p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  #product-image img {
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .productInfo {
-    padding-left: 1rem;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .productInfo h3 {
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-  }
-
-  /* Sección calificaciones */
-.commentCard {
-    background-color: rgba(255, 255, 255, 0.418);
-    max-width: 50rem;
-    border-radius: 1rem;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem 2rem;
-    margin-bottom: 1rem;
-    box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
-    -webkit-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
-    -moz-box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.473);
-  }
-  
-  .container-comments {
-    background: linear-gradient(#ffffff44, #ffffff96);
-    max-width: 70rem;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    margin-top: 1.5rem;
-    border-radius: 1rem;
-    padding-bottom: 2rem;
-  }
-  
-  .stars {
-    color: rgba(3, 83, 164, 0.959);
-    font-size: 1.6rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .commentDescription {
-    font-size: 1.15rem;
-    font-weight: 450;
-  }
-  
-  .userNameComment {
-    color: rgba(3, 83, 164, 0.959);
-    font-weight: 500;
-    font-style: italic;
-    font-size: 1.05rem;
-    margin-bottom: 0;
-  }
-  
-  .dataComment {
-    font-weight: 300;
-    font-size: 0.9rem;
-  }
-  
-  .titleOpinions {
-    justify-content: left;
-    margin-left: 4rem;
-    padding: 2rem 1rem;
-    padding-bottom: 1rem;
-    font-size: 1.3rem;
-  }
-  
-  /* OPCION GRIS DE CONFIRMACION */
-.btn-gris {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-}
-
-/* OPCION AZUL DE CONFIRMACION */
-.btn-dark-azul {
-  background-color: #003366;
-  color: white;
-  border: none;
-}
-
-/* CONFIARMACION DE COMPRA */
-.modal-content {
-  border-radius: 10px;
-  background: linear-gradient(10deg, #b9d6f2, rgba(3, 83, 164, 0.8));
-  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
-  margin-top: 200px;
-}
-.modal-footer {
-  display: flex;
-  justify-content: space-between; /* Espacio entre los botones */
-  width: 100%;
-}
-.modal-footer .btn {
-  flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
-  margin: 0 5px; /* Espaciado horizontal entre los botones */
-  font-size: 20px;
-  font-weight: 300;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-.dark-mode #confirmationModalLabel {
-  color: white;
-}
-#confirmationModalLabel {
-  color: #000;
-}
-#confirmationModal .modal-content {
-  border: none;
-  box-shadow: none;
-  height: auto;
-  min-height: 200px;
-}
-#confirmationModal .modal-header {
-  border-bottom: none;
-}
-#confirmationModal .modal-footer {
-  border-top: none;
-}
-#confirmationModal .modal-title {
-  flex-grow: 1;
-  text-align: center;
-  padding-top: 35px;
-  font-weight: 450;
-}

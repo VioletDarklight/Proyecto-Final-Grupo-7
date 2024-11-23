@@ -154,4 +154,13 @@ a.custom-card:hover {
   }
 }
 
+/*----------------->> TAERJETAS PRODUCTOS | Smartphone <<-----------------*/
+/*Tarjetas Productos MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .card-text {
+    font-size: 11.5px;
+    margin-top: -0.5em;
+  }
+}
+
 /* | Fin | --------------------------->>> TARJETAS PRODUCTOS <<<--------------------------- | Fin | */

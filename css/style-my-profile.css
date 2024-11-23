@@ -1,4 +1,6 @@
-/*Estilos para MY PROFILE*/
+/* | Inicio | --------------------------->>> ENCABEZADO <<<--------------------------- | Inicio | */
+
+/*Encabezado MODO DÍA - Pantalla Estándar*/
 #headerProfile {
   font-family: "Jost", sans-serif;
   font-size: 40px;
@@ -11,6 +13,48 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/*----------------->> ENCABEZADO | Smartphone <<-----------------*/
+
+/*Encabezado MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  #headerProfile {
+    font-size: 30px;
+    padding-top: 1.8rem;
+  }
+}
+
+/* | Fin| --------------------------->>> ENCABEZADO <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> CONTENEDORES <<<--------------------------- | Inicio | */
+
+/*Contenedores MODO DÍA - Pantalla Estándar*/
+.profile-container {
+  width: 95%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*----------------->> CONTENEDORES | Smartphone <<-----------------*/
+
+/*Contenedores MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center; /* Centra los contenedores */
+    width: 100%;
+    margin: 0 auto; /* Elimina márgenes laterales */
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    margin-top: 1rem !important;
+  }
+}
+
+/* | Fin| --------------------------->>> CONTENEDORES <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> FORMULARIO PERFIL <<<--------------------------- | Inicio | */
+
+/*Formulario Perfil MODO DÍA - Pantalla Estándar*/
 .card-profile-form {
   background: linear-gradient(#ffffff44, #ffffff96);
   max-width: 100%;
@@ -26,6 +70,98 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+.profile-input {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+  color: black;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/*Validaciones MODO DÍA*/
+.profile-input.valid {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.profile-input.invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+.valid-feedback {
+  color: #28a745;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/*Formulario Perfil MODO NOCHE - Pantalla Estándar*/
+.dark-mode .card-profile-form {
+  background: linear-gradient(#24232344, #5f5f5f96);
+}
+
+.dark-mode .profile-input {
+  background-color: rgba(253, 251, 251, 0.801);
+}
+
+/*Validaciones MODO NOCHE*/
+.dark-mode .invalid-feedback {
+  color: rgb(216, 79, 79);
+}
+
+.dark-mode .alert-body {
+  color: #000;
+}
+
+/*----------------->> FORMULARIO PERFIL | Tablet <<-----------------*/
+
+/*Formulario Perfil MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 1199px) {
+  .card-profile-form {
+    padding: 2rem 2rem;
+    max-width: 20rem;
+  }
+
+  .profile-container {
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
+
+/*----------------->> FORMULARIO PERFIL | Smartphone <<-----------------*/
+
+/*Formulario Perfil MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
+  .card-profile-form {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* | Fin| --------------------------->>> FORMULARIO PERFIL <<<--------------------------- | Fin | */
+
+/* | Inicio | --------------------------->>> PERSONALIZAR PERFIL <<<--------------------------- | Inicio | */
+
+/*Personalizar Perfil MODO DÍA - Pantalla Estándar*/
 .card-pic-form {
   background: linear-gradient(#ffffff44, #ffffff96);
   max-width: 50%;
@@ -41,25 +177,31 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.profile-container {
-  width: 95%;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.profile-input {
-  background-color: #f5f5f5;
-  color: #1a1a1a;
-  padding: 8px 10px;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 8px;
-  width: 100%;
+.card-pic-form h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+.alert-light {
+  width: 18rem;
+}
+.btn-profile {
+  border-radius: 1rem;
+  background-color: #0353a4;
+  color: white;
+  width: fit-content;
+  padding: 0.5rem 1.6rem;
+  font-size: 1.4rem;
+  border: none;
+  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.253);
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  font-weight: 400;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/*Foto Perfil MODO DÍA - Pantalla Estándar*/
 .pic-input {
   border-radius: 8px;
   width: 100%;
@@ -67,14 +209,6 @@
   margin-bottom: 3rem;
   margin-right: auto;
   margin-left: 0;
-}
-
-.form-label {
-  margin-bottom: 5px;
-  padding-bottom: 2px;
-  color: black;
-  font-size: 1.1rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 #profilePic {
@@ -95,21 +229,7 @@
   align-items: flex-start !important;
 }
 
-.btn-profile {
-  border-radius: 1rem;
-  background-color: #0353a4;
-  color: white;
-  width: fit-content;
-  padding: 0.5rem 1.6rem;
-  font-size: 1.4rem;
-  border: none;
-  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, 0.253);
-  margin-top: 2rem;
-  margin-bottom: 10rem;
-  font-weight: 400;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
+/*Switch darkmode MODO DÍA - Pantalla Estándar*/
 #form-switch {
   display: flex;
   flex-direction: column;
@@ -131,61 +251,42 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.card-pic-form h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
+/*Foto Perfil MODO NOCHE - Pantalla Estándar*/
+.dark-mode .pic-input {
+  background-color: rgba(253, 251, 251, 0.801);
 }
 
-.alert-light {
-  width: 18rem;
+.dark-mode .profile-pic {
+  border: 1px solid #444;
 }
 
-/* Estilos para validaciones*/
-.profile-input.valid {
-  border-color: #28a745;
-  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+/*Personalizar Perfil MODO NOCHE - Pantalla Estándar*/
+.dark-mode .card-pic-form {
+  background: linear-gradient(#24232344, #5f5f5f96);
 }
 
-.profile-input.invalid {
-  border-color: #dc3545;
-  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+/*----------------->> PERSONALIZAR PERFIL | Tablet <<-----------------*/
+
+/*Personalizar Perfil MODO DÍA - Pantalla Tablet*/
+@media (min-width: 576px) and (max-width: 1199px) {
+  .card-pic-form {
+    padding: 2rem 2rem;
+    width: 20rem !important;
+  }
+
+  /*Foto Perfil MODO DÍA - Pantalla Tablet*/
+  .pic-input {
+    border-radius: 6px;
+    width: 98%;
+    padding: 0.1rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
-.valid-feedback {
-  color: #28a745;
-}
+/*----------------->> PERSONALIZAR PERFIL | Smartphone <<-----------------*/
 
-.invalid-feedback {
-  color: #dc3545;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-.dark-mode .invalid-feedback {
-  color: rgb(216, 79, 79);
-}
-
-.dark-mode .alert-body {
-  color: #000;
-}
-
-/*Medidas responsive para Mi Perfil*/
+/*Personalizar Perfil MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 575px) {
-  #headerProfile {
-    font-size: 30px;
-    padding-top: 1.8rem;
-  }
-
-  .profile-container {
-    flex-direction: column;
-    align-items: center; /* Centra los contenedores */
-    width: 100%;
-    margin: 0 auto; /* Elimina márgenes laterales */
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    margin-top: 1rem !important;
-  }
-
-  .card-profile-form,
   .card-pic-form {
     max-width: 100%; /* Asegura que ambos tengan el mismo ancho */
     width: 100%;
@@ -195,6 +296,15 @@
     padding: 1rem; /* Ajusta el padding para pantallas más pequeñas */
   }
 
+  .btn-profile {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+}
+
+/*Foto Perfil MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 575px) {
   .pic-input {
     margin-top: 0;
     font-size: 0.8rem;
@@ -205,50 +315,6 @@
   #profilePic {
     margin-bottom: 2rem;
   }
-
-  .btn-profile {
-    padding: 0.5rem 1.2rem;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-  }
 }
 
-@media (min-width: 576px) and (max-width: 1199px) {
-  .profile-container {
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  .card-profile-form {
-    padding: 2rem 2rem;
-    max-width: 20rem;
-  }
-
-  .card-pic-form {
-    padding: 2rem 2rem;
-    width: 20rem !important;
-  }
-
-  .pic-input {
-    border-radius: 6px;
-    width: 98%;
-    padding: 0.1rem;
-    margin-bottom: 2.5rem;
-  }
-}
-.dark-mode .profile-pic {
-  border: 1px solid #444;
-}
-
-.dark-mode .card-pic-form {
-  background: linear-gradient(#24232344, #5f5f5f96);
-}
-
-.dark-mode .card-profile-form {
-  background: linear-gradient(#24232344, #5f5f5f96);
-}
-
-.dark-mode .profile-input,
-.dark-mode .pic-input {
-  background-color: rgba(253, 251, 251, 0.801);
-}
+/* | Fin| --------------------------->>> PERSONALIZAR PERFIL <<<--------------------------- | Fin | */

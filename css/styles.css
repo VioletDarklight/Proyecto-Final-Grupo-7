@@ -1,4 +1,4 @@
-/*Contenido General*/
+/*Contenido General MODO DÍA - Pantalla Estándar*/
 body {
   font-family: "Jost", sans-serif;
   background: rgb(255, 255, 255);
@@ -57,12 +57,63 @@ button:hover {
   background-color: #555;
 }
 
-/*Barra de Navegación*/
+/*Contenido General MODO NOCHE - Pantalla Estándar*/
+.dark-mode body {
+  background: linear-gradient(10deg, #154674, rgba(11, 34, 58, 0.8)) !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode main,
+.dark-mode body {
+  background: linear-gradient(10deg, #154674, rgba(11, 34, 58, 0.8)) !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode h4,
+.dark-mode p,
+.dark-mode .form-label,
+.dark-mode .form-check-label,
+.dark-mode .footer-content {
+  color: white;
+}
+
+.dark-mode .text-muted {
+  color: rgb(206, 204, 204) !important;
+}
+
+.dark-mode .btn-primary {
+  background-color: #0a1d30; /* Botones */
+  border-color: #043566;
+}
+
+/*Barra de Navegación MODO DÍA - Pantalla Estándar*/
 nav a {
   text-decoration: none;
 }
 
-/*Barra de Navegación: MENÚ NAVEGACIÓN*/
+#navbar {
+  background: #0353a4 !important;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+/*Carrito NavBar MODO DÍA - Pantalla Estándar*/
+#nav-carrito {
+  margin-top: -1em;
+}
+::marker {
+  color: transparent;
+}
+
+/*Barra de Navegación MODO NOCHE - Pantalla Estándar*/
+.dark-mode #navbar {
+  background-color: #0a1d30 !important; /* Navbar más oscura */
+}
+
+/*Barra de Navegación: MENÚ NAVEGACIÓN MODO DÍA - Pantalla Estándar*/
 .dropdown-menu,
 .dropdown-menu .dropdown-item {
   background-color: #0353a4 !important;
@@ -70,12 +121,14 @@ nav a {
   border-color: none;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+/*Barra de Navegación: MENÚ NAVEGACIÓN MODO NOCHE - Pantalla Estándar*/
 .dark-mode .dropdown-menu,
 .dark-mode .dropdown-menu .dropdown-item {
   background-color: #0a1d30 !important;
 }
 
-/*Barra de Navegación: MENU NAVEGACIÓN - Transición*/
+/*Transición: MENU NAVEGACIÓN MODO DÍA - Pantalla Estándar*/
 .dropdown-menu {
   visibility: hidden;
   opacity: 0;
@@ -91,9 +144,58 @@ nav a {
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
 }
 
-/*Pie de Página*/
+/*Carrito NavBar MODO DÍA - Pantalla Smartphone*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar-toggler {
+    width: 13em;
+  }
+  #nav-carrito {
+    width: -1em;
+    padding: 0;
+  }
+}
+
+/*Pie de Página MODO DÍA - Pantalla Estándar*/
 footer p {
   margin-bottom: 0.25rem;
+}
+
+.footer-container {
+  background-color: #b9d6f2;
+  padding: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-content {
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 10px 0;
+}
+
+.footer-link {
+  color: #061a40;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+hr {
+  width: 75%;
+  height: 1px;
+  background-color: #0353a4;
+  margin: 0 auto;
+}
+
+/*Pie de Página MODO NOCHE - Pantalla Estándar*/
+.dark-mode .footer-container {
+  background: #0a1d30;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dark-mode .footer-link {
+  color: #0353a4;
 }
 
 /*Alertas*/
@@ -161,149 +263,11 @@ footer p {
   }
 }
 
-/*.contenedor {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}*/
-
+/*Listas MODO DÍA - Pantalla Smartphone*/
 @media (min-width: 320px) and (max-width: 575px) {
   .list-group {
     margin-top: -10%;
     height: 10%;
     margin-bottom: -15%;
-  }
-}
-
-#navbar {
-  background: #0353a4 !important;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-#img-carta {
-  border-radius: 20px 20px 0px 0px !important;
-}
-
-.car-cost {
-  font-size: 20px;
-}
-/*MEDIDA XS */
-@media (min-width: 320px) and (max-width: 575px) {
-  .card-text {
-    font-size: 11.5px;
-    margin-top: -0.5em;
-  }
-}
-
-.car-description {
-  font-size: 16px;
-}
-/*MEDIDA XS*/
-@media (min-width: 320px) and (max-width: 575px) {
-  .car-description {
-    font-size: 12px;
-    line-height: 1em;
-  }
-}
-
-.nav-link {
-  color: #fff !important;
-}
-
-/*Clases del nuevo footer que usamos en el login para que quede igual*/
-.footer-container {
-  background-color: #b9d6f2;
-  padding: 3px;
-  /*margin-top: 100px;*/
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.footer-content {
-  text-align: center;
-  font-family: "Jost", sans-serif;
-  font-size: 17px;
-  color: #000000;
-  padding: 10px 0;
-}
-
-.footer-link {
-  color: #061a40;
-  text-decoration: none;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-hr {
-  width: 75%;
-  height: 1px;
-  background-color: #0353a4;
-  margin: 0 auto;
-}
-
-/*MODO NOCHE*/
-.dark-mode body {
-  background: linear-gradient(10deg, #154674, rgba(11, 34, 58, 0.8)) !important;
-  color: #e0e0e0 !important;
-}
-
-.dark-mode main,
-.dark-mode body {
-  background: linear-gradient(10deg, #154674, rgba(11, 34, 58, 0.8)) !important;
-  color: #e0e0e0 !important;
-}
-
-.dark-mode #navbar {
-  background-color: #0a1d30 !important; /* Navbar más oscura */
-}
-
-.dark-mode .footer-container {
-  background: #0a1d30;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.dark-mode .footer-link {
-  color: #0353a4;
-}
-
-.dark-mode h4,
-.dark-mode p,
-.dark-mode .form-label,
-.dark-mode .form-check-label,
-.dark-mode .footer-content {
-  color: white;
-}
-
-.dark-mode .text-muted {
-  color: rgb(206, 204, 204) !important;
-}
-
-.dark-mode .btn-primary {
-  background-color: #0a1d30; /* Botones */
-  border-color: #043566;
-}
-
-/*li #badge-unico{
-  width: 2em;
-  
-}
- 
- .carrito-ultimo{
-  background-color: transparent;
-  height: 2rem;
-  width: 2rem;
- }*/
-#nav-carrito {
-  margin-top: -1em;
-}
-::marker {
-  color: transparent;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .navbar-toggler {
-    width: 13em;
-  }
-  #nav-carrito {
-    width: -1em;
-    padding: 0;
   }
 }
