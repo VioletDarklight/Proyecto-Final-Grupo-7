@@ -352,15 +352,24 @@ function showCostsContainer() {
 //Entrega 7 Punto 4
 let containerPage = document.getElementById("cost-form");
 // clases de inputs de direccion
-let envioCost = document.getElementsByClassName("form-check-input"); // clases de los inputs de tipo de envio y forma de pago
+ // clases de los inputs de tipo de envio y forma de pago
 let btnFinal = document.getElementById("btn-final-payment");
-let provincias = document.getElementById("input-localidad");
+
+
+
 
 // Creacion de evento click para el boton de finalizar compra
 
 containerPage.addEventListener("submit", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
   //PARA EL METODO DE PAGO VALIDACION Y ALERTA
   //PARA EL METODO DE PAGO VALIDACION Y ALERTA
+  
+  //PRODUCTOS DE LA ORDENES
+ 
+  //ORDENES
+
   if (!formularioCart()) {
     mostrarAlertaForm();
   } else if (!formularioTarget()) {
@@ -372,14 +381,57 @@ containerPage.addEventListener("submit", function (event) {
     deliveryPaymentSection.classList.contains("show")
   ) {
     alertContra();
-  } else {
+  } else { 
     let confirmationModal = new bootstrap.Modal(
       document.getElementById("confirmationModal")
     );
     confirmationModal.show();
+let radioPay = document.querySelector('input[name="payment"]:checked').value;
+let radioSel = document.querySelector('input[name="cost"]:checked').value;
+let provincias = document.getElementById("input-localidad")
+const selectedTexto = provincias.options[provincias.selectedIndex].text;
+let localidad = document.getElementById("local").textContent;
+let calle =document.getElementById("calle")
+let nro =document.getElementById("nro")
+let apto =document.getElementById("apt")
+let esquina =document.getElementById("esq")
+let sub_total = document.getElementById("subFinalAmount").textContent
+let costo_envio= document.getElementById("costFinalAmount").textContent
+let total=document.getElementById("totalFinalAmount").textContent
+let productos = JSON.parse(localStorage.getItem("shoppingCart"))||"[]";
+let order = {
+        tipo_envio: radioSel,
+        departamento: selectedTexto,
+        localidad: localidad,
+        calle: calle.value,
+        nro: nro.value,
+        apto: apto.value,
+        esquina: esquina.value,
+        forma_pago: radioPay,
+        sub_total: parseFloat(sub_total),
+        costo_envio: parseFloat(costo_envio),
+        total: parseFloat(total),
+        products:productos
+      };
+  
+
+    fetch(CART_FULL,{
+      method: "POST",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(order)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Compra realizada por: ', data);
+        alert('Compra exitosa');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+   
   }
-  event.preventDefault();
-  event.stopPropagation();
+  
 });
 
 //funcion para validar campos de tipo texto y seleccion en el formulario
