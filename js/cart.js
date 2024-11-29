@@ -352,123 +352,112 @@ function showCostsContainer() {
 //Entrega 7 Punto 4
 let containerPage = document.getElementById("cost-form");
 // clases de inputs de direccion
- // clases de los inputs de tipo de envio y forma de pago
+// clases de los inputs de tipo de envio y forma de pago
 let btnFinal = document.getElementById("btn-final-payment");
-
-
-
 
 // Creacion de evento click para el boton de finalizar compra
 
 containerPage.addEventListener("submit", function (event) {
   event.preventDefault();
   event.stopPropagation();
-  //PARA EL METODO DE PAGO VALIDACION Y ALERTA
-  //PARA EL METODO DE PAGO VALIDACION Y ALERTA
-  
-  //PRODUCTOS DE LA ORDENES
- 
-  //ORDENES
 
-  if (!validateOpt()&&!validateText()) {
-    const middleOfPage = document.body.scrollHeight/3;
+  if (!validateOpt() && !validateText() && !validateCta()) {
+    const middleOfPage = document.body.scrollHeight / 3;
     window.scrollTo({
       top: middleOfPage, // Desplazarse al medio de la página
-      behavior: 'smooth'  // Desplazamiento suave
+      behavior: "smooth", // Desplazamiento suave
     });
     event.preventDefault();
-  }
-  else if(!validateText()){
-    const mdDep = document.body.scrollHeight/3;
+  } else if (!validateText()) {
+    const mdDep = document.body.scrollHeight / 3;
     window.scrollTo({
       top: mdDep, // Desplazarse al medio de la página
-      behavior: 'smooth'  // Desplazamiento suave
+      behavior: "smooth", // Desplazamiento suave
     });
-  }
-  else if (!document.querySelector('input[name="payment"]:checked')){
-    const midpage = document.body.scrollHeight/3;
+  } else if (!document.querySelector('input[name="payment"]:checked')) {
+    const midpage = document.body.scrollHeight / 3;
     window.scrollTo({
       top: midpage, // Desplazarse al medio de la página
-      behavior: 'smooth'  // Desplazamiento suave
-    });mostrarAlertaMetod();
-  }
-  else if(!formularioTarjeta()&&cardPaymentSection.classList.contains("show")){
-    const midtar = document.body.scrollHeight/2;
-    window.scrollTo({
-      top: midtar, // Desplazarse al medio de la página
-      behavior: 'smooth'  // Desplazamiento suave 
+      behavior: "smooth", // Desplazamiento suave
     });
-  }
-   else if (
-    (!document.querySelector('input[name="paymentDelivery"]:checked')&& deliveryPaymentSection.classList.contains("show"))
+    mostrarAlertaMetod();
+  } else if (
+    !formularioTarjeta() &&
+    cardPaymentSection.classList.contains("show")
   ) {
-    const midtar = document.body.scrollHeight/2;
+    const midtar = document.body.scrollHeight / 2;
     window.scrollTo({
       top: midtar, // Desplazarse al medio de la página
-      behavior: 'smooth'  // Desplazamiento suave 
+      behavior: "smooth", // Desplazamiento suave
+    });
+  } else if (
+    !document.querySelector('input[name="paymentDelivery"]:checked') &&
+    deliveryPaymentSection.classList.contains("show")
+  ) {
+    const midtar = document.body.scrollHeight / 2;
+    window.scrollTo({
+      top: midtar, // Desplazarse al medio de la página
+      behavior: "smooth", // Desplazamiento suave
     });
     alertContra();
-  }
-   else { 
+  } else {
     let confirmationModal = new bootstrap.Modal(
       document.getElementById("confirmationModal")
     );
     confirmationModal.show();
-let radioPay = document.querySelector('input[name="payment"]:checked').value;
-let radioSel = document.querySelector('input[name="cost"]:checked').value;
-let provincias = document.getElementById("input-localidad")
-const selectedTexto = provincias.options[provincias.selectedIndex].text;
-let localidad = document.getElementById("local").textContent;
-let calle =document.getElementById("calle")
-let nro =document.getElementById("nro")
-let apto =document.getElementById("apt")
-let esquina =document.getElementById("esq")
-let sub_total = document.getElementById("subFinalAmount").textContent
-let costo_envio= document.getElementById("costFinalAmount").textContent
-let total=document.getElementById("totalFinalAmount").textContent
-let productos = JSON.parse(localStorage.getItem("shoppingCart"))||"[]";
-let order = {
-        tipo_envio: radioSel,
-        departamento: selectedTexto,
-        localidad: localidad,
-        calle: calle.value,
-        nro: nro.value,
-        apto: apto.value,
-        esquina: esquina.value,
-        forma_pago: radioPay,
-        sub_total: parseFloat(sub_total),
-        costo_envio: parseFloat(costo_envio),
-        total: parseFloat(total),
-        products:productos
-      };
-  
+    let radioPay = document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+    let radioSel = document.querySelector('input[name="cost"]:checked').value;
+    let provincias = document.getElementById("input-localidad");
+    const selectedTexto = provincias.options[provincias.selectedIndex].text;
+    let localidad = document.getElementById("local").textContent;
+    let calle = document.getElementById("calle");
+    let nro = document.getElementById("nro");
+    let apto = document.getElementById("apt");
+    let esquina = document.getElementById("esq");
+    let sub_total = document.getElementById("subFinalAmount").textContent;
+    let costo_envio = document.getElementById("costFinalAmount").textContent;
+    let total = document.getElementById("totalFinalAmount").textContent;
+    let productos = JSON.parse(localStorage.getItem("shoppingCart")) || "[]";
+    let order = {
+      tipo_envio: radioSel,
+      departamento: selectedTexto,
+      localidad: localidad,
+      calle: calle.value,
+      nro: nro.value,
+      apto: apto.value,
+      esquina: esquina.value,
+      forma_pago: radioPay,
+      sub_total: parseFloat(sub_total),
+      costo_envio: parseFloat(costo_envio),
+      total: parseFloat(total),
+      products: productos,
+    };
 
-    fetch(CART_FULL,{
+    fetch(CART_FULL, {
       method: "POST",
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(order)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(order),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Compra realizada por: ', data);
-        alert('Compra exitosa');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-   
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Compra realizada por: ", data);
+        alert("Compra exitosa");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
-  
 });
 
 //funcion para option select de departamento
 let optionDep = document.querySelectorAll(".confirmar-form-select");
-let selectionOpt = document.getElementById("input-localidad")
+let selectionOpt = document.getElementById("input-localidad");
 function validateOpt() {
   let isValid = true;
   Array.from(optionDep).forEach((option) => {
-    if (option.value==="") {
+    if (option.value === "") {
       selectionOpt.classList.add("is-invalid");
       selectionOpt.classList.remove("is-valid");
       isValid = false; // Si hay algún input inválido, cambia isValid a false
@@ -482,9 +471,8 @@ function validateOpt() {
   return isValid;
 }
 
-
 //funcion para inputs domicilio
-let inputValue=document.querySelectorAll(".confirmar-formulario");
+let inputValue = document.querySelectorAll(".confirmar-formulario");
 
 function validateText() {
   let isValid = true;
@@ -501,14 +489,14 @@ function validateText() {
   });
   return isValid;
 }
-//funcion para validar tarjeta cuando este desplegada 
- let datosTarget = document.querySelectorAll(".card-control-on");
+
+//funcion para validar tarjeta cuando este desplegada
+let datosTarget = document.querySelectorAll(".card-control-on");
 
 function formularioTarjeta() {
- 
   let isValid = true;
 
-  if(cardPaymentSection.classList.contains("show")){
+  if (cardPaymentSection.classList.contains("show")) {
     Array.from(datosTarget).forEach((input) => {
       if (!input.checkValidity()) {
         input.classList.add("is-invalid");
@@ -521,28 +509,43 @@ function formularioTarjeta() {
       input.addEventListener("input", realTimeValid);
     });
     return isValid;
-}}
+  }
+}
+
 //funcion para validar cuotas de tarjeta desplegada
-let optionCta = document.querySelectorAll(".card-control");
-let selectionCta = document.getElementById("installments")
+let selectionCta = document.getElementById("installments");
 function validateCta() {
   let isValid = true;
-  if(cardPaymentSection.classList.contains("show")){
-  Array.from(optionCta).forEach((selectionCta) => {
-    if (option.value==="0") {
+  if (cardPaymentSection.classList.contains("show")) {
+    isValid = selectionCta.selectedIndex > 0; //validar que haya seleccionado una opción diferente a la inicial
+    if (!isValid) {
+      //Si está seleccionada la opción "Cuotas:"
       selectionCta.classList.add("is-invalid");
       selectionCta.classList.remove("is-valid");
-      isValid = false; // Si hay algún input inválido, cambia isValid a false
+      isValid = false;
+      //Validar si seleccionó una opción válida
     } else {
       selectionCta.classList.add("is-valid");
       selectionCta.classList.remove("is-invalid");
     }
-
-    option.addEventListener("selectionCta", realTimeValid);
-  });
+  }
   return isValid;
-}}
+}
 
+//Validación en tiempo real
+selectionCta.addEventListener("change", function (event) {
+  const isValid = event.target.value !== "" && event.target.value !== "0";
+
+  if (isValid) {
+    event.target.classList.add("is-valid");
+    event.target.classList.remove("is-invalid");
+  } else {
+    event.target.classList.add("is-invalid");
+    event.target.classList.remove("is-valid");
+  }
+});
+
+//Función genérica para validaciones en tiempo real
 function realTimeValid(event) {
   if (event.target.checkValidity()) {
     event.target.classList.add("is-valid");

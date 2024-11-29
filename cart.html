@@ -192,8 +192,8 @@
                   <p><div class="mb-3"><input type="text" id="cardholder" class="card-control-on card-control form-control" name="cardholder" placeholder="Titular:" required><div class="inv-fb invalid-feedback">Por favor, ingresa nombre de titular</div></div></p>
                   <p><div class="mb-3"><input type="text" id="cardNumber" class="card-control-on card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:" required><div class="inv-fb invalid-feedback">Por favor, ingresa nro de tarjeta</div></div></p>
                   <p class="card-info"><div class="mb-3"><input type="text" id="expiryDate" class="card-control-on card-control form-control" name="expiryDate" placeholder="Vto: MM/AA" required><div class="inv-fb invalid-feedback">Por favor, ingresa MM/AA</div></div><div class="mb-3"><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control form-control card-control-on" placeholder="CVV:" required><div class="inv-fb invalid-feedback">Por favor, ingresa el CVV.</div></div></p>
-                  <p><div class="mb-3"><select name="installments" id="installments" class="card-control-on card-control form-select form-control">
-                        <option value="" >Cuotas:</option>
+                  <p><div class="mb-3"><select name="installments" id="installments" class="card-control-on card-control form-select form-control" required>
+                        <option value="" hidden >Cuotas:</option>
                         <option value="1">1 Cuota</option>
                         <option value="3">3 Cuotas</option>
                         <option value="6">6 Cuotas</option>
