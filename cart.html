@@ -123,14 +123,14 @@
 
 <div id="cFin"></div>
               <!--DIRECCION DE ENVIO-->
-              <div class="row cost-row">
+              <div class="row cost-row" id="redirected">
                 <div  class="section-cost-form col">
                   <h2>Dirección de <br> envío</h2>
                 </div>
 
                 <div class="shipping-address input-group col">
-                  <p><select   class="confirmar-form-select form-select form-control shipping-control" id="input-localidad" required>
-                    <option hidden>Departamento: </option>
+                  <p><div class="mb-3"><select   class="confirmar-form-select form-select form-control shipping-control" id="input-localidad" required>
+                    <option value="">Departamento: </option>
                     <option  value="1">Artigas</option>
                     <option value="2">Canelones</option>
                     <option value="3">Cerro Largo</option>
@@ -150,11 +150,14 @@
                     <option value="17">Soriano</option>
                     <option value="18">Tacuarembo</option>
                     <option value="19">Treinta y Tres</option>
-                  </select></p>
-                  <p><input type="text" id="local" class="confirmar-formulario form-control shipping-control" placeholder="Localidad:"  required></p>
-                  <p><input type="text" id="calle" class="confirmar-formulario form-control shipping-control" placeholder="Calle:"  required></p>
-                  <p class="address-number"><input id="nro" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Nro:" required ><input id="apt" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Apto:" required></p>
-                  <p><input id="esq" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Esquina:" required ></p>
+                  </select><div class="inv-fb invalid-feedback">Por favor,elige un departamento</div></div></p>
+                  <p><div class="mb-3"><input type="text" id="local" class="confirmar-formulario form-control shipping-control" placeholder="Localidad:"  required><br>
+                    <div class="inv-fb invalid-feedback">Por favor, ingresa tu Localidad.</div>
+                  </div></p>
+                  <p><div class="mb-3"><input type="text" id="calle" class="confirmar-formulario form-control shipping-control" placeholder="Calle:"  required><div class="inv-fb invalid-feedback">Por favor, ingresa el nombre de la calle.</div></div></p>
+                 <p class="address-number"><div class=" mb-3"><input id="nro" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Nro:" required ><div class="inv-fb invalid-feedback">Por favor, ingresa nro.</div></div>
+                  <div class="mb-3"><input id="apt" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Apto:" required><div class="inv-fb invalid-feedback">Por favor, ingresa nro de Apto.</div></div></p>
+                  <p><div class="mb-3"><input id="esq" type="text" class="confirmar-formulario form-control shipping-control" placeholder="Esquina:" required ><div class="inv-fb invalid-feedback">Por favor, ingresa una esquina.</div></div></p>
                 </div>
 
               </div>
@@ -186,17 +189,17 @@
 
                 <div class="card-payment input-group col">
                   <h2 id="card-detail">DETALLES TARJETA</h2>
-                  <p><input type="text" id="cardholder" class="card-control form-control" name="cardholder" placeholder="Titular:" required></p>
-                  <p><input type="text" id="cardNumber" class="card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:" required></p>
-                  <p class="card-info"><input type="text" id="expiryDate" class="card-control form-control" name="expiryDate" placeholder="Vto: MM/AA" required><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control" placeholder="CVV:" required></p>
-                  <p><select name="installments" id="installments" class="card-control form-select form-control">
-                        <option hidden>Cuotas:</option>
+                  <p><div class="mb-3"><input type="text" id="cardholder" class="card-control-on card-control form-control" name="cardholder" placeholder="Titular:" required><div class="inv-fb invalid-feedback">Por favor, ingresa nombre de titular</div></div></p>
+                  <p><div class="mb-3"><input type="text" id="cardNumber" class="card-control-on card-control form-control" name="cardNumber" placeholder="Nro de Tarjeta:" required><div class="inv-fb invalid-feedback">Por favor, ingresa nro de tarjeta</div></div></p>
+                  <p class="card-info"><div class="mb-3"><input type="text" id="expiryDate" class="card-control-on card-control form-control" name="expiryDate" placeholder="Vto: MM/AA" required><div class="inv-fb invalid-feedback">Por favor, ingresa MM/AA</div></div><div class="mb-3"><input type="text" id="ccv" name="ccv" min="3" max="3" class="card-control form-control card-control-on" placeholder="CVV:" required><div class="inv-fb invalid-feedback">Por favor, ingresa el CVV.</div></div></p>
+                  <p><div class="mb-3"><select name="installments" id="installments" class="card-control-on card-control form-select form-control">
+                        <option value="" >Cuotas:</option>
                         <option value="1">1 Cuota</option>
                         <option value="3">3 Cuotas</option>
                         <option value="6">6 Cuotas</option>
                         <option value="12">12 Cuotas</option>
                       </select>
-                  </p>
+                      <div class="inv-fb invalid-feedback">Por favor,selecciona cantidad de cuotas</div></div></p>
                 </div>
               </div>
 

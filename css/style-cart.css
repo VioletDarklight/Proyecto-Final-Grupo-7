@@ -193,7 +193,12 @@
 .dark-mode .bi-trash3-fill {
   color: white;
 }
-
+/*Detalles en validaciones cart*/
+.inv-fb{
+  width: 2;
+  padding-top: 0.5em;
+  padding-left: 0.5rem;
+}
 /*----------------->> PRODUCTOS CARRITO | Tablet <<-----------------*/
 
 /*Columna de eliminar y contenedor foto MODO DÍA - Pantalla Tablet*/

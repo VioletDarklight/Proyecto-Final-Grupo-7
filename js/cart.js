@@ -370,18 +370,46 @@ containerPage.addEventListener("submit", function (event) {
  
   //ORDENES
 
-  if (!formularioCart()) {
-    mostrarAlertaForm();
-  } else if (!formularioTarget()) {
-    mostrarAlertaTarjeta();
-  } else if (!document.querySelector('input[name="payment"]:checked')) {
-    mostrarAlertaMetod();
-  } else if (
-    !document.querySelector('input[name="paymentDelivery"]:checked') &&
-    deliveryPaymentSection.classList.contains("show")
+  if (!validateOpt()&&!validateText()) {
+    const middleOfPage = document.body.scrollHeight/3;
+    window.scrollTo({
+      top: middleOfPage, // Desplazarse al medio de la página
+      behavior: 'smooth'  // Desplazamiento suave
+    });
+    event.preventDefault();
+  }
+  else if(!validateText()){
+    const mdDep = document.body.scrollHeight/3;
+    window.scrollTo({
+      top: mdDep, // Desplazarse al medio de la página
+      behavior: 'smooth'  // Desplazamiento suave
+    });
+  }
+  else if (!document.querySelector('input[name="payment"]:checked')){
+    const midpage = document.body.scrollHeight/3;
+    window.scrollTo({
+      top: midpage, // Desplazarse al medio de la página
+      behavior: 'smooth'  // Desplazamiento suave
+    });mostrarAlertaMetod();
+  }
+  else if(!formularioTarjeta()&&cardPaymentSection.classList.contains("show")){
+    const midtar = document.body.scrollHeight/2;
+    window.scrollTo({
+      top: midtar, // Desplazarse al medio de la página
+      behavior: 'smooth'  // Desplazamiento suave 
+    });
+  }
+   else if (
+    (!document.querySelector('input[name="paymentDelivery"]:checked')&& deliveryPaymentSection.classList.contains("show"))
   ) {
+    const midtar = document.body.scrollHeight/2;
+    window.scrollTo({
+      top: midtar, // Desplazarse al medio de la página
+      behavior: 'smooth'  // Desplazamiento suave 
+    });
     alertContra();
-  } else { 
+  }
+   else { 
     let confirmationModal = new bootstrap.Modal(
       document.getElementById("confirmationModal")
     );
@@ -434,27 +462,108 @@ let order = {
   
 });
 
-//funcion para validar campos de tipo texto y seleccion en el formulario
-function formularioCart() {
-  var inputs = document.querySelectorAll(".confirmar-formulario");
-  var seleccion = document.querySelectorAll(".confirmar-form-select");
-  let correct = true;
-  // Recorre los inputs y al estar vacios devuelve falso
-  inputs.forEach((input) => {
-    if (input.value.trim() === "") {
-      console.log("Debe llenar todos los campos");
-      correct = false;
+//funcion para option select de departamento
+let optionDep = document.querySelectorAll(".confirmar-form-select");
+let selectionOpt = document.getElementById("input-localidad")
+function validateOpt() {
+  let isValid = true;
+  Array.from(optionDep).forEach((option) => {
+    if (option.value==="") {
+      selectionOpt.classList.add("is-invalid");
+      selectionOpt.classList.remove("is-valid");
+      isValid = false; // Si hay algún input inválido, cambia isValid a false
+    } else {
+      selectionOpt.classList.add("is-valid");
+      selectionOpt.classList.remove("is-invalid");
     }
+
+    option.addEventListener("select", realTimeValid);
   });
-  // Recorre los elementos select y al estar vacio devuelve falso
-  seleccion.forEach((select) => {
-    if (select.value === "") {
-      console.log("Seleccione departamento");
-      correct = false;
-    }
-  });
-  return correct;
+  return isValid;
 }
+
+
+//funcion para inputs domicilio
+let inputValue=document.querySelectorAll(".confirmar-formulario");
+
+function validateText() {
+  let isValid = true;
+  Array.from(inputValue).forEach((input) => {
+    if (!input.checkValidity()) {
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+      isValid = false; // Si hay algún input inválido, cambia isValid a false
+    } else {
+      input.classList.add("is-valid");
+      input.classList.remove("is-invalid");
+    }
+    input.addEventListener("input", realTimeValid);
+  });
+  return isValid;
+}
+//funcion para validar tarjeta cuando este desplegada 
+ let datosTarget = document.querySelectorAll(".card-control-on");
+
+function formularioTarjeta() {
+ 
+  let isValid = true;
+
+  if(cardPaymentSection.classList.contains("show")){
+    Array.from(datosTarget).forEach((input) => {
+      if (!input.checkValidity()) {
+        input.classList.add("is-invalid");
+        input.classList.remove("is-valid");
+        isValid = false; // Si hay algún input inválido, cambia isValid a false
+      } else {
+        input.classList.add("is-valid");
+        input.classList.remove("is-invalid");
+      }
+      input.addEventListener("input", realTimeValid);
+    });
+    return isValid;
+}}
+//funcion para validar cuotas de tarjeta desplegada
+let optionCta = document.querySelectorAll(".card-control");
+let selectionCta = document.getElementById("installments")
+function validateCta() {
+  let isValid = true;
+  if(cardPaymentSection.classList.contains("show")){
+  Array.from(optionCta).forEach((selectionCta) => {
+    if (option.value==="0") {
+      selectionCta.classList.add("is-invalid");
+      selectionCta.classList.remove("is-valid");
+      isValid = false; // Si hay algún input inválido, cambia isValid a false
+    } else {
+      selectionCta.classList.add("is-valid");
+      selectionCta.classList.remove("is-invalid");
+    }
+
+    option.addEventListener("selectionCta", realTimeValid);
+  });
+  return isValid;
+}}
+
+function realTimeValid(event) {
+  if (event.target.checkValidity()) {
+    event.target.classList.add("is-valid");
+    event.target.classList.remove("is-invalid");
+  } else {
+    event.target.classList.add("is-invalid");
+    event.target.classList.remove("is-valid");
+  }
+}
+
+// Activar inicialmente la validación en tiempo real en los inputs y option del formulario
+Array.from(inputValue).forEach((input) => {
+  input.addEventListener("input", realTimeValid);
+});
+Array.from(optionDep).forEach((option) => {
+  option.addEventListener("change", realTimeValid);
+});
+Array.from(inputValue).forEach((input) => {
+  input.addEventListener("input", realTimeValid);
+});
+
 //Muestra el correo en el modal
 let usuarioCorreo = localStorage.getItem("username");
 let contenedorCorreo = document.getElementById("email-final");
@@ -528,27 +637,6 @@ function formularioTarget() {
 }
 
 //Funciones de las distintas alertas para cada campo a llenar
-function mostrarAlertaForm() {
-  let mostrandoAlerta = document.createElement("div");
-  mostrandoAlerta.innerHTML += `<div  id="form-tipotext" class="alert alert-secondary alert-custom" role="alert">
-  <p>Complete todos los campos, por favor</p>
-</div>`;
-  document.body.appendChild(mostrandoAlerta);
-  setTimeout(() => {
-    mostrandoAlerta.remove();
-  }, 1000);
-}
-
-function mostrarAlertaTarjeta() {
-  let alertaTarjeta = document.createElement("div");
-  alertaTarjeta.innerHTML += `<div  id="tarjetaContra" class="alert-dismissible alert alert-secondary alert-custom" role="alert">
-<p>Ingresa todos los datos de tu tarjeta, por favor</p></div>`;
-  document.body.appendChild(alertaTarjeta);
-  setTimeout(() => {
-    alertaTarjeta.remove();
-  }, 1000);
-}
-
 function mostrarAlertaMetod() {
   let alertaMetodo = document.createElement("div");
   alertaMetodo.innerHTML += `<div  id="alt" class="alert alert-secondary alert-custom" role="alert">
@@ -562,7 +650,7 @@ function mostrarAlertaMetod() {
 function alertContra() {
   let alertaEntrega = document.createElement("div");
   alertaEntrega.innerHTML += `<div  id="mostrarPrimero" class="alert alert-secondary alert-custom" role="alert">
-<p>Seleccione una metodo de pago, por favor</p></div>`;
+<p>Seleccione un metodo de pago, por favor</p></div>`;
   document.body.appendChild(alertaEntrega);
   setTimeout(() => {
     alertaEntrega.remove();
