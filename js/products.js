@@ -1,4 +1,3 @@
- 
 let cat = localStorage.getItem("catID");
 if (cat == null) {
   cat = 101;
@@ -30,8 +29,10 @@ let dataArray = []; // Variable para almacenar los datos
 // Función para mostrar los autos
 function showData(array) {
   contenedor.innerHTML = ""; // Limpiar contenedor antes de mostrar los datos
-  for (const item of array) {
-    contenedor.innerHTML += `
+
+  if (Array.isArray(array)) {
+    for (const item of array) {
+      contenedor.innerHTML += `
         <div  class= "col">
       <div id = "carta-img" class="col-lg-12  card mb-3 shadow" onclick="setProdID(${item.id})">
  
@@ -52,6 +53,9 @@ function showData(array) {
       </div>
       </div>
     </div>`;
+    }
+  } else {
+    console.error("Error: La respuesta no es un array válido", array);
   }
 }
 
@@ -62,12 +66,18 @@ function setProdID(id) {
 }
 
 // Funcion para enviar los datos JSON al recorrido
-
 function mostrarAuto() {
-  fetch(PRODUCTS_URL + cat + ".json")
+  fetch(`http://localhost:3000/products/${cat}.json`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "access-token": token,
+    },
+  })
     .then((response) => response.json())
     .then((autos) => {
-      dataArray = autos.products; // Guardar los datos en la variable
+      console.log("Respuesta desde el backend:", autos);
+      dataArray = autos; // Guardar los datos en la variable
       showData(dataArray); // Mostrar los datos en la página
     });
 }

@@ -2,7 +2,7 @@ const CATEGORIES_URL = "http://localhost:3000/categorias.json"; //CATEGORIAS
 const PRODUCTS_URL = "http://localhost:3000/cat_prod/"; //CATEGORIAS SEGUN PRODUCTO AGREGAR ID
 const PRODUCT_INFO_URL = "http://localhost:3000/productos/"; //INFO DE CADA PRODUCTO AGREGAR ID PRODUCTO
 const PRODUCT_INFO_COMMENTS_URL = "http://localhost:3000/comentario_prod/"; //INFO PARA COMENTARIOS DE CADA PRODUCTO SEGUN PRODUCT
-const CART_FULL = "http://localhost:3000/cart"
+const CART_FULL = "http://localhost:3000/cart";
 
 let showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -12,24 +12,46 @@ let hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 };
 
+let token = localStorage.getItem("token");
+
 var getJSONData = function (url) {
   var result = {};
   showSpinner();
-  return fetch(url)
+
+  console.log("Token: ", token); //verificar si hay token
+
+  return fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "access-token": token, //Envia el token en el encabezado
+    },
+  })
     .then((response) => {
+      console.log("Response status:", response.status);
+      console.log("Response headers:", Object.fromEntries(response.headers));
+
       if (response.ok) {
         return response.json();
       } else {
-        throw Error(response.statusText);
+        // Leer el cuerpo del error para más detalles
+        return response.text().then((text) => {
+          console.error("Error response text:", text);
+          throw new Error(
+            `HTTP error! status: ${response.status}, message: ${text}`
+          );
+        });
       }
     })
+
     .then(function (response) {
       result.status = "ok";
       result.data = response;
       hideSpinner();
       return result;
     })
+
     .catch(function (error) {
+      console.error("Fetch error:", error);
       result.status = "error";
       result.data = error;
       hideSpinner();
@@ -56,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //Si el token no es valido, redirige al login
         if (!isValid && !publicPages.includes(currentPage)) {
           localStorage.removeItem("token"); //Elimina el token invalido
-          windows.location.href = "login.html?redirected=true";
+          window.location.href = "login.html?redirected=true";
         }
       })
       .catch((error) => {
@@ -71,12 +93,20 @@ document.addEventListener("DOMContentLoaded", () => {
 //Funcion para validad el token con el backend
 async function validateToken(token) {
   try {
+    console.log("Validando token: ", token);
+
     const response = await fetch("http://localhost:3000/validate-token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "access-token": token, //Envia el token en el encabezado
       },
+    });
+
+    //Detalles completos de la respuesta
+    console.log("Respuesta de validación de token:", {
+      status: response.status,
+      body: await response.text(),
     });
 
     //Si el backend devuelve un error el token no es valido
