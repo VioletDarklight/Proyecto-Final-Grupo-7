@@ -419,7 +419,8 @@ containerPage.addEventListener("submit", function (event) {
     let sub_total = document.getElementById("subFinalAmount").textContent;
     let costo_envio = document.getElementById("costFinalAmount").textContent;
     let total = document.getElementById("totalFinalAmount").textContent;
-    let productos = JSON.parse(localStorage.getItem("shoppingCart")) || "[]";
+    let productos = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+    console.log("Productos en el carrito:", productos);
     let order = {
       tipo_envio: radioSel,
       departamento: selectedTexto,
@@ -432,10 +433,20 @@ containerPage.addEventListener("submit", function (event) {
       sub_total: parseFloat(sub_total),
       costo_envio: parseFloat(costo_envio),
       total: parseFloat(total),
-      products: productos,
+      productos: productos,
     };
 
-    fetch(CART_FULL, {
+    //enviar la solicitud
+    fetch("http://localhost:3000/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(order),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Compra realizada por: ", data))
+      .catch((error) => console.error("Error:", error));
+
+    /*  fetch("http://localhost:3000/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -444,10 +455,11 @@ containerPage.addEventListener("submit", function (event) {
       .then((data) => {
         console.log("Compra realizada por: ", data);
         alert("Compra exitosa");
+        sendOrder(carrito, datosOrden);
       })
       .catch((error) => {
         console.error("Error:", error);
-      });
+      });*/
   }
 });
 
@@ -658,4 +670,43 @@ function alertContra() {
   setTimeout(() => {
     alertaEntrega.remove();
   }, 1000);
+}
+
+//Fetch para enviar datos del carrito al backend
+async function sendOrder(carrito, datosOrden) {
+  try {
+    const response = await fetch("http://localhost:3000/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tipo_envio: datosOrden.tipo_envio,
+        departamento: datosOrden.departamento,
+        localidad: datosOrden.localidad,
+        calle: datosOrden.calle,
+        nro: datosOrden.nro,
+        apto: datosOrden.apto,
+        esquina: datosOrden.esquina,
+        forma_pago: datosOrden.forma_pago,
+        sub_total: datosOrden.sub_total,
+        costo_envio: datosOrden.costo_envio,
+        total: datosOrden.total,
+        productos: carrito, // Array de productos
+      }),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log("Orden realizada con éxito: ", result);
+      alert("orden guardada");
+    } else {
+      const error = await response.json();
+      console.error("Error al guardar la orden:", error);
+      alert("Error al guardar la orden");
+    }
+  } catch (error) {
+    console.error("Error de red:", error);
+    alert("Error al conectar con el servidor");
+  }
 }
