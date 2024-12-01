@@ -411,7 +411,7 @@ containerPage.addEventListener("submit", function (event) {
     let radioSel = document.querySelector('input[name="cost"]:checked').value;
     let provincias = document.getElementById("input-localidad");
     const selectedTexto = provincias.options[provincias.selectedIndex].text;
-    let localidad = document.getElementById("local").textContent;
+    let localidad = document.getElementById("local").value;
     let calle = document.getElementById("calle");
     let nro = document.getElementById("nro");
     let apto = document.getElementById("apt");
@@ -443,23 +443,16 @@ containerPage.addEventListener("submit", function (event) {
       body: JSON.stringify(order),
     })
       .then((response) => response.json())
-      .then((data) => console.log("Compra realizada por: ", data))
-      .catch((error) => console.error("Error:", error));
-
-    /*  fetch("http://localhost:3000/cart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(order),
-    })
-      .then((response) => response.json())
       .then((data) => {
         console.log("Compra realizada por: ", data);
         alert("Compra exitosa");
+        let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
         sendOrder(carrito, datosOrden);
       })
       .catch((error) => {
-        console.error("Error:", error);
-      });*/
+        console.error("Error al realizar la solicitud:", error);
+        alert("Hubo un problema al procesar la compra.");
+      });
   }
 });
 
@@ -672,7 +665,7 @@ function alertContra() {
   }, 1000);
 }
 
-//Fetch para enviar datos del carrito al backend
+//Función para enviar datos del carrito al backend
 async function sendOrder(carrito, datosOrden) {
   try {
     const response = await fetch("http://localhost:3000/cart", {
