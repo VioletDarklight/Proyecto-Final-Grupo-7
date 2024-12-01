@@ -1,10 +1,11 @@
+//***--------------------------------------> SECCIÓN: Configuración inicial <--------------------------------------***//
 document.addEventListener("DOMContentLoaded", function () {
   let carritoVacio = document.getElementById("containerCarritoVacio");
   let carritoLLeno = document.getElementById("containerCarritoLleno");
   let finalcarrito = document.getElementById("finallity-table");
   let cartBadge = document.getElementById("cartBadge");
 
-  // Función para actualizar el badge del carrito
+  //***--------------------------------------> SECCIÓN: Función para actualizar el badge del carrito <--------------------------------------***//
   function updateCartBadge() {
     let cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
     let totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); //Suma todas las cantidades de los items usando reduce
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ejecutar inmediatamente por si el DOM ya está cargado
   updateCartBadge();
 
-  // Carrito Vacío
+  //***--------------------------------------> SECCIÓN: Carrito Vacío <--------------------------------------***//
   if (!localStorage.getItem("shoppingCart")) {
     let div = document.getElementById("containerPrincipal");
     div.classList.remove("background");
@@ -30,12 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
   <a id="btn-cart" class="btn btn-primary" href="categories.html" role="button">Comenzá tu compra</a>
   </div><br><div class="espacioCart"><br></div>`;
   } else {
+    //***--------------------------------------> SECCIÓN: Carrito con productos <--------------------------------------***//
     let storageCarrito = JSON.parse(localStorage.getItem("shoppingCart"));
     let infoCarrito = [...storageCarrito];
     showCart(infoCarrito);
   }
 
-  // Función para mostrar el carrito con productos
+  //***--------------------------------------> SECCIÓN: Función para mostrar productos en el carrito <--------------------------------------***//
   function showCart(cartCompra) {
     carritoLLeno.innerHTML = ""; // Limpiamos el contenido previo para evitar duplicados
 
@@ -94,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
     });
 
+    //***--------------------------------------> SECCIÓN: Resumen final del Carrito <--------------------------------------***//
     finalcarrito.innerHTML = `
           
         <br>
@@ -129,7 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setupQuantityButtons();
   }
 
-  /*FUNCIÓN ELIMINAR*/
+  //***--------------------------------------> SECCIÓN: Eliminar producto del carrito <--------------------------------------***//
+
+  //Función para eliminar producto del carrito
   function removeItemFromCart(index) {
     let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
     carrito.splice(index, 1); // Eliminar el elemento en la posición index
@@ -144,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /*Evento botón eliminar*/
+  /*Configuración de los botones de eliminar*/
   function setupDeleteButtons() {
     // Seleccionamos todos los botones de basura
     let trashBtns = document.querySelectorAll(".bi-trash3-fill");
@@ -163,12 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
     showCart(carrito);
   }
 
+  //***--------------------------------------> SECCIÓN: Modificar cantidades <--------------------------------------***//
   // Función para configurar los eventos de los botones de cantidad
   function setupQuantityButtons() {
     let botonesMas = document.getElementsByClassName("mas");
     let botonesMenos = document.getElementsByClassName("menos");
 
-    //Evento botones de mas
+    //Evento botones de mas (aumentar cantidad)
     Array.from(botonesMas).forEach((boton) => {
       boton.addEventListener("click", function () {
         let index = this.getAttribute("data-index");
@@ -186,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Evento botones de menos
+    // Evento botones de menos (disminuir cantidad)
     Array.from(botonesMenos).forEach((boton) => {
       boton.addEventListener("click", function () {
         let index = this.getAttribute("data-index");
@@ -241,6 +247,8 @@ document.addEventListener("DOMContentLoaded", function () {
     calcularTotal();
   }
 
+  //***--------------------------------------> SECCIÓN: Cálculo de totales <--------------------------------------***//
+
   // Función para calcular el subtotal de un producto
   function subtotalCart(cant, cost, currency) {
     if (currency == "USD") return cant * (cost * 40);
@@ -253,17 +261,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let carrito = JSON.parse(localStorage.getItem("shoppingCart"));
     if (!carrito) return;
 
+    //Conversión USD a UYU
     carrito.forEach((element) => {
       if (element.currency == "USD") {
         element.cost = element.cost * 40;
       }
     });
 
+    //Cálculo del total acumulado
     let total = carrito.reduce(
       (acc, item) => acc + item.quantity * item.cost,
       0
     );
 
+    //Actualización con el total
     let sumaFinal = document.getElementById("sumaFinal");
     let subFinalAmount = document.getElementById("subFinalAmount");
     if (sumaFinal) {
@@ -271,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
       subFinalAmount.textContent = total;
     }
 
+    //Cálculo del costo de envío (según opción seleccionada)
     let opcionesEnvio = document.getElementsByName("cost");
     let tipoEnvio = 0;
 
@@ -288,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
       parseInt(total) + parseInt(costEnvio.textContent);
   }
 
+  //Función para obtener el porcentaje del costo de envío
   function obtenerPct(value) {
     if (value === "premium") {
       return 0.15;
@@ -313,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let costEnvio = document.getElementById("costFinalAmount");
     let totalFinalAmount = document.getElementById("totalFinalAmount");
 
-    //Dependiendo de cual detecte hará el calculo
+    //Calculo basado en la opción seleccionada
     if (value === "premium") {
       costEnvio.textContent = Math.round(subTotal * 0.15);
     }
@@ -333,8 +346,7 @@ document.addEventListener("DOMContentLoaded", function () {
   coststandard.addEventListener("click", () => calcularCostoEnvio("standard"));
 });
 
-//SECCIÓN COSTOS
-
+//***--------------------------------------> SECCIÓN: Costos <--------------------------------------***//
 //Función para ocultar botón "Continuar compra" al hacer click
 function showCostsContainer() {
   let continuarCompra = document.getElementById("btnContinuarCompra");
@@ -342,25 +354,24 @@ function showCostsContainer() {
 
   // Oculta el botón
   continuarCompra.style.display = "none";
-  // Muestra el contenedor y aplica la transición
+  // Muestra la sección de costos
   seccionCostos.style.display = "block";
+  //Aplica animación
   setTimeout(() => {
     seccionCostos.classList.add("visible");
   }, 10); // Pausa para activar la transición
 }
 
-//Entrega 7 Punto 4
+//***--------------------------------------> SECCIÓN: Validaciones en formulario de pago <--------------------------------------***//
 let containerPage = document.getElementById("cost-form");
-// clases de inputs de direccion
-// clases de los inputs de tipo de envio y forma de pago
 let btnFinal = document.getElementById("btn-final-payment");
 
 // Creacion de evento click para el boton de finalizar compra
-
 containerPage.addEventListener("submit", function (event) {
   event.preventDefault();
   event.stopPropagation();
 
+  //Validaciones de diferentes campos
   if (!validateOpt() && !validateText() && !validateCta()) {
     const middleOfPage = document.body.scrollHeight / 3;
     window.scrollTo({
@@ -401,10 +412,13 @@ containerPage.addEventListener("submit", function (event) {
     });
     alertContra();
   } else {
+    //Mostrar modal de confirmación si todo es válido
     let confirmationModal = new bootstrap.Modal(
       document.getElementById("confirmationModal")
     );
     confirmationModal.show();
+
+    //Recopilar datos del formulario
     let radioPay = document.querySelector(
       'input[name="payment"]:checked'
     ).value;
@@ -442,7 +456,9 @@ containerPage.addEventListener("submit", function (event) {
       })),
     };
 
-    //enviar la solicitud
+    //***--------------------------------------> SECCIÓN: Envío de solicitud al Backend <--------------------------------------***//
+
+    //Enviar la solicitud al backend
     fetch("http://localhost:3000/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -464,8 +480,6 @@ containerPage.addEventListener("submit", function (event) {
           "Datos enviados al backend:",
           JSON.stringify(order, null, 2)
         );
-        /*let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
-        sendOrder(carrito, datosOrden);*/
       })
       .catch((error) => {
         console.error("Error al realizar la solicitud:", error);
@@ -474,11 +488,15 @@ containerPage.addEventListener("submit", function (event) {
   }
 });
 
-//funcion para option select de departamento
+//***--------------------------------------> SECCIÓN: Validacion de opciones en el formulario <--------------------------------------***//
+
+//Función para option select de "Departamento"
 let optionDep = document.querySelectorAll(".confirmar-form-select");
 let selectionOpt = document.getElementById("input-localidad");
+
 function validateOpt() {
   let isValid = true;
+
   Array.from(optionDep).forEach((option) => {
     if (option.value === "") {
       selectionOpt.classList.add("is-invalid");
@@ -494,11 +512,12 @@ function validateOpt() {
   return isValid;
 }
 
-//funcion para inputs domicilio
+//Validación de inputs de texto
 let inputValue = document.querySelectorAll(".confirmar-formulario");
 
 function validateText() {
   let isValid = true;
+
   Array.from(inputValue).forEach((input) => {
     if (!input.checkValidity()) {
       input.classList.add("is-invalid");
@@ -513,7 +532,7 @@ function validateText() {
   return isValid;
 }
 
-//funcion para validar tarjeta cuando este desplegada
+//Validación Tarjeta
 let datosTarget = document.querySelectorAll(".card-control-on");
 
 function formularioTarjeta() {
@@ -535,10 +554,12 @@ function formularioTarjeta() {
   }
 }
 
-//funcion para validar cuotas de tarjeta desplegada
+//Validación cuotas Tarjeta
 let selectionCta = document.getElementById("installments");
+
 function validateCta() {
   let isValid = true;
+
   if (cardPaymentSection.classList.contains("show")) {
     isValid = selectionCta.selectedIndex > 0; //validar que haya seleccionado una opción diferente a la inicial
     if (!isValid) {
@@ -555,7 +576,7 @@ function validateCta() {
   return isValid;
 }
 
-//Validación en tiempo real
+/*Validación en tiempo real para cuotas Tarjeta*/
 selectionCta.addEventListener("change", function (event) {
   const isValid = event.target.value !== "" && event.target.value !== "0";
 
@@ -579,65 +600,7 @@ function realTimeValid(event) {
   }
 }
 
-// Activar inicialmente la validación en tiempo real en los inputs y option del formulario
-Array.from(inputValue).forEach((input) => {
-  input.addEventListener("input", realTimeValid);
-});
-Array.from(optionDep).forEach((option) => {
-  option.addEventListener("change", realTimeValid);
-});
-Array.from(inputValue).forEach((input) => {
-  input.addEventListener("input", realTimeValid);
-});
-
-//Muestra el correo en el modal
-let usuarioCorreo = localStorage.getItem("username");
-let contenedorCorreo = document.getElementById("email-final");
-contenedorCorreo.innerText += ` ` + usuarioCorreo;
-
-//Eventos para boton para redireccionar a categories o cerrar el modal borrando todo el carrito
-let btnCarrito = document.getElementById("final-btn-carr");
-btnCarrito.addEventListener("click", function () {
-  localStorage.removeItem("shoppingCart");
-  window.location = "categories.html";
-});
-
-let cierreModal = new bootstrap.Modal(
-  document.getElementById("confirmationModal")
-);
-document
-  .getElementById("confirmationModal")
-  .addEventListener("hidden.bs.modal", function () {
-    localStorage.removeItem("shoppingCart");
-    location.reload();
-  });
-
-/*SECCIÓN OPCIONES DE PAGO*/
-let paymentTarjeta = document.getElementById("paymentTarjeta");
-let paymentEntrega = document.getElementById("paymentEntrega");
-let deliveryPaymentSection = document.getElementById("deliveryPaymentSection");
-let cardPaymentSection = document.getElementById("creditCardSection");
-
-//Función para manejar la selección de opciones de pago
-function handlePaymentSelection() {
-  // Ocultar ambas secciones al principio
-  deliveryPaymentSection.classList.remove("show");
-  cardPaymentSection.classList.remove("show");
-
-  // Mostrar la sección correspondiente con la animación
-  if (paymentTarjeta.checked) {
-    cardPaymentSection.classList.add("show");
-  } else if (paymentEntrega.checked) {
-    deliveryPaymentSection.classList.add("show");
-  }
-}
-
-//Eventos para los cambios de opción de pago
-paymentEntrega.addEventListener("change", handlePaymentSelection);
-paymentTarjeta.addEventListener("change", handlePaymentSelection);
-handlePaymentSelection();
-
-//Funcion validadora de opcion de pago Tarjeta de credito
+//Funcion validación de opcion de pago Tarjeta
 function formularioTarget() {
   var datosTarget = document.querySelectorAll(".card-control");
   var cuotas = document.querySelectorAll(".card-control-target");
@@ -662,6 +625,19 @@ function formularioTarget() {
   return correct;
 }
 
+// Activar inicialmente la validación en tiempo real en los inputs y option del formulario
+Array.from(inputValue).forEach((input) => {
+  input.addEventListener("input", realTimeValid);
+});
+Array.from(optionDep).forEach((option) => {
+  option.addEventListener("change", realTimeValid);
+});
+Array.from(inputValue).forEach((input) => {
+  input.addEventListener("input", realTimeValid);
+});
+
+//***--------------------------------------> SECCIÓN: Alertas validaciones <--------------------------------------***//
+
 //Funciones de las distintas alertas para cada campo a llenar
 function mostrarAlertaMetod() {
   let alertaMetodo = document.createElement("div");
@@ -683,41 +659,52 @@ function alertContra() {
   }, 1000);
 }
 
-/*Función para enviar datos del carrito al backend
-async function sendOrder(carrito, datosOrden) {
-  try {
-    const response = await fetch("http://localhost:3000/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        tipo_envio: datosOrden.tipo_envio,
-        departamento: datosOrden.departamento,
-        localidad: datosOrden.localidad,
-        calle: datosOrden.calle,
-        nro: datosOrden.nro,
-        apto: datosOrden.apto,
-        esquina: datosOrden.esquina,
-        forma_pago: datosOrden.forma_pago,
-        sub_total: datosOrden.sub_total,
-        costo_envio: datosOrden.costo_envio,
-        total: datosOrden.total,
-        productos: carrito, // Array de productos
-      }),
-    });
+//***--------------------------------------> SECCIÓN: Modal de Confirmación <--------------------------------------***//
 
-    if (response.ok) {
-      const result = await response.json();
-      console.log("Orden realizada con éxito: ", result);
-      alert("orden guardada");
-    } else {
-      const error = await response.json();
-      console.error("Error al guardar la orden:", error);
-      alert("Error al guardar la orden");
-    }
-  } catch (error) {
-    console.error("Error de red:", error);
-    alert("Error al conectar con el servidor");
+//Muestra el correo en el modal de confirmación
+let usuarioCorreo = localStorage.getItem("username");
+let contenedorCorreo = document.getElementById("email-final");
+contenedorCorreo.innerText += ` ` + usuarioCorreo;
+
+//Eventos en modal de confirmación
+let btnCarrito = document.getElementById("final-btn-carr");
+btnCarrito.addEventListener("click", function () {
+  localStorage.removeItem("shoppingCart");
+  window.location = "categories.html";
+});
+
+let cierreModal = new bootstrap.Modal(
+  document.getElementById("confirmationModal")
+);
+document
+  .getElementById("confirmationModal")
+  .addEventListener("hidden.bs.modal", function () {
+    localStorage.removeItem("shoppingCart");
+    location.reload();
+  });
+
+//***--------------------------------------> SECCIÓN: Opciones de pago <--------------------------------------***//
+
+let paymentTarjeta = document.getElementById("paymentTarjeta");
+let paymentEntrega = document.getElementById("paymentEntrega");
+let deliveryPaymentSection = document.getElementById("deliveryPaymentSection");
+let cardPaymentSection = document.getElementById("creditCardSection");
+
+//Función para manejar la selección de opciones de pago
+function handlePaymentSelection() {
+  // Ocultar ambas secciones al principio
+  deliveryPaymentSection.classList.remove("show");
+  cardPaymentSection.classList.remove("show");
+
+  // Mostrar la sección correspondiente con la animación
+  if (paymentTarjeta.checked) {
+    cardPaymentSection.classList.add("show");
+  } else if (paymentEntrega.checked) {
+    deliveryPaymentSection.classList.add("show");
   }
-}*/
+}
+
+//Eventos para actualizar opciones de pago según selección
+paymentEntrega.addEventListener("change", handlePaymentSelection);
+paymentTarjeta.addEventListener("change", handlePaymentSelection);
+handlePaymentSelection(); //Configuración inicial
