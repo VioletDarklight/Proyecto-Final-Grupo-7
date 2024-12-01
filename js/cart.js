@@ -427,13 +427,19 @@ containerPage.addEventListener("submit", function (event) {
       localidad: localidad,
       calle: calle.value,
       nro: nro.value,
-      apto: apto.value,
-      esquina: esquina.value,
+      apto: apto.value || null,
+      esquina: esquina.value || null,
       forma_pago: radioPay,
       sub_total: parseFloat(sub_total),
       costo_envio: parseFloat(costo_envio),
       total: parseFloat(total),
-      productos: productos,
+      productos: productos.map((producto) => ({
+        product_id: producto.id || null,
+        name: producto.name,
+        quantity: producto.quantity,
+        price: producto.cost,
+        sub_total: producto.quantity * producto.cost,
+      })),
     };
 
     //enviar la solicitud
@@ -442,12 +448,24 @@ containerPage.addEventListener("submit", function (event) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((error) => {
+            throw new Error(
+              `Error del servidor: ${error.message || "Desconocido"}`
+            );
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log("Compra realizada por: ", data);
-        alert("Compra exitosa");
-        let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
-        sendOrder(carrito, datosOrden);
+        console.log(
+          "Datos enviados al backend:",
+          JSON.stringify(order, null, 2)
+        );
+        /*let carrito = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+        sendOrder(carrito, datosOrden);*/
       })
       .catch((error) => {
         console.error("Error al realizar la solicitud:", error);
@@ -665,7 +683,7 @@ function alertContra() {
   }, 1000);
 }
 
-//Función para enviar datos del carrito al backend
+/*Función para enviar datos del carrito al backend
 async function sendOrder(carrito, datosOrden) {
   try {
     const response = await fetch("http://localhost:3000/cart", {
@@ -702,4 +720,4 @@ async function sendOrder(carrito, datosOrden) {
     console.error("Error de red:", error);
     alert("Error al conectar con el servidor");
   }
-}
+}*/
